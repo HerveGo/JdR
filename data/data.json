@@ -228,7 +228,7 @@
          {
             "Texte": "Vous la délivrez de ses liens.",
             "Liaison": "La prisonnière s'effondre dans vos bras. Vous sentez alors ses crocs pointus s'enfoncer dans votre cou, et comprenez votre erreur, car vous avez libéré une vampire ! Elle vous a volé 2 points de force.",
-            "Vers": "0",
+            "Vers": "10",
             "PdV": "-3",
             "Strength": "-2",
             "Combat": ["vampire", "la vampire", "une vampire"],

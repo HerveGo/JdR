@@ -140,6 +140,7 @@ function majUnChoix(num) {
     choix.textContent = scene[sceneEnCours].Choix[num].Texte;
 
     choix.visibility = "visible";
+    choix.hidden = false;
     console.log("Choix " + (num + 1) + " mis à jour!");
     console.log("");
 }
@@ -326,10 +327,12 @@ function majFullChoix() {
     }
 
     // Cache les éléments de la liste si il n'y a pas de choix pour la scène en cours
-    for (i = nbChoix + 1; i < 4; i++) {
-        const choix = document.getElementById('choix' + (i));
+    for (i = nbChoix+1; i < 4; i++) {
+        const choix = document.getElementById('choix' + i);
+        console.log("cache le choix "+i);
         choix.innerHTML = "";
         choix.visibility = "hidden";
+        choix.hidden = true;
     }
 }
 // -----------------------------------------------------------------------------------------------------------
