@@ -1,0 +1,290 @@
+@font-face {
+       font-family: "Medieval";
+       src: url("BLKCHCRY.TTF") format("truetype");
+}
+
+body, html {
+       background: black;
+       font-family: 'Medieval', cursive;
+       height: 100%;
+       margin: 0;
+}
+
+.noselect {
+       user-select: none;
+}
+
+.invisible {
+       visibility: hidden;
+}
+
+/* -------------------------------------- */
+.decor {
+       /* Full height */
+
+       position: absolute;
+       height: 100%;
+       width: 100%;
+
+       /* Center and scale the image nicely */
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+
+       /* background-image: url("../images/decor/bear.jpg"); */
+}
+
+.decor img {
+       position: absolute;
+
+       object-fit: cover;
+       object-position: center;
+       height: 100%;
+       width: 100%;
+
+       -webkit-transition: opacity 1s ease-in-out;
+       -moz-transition: opacity 1s ease-in-out;
+       -o-transition: opacity 1s ease-in-out;
+       transition: opacity 1s ease-in-out;
+
+       /* Center and scale the image nicely */
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+}
+
+.decor img.transparent {
+       opacity: 0;
+}
+
+/* -------------------------------------- */
+
+.heart {
+       font-size: 2em;
+       background: #FC1D0D;
+       background: -webkit-linear-gradient(to bottom, #FC1D0D 0%, #960F0D 100%);
+       background: -moz-linear-gradient(to bottom, #FC1D0D 0%, #960F0D 100%);
+       background: linear-gradient(to bottom, #FC1D0D 0%, #960F0D 100%);
+       -webkit-background-clip: text;
+       background-clip: text;
+       -webkit-text-fill-color: transparent;
+       
+       padding-right: 3px;
+}
+
+@media screen and (max-width: 600px) {
+       .heart {
+              font-size: 1em;
+       }
+}
+
+.boxCombat {
+       scroll-behavior: smooth;
+       border-radius: 1ch;
+       padding: 5px;
+       overflow-x: none;
+       overflow-y: auto;
+       display: none;
+       flex-direction: column-reverse;
+       color: cornsilk;
+       max-width: 900px;
+       height: 70vh;
+       margin: auto;
+       font-size: 1.3em;
+       border-radius: 15px;
+       border: solid 0.5vh;
+       border-color: rgb(61, 27, 2);
+       background-color: rgba(0, 0, 0, 0.493);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+       width: 12px;
+       height: 12px;
+}
+
+::-webkit-scrollbar-track {
+       border: 1px solid rgb(61, 27, 2);
+       border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+       background: rgb(61, 27, 2);
+       border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+       background: rgb(71, 37, 12);
+}
+
+#btnAttack {
+       margin: auto;
+       margin-top: 1em;
+       cursor: pointer;
+       border-style: solid;
+       border-color: rgb(109, 0, 0);
+       border-radius: 15px;
+       display: none;
+       font-size: 18pt;
+       padding-right: 20px;
+       padding-left: 20px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       text-align: center;
+       color: cornsilk;
+       background-color: rgb(109, 0, 0, 0.5);
+}
+
+#btnAttack:hover {
+       border-color: darkred;
+       background-color: rgba(109, 0, 0);
+       transition-duration: 1s;
+       /*transform: translateX(-3vh);*/
+       box-shadow: rgba(0, 0, 0, 0.589) 1vh 1vh 1vh;
+}
+
+#btnAttack:active {
+       transform: translateY(1.5vh);
+       border-radius: 5%;
+       transition-duration: 0.5s;
+}
+
+#histoire {
+       text-align: center;
+       height: fit-content;
+       margin-left: 2vh;
+       margin-right: 2vh;
+       margin-top: 1vh;
+       font-size: 2em;
+       border-radius: 15px;
+       background-color: rgba(0, 0, 0, 0.493);
+       backdrop-filter: blur(2px);
+       box-shadow: -11px 11px 23px 14px rgba(0, 0, 0, 0.71);
+       -webkit-box-shadow: -11px 11px 23px 14px rgba(0, 0, 0, 0.71);
+       -moz-box-shadow: -11px 11px 23px 14px rgba(0, 0, 0, 0.71);
+
+}
+
+#histoire p {
+       color: cornsilk;
+}
+
+#life {
+       z-index: 1111;
+       color: white;
+}
+
+#choix {
+       font-size: 20px;
+       float: right;
+       text-align: center;
+       height: fit-content;
+}
+
+ul {
+       list-style: none;
+       padding-right: 3vh;
+       padding-left: 3vh;
+       margin: 0;
+}
+
+li {
+       background-color: rgba(0, 0, 0, 0.493);
+       margin-bottom: 3vh;
+       color: cornsilk;
+       cursor: pointer;
+       border-radius: 7px;
+       font-size: 1.5em;
+       backdrop-filter: blur(2px);
+       padding: 2px 1vw;
+       box-shadow: -11px 11px 23px 0px rgba(0, 0, 0, 0.71);
+       -webkit-box-shadow: -11px 11px 23px 0px rgba(0, 0, 0, 0.71);
+       -moz-box-shadow: -11px 11px 23px 0px rgba(0, 0, 0, 0.71);
+
+}
+
+#container {
+       display: flex;
+       height: 80vh;
+       flex-direction: column;
+       z-index: 10;
+       position: relative;
+       justify-content: space-around;
+       align-items: center;
+       margin: 0 auto;
+}
+
+.lifeContainer {
+       display: flex;
+       z-index: 10;
+       position: relative;
+       margin-left: 1.5vw;
+}
+
+li:hover {
+       border-color: rgb(41, 22, 3);
+       background-color: rgba(43, 22, 2, 0.541);
+       /*transition-duration: 0.1s;
+       /*transform: translateX(-3vh);*/
+       box-shadow: rgba(0, 0, 0, 0.589) 1vh 1vh 1vh;
+}
+
+li:active {
+       transform: translateY(1.5vh);
+       border-radius: 5%;
+       transition-duration: 0.5s;
+}
+
+#taler {
+       display: none;
+}
+
+@media screen and (min-width: 1200px) and (min-height: 730px) {
+
+       #container {
+              max-width: 50%;
+       }
+
+       #taler {
+              display: block;
+              z-index: 100;
+              width: 113px;
+              height: 113px;
+              position: fixed;
+              top: 80%;
+              left: -11%;
+              padding-right: auto;
+       }
+
+       #gandalf {
+              width: 100%;
+              height: 100%;
+              z-index: auto;
+              border-radius: 50%;
+       }
+
+       #one {
+              width: 22px;
+              height: 14px;
+              position: relative;
+              bottom: 56px;
+              left: 2px;
+       }
+}
+
+
+@media screen and (max-width: 550px) {
+
+       #histoire {
+              font-size: 1.4em;
+       }
+
+       li {
+              font-size: 1.4rem;
+       }
+
+       #taler {
+              display: none;
+       }
+
+}

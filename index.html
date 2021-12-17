@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+<head>
+    <link href="./css/index.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href=".favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDR</title>
+    <script src="./js/index.js" defer ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="decor">
+    </div>
+
+    <div class="lifeContainer">
+        <p id="life"></p>
+    </div>
+
+    <div id="container">
+
+        <section id="histoire" onclick="stopAnimationText()">
+            <div id="taler">
+                <img id="gandalf" src="./images/taler/gandalf.png">
+                <img id="one" src="./images/taler/bouche2-removebg-preview.png">
+            </div>
+            <p id="content" class="noselect" tabindex="0"></p>
+        </section>
+        <section id="combat">
+            <div id="description" class="boxCombat noselect"></div>
+            <div>
+                <button id="btnAttack" onclick="attack()"><img src="images/sword.png" style="height: 0.7em;"> Attaque</button>
+            </div>
+        </section>
+        <section id="choix">
+            <ul>
+                <li id="choix1" class="noselect" tabindex="1" onclick = clickOption(0)></li>
+                <li id="choix2" class="noselect" tabindex="2" onclick = clickOption(1)></li>
+                <li id="choix3" class="noselect" tabindex="3" onclick = clickOption(2)></li>
+            </ul>
+        </section>
+    </div>
+    
+</body>
+
+</html>
