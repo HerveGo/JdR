@@ -1,0 +1,94 @@
+
+.boxCombat {
+    scroll-behavior: smooth;
+    display: flex;
+    border-radius: 1ch;
+    padding: 5px;
+    overflow-x: none;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column-reverse;
+    color: cornsilk;
+    font-size: 2vw;
+    flex-grow: 1;
+    max-width: 900px;
+    
+    height: 70vh;
+    margin: 10px;
+
+    border-radius: 15px;
+    border: solid 0.5vh;
+    border-color: rgb(61, 27, 2);
+    background-color: rgba(0, 0, 0, 0.493);
+}
+
+@media screen and (max-width: 550px) {
+
+    .boxCombat {
+           font-size: 3.5vw;
+    }
+
+}
+
+.boxCombat em {
+    display: contents;
+}
+
+.boxCombat b {
+    display: contents;
+}
+
+.boxCombat span {
+    display: contents;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.stats {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    display: contents;
+}
+
+.buttonsCombat {
+    display: flex;
+    justify-content:space-between;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.btnCombat {
+    display: none;
+    margin-top: 1em;
+    cursor: pointer;
+    border-style: solid;
+    border-color: rgb(109, 0, 0);
+    border-radius: 15px;
+    font-size: 18pt;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: cornsilk;
+    background-color: rgb(109, 0, 0, 0.5);
+}
+
+.btnCombat:hover {
+    border-color: darkred;
+    background-color: rgba(109, 0, 0);
+    transition-duration: 1s;
+    /*transform: translateX(-3vh);*/
+    box-shadow: rgba(0, 0, 0, 0.589) 1vh 1vh 1vh;
+}
+
+.btnCombat:active {
+    transform: translateY(1.5vh);
+    border-radius: 5%;
+    transition-duration: 0.5s;
+}
+
+.btnCombat:disabled {
+    border-color: darkgray;
+    background-color: rgba(60, 60, 60, 0.5);
+    cursor:not-allowed;
+}

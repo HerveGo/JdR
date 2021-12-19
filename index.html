@@ -3,6 +3,7 @@
     
 <head>
     <link href="./css/index.css" rel="stylesheet">
+    <link href="./css/combat.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href=".favicon/favicon-16x16.png">
@@ -14,14 +15,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JDR</title>
-    <script src="./js/index.js" defer ></script>
+    <script src="./js/index.js" defer></script>
+    <script src="./js/combat.js" defer></script>
+    <script src="./js/backpack.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="decor">
+        <img class="combat transparent" src="./images/decor/combat.jpg" />
+        <img class="inventaire transparent" src="./images/decor/inventaire.jpg" />
+        <img class="foret top" src="./images/decor/foret.jpg" loading="eager"/>
     </div>
-
+    <div id="backpack"><button><img alt="Inventaire" src="./images/backpack.png"></button></div>
     <div class="lifeContainer">
         <p id="life"></p>
     </div>
@@ -37,8 +43,19 @@
         </section>
         <section id="combat">
             <div id="description" class="boxCombat noselect"></div>
-            <div>
-                <button id="btnAttack" onclick="attack()"><img src="images/sword.png" style="height: 0.7em;"> Attaque</button>
+            <div class="buttonsCombat">
+                    <button id="btnAttack" class="btnCombat" onclick="attack()"><img src="images/sword.png" style="height: 0.7em;"> Attaque</button>
+                    <button id="btnFlee" class="btnCombat" onclick="flee()"><img src="images/flee.png" style="height: 0.7em;"> Fuir</button>
+                    <button id="btnChance" class="btnCombat" onclick="attack(true)"><img src="images/dice.png" style="height: 0.7em;"> Chance</button>
+            </div>
+        </section>
+        <section id="inventaire">
+            <div id="stats"></div>
+            <div class="2colonnes">
+                <div id="or"></div>
+                <div id="bijoux"></div>
+                <div id="potions"></div>
+                <div id="provisions"></div>
             </div>
         </section>
         <section id="choix">

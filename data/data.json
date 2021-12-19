@@ -65,8 +65,9 @@
             "Vers": "4",
             "PdV": "-5",
             "Combat": ["ours", "l'ours", "un ours"],
-            "Force" : "15",
-            "Endurance": "20",
+            "Force" : ["8"],
+            "Endurance": ["7"],
+            "Fuir": "2",
             "TexteMort": "Dans un grondement terrifiant, l'ours vous renverse et vous déchire la gorge.",
             "TexteVictoire" : "L'ours s'effondre enfin sous vos coups."
          },
@@ -76,8 +77,9 @@
             "Vers": "4",
             "PdV": "0",
             "Combat": ["ours", "l'ours", "un ours"],
-            "Force" : "15",
-            "Endurance": "20",
+            "Force" : ["8"],
+            "Endurance": ["7"],
+            "Fuir": "2",
             "TexteMort": "Dans un grondement terrifiant, l'ours vous renverse et vous déchire la gorge.",
             "TexteVictoire" : "L'ours s'effondre enfin sous vos coups."
          },
@@ -85,7 +87,8 @@
             "Texte": "Vous lui jetez vos rations et reculez lentement.",
             "Liaison": "L'ours se jette sur vos rations et vous en profitez pour rejoindre la route.",
             "Vers": "2",
-            "PdV": "0"
+            "PdV": "0",
+            "Rule": "changeRation(-1)"
          }
       ]
    },
@@ -176,11 +179,11 @@
             "Liaison": "",
             "Vers": "9",
             "PdV": "0",
-            "Combat": ["mercenaires", "le groupe de mercenaires", "un groupe de trois mercenaires"],
-            "Force" : "30",
-            "Endurance": "30",
+            "Combat": ["mercenaire", "le mercenaire", "un mercenaire"],
+            "Force" : ["10","8","8"],
+            "Endurance": ["15","12","12"],
             "TexteMort": "Alors que vous succombez sous les coups, vous réalisez qu'un combat contre plusieurs adversaires à la fois est trop risqué.",
-            "TexteVictoire": "Essuyant le sang de votre épée, vous vous approchez de la prisonnière."
+            "TexteVictoire": "Essuyant le sang de votre épée, vous reprenez votre souffle."
          },
          {
             "Texte": "Vous leur ordonnez de libérer leur prisonnière, sinon...",
@@ -213,8 +216,8 @@
             "Vers": "9",
             "PdV": "0",
             "Combat": ["chef", "le chef", "un mercenaire"],
-            "Force" : "10",
-            "Endurance": "10",
+            "Force" : ["10"],
+            "Endurance": ["15"],
             "TexteMort": "L'épée du chef des mercenaires vous transperce. Vous vous écroulez, mortellement blessé.",
             "TexteVictoire" : "Le chef s'écroule décapité et ses comparses, épouvantés, prennent la fuite."
          }
@@ -232,8 +235,8 @@
             "PdV": "-3",
             "Strength": "-2",
             "Combat": ["vampire", "la vampire", "une vampire"],
-            "Force" : "10",
-            "Endurance": "16",
+            "Force" : ["10"],
+            "Endurance": ["16"],
             "TexteMort": "Elle finit par vous maîtriser. Impuissant, vous sentez sa morsure, et le froid de la mort vous envahit tandis qu'elle vous vide de votre sang.",
             "TexteVictoire" : "Dans un dernier hurlement, elle s'effondre, et son corps se dessèche et se transforme en poussière sous vos yeux."
          },
@@ -243,8 +246,8 @@
             "Vers": "10",
             "PdV": "0",
             "Combat": ["vampire", "la vampire", "une vampire"],
-            "Force" : "8",
-            "Endurance": "14",
+            "Force" : ["8"],
+            "Endurance": ["14"],
             "TexteMort": "Elle finit par vous maîtriser. Impuissant, vous sentez sa morsure, et le froid de la mort vous envahit tandis qu'elle vous vide de votre sang.",
             "TexteVictoire" : "Elle s'effondre, et son corps se dessèche et se transforme en poussière sous vos yeux. Epouvanté, vous quittez les lieux."
          },
@@ -336,8 +339,8 @@
             "Vers": "14",
             "PdV": "-4",
             "Combat": ["nain", "le nain", "un nain"],
-            "Force" : "7",
-            "Endurance": "8",
+            "Force" : ["7"],
+            "Endurance": ["12"],
             "TexteMort": "Malgré sa petite taille, le Nain vous assène le coup de grâce.",
             "TexteVictoire" : "Le Nain s'effondre, et un silence de plomb s'abat dans l'auberge. Vous décidez de partir et vous éloigner sans même dormir (ce qui vous coûte 4 points de vie) !"
          },
@@ -416,8 +419,8 @@
             "Vers": "19",
             "PdV": "0",
             "Combat": ["troll", "le Troll", "un Troll"],
-            "Force" : "23",
-            "Endurance": "58",
+            "Force" : ["20"],
+            "Endurance": ["58"],
             "TexteMort": "Le troll est un adversaire redoutable. Alors que vous succombez, vous remarquez qu'il se lèche les babines, et n'osez imaginer ce qu'il va faire.",
             "TexteVictoire" : "Le troll s'effondre, contre toute attente !"
          },
