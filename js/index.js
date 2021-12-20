@@ -26,7 +26,6 @@ async function fetchInfo() {
 // -----------------------------------------------------------------------------
 
 function majDecor(decorName) {
-    console.log("Url du décor en cours de chargement -> " + (decorUrl + decorName + "')"))
 
     //loadImg();
 
@@ -103,7 +102,7 @@ function displayLife(old) {
             s += "<i class='heart fa fa-heart'></i>";
         }
         s += "</span>";
-        for (let i = old + 1; i < maxLife; i++) {
+        for (let i = old + 1; i <= maxLife; i++) {
             s += "<i class='heart fa fa-heart-o'></i>";
         }
     }
@@ -173,14 +172,13 @@ function majFullChoix() {
     let nbChoix = scene[sceneEnCours].Choix.length;
 
     // Change le texte de tous les choix
-    for (i = 0; i < nbChoix; i++) {
-        majUnChoix(i);
+    for ( let i = 0; i < nbChoix; i++ ) {
+        majUnChoix( i );
     }
 
     // Cache les éléments de la liste si il n'y a pas de choix pour la scène en cours
-    for (i = nbChoix+1; i < 4; i++) {
+    for ( let i = nbChoix + 1; i < 4; i++ ) {
         const choix = document.getElementById('choix' + i);
-        console.log("cache le choix "+i);
         choix.innerHTML = "";
         choix.visibility = "hidden";
         choix.hidden = true;
@@ -189,7 +187,6 @@ function majFullChoix() {
 // -----------------------------------------------------------------------------------------------------------
 
 function majScene() {
-    console.log("Mise en place de la scène -> " + sceneEnCours);
 
     hideChoices();
 
@@ -226,6 +223,7 @@ function loadImg() {
         }
     }
     s += `<img class="combat transparent" src="./images/decor/combat.jpg" />`;
+    s += `<img class="inventaire transparent" src="./images/decor/inventaire.jpg" />`;
     d.innerHTML = s;
 }
 

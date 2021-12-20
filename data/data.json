@@ -66,7 +66,7 @@
             "PdV": "-5",
             "Combat": ["ours", "l'ours", "un ours"],
             "Force" : ["8"],
-            "Endurance": ["7"],
+            "Endurance": ["14"],
             "Fuir": "2",
             "TexteMort": "Dans un grondement terrifiant, l'ours vous renverse et vous déchire la gorge.",
             "TexteVictoire" : "L'ours s'effondre enfin sous vos coups."
@@ -78,7 +78,7 @@
             "PdV": "0",
             "Combat": ["ours", "l'ours", "un ours"],
             "Force" : ["8"],
-            "Endurance": ["7"],
+            "Endurance": ["14"],
             "Fuir": "2",
             "TexteMort": "Dans un grondement terrifiant, l'ours vous renverse et vous déchire la gorge.",
             "TexteVictoire" : "L'ours s'effondre enfin sous vos coups."

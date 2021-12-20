@@ -1,0 +1,12 @@
+#inventaire {
+    z-index: 2;
+    color: ivory;
+}
+
+.three-columns {
+    display: flex;
+    flex-direction: row;
+    color: ivory;
+    font-size: 10vw;
+
+}

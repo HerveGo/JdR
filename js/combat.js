@@ -30,6 +30,7 @@ function choixHidden(h) {
 
 //Affiche un écran de combat spécial
 function ecranCombat() {
+    let sFuite = "";
     let gandalf = document.querySelector("#taler");
     gandalf.hidden = true;
 
@@ -42,6 +43,7 @@ function ecranCombat() {
     b.style.display = "block";
     b = document.getElementById("btnFlee");
     if( scene[sceneEnCours].Choix[choix].Fuir != undefined ) {
+        sFuite = "Si vous décidez à un moment ou à un autre de fuir, vous prendrez un coup pour prix de votre couardise."
         sceneFuite = parseInt(scene[sceneEnCours].Choix[choix].Fuir);
         b.style.display = "block";
     } else {
@@ -59,38 +61,21 @@ function ecranCombat() {
     c.innerHTML = ""; 
     c.innerHTML += textLiaison + " "; //dans ce cas, introduction au combat qui a lieu
     c.innerHTML += `Vous allez combattre contre ${nbOpponents} adversaire${pluriel}.<br>`;
-    c.innerHTML += `A chaque tour de combat, cliquez sur le bouton "Attaque" jusqu'à ${saLeur} mort (ou la vôtre). Si la fuite est possible, vous risquez un coup pour prix de votre couardise. Vous pouvez également (pour 1 point de chance) <em>tenter votre chance</em> pour améliorer l'issue... ou l'aggraver.<br>`;
+    c.innerHTML += `A chaque tour de combat, cliquez sur le bouton "Attaque" jusqu'à ${saLeur} mort (ou la vôtre). ${sFuite}Vous pouvez également (pour 1 point de chance) <em>tenter votre chance</em> pour améliorer l'issue d'une attaque... ou l'aggraver.<br>`;
     for( i = 0; i < nbOpponents; i++ ) {
         saForce[i] = parseInt(scene[sceneEnCours].Choix[choix].Force[i]);
         saLife[i] = parseInt(scene[sceneEnCours].Choix[choix].Endurance[i]);
         let multi = ( nbOpponents > 1 ) ? " " + (i + 1) : "";
-        c.innerHTML += "<span class='stats'>" + scene[sceneEnCours].Choix[choix].Combat[0].toUpperCase() + multi + " : "
-        + "FORCE " + saForce[i] + ", ENDURANCE " + saLife[i] + ".</span><br>";
+        c.innerHTML += `<span class='stats'>${scene[sceneEnCours].Choix[choix].Combat[0].toUpperCase() + multi} : FORCE ${saForce[i]}, ENDURANCE ${saLife[i]}</span><br>`;
     }
-    let diff = maForce - saForce[opponent];
-    if (diff == 0 || diff == -1 || diff == 1) {
-        c.innerHTML += "Le combat s'annonce équilibré.";
-    }
-    if (diff > 1 && diff < 8) {
-        c.innerHTML += "Le combat devrait tourner à votre avantage.";
-    }
-    if (diff > 8) {
-        c.innerHTML += "Vous devriez gagner facilement ce combat.";
-    }
-    if (diff < -1 && diff > -8) {
-        c.innerHTML += "Le combat n'est pas gagné d'avance, attention.";
-    }
-    if (diff < -8) {
-        c.innerHTML += "Ce combat s'annonce très difficile !";
-    }
+    c.innerHTML += `<span class='stats'>VOUS : FORCE ${maForce}, ENDURANCE ${life}, CHANCE ${maChance}</span><br>`;
     c.innerHTML += "<br>";
 }
 
-//En cas de fuite.
+//En cas de fuite (les 2 points perdus peuvent nous faire mourir)
 function flee() {
-    console.log("Fuyez pauvres fous " + sceneFuite);
     rollCombat(true);
-    sceneEnCours = sceneFuite;
+    sceneEnCours = (life > 0) ? sceneFuite : 0;
     quitteCombat();
 }
 
