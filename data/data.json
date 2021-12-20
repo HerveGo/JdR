@@ -172,7 +172,7 @@
    {
       "@num": "7",
       "Description": "Les trois hommes se lèvent d'un bond en vous voyant, et portent la main sur le pommeau leur épée. Le plus grand, qui semble être leur chef, vous demande d'un ton rude de passer votre chemin.",
-      "Decor": "",
+      "Decor": "feucamp",
       "Choix": [
          {
             "Texte": "Vous les attaquez tous les trois de front.",
@@ -202,7 +202,7 @@
    {
       "@num": "8",
       "Description": "Le chef s'esclaffe : \"La libérer ? Allons donc, sa tête est mise à prix, et la capture de ce monstre n'a pas été sans mal. Passe ton chemin, étranger !\"",
-      "Decor": "",
+      "Decor": "feucamp",
       "Choix": [
          {
             "Texte": "Vous vous excusez pour le dérangement, et partez à la recherche d'un autre abri pour la nuit.",

@@ -32,25 +32,71 @@
     <div class="lifeContainer">
         <p id="life"></p>
     </div>
-
+    
     <div id="container">
-        <section hidden id="inventaire">
-            <p>Ecran Inventaire</p>
+        <section hidden id="inventaire" class="noselect">
+            <p></p>
             <div id="stats" hidden class="three-columns">
-                <div>Force</div>
-                <div>Endurance</div>
-                <div>Chance</div>
-            </div>
-            <div id="cadre" class="two-columns">
-                <div id="objets"></div>
-                <div id="divers">
-                    <div id="or"></div>
-                    <div id="bijoux"></div>
-                    <div id="potions"></div>
-                    <div id="provisions"></div>
+                <div id="force3">
+                    FORCE
+                    <em>Total de départ 15</em>
+                    <b>13</b>
+                </div>
+                <div id="endurance3">
+                    ENDURANCE
+                    <em>Total de départ 21</em>
+                    <b>20</b>
+                </div>
+                <div id="chance3">
+                    CHANCE
+                    <em>Total de départ 10</em>
+                    <b>8</b>
                 </div>
             </div>
-        </section>
+            <div id="cadre" class="two-columns">
+                <div id="statsLarge" hidden>
+                    <div id="force2">
+                        FORCE
+                        <em>Total de départ 15</em>
+                        <b>13</b>
+                    </div>
+                    <div id="endurance2">
+                        ENDURANCE
+                        <em>Total de départ 21</em>
+                        <b>20</b>
+                    </div>
+                    <div id="chance2">
+                        CHANCE
+                        <em>Total de départ 10</em>
+                        <b>8</b>
+                    </div>
+                </div>
+                <div id="objets">
+                    <div id="equipement">
+                        EQUIPEMENT
+                        <span>Epée</span>
+                    </div>
+                </div>
+                <div id="divers">
+                    <div id="or">
+                        OR
+                        <b>25</b>
+                    </div>
+                    <div id="bijoux">
+                        BIJOUX
+                        <span>Collier</span>
+                    </div>
+                    <div id="potions">
+                        POTION
+                        <a>Endurance</a>
+                    </div>
+                    <div id="provisions">
+                        PROVISIONS
+                        <b>5</b>
+                    </div>
+                </div>
+            </div>
+        </section>       
         <section id="histoire" onclick="stopAnimationText()">
             <div id="taler">
                 <img id="gandalf" src="./images/taler/gandalf.png">

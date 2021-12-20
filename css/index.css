@@ -254,14 +254,14 @@ li:active {
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
 
        #histoire {
               font-size: 4vw;
        }
 
        #backpack button img {
-              width: 10vw;
+              width: 6vw;
        }
 
        /*li {

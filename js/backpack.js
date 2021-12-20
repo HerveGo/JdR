@@ -5,11 +5,11 @@ let maxChance = 12;
 let maForce = 10; //force du joueur
 let maChance = 0;
 let life = maxLife; //points de vie actuels
-let gold = 50;
-let inventory = ["épée"];
-let potion = ["soin"];
+let gold = 30;
+let inventory = ["épée","armure de cuir","lanterne"];
+let potions = ["endurance","endurance"];
 let bijoux = [];
-let food = 5;
+let food = 10;
 
 //Appel de la fonction définie par "Rule" dans le json.
 //Exemple si function maFonction(arg1, arg2);
@@ -49,15 +49,16 @@ function hideElementsById(hidden, ...args) {
 function ecranInventaire() {
     bInventaire = !bInventaire;
     if( bInventaire ) {
+        majInventaire();
         majDecor("inventaire");
         choixHidden(true);
         document.getElementById("backpack").hidden = false;
         document.getElementById("backpackImg").src = "./images/close.png";
         document.getElementById("backpackImg").alt = "Fermer l'inventaire";
-
         hideElementsById(true, "gandalf", "life", "container");
-        hideElementsById(false, "inventaire", "stats", "cadre");
+        hideElementsById(false, "inventaire", "stats", "cadre", "statsLarge");
     } else {
+        console.log( "Decor =" + scene[sceneEnCours].Decor );
         majDecor(scene[sceneEnCours].Decor);
         choixHidden(false);
         document.getElementById("backpackImg").src = "./images/backpack.png";
@@ -66,4 +67,29 @@ function ecranInventaire() {
         hideElementsById(true, "inventaire");
         //alert("cache l'inventaire");
     }
+}
+
+function majInventaire() {
+    let s = `FORCE<em>Total de départ ${maxForce}</em><b>${maForce}</b>`;
+    document.getElementById("force2").innerHTML = s;
+    document.getElementById("force3").innerHTML = s;
+    s = `ENDURANCE<em>Total de départ ${maxLife}</em><b>${life}</b>`;
+    document.getElementById("endurance2").innerHTML = s;
+    document.getElementById("endurance3").innerHTML = s;
+    s = `CHANCE<em>Total de départ ${maxChance}</em><b>${maChance}</b>`;
+    document.getElementById("chance2").innerHTML = s;
+    document.getElementById("chance3").innerHTML = s;
+    s = `OR<b>${gold}</b>`;
+    document.getElementById("or").innerHTML = s;
+    s = `PROVISIONS<b>${food}</b>`;
+    document.getElementById("provisions").innerHTML = s;
+    s = "EQUIPEMENT";
+    inventory.forEach(item => s += `<span>${item}</span>`);
+    document.getElementById("equipement").innerHTML = s;
+    s = "BIJOUX<em></em>";
+    bijoux.forEach(item => s += `<i>${item}</i> `);
+    document.getElementById("bijoux").innerHTML = s;
+    s = "POTIONS";
+    potions.forEach(item => s += `<a onclick="drinkPotion('endurance')">${item}</a>`);
+    document.getElementById("potions").innerHTML = s;
 }

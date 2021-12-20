@@ -1,12 +1,153 @@
+/* Ecran inventaire */
+
 #inventaire {
-    z-index: 2;
     color: ivory;
+    font-size: 6vw;
+    width: 90%;
 }
 
 .three-columns {
     display: flex;
     flex-direction: row;
     color: ivory;
-    font-size: 10vw;
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
+.three-columns div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:ivory;
+    border-style: solid;
+    margin:2px;
+}
+
+.three-columns em {
+    font-size: 3vw;
+    font-family: Medieval;
+    font-weight: normal;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    color: ivory;
+    font-size: 2.5vw;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.two-columns div {
+    flex: 1;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: left;
+    border:ivory;
+    border-style: solid;
+    margin: 2px;
+}
+
+.two-columns em {
+    font-size: 3vw;
+    font-family: Medieval;
+    font-weight: normal;
+}
+
+.two-columns b {
+    font-size: 4.5vw;
+    text-align: center;
+}
+
+.two-columns span {
+    font-family: Medieval;
+    font-size: 2.5vw;
+    font-weight: normal;
+}
+.two-columns a {
+    font-family: Medieval;
+    font-size: 2.5vw;
+    font-weight: normal;
+    cursor: pointer;
+}
+.two-columns i {
+    font-family: Medieval;
+    font-size: 2.5vw;
+    font-weight: normal;
+    font-style: normal;
+    display: contents;
+}
+
+#divers {
+    border : none;
+}
+
+#objets {
+    height: 70vh;
+    border: none;
+}
+
+@media screen and (min-width: 600px) {
+    .three-columns {
+        display: none;
+    }
+    .two-columns em {
+        font-size: 2vw;
+    }
+    .two-columns span {
+        font-size: 2vw;
+    }
+    .two-columns a {
+        font-size: 2vw;
+        cursor: pointer;
+    }
+    #statsLarge {
+        display: flex;
+        border: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .two-columns {
+        font-size: 2.5vw;
+    }
+    .two-columns em {
+        font-size: 1.5vw;
+    }
+    .two-columns b {
+        font-size: 4vw;
+        text-align: center;
+    }
+    .two-columns span {
+        font-size: 1.5vw;
+    }
+    .two-columns a {
+        font-size: 1.5vw;
+    }
+    .two-columns i {
+        font-size: 1.5vw;
+    }
+    #statsLarge {
+        display: flex;
+        border: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .three-columns {
+        display: flex;
+    }
+
+    #statsLarge {
+        display: none;
+    }
 }
