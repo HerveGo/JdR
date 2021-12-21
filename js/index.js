@@ -152,7 +152,17 @@ function clickOption(i) {
     changeLifePoint(scene[sceneEnCours].Choix[i].PdV);
     //Optionnel dans le JSON pour gérer les points de force.
     changeForce(scene[sceneEnCours].Choix[i].Strength);
-
+    //Si des Rules sont définies
+    let rules = scene[sceneEnCours].Choix[i].Rules;
+    if( rules ) {
+        for(  let r = 0; r < rules.length; r += 2) {
+            let fn = scene[sceneEnCours].Choix[i].Rules[r];
+            let args = scene[sceneEnCours].Choix[i].Rules[r + 1];
+            console.log("fn="+fn);
+            console.log("args="+args);
+            fnCall(fn, args);
+        }
+    }
     if (life <= 0) {
         life = 0;
         sceneEnCours = 0;

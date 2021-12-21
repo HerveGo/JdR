@@ -38,7 +38,8 @@
             "Texte": "Vous jetez une pièce d'or dans le puits en formulant un vœu.",
             "Liaison": "La pièce tombe avec un plouf! sonore, et vous êtes guéri de toutes vos blessures. Quelle chance !",
             "Vers": "5",
-            "PdV": "20"
+            "PdV": "20",
+            "Rules": ["changeOr",["-1"]]
          },
          {
             "Texte": "Vous descendez dans le puits pour voir s'il n'y a pas quelque chose d'intéressant au fond.",
@@ -88,7 +89,7 @@
             "Liaison": "L'ours se jette sur vos rations et vous en profitez pour rejoindre la route.",
             "Vers": "2",
             "PdV": "0",
-            "Rule": "changeRation(-1)"
+            "Rules": ["changeRation",["-10"]]
          }
       ]
    },

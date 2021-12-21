@@ -11,6 +11,33 @@ let potions = ["endurance","endurance"];
 let bijoux = [];
 let food = 10;
 
+// Get the modal
+let modal = document.getElementById("myModal");
+let modalBody = document.getElementById("myModalBody");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 //Appel de la fonction définie par "Rule" dans le json.
 //Exemple si function maFonction(arg1, arg2);
 // fnCall("maFonction", "arg1", "arg2");
@@ -18,6 +45,19 @@ function fnCall(fn, ...args) {
     let func = (typeof fn =="string") ? window[fn] : fn;
     if (typeof func == "function") func(...args);
     else throw new Error(`${fn} is Not a function!`);
+}
+
+//---------------------------- RULES ---------------------------//
+//Attention, le(s) paramètre(s) seront toujours de type string
+function changeOr(coins) {
+    console.log("Pièces d'or " + coins);
+    gold += parseInt(coins);
+    if(  gold < 0 ) gold = 0;
+}
+
+function changeRation(rations) {
+    food += parseInt(rations);
+    if( food < 0 ) food = 0;
 }
 
 //Initialise les statistiques initiales du joueur(système d6)
@@ -69,6 +109,7 @@ function ecranInventaire() {
     }
 }
 
+//Rempli l'inventaire avec les informations du joueur
 function majInventaire() {
     let s = `FORCE<em>Total de départ ${maxForce}</em><b>${maForce}</b>`;
     document.getElementById("force2").innerHTML = s;
@@ -81,7 +122,7 @@ function majInventaire() {
     document.getElementById("chance3").innerHTML = s;
     s = `OR<b>${gold}</b>`;
     document.getElementById("or").innerHTML = s;
-    s = `PROVISIONS<b>${food}</b>`;
+    s = `RATIONS<b>${food}</b>`;
     document.getElementById("provisions").innerHTML = s;
     s = "EQUIPEMENT";
     inventory.forEach(item => s += `<span>${item}</span>`);
@@ -90,6 +131,55 @@ function majInventaire() {
     bijoux.forEach(item => s += `<i>${item}</i> `);
     document.getElementById("bijoux").innerHTML = s;
     s = "POTIONS";
-    potions.forEach(item => s += `<a onclick="drinkPotion('endurance')">${item}</a>`);
+    potions.forEach(item => s += `<a onclick="drinkPotion('${item}')">${item}</a>`);
     document.getElementById("potions").innerHTML = s;
 }
+
+//Boire une potion.
+function drinkPotion(typePotion){
+    switch( typePotion ) {
+        case "endurance":
+            if( life == maxLife ) {
+                modalBody.innerHTML = "<p>Vos points de vie sont au maximum !</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modal.style.display = "block";
+            } else {
+                life = maxLife;
+                displayLife(0);
+                potions = removeItemOnce(potions, typePotion);
+                modalBody.innerHTML = "<p>La potion restaure votre endurance à son maximum.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
+                modal.style.display = "block";
+            }
+            break;
+        case "force":
+            if( maForce == maxForce ) {
+                modalBody.innerHTML = "<p>Votre force est à son maximum!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modal.style.display = "block";
+            } else {
+                modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
+                maForce = maxForce;
+                potions = removeItemOnce(potions, typePotion);
+                modal.style.display = "block";
+            }
+        case "chance":
+            modalBody.innerHTML = "<p>La potion augmente votre chance maximale de 1.</p><p>Tous vos points de chance sont restaurés.</p>";
+            maxChance++;
+            maChance = maxChance;
+            potions = removeItemOnce(potions, typePotion);
+            modal.style.display = "block";
+    }
+    majInventaire();
+}
+
+/**
+ * Enlève un élément d'un tableau
+ * @param Array arr un tableau
+ * @param {*} value la valeur à supprimer
+ * @returns Arr without the value (if found)
+ */
+function removeItemOnce(arr, value) {
+    let index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }

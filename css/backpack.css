@@ -1,5 +1,84 @@
 /* Ecran inventaire */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    border-style: none;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(50,50,50); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+.modal p {
+    font-size: 3vh;
+}
+  /* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: transparent;
+    color: black;
+    font-size: 3vh;
+}
+
+.modal-header h2 img {
+    width: 5vh;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+  
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+  
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: transparent;
+    color: black;
+    font-size: 3vh;
+}
+  
+/* Modal Content */
+.modal-content {
+    color: black;
+    position: relative;
+    background-color: transparent;
+    margin: auto;
+    padding: 0;
+    border: none;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    background-image: url("../images/paper.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+  
+  /* Add Animation */
+  @keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
 #inventaire {
     color: ivory;
     font-size: 6vw;
@@ -55,6 +134,12 @@
     border:ivory;
     border-style: solid;
     margin: 2px;
+}
+
+.two-columns .half {
+    border-style: none;
+    flex-direction: row;
+    padding: 0;
 }
 
 .two-columns em {

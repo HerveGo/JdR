@@ -35,6 +35,20 @@
     
     <div id="container">
         <section hidden id="inventaire" class="noselect">
+            <button id="myBtn">Open Modal</button>
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2><img alt="" src="images/potion.png">Boire une potion</h2>
+                      </div>
+                      <div id="myModalBody" class="modal-body">
+                        <p>La potion restaure tous vos points de vie !</p>
+                        <p>Some other text...</p>
+                      </div>
+                </div>
+              </div>
             <p></p>
             <div id="stats" hidden class="three-columns">
                 <div id="force3">
@@ -78,9 +92,15 @@
                     </div>
                 </div>
                 <div id="divers">
-                    <div id="or">
-                        OR
-                        <b>25</b>
+                    <div class="half">
+                        <div id="or">
+                            OR
+                            <b>25</b>
+                        </div>
+                        <div id="provisions">
+                            RATIONS
+                            <b>5</b>
+                        </div>
                     </div>
                     <div id="bijoux">
                         BIJOUX
@@ -89,10 +109,6 @@
                     <div id="potions">
                         POTION
                         <a>Endurance</a>
-                    </div>
-                    <div id="provisions">
-                        PROVISIONS
-                        <b>5</b>
                     </div>
                 </div>
             </div>
