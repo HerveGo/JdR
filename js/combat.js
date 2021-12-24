@@ -19,6 +19,7 @@ function rollDice6() {
 }
 
 //Cache ou affiche les choix
+//Utilisez cette fonction pour éviter le décalage quand les choix sont révélés
 function choixHidden(h) {
     let x = document.getElementsByTagName("li");
     for (let i = 0; i < x.length; i++) {
@@ -30,13 +31,15 @@ function choixHidden(h) {
 
 //Affiche un écran de combat spécial
 function ecranCombat() {
+    hideElementsById(true, "taler", "choix", "histoire", "backpack");
+    hideElementsById(false, "combat");
     let sFuite = "";
-    let gandalf = document.querySelector("#taler");
-    gandalf.hidden = true;
+    //let gandalf = document.querySelector("#taler");
+    //gandalf.hidden = true;
 
     majDecor("combat");
     saLife = [];
-    choixHidden(true);
+    //choixHidden(true);
     let c = document.getElementById("description");
     c.style.display = "flex";
     let b = document.getElementById("btnAttack");
@@ -68,14 +71,14 @@ function ecranCombat() {
         let multi = ( nbOpponents > 1 ) ? " " + (i + 1) : "";
         c.innerHTML += `<span class='stats'>${scene[sceneEnCours].Choix[choix].Combat[0].toUpperCase() + multi} : FORCE ${saForce[i]}, ENDURANCE ${saLife[i]}</span><br>`;
     }
-    c.innerHTML += `<span class='stats'>VOUS : FORCE ${maForce}, ENDURANCE ${life}, CHANCE ${maChance}</span><br>`;
+    c.innerHTML += `<span class='stats'>VOUS : FORCE ${maForce}, ENDURANCE ${maLife}, CHANCE ${maChance}</span><br>`;
     c.innerHTML += "<br>";
 }
 
 //En cas de fuite (les 2 points perdus peuvent nous faire mourir)
 function flee() {
     rollCombat(true);
-    sceneEnCours = (life > 0) ? sceneFuite : 0;
+    sceneEnCours = (maLife > 0) ? sceneFuite : 0;
     quitteCombat();
 }
 
@@ -117,7 +120,7 @@ function attack(useChance = false) {
     } else {
         c.innerHTML += rollCombat();
     }
-    if( life > 0 ) {
+    if( maLife > 0 ) {
         //Passe à l'adversaire suivant
         if( !nextOpponent() ) {
             textLiaison = scene[sceneEnCours].Choix[choix].TexteVictoire;
@@ -144,8 +147,8 @@ function indexOpponent() {
 
 //Jet de combat, perte de points de vie pour vous ou l'adversaire en cours.
 function rollCombat(enFuite = false, appelChance = null) {
-    let c = document.getElementById("btnChance");
     let ladversaire = scene[sceneEnCours].Choix[choix].Combat[1] + indexOpponent();
+    let iel = scene[sceneEnCours].Choix[choix].Combat[3];
     let s = "";
     let saForceAtt = rollDice6() + rollDice6() + saForce[opponent];
     let maForceAtt = rollDice6() + rollDice6() + maForce;
@@ -184,15 +187,15 @@ function rollCombat(enFuite = false, appelChance = null) {
         textLiaison = "Vous perdez 2 points de vie dans votre fuite.";
     }
     //Gère la perte éventuelle de points de vie
-    let oldLife = life;
-    life -= maPerte;    
-    if (life <= 0) {
-        life = 0;
+    let oldLife = maLife;
+    maLife -= maPerte;    
+    if (maLife <= 0) {
+        maLife = 0;
         displayLife(oldLife);
         textLiaison = ( enFuite ? "Votre fuite échoue. " : "" ) + scene[sceneEnCours].Choix[choix].TexteMort;
     } else {
         displayLife(oldLife);
-        s += `<br><span>${ladversaire}</span> `;
+        s += ` ${capitalizeFirstLetter(iel)}`;
         if (saLife[opponent] <= 0) {
             saLife[opponent] = 0;
             s += " est mort !<br>";
@@ -207,15 +210,17 @@ function rollCombat(enFuite = false, appelChance = null) {
 //Masque l'écran de combat et revient à la scène
 function quitteCombat() {
     saLife = null;
-    choixHidden(false);
-    let c = document.getElementById("description");
-    c.style.display = "none";
-    let b = document.getElementById("btnAttack");
-    b.style.display = "none";
-    b = document.getElementById("btnFlee");
-    b.style.display = "none";
-    b = document.getElementById("btnChance");
-    b.style.display = "none";
+    hideElementsById(true, "combat");
+    hideElementsById(false, "choix", "histoire", "backpack");
+    //choixHidden(false);
+    // let c = document.getElementById("description");
+    // c.style.display = "none";
+    // let b = document.getElementById("btnAttack");
+    // b.style.display = "none";
+    // b = document.getElementById("btnFlee");
+    // b.style.display = "none";
+    // b = document.getElementById("btnChance");
+    // b.style.display = "none";
     majScene();
 
     let gandalf = document.querySelector("#taler");

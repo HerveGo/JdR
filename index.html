@@ -19,23 +19,27 @@
     <script src="./js/combat.js" defer></script>
     <script src="./js/backpack.js" defer></script>
     <script src="./js/index.js" defer></script>
+    <script src="./js/intro.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="decor">
+    <div id="introduction" class="noselect">
+        <h1>La forêt de la malédiction</h1>
+        <div id="texteIntro"></div>
+        <div class="buttonsStart"><button onclick="startGame()" class="btnCombat">Commencez l'aventure !</button></div>
+    </div>
+    <div id="decor" class="decor" hidden>
         <img class="combat transparent" src="./images/decor/combat.jpg" />
         <img class="inventaire transparent" src="./images/decor/inventaire.jpg" />
         <img class="foret top" src="./images/decor/foret.jpg" loading="eager"/>
     </div>
-    <div id="backpack"><button onclick="ecranInventaire()"><img id="backpackImg" alt="Inventaire" src="./images/backpack.png"></button></div>
+    <div id="backpack" hidden><button onclick="ecranInventaire();closeModal()"><img id="backpackImg" alt="Inventaire" src="./images/backpack.png"></button></div>
     <div class="lifeContainer">
         <p id="life"></p>
     </div>
-    
-    <div id="container">
-        <section hidden id="inventaire" class="noselect">
-            <button id="myBtn">Open Modal</button>
+    <div id="container" hidden>
+        <section id="inventaire" hidden class="noselect">
             <div id="myModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
@@ -113,14 +117,14 @@
                 </div>
             </div>
         </section>       
-        <section id="histoire" onclick="stopAnimationText()">
+        <section id="histoire" hidden onclick="stopAnimationText()">
             <div id="taler">
                 <img id="gandalf" src="./images/taler/gandalf.png">
                 <img id="one" src="./images/taler/bouche2-removebg-preview.png">
             </div>
             <p id="content" class="noselect" tabindex="0"></p>
         </section>
-        <section id="combat">
+        <section hidden id="combat">
             <div id="description" class="boxCombat noselect"></div>
             <div class="buttonsCombat">
                     <button id="btnAttack" class="btnCombat" onclick="attack()"><img src="images/sword.png" style="height: 0.7em;"> Attaque</button>
@@ -128,7 +132,7 @@
                     <button id="btnChance" class="btnCombat" onclick="attack(true)"><img src="images/dice.png" style="height: 0.7em;"> Chance</button>
             </div>
         </section>
-        <section id="choix">
+        <section id="choix" hidden>
             <ul>
                 <li id="choix1" class="noselect" tabindex="1" onclick = clickOption(0)></li>
                 <li id="choix2" class="noselect" tabindex="2" onclick = clickOption(1)></li>

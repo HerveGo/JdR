@@ -43,6 +43,14 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+@-moz-document url-prefix() {
+    .boxCombat br {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+}
+
+
 .stats {
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
@@ -56,8 +64,13 @@
     margin-right: 2em;
 }
 
+.buttonsStart {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
 .btnCombat {
-    display: none;
     margin-top: 1em;
     cursor: pointer;
     border-style: solid;

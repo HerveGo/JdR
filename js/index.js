@@ -17,7 +17,7 @@ async function fetchInfo() {
         .then(data => 
             {
                 scene = data.Scene;
-                main()
+                main();
             }
         )
         .catch(error => console.log(error));
@@ -41,7 +41,9 @@ function majDecor(decorName) {
 
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if( string ) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 }
 
 // blink "on" state
@@ -69,36 +71,36 @@ function displayLife(old) {
     lifeDisplay = document.getElementById("life");
     let s = "";
     //Gain de PdV
-    if (old < life) {
+    if (old < maLife) {
         for (let i = 1; i <= old; i++) {
             s += "<i class='heart fa fa-heart'></i>";
         }
         s += "<span id='blink1'>";
-        for (let i = old + 1; i <= life; i++) {
+        for (let i = old + 1; i <= maLife; i++) {
             s += "<i class='heart fa fa-heart'></i>";
         }
         s += "</span>";
         s += "<span id='blink2' style='display:none'>";
-        for (let i = old + 1; i <= life; i++) {
+        for (let i = old + 1; i <= maLife; i++) {
             s += "<i class='heart fa fa-heart-o'></i>";
         }
         s += "</span>";
-        for (let i = life + 1; i <= maxLife; i++) {
+        for (let i = maLife + 1; i <= maxLife; i++) {
             s += "<i class='heart fa fa-heart-o'></i>";
         }
     }
     //Perte de PdV
-    if (old > life) {
-        for (let i = 1; i <= life; i++) {
+    if (old > maLife) {
+        for (let i = 1; i <= maLife; i++) {
             s += "<i class='heart fa fa-heart'></i>";
         }
         s += "<span id='blink1'>";
-        for (let i = life + 1; i <= old; i++) {
+        for (let i = maLife + 1; i <= old; i++) {
             s += "<i class='heart fa fa-heart-o'></i>";
         }
         s += "</span>";
         s += "<span id='blink2' style='display:none'>";
-        for (let i = life + 1; i <= old; i++) {
+        for (let i = maLife + 1; i <= old; i++) {
             s += "<i class='heart fa fa-heart'></i>";
         }
         s += "</span>";
@@ -106,7 +108,7 @@ function displayLife(old) {
             s += "<i class='heart fa fa-heart-o'></i>";
         }
     }
-    if (old != life) {
+    if (old != maLife) {
         //lifeDisplay.innerHTML = "<div aria_label='" + life + " points de vie.'>" + s + "</div>";
         lifeDisplay.innerHTML = "<div>" + s + "</div>";
         blink(300, 800);
@@ -117,12 +119,12 @@ function changeLifePoint(changeLife) {
     console.log("Mise a jour des point de vie -> " + changeLife);
     changeLife = parseInt(changeLife);
 
-    const oldLife = life;
+    const oldLife = maLife;
 
-    life += changeLife;
+    maLife += changeLife;
 
-    life = life > maxLife ? maxLife : life;
-    life = life < 0 ? 0 : life;
+    maLife = maLife > maxLife ? maxLife : maLife;
+    maLife = maLife < 0 ? 0 : maLife;
 
     displayLife(oldLife);
 }
@@ -131,45 +133,56 @@ function changeLifePoint(changeLife) {
 function majUnChoix(num) {
     const choix = document.getElementById('choix' + (num + 1));
     choix.textContent = scene[sceneEnCours].Choix[num].Texte;
-
-    choix.visibility = "visible";
-    choix.hidden = false;
-}
-
-function changeForce(strength) {
-    if (strength != undefined) {
-        let x = parseInt(strength);
-        maForce += x;
+    //Choix soumis à condition(s) ? Elles doivent toutes être true
+    let conditions = scene[sceneEnCours].Choix[num].Conditions;
+    let result = true;
+    if( conditions ) {
+        for(  let c = 0; c < conditions.length; c += 2) {
+            let fn = scene[sceneEnCours].Choix[num].Conditions[c];
+            let args = scene[sceneEnCours].Choix[num].Conditions[c + 1];
+            console.log(`Fn=${fn}\nargs=${args}`);
+            result = fnCall(fn, args) && result;
+        }
+    }
+    if( result ) {
+        choix.visibility = "visible";
+        console.log("choix.hidden=false dans majUnChoix");
+        choix.hidden = false;    
+    } else {
+        choix.visibility = "hidden"; 
+        choix.hidden = true;
     }
 }
 
 //Regarde s'il y a un combat
 function clickOption(i) {
     
+    let changeVers;
+    
     choix = i; //mémorise le clic
     textLiaison = scene[sceneEnCours].Choix[i].Liaison;
-
+    
     changeLifePoint(scene[sceneEnCours].Choix[i].PdV);
-    //Optionnel dans le JSON pour gérer les points de force.
-    changeForce(scene[sceneEnCours].Choix[i].Strength);
-    //Si des Rules sont définies
+    //Optionnel dans le JSON pour gérer les pertes ou gains liés au choix.
     let rules = scene[sceneEnCours].Choix[i].Rules;
     if( rules ) {
         for(  let r = 0; r < rules.length; r += 2) {
             let fn = scene[sceneEnCours].Choix[i].Rules[r];
             let args = scene[sceneEnCours].Choix[i].Rules[r + 1];
-            console.log("fn="+fn);
-            console.log("args="+args);
-            fnCall(fn, args);
+            console.log(`Fn=${fn}\nargs=${args}`);
+            changeVers = fnCall(fn, args);
         }
     }
-    if (life <= 0) {
-        life = 0;
+    //Tentez votre chance peut changer la scène de destination
+    if( !changeVers ) changeVers = scene[sceneEnCours].Choix[i].Vers;
+    if (maLife <= 0) {
+        maLife = 0;
         sceneEnCours = 0;
         majScene();
     } else {
         if (scene[sceneEnCours].Choix[i].Combat == undefined) {
-            sceneEnCours = scene[sceneEnCours].Choix[i].Vers;
+            console.log("vers "+changeVers);
+            sceneEnCours = parseInt( changeVers );
             majScene();
         } else {
             sceneApresCombat = scene[sceneEnCours].Choix[i].Vers;
@@ -188,12 +201,19 @@ function majFullChoix() {
 
     // Cache les éléments de la liste si il n'y a pas de choix pour la scène en cours
     for ( let i = nbChoix + 1; i < 4; i++ ) {
-        const choix = document.getElementById('choix' + i);
-        choix.innerHTML = "";
-        choix.visibility = "hidden";
-        choix.hidden = true;
+        const c = document.getElementById('choix' + i);
+        c.innerHTML = "";
+        c.visibility = "hidden";
+        c.hidden = true;
     }
 }
+
+//------------------------------- CONDITIONS -------------------------------
+//Certains choix peuvent être soumis à une condition, et ne pas apparaître !
+function minOr(min) {
+    return gold >= parseInt(min);
+}
+
 // -----------------------------------------------------------------------------------------------------------
 
 function majScene() {
@@ -206,7 +226,7 @@ function majScene() {
         majDecor(scene[sceneEnCours].Decor);
     }
 
-    const histoire = document.getElementById("content");
+    //const histoire = document.getElementById("content");
     // histoire.innerHTML = textLiaison + (textLiaison != "" ? "<br /><br />" : "") + scene[sceneEnCours].Description;
 
     allDescription = textLiaison + (textLiaison != "" ? "<br>" : "") + scene[sceneEnCours].Description;
@@ -240,11 +260,32 @@ function loadImg() {
 function displayChoices(){
     let choix = document.querySelector('#choix');
     choix.style.visibility = "visible";
+    choicesReveal();
+}
+
+function choicesReveal() {
+    //Fait apparaître les choix l'un après l'autre après displayChoices pour que
+    //la transition CSS soit effectuée par la classe fadeIn
+    for( let i = 1; i <= 3; i++ ) {
+        let c = document.getElementById("choix" + i);
+        if( !c.hidden ) {
+            window.setTimeout( () => {
+            c.style.visibility = "visible";
+            c.classList.add("fadeIn");} , (i-1)*100);
+        }
+    }
 }
 
 function hideChoices(){
+    console.log("hideChoices");
     let choix = document.querySelector('#choix');
     choix.style.visibility = "hidden";
+    for( let i = 1; i <= 3; i++ ) {
+        let c = document.getElementById("choix" + i);
+        c.style.visibility = "hidden";
+        c.style.hidden = true;
+        c.classList.remove("fadeIn");
+    }
 }
 
 function taler() {
@@ -356,6 +397,15 @@ function main() {
     ];
     loadImg();
     initStats();
+    hideElementsById(true, "gandalf", "life", "container", "histoire", "choix", "combat");
+    document.getElementById("container").style.height = "0vh";
+    document.getElementById("texteIntro").innerHTML = sIntro;
+}
+
+function startGame() {
+    hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack");
+    hideElementsById(true, "introduction", "combat");
+    document.getElementById("container").style.height = "85vh";
     displayLife(0);
     majScene();
 }
