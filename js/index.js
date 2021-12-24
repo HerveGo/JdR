@@ -230,6 +230,16 @@ function majScene() {
     // histoire.innerHTML = textLiaison + (textLiaison != "" ? "<br /><br />" : "") + scene[sceneEnCours].Description;
 
     allDescription = textLiaison + (textLiaison != "" ? "<br>" : "") + scene[sceneEnCours].Description;
+    //Optionnel dans le JSON pour gérer les pertes ou gains dans la scène.
+    let rules = scene[sceneEnCours].Rules;
+    if( rules ) {
+        for(  let r = 0; r < rules.length; r += 2) {
+            let fn = scene[sceneEnCours].Rules[r];
+            let args = scene[sceneEnCours].Rules[r + 1];
+            console.log(`Fn=${fn}\nargs=${args}`);
+            fnCall(fn, args);
+        }
+    }
     initText();
     animationText();
 
@@ -399,7 +409,17 @@ function main() {
     initStats();
     hideElementsById(true, "gandalf", "life", "container", "histoire", "choix", "combat");
     document.getElementById("container").style.height = "0vh";
+    sRules = sRules.replace("$maForce", maForce);
+    sRules = sRules.replace("$maLife", maLife);
+    sRules = sRules.replace("$maChance", maChance);
+    document.getElementById("texteRules").innerHTML = sRules;
     document.getElementById("texteIntro").innerHTML = sIntro;
+}
+
+function intro() {
+    hideElementsById(true,"rules");
+    window.scrollTo(0, 0);
+    hideElementsById(false,"introduction");
 }
 
 function startGame() {

@@ -167,18 +167,18 @@ function rollCombat(enFuite = false, appelChance = null) {
     } else if( maForceAtt > saForceAtt ) {
         saPerte = 2;
         if( appelChance !== null ) {
-            saPerte += appelChance ? +1 : -1;
+            saPerte += appelChance ? +2 : -1;
         }
         maPerte = 0;
         saLife[opponent] -= saPerte;
         s += ` perd ${saPerte} points de vie sous vos coups.`;
     } else {
         maPerte = 2;
-        if(appelChance!=null) {
-            maPerte += appelChance ? -1 : +1;
+        if( appelChance != null) {
+            maPerte = 0;
         }
         saPerte = 0;
-        s = `${parChance}vous perdez ${maPerte} points de vie contre <span>${ladversaire}</span>.`;
+        s = `${parChance}vous ne perdez aucun points de vie contre <span>${ladversaire}</span>.`;
         s = capitalizeFirstLetter(s);
     }
     if( enFuite ) {

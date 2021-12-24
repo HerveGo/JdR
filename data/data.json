@@ -13,7 +13,7 @@
    },
    {
       "@num": "1",
-      "Description": "Bonjour fier aventurier ! Vous êtes dans une forêt obscure (et réputée dangereuse), sur la route menant à la ville de Magimar. Votre objectif est de l'atteindre sain et sauf. Sur votre droite, non loin de la route, vous remarquez une caverne.",
+      "Description": "Vous êtes dans une forêt obscure (et réputée dangereuse), sur la route menant à la ville de Magimar. Votre objectif est de l'atteindre sain et sauf. Sur votre droite, non loin de la route, vous remarquez une caverne.",
       "Decor": "foret",
       "Choix": [
          {
@@ -23,7 +23,7 @@
             "PdV": "0"
          },
          {
-            "Texte": "Vous allumez votre torche et entrez dans la grotte pour l'explorer.",
+            "Texte": "Vous allumez votre lanterne, et entrez dans la grotte pour l'explorer.",
             "Liaison": "",
             "Vers": "3",
             "PdV": "0"
@@ -63,9 +63,9 @@
       "Choix": [
          {
             "Texte": "Vous poussez un cri de terreur et prenez vos jambes à votre cou.",
-            "Liaison": "L'ours vous rattrape et vous laboure le dos de ses puissantes griffes. Vous perdez 5 points de vie. Vous n'avez pas d'autre choix que de dégainer votre épée.",
+            "Liaison": "L'ours vous rattrape et vous laboure le dos de ses puissantes griffes. Vous perdez 2 points de vie. Vous n'avez pas d'autre choix que de dégainer votre épée.",
             "Vers": "4",
-            "PdV": "-5",
+            "PdV": "-2",
             "Combat": ["ours", "l'ours", "un ours", "il"],
             "Force" : ["8"],
             "Endurance": ["14"],
@@ -86,7 +86,7 @@
             "TexteVictoire" : "L'ours s'effondre enfin sous vos coups."
          },
          {
-            "Texte": "Vous lui jetez vos rations et reculez lentement.",
+            "Texte": "Vous lui jetez toutes vos rations et reculez lentement.",
             "Liaison": "L'ours se jette sur vos rations et vous en profitez pour rejoindre la route.",
             "Vers": "2",
             "PdV": "0",
@@ -108,10 +108,10 @@
          },
          {
             "Texte": "Vous décidez d'ouvrir le tout petit coffre. Il ne semble pas y avoir de serrure.",
-            "Liaison": "Quelle chance, le coffre contient une potion qui vous redonne 7 points de vie, et augmente votre force de 3. Vous quittez la grotte pour rejoindre la route.",
+            "Liaison": "Le coffre contient une potion rouge. Allez dans votre inventaire pour la boire, maintenant ou plus tard. Vous quittez la grotte pour rejoindre la route.",
             "Vers": "2",
             "PdV": "7",
-            "Strength": "3"
+            "Rules": ["gainPotions",["potion rouge"]]
          },
          {
             "Texte": "Vous sortez de la grotte sans plus de cérémonie.",

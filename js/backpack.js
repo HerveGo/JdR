@@ -4,10 +4,10 @@ let maxForce = 10;
 let maxChance = 12;
 let maForce = 10; //force du joueur
 let maChance = 0;
-let malife = maxLife; //points de vie actuels
+let maLife = maxLife; //points de vie actuels
 let gold = 30;
 let inventory = ["épée","armure de cuir","lanterne"];
-let potions = ["endurance","endurance"];
+let mesPotions = [];
 let mesBijoux = [];
 let maFood = 10;
 
@@ -61,7 +61,7 @@ function tentezVotreChance(vers) {
 }
 function resetPlayer() {
     inventory = ["épée","armure de cuir","lanterne"];
-    potions = ["endurance","endurance"];
+    mesPotions = ["endurance","endurance"];
     mesBijoux = [];
     gold = 30;
     maFood = 10;
@@ -105,7 +105,7 @@ function eatFood() {
 
 function gainObjects(items) {
     arr = items;
-    arr.forEach(item => inventory.push(item) );
+    arr.forEach( item => inventory.push(item) );
 }
 function looseObjects(items) {
     arr = items;
@@ -114,6 +114,10 @@ function looseObjects(items) {
             inventory.splice(index, 1);
         }
     })
+}
+function gainPotions(potions) {
+    arr = potions;
+    arr.forEach( p => mesPotions.push(p) );
 }
 
 function gainJewels(jewels) {
@@ -205,41 +209,52 @@ function majInventaire() {
     mesBijoux.forEach(item => s += `<i>${item}</i> `);
     document.getElementById("bijoux").innerHTML = s;
     s = "POTIONS";
-    potions.forEach(item => s += `<a onclick="drinkPotion('${item}')">${item}</a>`);
+    mesPotions.forEach(item => s += `<a onclick="drinkPotion('${item}')">${item}</a>`);
     document.getElementById("potions").innerHTML = s;
 }
 
 //Boire une potion.
 function drinkPotion(typePotion){
     switch( typePotion ) {
-        case "endurance":
+        case "vigueur":
             if( maLife == maxLife ) {
                 modalBody.innerHTML = "<p>Vos points de vie sont au maximum !</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
                 maLife = maxLife;
                 displayLife(0);
-                potions = removeItemOnce(potions, typePotion);
+                mesPotions = removeItemOnce(mesPotions, typePotion);
                 modalBody.innerHTML = "<p>La potion restaure votre endurance à son maximum.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
                 modal.style.display = "block";
             }
             break;
-        case "force":
+        case "puissance":
             if( maForce == maxForce ) {
                 modalBody.innerHTML = "<p>Votre force est à son maximum!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
                 modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
                 maForce = maxForce;
-                potions = removeItemOnce(potions, typePotion);
+                mesPotions = removeItemOnce(mesPotions, typePotion);
                 modal.style.display = "block";
             }
-        case "chance":
+            break;
+        case "fortune":
             modalBody.innerHTML = "<p>La potion augmente votre chance maximale de 1.</p><p>Tous vos points de chance sont restaurés.</p>";
             maxChance++;
             maChance = maxChance;
-            potions = removeItemOnce(potions, typePotion);
+            mesPotions = removeItemOnce(mesPotions, typePotion);
             modal.style.display = "block";
+            break;
+        case "potion rouge":
+            modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable !</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
+            maxForce += 2;
+            maForce = maxForce;
+            mesPotions = removeItemOnce(mesPotions, typePotion);
+            modal.style.display = "block";
+            break;
+        default:
+            throw new Error("Erreur, type de potion inconnue");
     }
     majInventaire();
 }
