@@ -441,9 +441,9 @@ function startGame() {
     hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack");
     hideElementsById(true, "introduction", "combat");
     document.getElementById("container").style.height = "85vh";
-    audioCombat = new Audio( "../sounds/combat.mp3" );
+    audioCombat = new Audio( "./sounds/combat.mp3" );
     audioCombat.loop = true;
-    audioDeath = new Audio( "../sounds/death.mp3" );
+    audioDeath = new Audio( "./sounds/death.mp3" );
     audioDeath.loop = true;
     // audioBackground.addEventListener("canplay", event => {
     //     audioBackground.loop = true;

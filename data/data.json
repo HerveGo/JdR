@@ -271,9 +271,9 @@
          },
          {
             "Texte": "Vous décidez de dormir à la belle étoile sur le bord de la route.",
-            "Liaison": "La nuit glaciale et humide vous fait perdre 1 point de vie.",
+            "Liaison": "La nuit est glaciale et humide. Vous mangez une ration (s'il vous en reste).",
             "Vers": "12",
-            "PdV": "-1"
+            "Rules": ["eatFood",[""]]
          },
          {
             "Texte": "Au diable la fatigue ! Vous continuez à marche forcée sans dormir.",

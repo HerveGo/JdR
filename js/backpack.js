@@ -97,7 +97,7 @@ function changeRation(rations) {
 function eatFood() {
     if(  maFood > 0) {
         maFood--;
-        maLife += 2;
+        maLife += 4;
         if( maLife > maxLife ) maLife = maxLife;
     }
 }
