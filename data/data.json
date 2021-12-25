@@ -19,14 +19,12 @@
          {
             "Texte": "Vous décidez de continuer votre chemin.",
             "Liaison": "Vous continuez sur la route.",
-            "Vers": "2",
-            "PdV": "0"
+            "Vers": "2"
          },
          {
             "Texte": "Vous allumez votre lanterne, et entrez dans la grotte pour l'explorer.",
             "Liaison": "",
-            "Vers": "3",
-            "PdV": "0"
+            "Vers": "3"
          }
       ]
    },
@@ -51,8 +49,7 @@
          {
             "Texte": "Vous décidez de ne pas y accorder d'importance et continuez votre route.",
             "Liaison": "",
-            "Vers": "5",
-            "PdV": "0"
+            "Vers": "5"
          }
       ]
    },
@@ -497,7 +494,6 @@
             "Texte": "Tentez votre chance.",
             "Liaison": "",
             "Vers": "",
-            "PdV": "0",
             "Rules": ["tentezVotreChance",["13","21"]]
          }
       ]

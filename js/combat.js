@@ -153,34 +153,35 @@ function rollCombat(enFuite = false, appelChance = null) {
     let saForceAtt = rollDice6() + rollDice6() + saForce[opponent];
     let maForceAtt = rollDice6() + rollDice6() + maForce;
     let parChance = "";
+    let maPerte = 0;
+    let saPerte = 0;
     if( appelChance !== null ) {
-        parChance = appelChance ? "Quelle chance, " : "Pas de chance, ";
-        s += `${parChance}<span>${ladversaire}</span>`;
+        parChance = (appelChance ? "Quelle chance, " : "Pas de chance, ");
+        s = `${parChance}<span>${ladversaire}</span> `;
         if (maForceAtt === saForceAtt) maForceAtt += appelChance ? 1 : -1;
     } else {
-        s = `<span>${capitalizeFirstLetter(ladversaire)}</span>`;
+        s = `<span>${capitalizeFirstLetter(ladversaire)}</span> `;
     }
     if (maForceAtt == saForceAtt) {
-        s += ` et vous esquivez mutuellement vos attaques.`
-        saPerte = 0;
-        maPerte = 0;
-    } else if( maForceAtt > saForceAtt ) {
+        s += ` et vous esquivez mutuellement vos attaques.<br>`
+        return s;
+    }
+    if( maForceAtt > saForceAtt ) {
         saPerte = 2;
-        if( appelChance !== null ) {
-            saPerte += appelChance ? +2 : -1;
-        }
-        maPerte = 0;
+        if( appelChance !== null ) saPerte += ( appelChance ? +2 : -1 );
         saLife[opponent] -= saPerte;
-        s += ` perd ${saPerte} points de vie sous vos coups.`;
+        s += `perd ${saPerte} points de vie sous vos coups.`;
     } else {
         maPerte = 2;
-        if( appelChance != null) {
-            maPerte = 0;
+        if( appelChance !== null ) maPerte += ( appelChance ? -2 : +1 );
+        if( maPerte == 0) {
+            s = "Par chance, vous esquivez l'attaque et ne perdez aucun point de vie.";
+        } else {
+            s = `${parChance}vous perdez ${maPerte} points de vie.`;
         }
-        saPerte = 0;
-        s = `${parChance}vous ne perdez aucun points de vie contre <span>${ladversaire}</span>.`;
-        s = capitalizeFirstLetter(s);
     }
+        
+    s = capitalizeFirstLetter(s);
     if( enFuite ) {
         maPerte = 2;
         saPerte = 0;

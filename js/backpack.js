@@ -8,6 +8,7 @@ let maLife = maxLife; //points de vie actuels
 let gold = 30;
 let inventory = ["épée","armure de cuir","lanterne"];
 let mesPotions = [];
+let mesPotionsInitiales = [];
 let mesBijoux = [];
 let maFood = 10;
 
@@ -52,7 +53,6 @@ function fnCall(fn, ...args) {
  * @param {string} versLoose scène en cas de défaite
  */
 function tentezVotreChance(vers) {
-    console.log(`tentez votre chance, vers : ${vers[0]} ou ${vers[1]}`);
     if( tenterChance() ) {
         return vers[0];
     } else {
@@ -61,7 +61,7 @@ function tentezVotreChance(vers) {
 }
 function resetPlayer() {
     inventory = ["épée","armure de cuir","lanterne"];
-    mesPotions = ["endurance","endurance"];
+    mesPotions = Array.from(mesPotionsInitiales);
     mesBijoux = [];
     gold = 30;
     maFood = 10;
@@ -71,20 +71,17 @@ function resetPlayer() {
 }
 
 function changeOr(coins) {
-    console.log("Pièces d'or " + coins);
     gold += parseInt(coins);
     if(  gold < 0 ) gold = 0;
 }
 
 function changeForce(strength) {
-    console.log("Force " + strength);
     maForce += parseInt(strength);
     if( maForce > maxForce) maForce = maxForce;
     if( maForce < 1 ) maForce = 1;
 }
 
 function changeChance(chance) {
-    console.log("Chance " + chance);
     maChance += parseInt(chance);
     if( maChance > maxChance) maChance = maxChance;
     if( maChance < 1 ) maChance = 1;
@@ -153,7 +150,6 @@ function initStats() {
 function tenterChance() {
     if ( maChance <= 0 ) return false;
     let d = rollDice6() + rollDice6();
-    console.log("jet de chance " + d + ", maChance " + maChance);
     return ( d <= --maChance );
 }
 

@@ -27,18 +27,19 @@ async function fetchInfo() {
 
 function majDecor(decorName) {
 
-    //loadImg();
-
     let decor = document.querySelector(".top");
     let nextDecor = document.querySelector("." + decorName);
-
-    nextDecor.classList.toggle("top");
-    nextDecor.classList.toggle("transparent");
-
-    decor.classList.toggle("top");
-    decor.classList.toggle("transparent");
+    if(nextDecor) {
+        nextDecor.classList.toggle("top");
+        nextDecor.classList.toggle("transparent");
+    } else {
+        console.log(`Impossible de trouver décor ${decorName}`)
+    }
+    if( decor ) {
+        decor.classList.toggle("top");
+        decor.classList.toggle("transparent");
+    }
 }
-
 
 function capitalizeFirstLetter(string) {
     if( string ) {
@@ -116,7 +117,7 @@ function displayLife(old) {
 }
 
 function changeLifePoint(changeLife) {
-    console.log("Mise a jour des point de vie -> " + changeLife);
+    //console.log("Mise a jour des point de vie -> " + changeLife);
     changeLife = parseInt(changeLife);
 
     const oldLife = maLife;
@@ -146,7 +147,6 @@ function majUnChoix(num) {
     }
     if( result ) {
         choix.visibility = "visible";
-        console.log("choix.hidden=false dans majUnChoix");
         choix.hidden = false;    
     } else {
         choix.visibility = "hidden"; 
@@ -162,7 +162,8 @@ function clickOption(i) {
     choix = i; //mémorise le clic
     textLiaison = scene[sceneEnCours].Choix[i].Liaison;
     
-    changeLifePoint(scene[sceneEnCours].Choix[i].PdV);
+    let pdv = scene[sceneEnCours].Choix[i].PdV;
+    if( pdv ) changeLifePoint(pdv);
     //Optionnel dans le JSON pour gérer les pertes ou gains liés au choix.
     let rules = scene[sceneEnCours].Choix[i].Rules;
     if( rules ) {
@@ -181,7 +182,7 @@ function clickOption(i) {
         majScene();
     } else {
         if (scene[sceneEnCours].Choix[i].Combat == undefined) {
-            console.log("vers "+changeVers);
+            //console.log("vers "+changeVers);
             sceneEnCours = parseInt( changeVers );
             majScene();
         } else {
@@ -287,7 +288,6 @@ function choicesReveal() {
 }
 
 function hideChoices(){
-    console.log("hideChoices");
     let choix = document.querySelector('#choix');
     choix.style.visibility = "hidden";
     for( let i = 1; i <= 3; i++ ) {
@@ -417,6 +417,7 @@ function main() {
 }
 
 function intro() {
+    mesPotionsInitiales = Array.from(mesPotions); //mémorise les potions de départ
     hideElementsById(true,"rules");
     window.scrollTo(0, 0);
     hideElementsById(false,"introduction");
