@@ -425,7 +425,7 @@ function main() {
     document.getElementById("texteRules").innerHTML = sRules;
     document.getElementById("texteIntro").innerHTML = sIntro;
     //Commence à charger le fichier audo mais sans le jouer
-    audioBackground = new Audio( "../sounds/background.mp3" );
+    audioBackground = new Audio( "./sounds/background.mp3" );
 }
 
 //Appel depuis l'écran des règles du jeu, affiche l'introduction
