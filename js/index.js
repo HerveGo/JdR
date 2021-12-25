@@ -6,6 +6,9 @@ let tcp = []; //Table des Coups Portés
 let allDescription = "";
 let speak = true;
 let toggleAnimationText = false;
+let audioBackground;
+let audioCombat;
+let audioDeath;
 
 const decorUrl = "url('../images/decor/";
 
@@ -219,6 +222,13 @@ function minOr(min) {
 
 function majScene() {
 
+    //Si mort
+    if( sceneEnCours == 0 ) {
+        audioBackground.pause();
+        audioCombat.pause();
+        audioDeath.play();
+    }
+
     hideChoices();
 
     taler();
@@ -414,8 +424,11 @@ function main() {
     sRules = sRules.replace("$maChance", maChance);
     document.getElementById("texteRules").innerHTML = sRules;
     document.getElementById("texteIntro").innerHTML = sIntro;
+    //Commence à charger le fichier audo mais sans le jouer
+    audioBackground = new Audio( "../sounds/background.mp3" );
 }
 
+//Appel depuis l'écran des règles du jeu, affiche l'introduction
 function intro() {
     mesPotionsInitiales = Array.from(mesPotions); //mémorise les potions de départ
     hideElementsById(true,"rules");
@@ -423,10 +436,21 @@ function intro() {
     hideElementsById(false,"introduction");
 }
 
+//Appel depuis l'écran d'introduction, démarre l'aventure
 function startGame() {
     hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack");
     hideElementsById(true, "introduction", "combat");
     document.getElementById("container").style.height = "85vh";
+    audioCombat = new Audio( "../sounds/combat.mp3" );
+    audioCombat.loop = true;
+    audioDeath = new Audio( "../sounds/death.mp3" );
+    audioDeath.loop = true;
+    // audioBackground.addEventListener("canplay", event => {
+    //     audioBackground.loop = true;
+    //     audioBackground.play();
+    //   });
+    audioBackground.loop = true;
+    audioBackground.play();
     displayLife(0);
     majScene();
 }

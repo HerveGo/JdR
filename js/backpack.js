@@ -68,6 +68,8 @@ function resetPlayer() {
     maLife = maxLife;
     maForce = maxForce;
     maChance = maxChance;
+    audioDeath.pause();
+    audioBackground.play();
 }
 
 function changeOr(coins) {
@@ -214,7 +216,7 @@ function drinkPotion(typePotion){
     switch( typePotion ) {
         case "vigueur":
             if( maLife == maxLife ) {
-                modalBody.innerHTML = "<p>Vos points de vie sont au maximum !</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
                 maLife = maxLife;
@@ -226,7 +228,7 @@ function drinkPotion(typePotion){
             break;
         case "puissance":
             if( maForce == maxForce ) {
-                modalBody.innerHTML = "<p>Votre force est à son maximum!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modalBody.innerHTML = "<p>Votre force est à son maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
                 modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
@@ -243,14 +245,14 @@ function drinkPotion(typePotion){
             modal.style.display = "block";
             break;
         case "potion rouge":
-            modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable !</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
+            modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable&nbsp;!</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
             maxForce += 2;
             maForce = maxForce;
             mesPotions = removeItemOnce(mesPotions, typePotion);
             modal.style.display = "block";
             break;
         default:
-            throw new Error("Erreur, type de potion inconnue");
+            throw new Error("Erreur, type de potion inconnue.");
     }
     majInventaire();
 }

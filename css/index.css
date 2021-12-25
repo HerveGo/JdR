@@ -29,8 +29,8 @@
 }
 
 html {
-       background-color: black;
-       background-image: url("/images/parchment.jpg");
+       background-color: #AB936B;
+       background-image: url("../images/parchment.jpg");
        background-repeat: repeat;
        scroll-behavior: smooth;
 }

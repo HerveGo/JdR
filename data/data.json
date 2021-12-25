@@ -13,7 +13,7 @@
    },
    {
       "@num": "1",
-      "Description": "Vous êtes dans une forêt obscure (et réputée dangereuse), sur la route menant à la ville de Magimar. Votre objectif est de l'atteindre sain et sauf. Sur votre droite, non loin de la route, vous remarquez une caverne.",
+      "Description": "Vous cheminez depuis un bon moment sur la route menant à la ville de Magimar. Votre marche se déroule sans encombre. Sur votre droite, non loin de la route, vous remarquez une caverne.",
       "Decor": "foret",
       "Choix": [
          {

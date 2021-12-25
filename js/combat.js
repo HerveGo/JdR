@@ -31,6 +31,8 @@ function choixHidden(h) {
 
 //Affiche un écran de combat spécial
 function ecranCombat() {
+    audioBackground.pause();
+    audioCombat.play();
     hideElementsById(true, "taler", "choix", "histoire", "backpack");
     hideElementsById(false, "combat");
     let sFuite = "";
@@ -210,6 +212,8 @@ function rollCombat(enFuite = false, appelChance = null) {
 
 //Masque l'écran de combat et revient à la scène
 function quitteCombat() {
+    audioCombat.pause();
+    audioBackground.play();
     saLife = null;
     hideElementsById(true, "combat");
     hideElementsById(false, "choix", "histoire", "backpack");
