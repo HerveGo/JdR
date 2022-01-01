@@ -38,7 +38,7 @@ function ecranCombat() {
     let sFuite = "";
     //let gandalf = document.querySelector("#taler");
     //gandalf.hidden = true;
-
+    if( !document.getElementsByClassName("top")[0] ) decorActuel = document.getElementsByClassName("top")[0];
     majDecor("combat");
     saLife = [];
     //choixHidden(true);
@@ -217,15 +217,7 @@ function quitteCombat() {
     saLife = null;
     hideElementsById(true, "combat");
     hideElementsById(false, "choix", "histoire", "backpack");
-    //choixHidden(false);
-    // let c = document.getElementById("description");
-    // c.style.display = "none";
-    // let b = document.getElementById("btnAttack");
-    // b.style.display = "none";
-    // b = document.getElementById("btnFlee");
-    // b.style.display = "none";
-    // b = document.getElementById("btnChance");
-    // b.style.display = "none";
+    
     majScene();
 
     let gandalf = document.querySelector("#taler");

@@ -5,6 +5,7 @@
     <link href="./css/index.css" rel="stylesheet">
     <link href="./css/combat.css" rel="stylesheet">
     <link href="./css/backpack.css" rel="stylesheet">
+    <link href="./css/chalkboard.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href=".favicon/favicon-16x16.png">
@@ -16,17 +17,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JDR</title>
+    <script src="./js/intro.js" defer></script>
+    <script src="./js/rules.js" defer></script>
     <script src="./js/combat.js" defer></script>
     <script src="./js/backpack.js" defer></script>
     <script src="./js/index.js" defer></script>
-    <script src="./js/intro.js" defer></script>
-    <script src="./js/rules.js" defer></script>
+    <script src="./js/achat.js" defer></script>
+    <script src="./js/chalkboard.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div id="rules" class="noselect">
-        <h1>En route vers Magimar</h1>
+        <h1>La Forêt de la Malédiction</h1>
         <h2>Règles du jeu</h2>
         <div id="texteRules"></div>
         <div class="buttonsStart">
@@ -38,14 +41,37 @@
     <div id="introduction" class="noselect" hidden>
         <h1>Introduction</h1>
         <div id="texteIntro"></div>
-        <div class="buttonsStart"><button onclick="startGame()" class="btnCombat">Commencez l'aventure !</button></div>
+        <div class="buttonsStart"><button onclick="ardoise()" class="btnCombat">Consulter la liste</button></div>
+    </div>
+    <div id="ardoise" class="noselect" hidden>
+        <h1>Boutique Magique</h1>
+        <div id="explications">Vous suivez le vieil homme vêtu d'une longue robe en haillons. Il souffle et halète en montant l'escalier en colimaçon qui mène à une grande pièce, au sommet de la tour. Des étagères, des armoires et des vitrines s'alignent le long des murs, toutes remplies de flacons, de bocaux, d'armes, de cuirasses et de toutes sortes d'objets à l'aspect étrange. Yaztromo traverse ce bric-à-brac en traînant les pieds et se laisse tomber sur une veille chaise en bois de chêne. Il glisse alors la main dans une poche, sur sa poitrine, et en sort une petite paire de lunettes cerclées d'or qu'il pose sur son nez. Puis il prend une ardoise et un morceau de craie sur une table et se met à écrire fébrilement. Il vous tend ensuite l'ardoise que vous lisez attentivement.</div>
+        <div class="ardoise">
+            <ul id="listeMagie"></ul>
+            <p>COUT TOTAL : <span id="prix"></span></p>
+        </div>
+        <div id="achat"></div>
+        <div id="modalAchat" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2><img alt="" src="images/coins.png">Achat</h2>
+                  </div>
+                  <div id="modalAchatBody" class="modal-body">
+                    <p>Vous n'avez hélas pas assez d'or pour tout acheter !</p>
+                    <p>Décochez donc quelques objets...</p>
+                  </div>
+            </div>
+          </div>
+        <div class="buttonsStart"><button onclick="buyItems()" class="btnCombat">Commencez l'aventure !</button></div>
     </div>
     <div id="decor" class="decor" hidden>
         <img class="combat transparent" src="./images/decor/combat.jpg" />
         <img class="inventaire transparent" src="./images/decor/inventaire.jpg" />
         <img class="foret top" src="./images/decor/foret.jpg" loading="eager"/>
     </div>
-    <div id="backpack" hidden><button onclick="ecranInventaire();closeModal()"><img id="backpackImg" alt="Inventaire" src="./images/backpack.png"></button></div>
+    <div id="backpack" hidden><button onclick="ecranInventaire();closeModal(1)"><img id="backpackImg" alt="Inventaire" src="./images/backpack.png"></button></div>
     <div class="lifeContainer">
         <p id="life"></p>
     </div>
@@ -150,6 +176,7 @@
                 <li id="choix3" class="noselect liChoix" tabindex="3" onclick = clickOption(2)></li>
             </ul>
         </section>
+        <div class="debug"><input id="goto" type="number" min="0" max="400"><button onclick="cheat()">Go</button></div>
     </div>
     
 </body>

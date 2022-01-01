@@ -12,27 +12,41 @@ let mesPotionsInitiales = [];
 let mesBijoux = [];
 let maFood = 10;
 
+let decorActuel = "foret"; //mémorise le décor au cas où
+
 // Get the modal
-let modal = document.getElementById("myModal");
+let modal = document.getElementsByClassName("modal");
 let modalBody = document.getElementById("myModalBody");
+let modalHeader = document.getElementById("myModalHeader");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close");
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    closeModal();
+for( let i = 0; i < span.length; i++) {
+    span[i].onclick = function() {
+        closeModal(i);
+    }
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        closeModal();
+    for (let index = 0; index < modal.length; index++) {
+        if (event.target == modal[index]) {
+            console.log(modal[index]);
+            closeModal(index);
+            return;
+        }
     }
 }
 
-function closeModal() {
-    modal.style.display = "none";
+function closeModal(i) {
+    console.log("closemodal"+i)
+    modal[i].style.display = "none";
+}
+
+function showModal(i) {
+    modal[i].style.display = "block";
 }
 
 //Appel de la fonction définie par "Rule" dans le json.
@@ -49,8 +63,7 @@ function fnCall(fn, ...args) {
 
 /**
  * Change la scène en cours selon le résultat d'un tirage de chance.
- * @param {string} versGagne scène en cas de succès
- * @param {string} versLoose scène en cas de défaite
+ * @param string[] vers scène en cas de succès/échec
  */
 function tentezVotreChance(vers) {
     if( tenterChance() ) {
@@ -59,9 +72,17 @@ function tentezVotreChance(vers) {
         return vers[1];
     }
 }
+function testezVotreForce(vers) {
+    let dice = rollDice6() + rollDice6();
+    if( dice <= maForce ) {
+        return vers[0];
+    } else {
+        return vers[1];
+    }
+}
 function resetPlayer() {
     inventory = ["épée","armure de cuir","lanterne"];
-    mesPotions = Array.from(mesPotionsInitiales);
+    mesPotions = [];
     mesBijoux = [];
     gold = 30;
     maFood = 10;
@@ -69,7 +90,7 @@ function resetPlayer() {
     maForce = maxForce;
     maChance = maxChance;
     audioDeath.pause();
-    audioBackground.play();
+    window.location.reload();
 }
 
 function changeOr(coins) {
@@ -78,18 +99,30 @@ function changeOr(coins) {
 }
 
 function changeForce(strength) {
-    maForce += parseInt(strength);
+    maForce += parseInt( strength );
     if( maForce > maxForce) maForce = maxForce;
     if( maForce < 1 ) maForce = 1;
+}
+function changeMaxForce(strength) {
+    maxForce += parseInt( strength );
+    maForce = maxForce;
 }
 
 function changeChance(chance) {
     maChance += parseInt(chance);
     if( maChance > maxChance) maChance = maxChance;
-    if( maChance < 1 ) maChance = 1;
+    if( maChance < 0 ) maChance = 0;
 }
 
-function changeRation(rations) {
+function changeLife(life) {
+    let oldLife = maLife;
+    maLife += parseInt(life);
+    if( maLife > maxLife ) maLife = maxLife;
+    if( maLife <= 0 ) maLife = 0;
+    displayLife(oldLife);
+}
+
+function changeFood(rations) {
     maFood += parseInt(rations);
     if( maFood < 0 ) maFood = 0;
 }
@@ -103,33 +136,52 @@ function eatFood() {
 }
 
 function gainObjects(items) {
-    arr = items;
-    arr.forEach( item => inventory.push(item) );
+    inventory = inventory.concat( items );
 }
 function looseObjects(items) {
-    arr = items;
-    arr.forEach(item => {
+    items.forEach( item => {
+        let index = inventory.indexOf(item);
         if( index > -1 ) {
             inventory.splice(index, 1);
         }
     })
 }
 function gainPotions(potions) {
-    arr = potions;
-    arr.forEach( p => mesPotions.push(p) );
+    mesPotions = mesPotions.concat( potions );
 }
 
 function gainJewels(jewels) {
-    arr = jewels;
-    arr.forEach(item => mesBijoux.push(item) );
+    mesBijoux = mesBijoux.concat( jewels );
 }
 function looseJewels(jewels) {
-    arr = jewels;
-    arr.forEach(item => {
+    jewels.forEach(item => {
+        let index = mesBijoux.indexOf(item);
         if( index > -1 ) {
             mesBijoux.splice(index, 1);
         }
     })
+}
+function briserCoffre(vers) {
+    let dice = rollDice6() + rollDice6();
+    console.log("test force " + dice);
+    if( dice <= maForce ) {
+        return parseInt(vers[0]); //gagne
+    } else {
+        changeLife("-1");
+        return (life = 0) ? 0 : parseInt(vers[1]); //perd
+    }
+}
+/**
+ * Perte d'un nombre de points de vie égal à n d6
+ * @param ["number"] numDice le nombre de d6 de vie perdus
+ */
+function looseLifeD6(numDice) {
+    let sumDice = 0;
+    for( let i = 0; i < numDice; i++ ) {
+        sumDice += rollDice6();
+    }
+    console.log(`Lance ${numDice}d6 : loose life ${-sumDice}`);
+    changeLife(-sumDice);
 }
 
 /**
@@ -167,6 +219,7 @@ function ecranInventaire() {
     bInventaire = !bInventaire;
     if( bInventaire ) {
         majInventaire();
+        if( !document.getElementsByClassName("top")[0] ) decorActuel = document.getElementsByClassName("top")[0];
         majDecor("inventaire");
         //choixHidden(true);
         // document.getElementById("backpack").hidden = false;
@@ -175,7 +228,9 @@ function ecranInventaire() {
         hideElementsById(true, "gandalf", "life", "container", "choix", "histoire");
         hideElementsById(false, "inventaire", "stats", "cadre", "statsLarge", "backpack");
     } else {
-        majDecor(scene[sceneEnCours].Decor);
+        let decor = scene[sceneEnCours].Decor;
+        if( !decor ) decor = decorActuel;
+        majDecor(decor);
         //choixHidden(false);
         document.getElementById("backpackImg").src = "./images/backpack.png";
         document.getElementById("backpackImg").alt = "Inventaire";
@@ -217,13 +272,26 @@ function drinkPotion(typePotion){
         case "vigueur":
             if( maLife == maxLife ) {
                 modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
-                modal.style.display = "block";
+                showModal(1);
             } else {
                 maLife = maxLife;
                 displayLife(0);
                 mesPotions = removeItemOnce(mesPotions, typePotion);
                 modalBody.innerHTML = "<p>La potion restaure votre endurance à son maximum.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
-                modal.style.display = "block";
+                showModal(1);
+            }
+            break;
+        case "fiole de vie":
+            if( maLife == maxLife ) {
+                modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                showModal(1);
+            } else {
+                let oldLife = maLife;
+                changeLife("4");
+                displayLife(oldLife);
+                mesPotions = removeItemOnce(mesPotions, typePotion);
+                modalBody.innerHTML = "<p>La fiole vous fait regagner 4 points de vie.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
+                showModal(1);
             }
             break;
         case "puissance":
@@ -234,7 +302,7 @@ function drinkPotion(typePotion){
                 modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
                 maForce = maxForce;
                 mesPotions = removeItemOnce(mesPotions, typePotion);
-                modal.style.display = "block";
+                showModal(1);
             }
             break;
         case "fortune":
@@ -242,14 +310,14 @@ function drinkPotion(typePotion){
             maxChance++;
             maChance = maxChance;
             mesPotions = removeItemOnce(mesPotions, typePotion);
-            modal.style.display = "block";
+            showModal(1);
             break;
         case "potion rouge":
             modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable&nbsp;!</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
             maxForce += 2;
             maForce = maxForce;
             mesPotions = removeItemOnce(mesPotions, typePotion);
-            modal.style.display = "block";
+            showModal(1);
             break;
         default:
             throw new Error("Erreur, type de potion inconnue.");

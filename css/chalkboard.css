@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "Chalk";
+    src: url("Chalktastic.ttf") format("truetype");
+}
+
+#ardoise {
+    font-family: Medieval;
+    margin-left : 2vw;
+    margin-right: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: justify;
+    font-size: 3vh;
+}
+.ardoise {
+    color: whitesmoke;
+    font-family: Chalk;
+    background-image: url("../images/ardoise.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-height: 90vh;
+    min-width: 100%;
+    max-width: 100%;
+}
+#ardoise ul {
+    list-style-type: none;
+    margin: 8px;
+    padding: 4px;
+}
+#ardoise li {
+    padding: 2px;
+    font-family: Chalk;
+    text-align: left;
+}
+
+label {
+    display: block;
+    overflow: hidden;
+    line-height:normal;
+    font-size: medium;
+}
+
+#ardoise input {
+    float: left;
+    display: block;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size:medium;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    transform: translateY(10%);
+}
+label span {
+    padding-right: 2vw;
+    cursor: pointer;
+}
+.alignRight {
+    float: right;
+}
+/*
+img {
+    width: 100%;
+    height: auto;
+}
+*/
+input[type=checkbox] {
+    width: 3vw;
+    height:fit-content;
+    padding-left:1vw;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -webkit-appearance: none;
+    outline: 0;
+    
+}
+/*input[type=checkbox]:checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path id="checkbox-3-icon" fill="%23000" d="M81,81v350h350V81H81z M227.383,345.013l-81.476-81.498l34.69-34.697l46.783,46.794l108.007-108.005 l34.706,34.684L227.383,345.013z"/></svg>');
+}
+input[type=checkbox]:not(:checked) {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <path id="checkbox-9-icon" d="M391,121v270H121V121H391z M431,81H81v350h350V81z"></path> </svg>');
+}
+*/
+input[type=checkbox]:checked {
+    background-image: url('../images/check-box.png');
+}
+input[type=checkbox]:not(:checked) {
+    background-image: url('../images/check-box-empty.png');
+}

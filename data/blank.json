@@ -1,0 +1,48 @@
+,
+   {
+      "num": "",
+      "Description": "",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Quitter l'auberge.",
+            "Liaison": "La nuit glaciale et humide vous fait perdre 3 points de vie.",
+            "Vers": "",
+            "PdV": "-3",
+            "Rules": ["changeOr",["-100"]]
+         }
+      ]
+   }
+
+   {
+      "num": "16",
+      "Description": "Arrivé au milieu du pont, un horrible Troll surgit d'en-dessous, et vous réclame votre bourse pour prix de votre passage.",
+      "Decor": "trollpont",
+      "Choix": [
+         {
+            "Texte": "Vous vous jetez à l'eau pour lui échapper.",
+            "Liaison": "Vous tombez du pont avec un plouf sonore. Le fort courant vous emporte ! L'eau glaciale vous prive de vos forces, et vous coulez...",
+            "Vers": "0",
+            "PdV": "-20"
+         },
+         {
+            "Texte": "Vous dégainez votre épée, et partez à l'assaut du monstre.",
+            "Liaison": "Inquiet, vous observez la taille et la puissante musculature du monstre, en vous demandant si cette décision était sage.",
+            "Vers": "19",
+            "PdV": "0",
+            "Combat": ["troll", "le Troll", "un troll", "il"],
+            "Force" : ["16"],
+            "Endurance": ["58"],
+            "TexteMort": "Le troll est un adversaire redoutable. Alors que vous succombez, vous remarquez qu'il se lèche les babines, et n'osez imaginer ce qu'il va faire.",
+            "TexteVictoire" : "Le troll s'effondre, contre toute attente !"
+         },
+         {
+            "Texte": "Tremblant, vous lui donnez votre bourse.",
+            "Liaison": "Le Troll vous remercie avec un sourire mauvais, et vous laisse passer.",
+            "Vers": "19",
+            "PdV": "0",
+            "Conditions": ["minOr", ["1"]]
+         }
+         
+      ]
+   },

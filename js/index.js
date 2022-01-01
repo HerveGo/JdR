@@ -26,6 +26,12 @@ async function fetchInfo() {
         .catch(error => console.log(error));
 }
 
+function cheat() {
+    sceneEnCours = parseInt(document.getElementById("goto").value);
+    console.log("goto "+sceneEnCours);
+    startGame();
+}
+
 // -----------------------------------------------------------------------------
 
 function majDecor(decorName) {
@@ -146,6 +152,7 @@ function majUnChoix(num) {
             let args = scene[sceneEnCours].Choix[num].Conditions[c + 1];
             console.log(`Fn=${fn}\nargs=${args}`);
             result = fnCall(fn, args) && result;
+            console.log(result);
         }
     }
     if( result ) {
@@ -164,6 +171,7 @@ function clickOption(i) {
     
     choix = i; //mémorise le clic
     textLiaison = scene[sceneEnCours].Choix[i].Liaison;
+    if( !textLiaison ) textLiaison = "";
     
     let pdv = scene[sceneEnCours].Choix[i].PdV;
     if( pdv ) changeLifePoint(pdv);
@@ -218,10 +226,24 @@ function minOr(min) {
     return gold >= parseInt(min);
 }
 
+function hasObject(objectNames) {
+    return objectNames.some( item => inventory.includes( item ) );
+}
+
 // -----------------------------------------------------------------------------------------------------------
 
-function majScene() {
+function chercheScene() {
+    console.log(`Recherche de la scène num ${sceneEnCours}`);
+    for (let index = 0; index < scene.length; index++) {
+        if( scene[index].num == sceneEnCours ) {
+            return index;
+        }
+    }
+    throw new Error(`Impossible de trouver la scène ${sceneEnCours} !`);
+}
 
+function majScene() {
+    
     //Si mort
     if( sceneEnCours == 0 ) {
         audioBackground.pause();
@@ -230,11 +252,29 @@ function majScene() {
     }
 
     hideChoices();
-
     taler();
 
+    if( !scene[sceneEnCours] ) {
+        sceneEnCours = chercheScene();
+    } else {
+        console.log("Scène " + sceneEnCours + ", json num " + scene[sceneEnCours].num);
+        if( sceneEnCours != scene[sceneEnCours].num ) {
+            sceneEnCours = chercheScene();
+        }
+    }
+
+    let decor = scene[sceneEnCours].Decor;
+    console.log("decor à afficher " + decor);
+    if( !decor ) {
+        console.log("décor actuel " + decorActuel);
+        if ( decorActuel ) majDecor( decorActuel );
+        console.log("Décor absent pour scène num" + scene[sceneEnCours].num);
+    }
     if (scene[sceneEnCours].Decor != "") {
-        majDecor(scene[sceneEnCours].Decor);
+        console.log("change decor actuel"+decorActuel);
+        decorActuel = scene[sceneEnCours].Decor;
+        console.log("pour "+decorActuel);
+        majDecor(decorActuel);
     }
 
     //const histoire = document.getElementById("content");
@@ -255,22 +295,21 @@ function majScene() {
     animationText();
 
     majFullChoix();
+
 }
 
 //Charge les images de fond
 function loadImg() {
+    let decors = ["foret"];
     let d = document.querySelector(".decor");
     
-    let s = "";
+    let s = `<img class="foret top" src="./images/decor/foret.jpg" />`;;
     let c = "";
     for (scn = 0; scn < scene.length; scn++) {
         if (scene[scn].Decor != "") {
-            if (scene[scn].Decor === "foret") {
-                c = " top";
-            } else {
-                c = " transparent";
+            if ( !decors.includes(scene[scn].Decor) ) {
+                s += `<img class="${scene[scn].Decor} transparent" src="./images/decor/${scene[scn].Decor}.jpg" />`;
             }
-            s += `<img class="${scene[scn].Decor + c}" src="./images/decor/${scene[scn].Decor}.jpg" />`;
         }
     }
     s += `<img class="combat transparent" src="./images/decor/combat.jpg" />`;
@@ -424,7 +463,8 @@ function main() {
     sRules = sRules.replace("$maChance", maChance);
     document.getElementById("texteRules").innerHTML = sRules;
     document.getElementById("texteIntro").innerHTML = sIntro;
-    //Commence à charger le fichier audo mais sans le jouer
+    document.getElementById("achat").innerHTML = sAchat;
+    //Commence à charger le fichier audio mais sans le jouer
     audioBackground = new Audio( "./sounds/background.mp3" );
 }
 
@@ -436,10 +476,18 @@ function intro() {
     hideElementsById(false,"introduction");
 }
 
-//Appel depuis l'écran d'introduction, démarre l'aventure
+//Après l'introduction, achat dans la boutique
+function ardoise() {
+    fillChalkboard();
+    window.scrollTo(0, 0);
+    hideElementsById(true,"introduction");
+    hideElementsById(false,"ardoise");
+}
+
+//Appel depuis l'ardoise, démarre l'aventure
 function startGame() {
     hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack");
-    hideElementsById(true, "introduction", "combat");
+    hideElementsById(true, "introduction", "combat", "ardoise", "rules");
     document.getElementById("container").style.height = "85vh";
     audioCombat = new Audio( "./sounds/combat.mp3" );
     audioCombat.loop = true;

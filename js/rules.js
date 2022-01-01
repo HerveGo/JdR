@@ -46,27 +46,38 @@ Tentez votre Chance, et ce quel que soit le résultat.
 <p>
 Vos points de <span>FORCE</span> ne changeront pas beaucoup au cours de votre aventure.
 À l'occasion, il peut vous être demandé d'augmenter ou de diminuer votre score.
+Une arme magique peut augmenter la <span>FORCE</span>, mais rappelez-vous qu'on ne peut
+utiliser qu'une seule arme à la fois&nbsp;! Vous ne pouvez revendiquer deux bonus sous prétexte
+que vous disposez de deux épées magiques. Vos point de <span>FORCE</span> ne peuvent jamais
+excéder leur total de départ sauf en certaines circonstances spécifiques.
 Boire la <i>potion de Puissance</i> vous permettra à tout moment de rétablir votre <span>FORCE</span>
 à son niveau de départ.
 </p>
 <p><b>Endurance et Provisions</b></p>
 Vos points de vie changeront beaucoup au cours de votre aventure en fonction des combats
 que vous aurez à livrer à des monstres ou des tâches ardues qu'il vous faudra accomplir.
-Votre sac à dos contient suffisamment de Provisions pour dix repas.
+Lorsque vous approcherez du but, votre niveau <span>d'ENDURANCE</span> sera peut-être
+dangereusement bas et les combats se révéleront alors pleins de risques, aussi, soyez prudent&nbsp;!
+Votre sac à dos contient suffisamment de Provisions pour dix repas. Vous pouvez vous reposer
+et manger à n'importe quel moment excepté lorsque vous êtes engagé dans un combat.
 Un repas vous rend 4 points <span>d'ENDURANCE</span>. Rappelez-vous que vous avez un long chemin à parcourir,
 alors sachez utiliser vos Provisions avec prudence&nbsp;!
-Boire la Potion de Vigueur rétablira à tout moment votre <span>ENDURANCE</span> à son
-niveau maximum.
+Souvenez-vous également que vos points de vie ne peuvent pas excéder leur niveau de départ
+sauf si cela vous est spécifiquement indiqué. Boire la Potion de Vigueur rétablira
+à tout moment votre <span>ENDURANCE</span> à son niveau initial.
 </p>
 <p><b>Chance</b></p>
 <p>
+Vos points de <span>CHANCE</span> augmentent parfois au cours de l'aventure lorsque vous êtes
+particulièrement chanceux. Rappelez-vous que, comme pour <span>l'ENDURANCE</span> et la <span>FORCE</span>,
+vos points de <span>CHANCE</span> ne peuvent excéder leur niveau de départ.
 Boire la Potion de Bonne Fortune rétablira à tout moment votre <span>CHANCE</span> à son niveau
 initial et augmentera même d'un point votre chance de départ.
 </p>
 <h3>Équipements et potions</h3>
 <p>
-Au début de votre aventure, vous ne disposerez que d'un équipement minimum.
-Vous êtes armé d'une épée et vêtu d'une
+Au début de votre aventure, vous ne disposerez que d'un équipement minimum, mais vous pourrez
+trouver d'autres accessoires au cours de vos voyages. Vous êtes armé d'une épée et vêtu d'une
 armure de cuir. Vous portez sur vos épaules un sac à dos dans lequel vous rangerez vos provisions
 et les trésors que vous ramasserez. Vous avez également une lanterne pour vous éclairer.</p>
 <p>

@@ -239,4 +239,7 @@
     #statsLarge {
         display: none;
     }
+    #inventaire {
+        margin-top: 8vh;
+    }
 }

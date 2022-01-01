@@ -22,14 +22,6 @@
     background-color: rgba(0, 0, 0, 0.493);
 }
 
-@media screen and (max-width: 550px) {
-
-    .boxCombat {
-           font-size: 3.5vw;
-    }
-
-}
-
 .boxCombat em {
     display: contents;
 }
@@ -53,7 +45,7 @@
 
 .stats {
     font-family: 'Courier New', Courier, monospace;
-    font-size: x-large;
+    font-size: 2vw;
     display: contents;
 }
 
@@ -105,3 +97,21 @@
     background-color: rgba(60, 60, 60, 0.5);
     cursor:not-allowed;
 }
+
+@media screen and (max-width: 550px) {
+
+    .boxCombat {
+        font-size: 3.5vw;
+        height: 65vh;
+    }
+    .stats {
+        font-size: 3vw;
+    }
+    .buttonsCombat {
+        flex-direction: column;
+    }
+    .btnCombat {
+        margin-top: 0.5vh;
+    }
+}
+
