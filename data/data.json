@@ -182,13 +182,34 @@
       "Rules": ["changeOr",["-10"],"gainObjects",["épée"]],
       "Choix": [
          {
-            "Texte": "Poursuivre la conversation.",
+            "Texte": "Poursuivre la conversation",
             "Vers": "271"
          },
          {
-            "Texte": "Vous l'avez assez vu et partez vers l'ouest.",
+            "Texte": "Vous l'avez assez vu et partez vers l'ouest",
             "Liaison": "Vous arrivez à une autre bifurcation. L'embranchement qui va vers le sud retourne dans les collines, et vous décidez donc de poursuivre vers l'ouest.",
             "Vers": "113"
+         }
+      ]
+   },
+   {
+      "num": "14",
+      "Description": "C'est une fosse circulaire, aux parois lisses et vous vous sentez trop faible pour essayer d'en sortir. Vous appelez à l'aide, mais personne ne se porte à votre secours. Il ne vous reste plus qu'à vous asseoir pour méditer sur votre sort. Une heure plus tard environ, vous entendez un bruit au-dessus de votre tête. Vous levez les yeux et vous apercevez le visage barbu d'un homme robuste, coiffé d'un bonnet de fourrure. Il semble fâché : c'est qu'il s'agit là du trappeur dont vous venez de détruire le piège en tombant dedans. L'homme vous apostrophe avec mauvaise humeur en vous avertissant qu'il vous en coûtera 3 pièces d'Or si vous voulez qu'il vous tire de là à l'aide d'une corde. A défaut d'or, vous pourrez le dédommager en lui donnant l'un de vos objets magiques.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui donner 3 pièces d'or",
+            "Liaison":" Vous lui lancez 3 pièces, et il vous lance en retour une corde qui vous permet de sortir de la fosse.",
+            "Vers": "255",
+            "Conditions": ["minOr",["3"]],
+            "Rules": ["changeOr",["-3"]]
+         },
+         {
+            "Texte": "Lui donner un objet magique",
+            "Liaison": " Vous lui donnez, et il vous lance en retour une corde qui vous permet de sortir de la fosse.",
+            "Vers": "255",
+            "Conditions":["minObjects",["1"]],
+            "Rules":["giveObjects",["1"]]
          }
       ]
    },
@@ -264,6 +285,17 @@
       ]
    },
    {
+      "num": "28",
+      "Description": "Voir 209",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "209"
+         }
+      ]
+   },
+   {
       "num": "29",
       "Description": "Vous apercevez dans une petite clairière deux créatures courtes de taille, revêtues de cuirasse et la peau couverte de verrues. Les deux petits êtres semblent se disputer pour savoir qui doit surveiller la cuisson d'un lièvre embroché qui est en train de rôtir sur un feu de camp. En vous voyant, les deux créatures interrompent leur querelle et tirent leurs courtes épées. Il va vous falloir combattre ces orques qui s'avancent sur vous.",
       "Decor": "",
@@ -296,6 +328,17 @@
       ]
    },
    {
+      "num": "40",
+      "Description": "Par chance, votre épée reste dans son fourreau et vous pouvez vous en servir pour couper la corde et vous libérer. Vous vous relevez en poussant un juron et vous époussetez vos vêtements. L'idée vous vient d'attendre ici pour voir qui a posé ce piège, mais finalement vous y renoncez.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "274"
+         }
+      ]
+   },
+   {
       "num": "48",
       "Description": "Vous soulevez le coffre au-dessus de votre tête et vous le fracassez contre le sol. Il s'ouvre aussitôt sous le choc, et vous voyez alors apparaître, parmi les débris de bois, un gros œuf de couleur bleu clair et de presque un mètre de diamètre. Vous le touchez du bout des doigts : il est dur et froid, on dirait du marbre. Or soudain, une fêlure apparaît à sa surface et, avant que vous ayez pu faire un geste, l'œuf explose en projetant de tous côtés des fragments de coquille tranchants comme des rasoirs.",
       "Decor": "",
@@ -304,6 +347,17 @@
          {
             "Texte": "Quitter la cabane et poursuivre vers le nord",
             "Vers": "288"
+         }
+      ]
+   },
+   {
+      "num": "52",
+      "Description": "Quin vous annonce qu'il va miser un peu de Poudre de Lévitation contre un objet ou 10 Pièces d'Or. Et tandis que vous vous asseyez de l'autre côté de la table, face à lui, vous glissez adroitement votre Brassard de Force autour de votre bras. Vous posez ensuite votre coude sur la table et vous lui étreignez la main. Sa poigne est si ferme qu'on dirait une mâchoire d'acier, et ses yeux sombres et bridés expriment une totale confiance en lui. Son biceps se gonfle alors et il donne le signal du départ. Vous pesez aussitôt sur son bras et vous êtes étonné d'avoir tant de force. La sueur perle à son front et son visage traduit soudain la douleur et la stupéfaction.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui plaquer le bras contre la table",
+            "Vers": "78"
          }
       ]
    },
@@ -409,8 +463,31 @@
       "Decor": "arbre-nuit",
       "Choix": [
          {
-            "Texte": "Dormir",
+            "Texte": "Dormir jusqu'au matin",
             "Vers": "325"
+         }
+      ]
+   },
+   {
+      "num": "70",
+      "Description": "L'épée est magnifique et c'est là, sans nul doute, l'œuvre d'un maître en matière d'armurerie. Vous en sentez la puissance en la tenant en main, et vous gagnez 2 points de <i class='stats'>FORCE</i> grâce à cette épée enchantée. Vous en faites tournoyer la lame au-dessus de votre tête avant de la rengainer.",
+      "Decor": "",
+      "Rules": ["replaceObject",["épée","épée magique"],"changeMaxForce",["2"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord le long du défilé",
+            "Vers": "334"
+         }
+      ]
+   },
+   {
+      "num": "72",
+      "Description": "Le chemin aboutit à une bifurcation. L'embranchement orienté au sud retourne à la forêt et vous décidez de ne pas l'emprunter.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Partir vers le nord",
+            "Vers": "138"
          }
       ]
    },
@@ -449,6 +526,18 @@
          {
             "Texte": "Poursuivre votre chemin vers le nord",
             "Vers": "92"
+         }
+      ]
+   },
+   {
+      "num": "78",
+      "Description": "Quin se lève et s'approche sans bruit d'un coffre de bois, au fond de la cabane. Il en soulève le couvercle et en retire une petite fiole de verre qu'il vous tend, avant de revenir vers la table où il se laisse tomber sur sa chaise, l'air profondément abattu. La poudre dans la fiole étincelle à la lumière, et vous la rangez soigneusement dans votre sac à dos. Vous quittez ensuite la cabane.",
+      "Decor": "",
+      "Rules": ["gainObjects",["poudre de lévitation"]],
+      "Choix": [
+         {
+            "Texte": "Retourner à la bifurcation",
+            "Vers": "349"
          }
       ]
    },
@@ -550,6 +639,21 @@
       ]
    },
    {
+      "num": "99",
+      "Description": "Le chemin mène un peu plus loin, à la porte d'une petite cabane aux murs de bois. La cabane est munie d'un toit en tuiles et d'une seule et unique fenêtre. En jetant un coup d'œil à travers la fenêtre, vous apercevez un homme grand, à la peau sombre, qui est assis à une table, au centre de la pièce. Il est torse nu et semble faire des exercices de musculation.",
+      "Decor": "hutte",
+      "Choix": [
+         {
+            "Texte": "Entrer dans la cabane",
+            "Vers": "209"
+         },
+         {
+            "Texte": "Retourner à la bifurcation",
+            "Vers": "349"
+         }
+      ]
+   },
+   {
       "num": "100",
       "Description": "Vous saisissez votre bouteille de Potion de Contrôle des Insectes et en avalez le contenu. Les Abeilles Tueuses fondent aussitôt sur vous mais sans parvenir à vous atteindre : on dirait qu'elles se heurtent à un écran invisible et elles continuent de voler tout autour de vous dans un bourdonnement assourdissant, en essayant vainement de vous piquer. Avec un courage redoublé, vous tirez alors votre épée et vous la faites tournoyer en l'air : vous réussissez à toucher l'une des abeilles qui tombe sur le sol ; un instant plus tard, vous l'écrasez sous la semelle de cuir de votre sandale, et les autres insectes s'enfuient aussitôt au loin.",
       "Decor": "",
@@ -619,6 +723,25 @@
             "Texte": "Partir vers le nord",
             "Vers": "226"
          }
+      ]
+   },
+   {
+      "num": "109",
+      "Description": "Bientôt, le chemin sort de sous les arbres et vous conduit à une vaste plaine couverte de hautes herbes. Un peu plus loin, le sol monte en pente douce, et vous apercevez à quelque distance des collines basses dont les contours se découpent contre le ciel. Devant vous, le chemin se divise en trois embranchements.",
+      "Decor": "plaine-jour",
+      "Choix": [
+         {
+            "Texte": "Aller vers l'ouest",
+            "Vers": "124"
+         },
+         {
+            "Texte": "Aller à l'est",
+            "Vers": "72"
+         },
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "309"
+         }  
       ]
    },
    {
@@ -731,6 +854,26 @@
       ]
    },
    {
+      "num": "129",
+      "Description": "Votre bras est douloureux en raison de l'effort fourni, et vous ne vous consolez pas d'avoir perdu autant. Cette mésaventure vous fait perdre 2 points de <i class='stats'>CHANCE</i> et vous quittez la cabane, laissant là un Quin souriant et satisfait.",
+      "Decor": "",
+      "Rules": ["changeChance",["-2"]],
+      "Choix": [
+         {
+            "Texte": "Lui laisser 10 pièces d'or",
+            "Vers": "349",
+            "Conditions": ["minOr",["10"]],
+            "Rules": ["changeOr",["-10"]]
+         },
+         {
+            "Texte": "Lui laisser un objet",
+            "Vers": "349",
+            "Conditions": ["hasObject",["1"]],
+            "Rules": ["giveObjects",["1"]]
+         }
+      ]
+   },
+   {
       "num": "131",
       "Description": "Cf 186",
       "Decor": "",
@@ -820,6 +963,18 @@
          {
             "Texte": "Partir vers le nord, en direction de la vallée",
             "Vers": "245"
+         }
+      ]
+   },
+   {
+      "num": "156",
+      "Description": "Vous commencez à en avoir assez de tomber sans cesse. D'autant que vous vous êtes fait mal. Vos diverses contusions vous coûtent d'ailleurs 3 points de vie.",
+      "Decor": "liane",
+      "Rules": ["changeLife",["-3"]],
+      "Choix": [
+         {
+            "Texte": "Vous relever et repartir vers le nord",
+            "Vers": "109"
          }
       ]
    },
@@ -967,6 +1122,18 @@
       ]
    },
    {
+      "num": "182",
+      "Description": "Vous empoignez l'épée et vous posez un pied sur le rocher pour y prendre appui.",
+      "Decor": "sword-rock",
+      "Choix": [
+         {
+            "Texte": "Testez votre Force",
+            "Vers": "",
+            "Rules": ["testezVotreForce",["70","405"]]
+         }
+      ]
+   },
+   {
       "num": "184",
       "Description": "Vous racontez au moine que vous avez pris une cloche de cuivre à un Troll des Cavernes, et vous la lui montrez. Il se met alors à sauter de joie en criant : « O mon Dieu, quelle chance ! Quelle chance ! » Puis il fouille dans une bourse de cuir qu'il porte à la ceinture et en retire une petite fiole de verre. Vous lui donnez la cloche et il vous confie la fiole, qui rend 4 points de vie à qui la boit. Le moine ensuite vous serre la main et se confond en remerciements.",
       "Decor": "",
@@ -1015,6 +1182,28 @@
          {
             "Texte": "Poursuivre votre chemin vers l'ouest",
             "Vers": "208"
+         }
+      ]
+   },
+   {
+      "num": "195",
+      "Description": "Vous parvenez tout en haut de la liane et vous prenez pied sur une plate-forme de bois. Un rideau fait de feuilles et de fougères dissimule rentrée d'une petite cabane ; lorsque vous vous approchez, le rideau s'écarte, laissant apparaître une immense créature simiesque, le corps couvert de poils, et vêtue d'une simple peau de bête nouée autour des reins. La créature brandit un gros os et se met à grogner vers vous. Il s'agit là d'un <i class='stats'>HOMME SINGE.</i>",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tirer votre épée et l'attaquer",
+            "Liaison": "L'Homme Singe sur son arbre fait preuve d'une grande agilité, tandis que vous éprouvez quelque difficulté à manier votre épée. Il bénéficie de ce fait d'un bonus de +2 en attaque.",
+            "Vers": "207",
+            "Fuir": "156",
+            "Combat": ["homme singe", "l'homme singe", "un", "il"],
+            "Force" : ["10"],
+            "Endurance": ["7"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Sauter de la plate-forme sur le sol, cinq mètres au-dessous",
+            "Vers": "156"
          }
       ]
    },
@@ -1069,6 +1258,23 @@
       ]
    },
    {
+      "num": "207",
+      "Description": "Vous enjambez le corps de l'Homme-Singe et vous entrez dans sa cabane. Le sol est jonché d'os et de fruits pourris. Le lit de la créature est fait de mousses et de feuilles, et il semble grouiller d'insectes. Vous êtes parcouru d'un frisson de dégoût et vous retournez sur la plate-forme. Vous remarquez alors, autour du poignet de l'Homme-Singe, un bracelet de cuivre.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Le passer à votre poignet",
+            "Liaison": "Vous passez le bracelet autour de votre poignet et, soudain, une énergie nouvelle parcourt votre bras et vous faites un bond sur place. Vous vous sentez fort, et gagnez 1 point de force permanent.",
+            "Vers": "109",
+            "Rules": ["changeMaxForce","1"]
+         },
+         {
+            "Texte": "Redescendre le long de la liane pour repartir vers le nord",
+            "Vers": "109"
+         }
+      ]
+   },
+   {
       "num": "208",
       "Description": "Vous arrivez bientôt à un croisement. Le chemin orienté au sud retourne vers la forêt, et vous décidez de ne pas le prendre.",
       "Decor": "",
@@ -1080,6 +1286,38 @@
          {
             "Texte": "Prendre la direction du nord",
             "Vers": "291"
+         }
+      ]
+   },
+   {
+      "num": "209",
+      "Description": "Lorsque vous entrez dans la cabane, l'homme sourit. Il semble heureux de vous voir et s'adresse à vous d'une voix grave. « Bienvenu, étranger, vous dit-il. Je m'appelle Quin et je gagne ma vie en me servant de mes bras. Seriez-vous homme à miser quelque argent sur une partie de bras de fer ? »",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Accepter la proposition",
+            "Vers": "266"
+         },
+         {
+            "Texte": "Accepter et utiliser votre brassard de puissance",
+            "Vers": "52",
+            "Conditions": ["hasObject",["brassard de puissance"]],
+            "Rules": ["looseObjects",["brassard de puissance"]]
+         },
+         {
+            "Texte": "Refuser poliment, puis retourner à la bifurcation",
+            "Vers": "349"
+         }
+      ]
+   },
+   {
+      "num": "216",
+      "Description": "Le chemin mène le long d'une corniche, au flanc de la colline, et aboutit à une nouvelle bifurcation. Le sentier orienté au sud ramène vers la rivière, et vous décidez donc de ne pas le prendre.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Prendre la direction du nord",
+            "Vers": "278"
          }
       ]
    },
@@ -1098,6 +1336,26 @@
          {
             "Texte": "Quitter la caverne",
             "Vers": "337"
+         }
+      ]
+   },
+   {
+      "num": "218",
+      "Description": "Votre épée glisse de son fourreau et tombe sur le sol, vous laissant là pendu comme un cochon, et incapable de vous dépêtrer. Vous poussez un juron en vous demandant qui a bien pu installer ce piège diabolique. Dix minutes plus tard, vous entendez des bruits de pas. La panique vous gagne et vous vous balancez frénétiquement d'un côté et d'autre pour essayer de libérer votre pied du nœud coulant. Un petit garçon apparaît alors : il est vêtu d'une chemise et d'un short, tous deux en cuir vert, et mâchonne ce qui semble être un os de poulet. Il se place juste au-dessous de vous, lève les yeux, puis avec un sourire, vous lance : « Hé, hé, quelqu'un s'est fait prendre au piège de l'Ogre ! ». Vous lui demandez très poliment de vous passer votre épée. « Il t'en coûtera 5 Pièces d'Or, répond-il aussitôt. Ou peut-être as-tu quelque objet magique à me donner ? » ajoute-t-il, en ouvrant grand les yeux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui donner 5 pièces d'or",
+            "Liaison": "Le petit garçon vous rend votre épée et part en courant avec vos pièces d'or. Quant à vous, vous tranchez la corde qui vous retient prisonnier et vous tombez lourdement sur le sol. Vous vous relevez ensuite et vous époussetez vos vêtements. Vous continuez alors vers le nord.",
+            "Conditions": ["minOr",["5"]],
+            "Vers": "274"
+         },
+         {
+            "Texte": "Lui donner un objet magique au hasard",
+            "Liaison": " Le petit garçon vous rend votre épée et part en courant avec votre objet. Quant à vous, vous tranchez la corde qui vous retient prisonnier et vous tombez lourdement sur le sol. Vous vous relevez ensuite et vous époussetez vos vêtements. Vous continuez alors vers le nord.",
+            "Vers": "274",
+            "Conditions": ["minObjects",["1"]],
+            "Rules": ["giveObjects",["1"]]
          }
       ]
    },
@@ -1129,9 +1387,20 @@
       ]
    },
    {
+      "num": "228",
+      "Description": "Voir 278",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "278"
+         }
+      ]
+   },
+   {
       "num": "230",
       "Description": "Vous jetez prudemment un coup d'œil à l'intérieur de la caverne et vous apercevez l'énorme silhouette d'un <i class='stats'>OGRE</i> qui s'avance à pas lents vers une Cage d'osier, un bol d'eau à la main. Il est vêtu de peaux de bêtes, et une massue en pierre est passée dans sa ceinture. A l'intérieur de la cage, une petite créature sautille en tous sens.",
-      "Decor": "",
+      "Decor": "caverne-troll",
       "Choix": [
          {
             "Texte": "Ramasser une pierre et la jeter à la tête de l'Ogre",
@@ -1139,6 +1408,7 @@
          },
          {
             "Texte": "Faire irruption dans la caverne et attaquer l'Ogre",
+            "Liaison": "Vous tirez votre épée en entrant dans la caverne. L'Ogre jette alors son bol et saisit la massue de pierre attachée à sa ceinture. Puis il se met à grogner et bondit sur vous.",
             "Vers": "385",
             "Fuir": "358",
             "Combat": ["ogre", "l'ogre'", "un", "il"],
@@ -1266,6 +1536,21 @@
       ]
    },
    {
+      "num": "255",
+      "Description": "En poursuivant votre descente, vous apercevez bientôt la poignée d'une épée qui dépasse d'un gros rocher situé au bord du chemin.",
+      "Decor": "sword-rock",
+      "Choix": [
+         {
+            "Texte": "Essayer d'arracher l'épée plantée dans le roc",
+            "Vers": "182"
+         },
+         {
+            "Texte": "Continuer vers le fond de la vallée",
+            "Vers": "334"
+         }
+      ]
+   },
+   {
       "num": "260",
       "Description": "La flèche se plante dans votre épaule, et vous perdez 4 points de vie. Voyant que sa flèche ne vous a pas tué, le Centaure se dresse sur ses pattes de derrière et fonce sur vous au grand galop. Vous faites un bond en arrière pour éviter d'être renversé, et la créature passe devant vous dans un nuage de poussière avant de s'arrêter dix mètres plus loin sur le chemin d'où vous êtes venu. Ce n'est peut-être pas une si bonne idée de vouloir le combattre.",
       "Decor": "",
@@ -1289,6 +1574,18 @@
          {
             "Texte": "Quitter la caverne sans emporter la boîte d'argent",
             "Vers": "358"
+         }
+      ]
+   },
+   {
+      "num": "266",
+      "Description": "Quin déclare qu'il va miser un peu de Poudre de Lévitation contre un objet, ou 10 Pièces d'Or. Vous vous asseyez face à lui, puis vous posez votre coude sur la table, et vous saisissez sa main. Sa poigne vous serre comme un étau et ses yeux sombres en amande expriment sa confiance en lui-même. Il gonfle alors son biceps et donne le signal du départ.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Testez votre Force",
+            "Vers": "",
+            "Rules": ["testezVotreForce",["406","129"]]
          }
       ]
    },
@@ -1319,6 +1616,32 @@
       ]
    },
    {
+      "num": "272",
+      "Description": "cf 384 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "394"
+         }
+      ]
+   },
+   {
+      "num": "274",
+      "Description": "Vous remarquez sur votre gauche une liane qui pend du sommet d'un arbre jusqu'au sol. Vous levez les yeux et vous apercevez, aménagée dans le feuillage, une sorte de cabane rudimentaire.",
+      "Decor": "liane",
+      "Choix": [
+         {
+            "Texte": "Grimper à cette liane pour explorer la cabane",
+            "Vers": "195"
+         },
+         {
+            "Texte": "poursuivre votre chemin vers le nord",
+            "Vers": "109"
+         }
+      ]
+   },
+   {
       "num": "276",
       "Description": "Combat 364 !",
       "Decor": "",
@@ -1326,6 +1649,18 @@
          {
             "Texte": "Debug :)",
             "Vers": "364"
+         }
+      ]
+   },
+   {
+      "num": "278",
+      "Description": "Le chemin suit un étroit défilé entre deux collines. Vous vous sentez vulnérable et vous tirez votre épée, car vous pourriez à tout moment tomber dans un guet-apens. Mais, comme vous êtes occupé à surveiller sans cesse les deux versants du défilé, vous ne remarquez pas devant vous un carré de feuilles et de branches en plein milieu du chemin. Votre pied traverse alors ce camouflage qui dissimule un piège à ours, et vous tombez quatre mètres plus bas, au fond d'une fosse aux parois rocheuses. Pour ajouter à votre infortune, un pieu acéré est dressé au centre de la fosse.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tentez votre Chance",
+            "Vers": "",
+            "Rules": ["tentezVotreChance",["403","404"]]
          }
       ]
    },
@@ -1453,7 +1788,7 @@
       "Choix": [
          {
             "Texte": "Tentez votre chance pour la 1ère fléchette",
-            "Vers": "999",
+            "Vers": "",
             "Rules": ["tentezVotreChance",["401","197"]]
          }
       ]
@@ -1509,8 +1844,19 @@
       ]
    },
    {
+      "num": "319",
+      "Description": "Voir 278",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "278"
+         }
+      ]
+   },
+   {
       "num": "325",
-      "Description": "Vous dormez depuis environ une heure lorsque un bruissement d'ailes vous réveille soudain. Vous vous redressez, vous empoignez votre épée, et vous apercevez dans la clarté de la pleine lune trois silhouettes de grande taille qui volent dans votre direction. Il semble qu'il s'agisse là d'immenses Chauves- Souris, mais lorsqu'elles sont suffisamment près pour que vous puissiez mieux les distinguer, vous remarquez un détail qui ne trompe pas : leurs gueules sont munies de dents pointues et ce sont donc des <i class='stats'>CHAUVES-SOURIS VAMPIRES.</i>",
+      "Description": "Vous dormez depuis environ une heure lorsque un bruissement d'ailes vous réveille soudain. Vous vous redressez, vous empoignez votre épée, et vous apercevez dans la clarté de la pleine lune trois silhouettes de grande taille qui volent dans votre direction. Il semble qu'il s'agisse là d'immenses Chauves-Souris, mais lorsqu'elles sont suffisamment près pour que vous puissiez mieux les distinguer, vous remarquez un détail qui ne trompe pas : leurs gueules sont munies de dents pointues et ce sont donc des <i class='stats'>CHAUVES-SOURIS VAMPIRES.</i>",
       "Decor": "arbre-nuit",
       "Choix": [
          {
@@ -1554,6 +1900,21 @@
          {
             "Texte": "Aller au nord",
             "Vers": "309"
+         }
+      ]
+   },
+   {
+      "num": "334",
+      "Description": "Entre les collines, vous voyez s'étendre le fond d'une verte vallée et, au-delà, vous apercevez le sinistre mur d'arbres de la Forêt des Ténèbres. C'est de l'autre côté de cette sombre végétation que se trouve Pont-de-Pierre, le but de votre voyage. Au pied des collines, dans la vallée, le chemin bifurque.",
+      "Decor": "collines-foret",
+      "Choix": [
+         {
+            "Texte": "Aller vers l'ouest",
+            "Vers": "113"
+         },
+         {
+            "Texte": "Prendre la direction de l'est",
+            "Vers": "51"
          }
       ]
    },
@@ -1617,6 +1978,30 @@
          {
             "Texte": "Ignorer l'oiseau et prendre la direction de l'est",
             "Vers": "239"
+         }
+      ]
+   },
+   {
+      "num": "354",
+      "Description": "Quin hoche la tête, l'air incrédule, puis il se lève et s'approche d'un coffre de bois à l'arrière de la cabane. Il en soulève le couvercle et en sort une petite fiole de verre. Il vient vous l'apporter, puis retourne devant la table et se laisse tomber sur sa chaise, visiblement démoralisé. La poudre que contient la fiole étincelle à la lumière du jour, et vous la rangez dans votre sac à dos avant de quitter la cabane.",
+      "Decor": "",
+      "Rules": ["gainObjects",["poudre de lévitation"]],
+      "Choix": [
+         {
+            "Texte": "Retourner à la bifurcation",
+            "Vers": "349"
+         }
+      ]
+   },
+   {
+      "num": "358",
+      "Description": "En cheminant le long du sentier, vous ne remarquez pas un nœud coulant caché sous des feuilles mortes, à quelque distance devant vous. Votre pied se prend alors dans le nœud et, soudain, vous vous retrouvez soulevé de terre par une corde attachée à une branche d'arbre qui s'est détendue comme un ressort. Un instant plus tard vous êtes suspendu tête en bas, le pied coincé dans le nœud coulant.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Tentez votre chance",
+            "Vers": "",
+            "Rules": ["tentezVotreChance",["40","218"]]
          }
       ]
    },
@@ -1769,7 +2154,8 @@
       "Choix": [
          {
             "Texte": "Le délivrer",
-            "Vers": "272",
+            "Liaison": "Vous tranchez les cordes épaisses qui retiennent le Barbare prisonnier. Celui-ci pousse un grognement puis s'assied, frottant ses poignets et ses chevilles endoloris. Il tourne ensuite son regard vers vous et se met à ricaner. Est-il fou ou ingrat ? En tout cas, il arrache un pieu du sol et vous attaque aussitôt.",
+            "Vers": "394",
             "Combat": ["barbare", "le barbare", "un", "il"],
             "Force" : ["9"],
             "Endurance": ["7"],
@@ -1826,7 +2212,7 @@
    {
       "num": "394",
       "Description": "Peu à peu l'herbe devient de moins en moins haute et le sol s'élève en pente douce. A quelque distance, vous entendez le bruit d'une eau courante, et vous arrivez bientôt sur la berge d'une rivière au cours paisible. L'eau est très peu profonde. Des pierres affleurant à la surface permettent de passer de l'autre côté, où le chemin continue vers le nord.",
-      "Decor": "",
+      "Decor": "river-stone",
       "Choix": [
          {
             "Texte": "Traverser la rivière sur les pierres",
@@ -1896,13 +2282,86 @@
       "Decor": "",
       "Choix": [
          {
-            "Texte": "Combattre l'homme masqué'",
+            "Texte": "Combattre l'homme masqué",
             "Vers": "62",
             "Combat": ["homme masqué", "l'homme masqué", "un", "il"],
             "Force" : ["8"],
             "Endurance": ["7"],
             "TexteMort": "Fou de rage que vous ayez tué ses chiens, l'homme masqué vous embroche.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "403",
+      "Description": "Vous tombez à côté du pieu, mais vous vous faites quand même suffisamment mal pour perdre 2 points de vie.",
+      "Decor": "",
+      "Rules": ["changeLife",["-2"]],
+      "Choix": [
+         {
+            "Texte": "Appeler à l'aide",
+            "Vers": "14"
+         },
+         {
+            "Texte": "Utiliser vos Bottes à Bondir",
+            "Liaison":"C'est une fosse circulaire dont les parois sont lisses. Votre chute vous a causé un choc ; vous vous sentez faible mais vous parvenez, malgré tout, à prendre dans votre sac à dos les bottes de cuir marron que vous chaussez. Elles vous semblent très légères et vous bondissez hors du trou sans difficulté.",
+            "Vers": "255",
+            "Conditions": ["hasObject",["bottes à bondir"]],
+            "Rules": ["looseObjects",["bottes à bondir"]]
+         }
+      ]
+   },
+   {
+      "num": "404",
+      "Description": "La pointe de l'épieu vous transperce la jambe lorsque vous atterrissez au fond du piège, et vous perdez non seulement 2 points de vie en raison de la chute elle-même, mais encore 2 autres points à cause de la blessure à votre jambe.",
+      "Decor": "",
+      "Rules": ["changeLife",["-4"]],
+      "Choix": [
+         {
+            "Texte": "Appeler à l'aide",
+            "Vers": "14"
+         },
+         {
+            "Texte": "Utiliser vos Bottes à Bondir",
+            "Liaison":"C'est une fosse circulaire dont les parois sont lisses. Votre chute vous a causé un choc ; vous vous sentez faible mais vous parvenez, malgré tout, à prendre dans votre sac à dos les bottes de cuir marron que vous chaussez. Elles vous semblent très légères et vous bondissez hors du trou sans difficulté.",
+            "Vers": "255",
+            "Conditions": ["hasObject",["bottes à bondir"]],
+            "Rules": ["looseObjects",["bottes à bondir"]]
+         }
+      ]
+   },
+   {
+      "num": "405",
+      "Description": "L'épée ne bouge pas d'un pouce malgré tous vos efforts. Vous finissez par vous fatiguer et vous renoncez.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Reprendre votre chemin vers le nord",
+            "Vers": "334"
+         }
+      ]
+   },
+   {
+      "num": "406",
+      "Description": "Vous parvenez, au prix d'un grand effort, à repousser légèrement son bras. Mais sa force est grande et il n'abandonnera pas si facilement.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Testez votre Force",
+            "Vers": "",
+            "Rules": ["testezVotreForce",["407","129"]]
+         }
+      ]
+   },
+   {
+      "num": "407",
+      "Description": "Vous continuez vos efforts, transpirant à grosses gouttes, et vous repoussez son bras encore un peu. Mais il tente alors le tout pour le tout.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Testez votre Force",
+            "Vers": "",
+            "Rules": ["testezVotreForce",["354","129"]]
          }
       ]
    }

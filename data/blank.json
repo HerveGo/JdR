@@ -31,10 +31,10 @@
             "Vers": "19",
             "PdV": "0",
             "Combat": ["troll", "le Troll", "un troll", "il"],
-            "Force" : ["16"],
-            "Endurance": ["58"],
-            "TexteMort": "Le troll est un adversaire redoutable. Alors que vous succombez, vous remarquez qu'il se lèche les babines, et n'osez imaginer ce qu'il va faire.",
-            "TexteVictoire" : "Le troll s'effondre, contre toute attente !"
+            "Force" : [""],
+            "Endurance": [""],
+            "TexteMort": "",
+            "TexteVictoire" : ""
          },
          {
             "Texte": "Tremblant, vous lui donnez votre bourse.",

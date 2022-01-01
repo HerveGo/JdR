@@ -24,24 +24,15 @@ var span = document.getElementsByClassName("close");
 
 // When the user clicks on <span> (x), close the modal
 for( let i = 0; i < span.length; i++) {
-    span[i].onclick = function() {
-        closeModal(i);
-    }
+    span[i].addEventListener( 'click', () => closeModal(i) );
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    for (let index = 0; index < modal.length; index++) {
-        if (event.target == modal[index]) {
-            console.log(modal[index]);
-            closeModal(index);
-            return;
-        }
-    }
+window.onclick = (event) => {
+    Array.from(modal).forEach((item,index) => { if(event.target == item) closeModal(index) } );
 }
 
 function closeModal(i) {
-    console.log("closemodal"+i)
     modal[i].style.display = "none";
 }
 
@@ -105,7 +96,7 @@ function changeForce(strength) {
 }
 function changeMaxForce(strength) {
     maxForce += parseInt( strength );
-    maForce = maxForce;
+    maForce += parseInt( strength );
 }
 
 function changeChance(chance) {
@@ -136,7 +127,17 @@ function eatFood() {
 }
 
 function gainObjects(items) {
-    inventory = inventory.concat( items );
+    inventory.push(items);
+}
+/**
+ * Remplace un objet dans l'inventaire par un autre.
+ * @param {string[]} items tableau contenant en 0 l'objet à remplacer, et en 1 le nouvel objet.
+ */
+function replaceObject(items) {
+    let index = inventory.indexOf(items[0]);
+    if( index > -1 ) {
+        inventory[index] = items[1];
+    }
 }
 function looseObjects(items) {
     items.forEach( item => {
@@ -145,6 +146,28 @@ function looseObjects(items) {
             inventory.splice(index, 1);
         }
     })
+}
+//Donne num objets au hasard, mais pas les trois premiers.
+/**
+ * Donne num objets de l'inventaire au hasard (à l'exclusion des 3 premiers)
+ * @param {string[]} num le nombre d'objets à donner
+ */
+function giveObjects(num) {
+    let n = parseInt(num[0]); //rules are always arrays
+    let hasard = [...inventory.slice(3)]; //true copy on one level (sufficient)
+    let lost = [];
+    removeItemOnce(hasard,"manche du marteau"); //évite de donner le marteau
+    if( n > hasard.length ) n = hasard.length //pour éviter une boucle infinie
+    while ( n > 0 ) {
+        rnd = Math.floor(Math.random()*hasard.length);
+        if( hasard[rnd] != "" ) {
+            n--;
+            lost.push(hasard[rnd]);
+            removeItemOnce(inventory, hasard[rnd]);
+            hasard[rnd] = "";
+        }
+    }
+    textLiaison = `Vous perdez ${lost.join(",")}.` + textLiaison;
 }
 function gainPotions(potions) {
     mesPotions = mesPotions.concat( potions );
@@ -177,7 +200,7 @@ function briserCoffre(vers) {
  */
 function looseLifeD6(numDice) {
     let sumDice = 0;
-    for( let i = 0; i < numDice; i++ ) {
+    for( let i = 0; i < parseInt(numDice[0]); i++ ) {
         sumDice += rollDice6();
     }
     console.log(`Lance ${numDice}d6 : loose life ${-sumDice}`);
@@ -253,7 +276,7 @@ function majInventaire() {
     document.getElementById("chance3").innerHTML = s;
     s = `OR<b>${gold}</b>`;
     document.getElementById("or").innerHTML = s;
-    s = `RATIONS<b>${maFood}</b>`;
+    s = `<a onclick="eat()">RATIONS</a><a onclick="eat()"><b>${maFood}</b></a>`;
     document.getElementById("provisions").innerHTML = s;
     s = "EQUIPEMENT";
     inventory.forEach(item => s += `<span>${item}</span>`);
@@ -266,8 +289,31 @@ function majInventaire() {
     document.getElementById("potions").innerHTML = s;
 }
 
-//Boire une potion.
+/**
+ * Manger une ration (s'il en reste) fait regagner 4 points de vie.
+ */
+function eat() {
+    modalHeader.innerHTML = '<img alt="" src="images/jambon.png">Manger une ration';
+    if( maLife == maxLife ) {
+        modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de manger une ration pour l'instant.</p>";
+        showModal(1);
+    } else if ( maFood == 0 ) {
+        modalBody.innerHTML = "<p>Vous n'avez plus rien à manger&nbsp;!</p><p>Il ne vous reste plus qu'à écouter votre ventre gargouiller.</p>";
+        showModal(1);
+    } else {
+        maFood--;
+        changeLife("4");
+        modalBody.innerHTML = "<p>Vous prenez un moment pour manger une de vos rations</p><p>Ce repas sommaire vous fait regagner 4 points de vie.</p>";
+        showModal(1);
+    }
+}
+
+/**
+ * Boire une potion (si autorisé)
+ * @param {"vigueur" | "fiole de vie" | "puissance" | "fortune" } typePotion 
+ */
 function drinkPotion(typePotion){
+    modalHeader.innerHTML = '<img alt="" src="images/potion.png">Boire une potion';
     switch( typePotion ) {
         case "vigueur":
             if( maLife == maxLife ) {

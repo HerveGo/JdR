@@ -1,8 +1,14 @@
 9 <= combat ?
 317 <= combat 8
 
-En cours nord après corbeau
-En cours 300
-180 -> 361/208
-105 vautours
+Todo ouest sorti de tour...
+
+180 -> 208
+
+105 vautours 119 -> 216 -> piège 278 -> 334 
 Nord, vallée 245
+
+Centaure 142 -> 25 -> 267 -> 358
+
+-> Quin -> 349
+
