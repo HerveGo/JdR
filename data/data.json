@@ -137,17 +137,18 @@
    },
    {
       "num": "9",
-      "Description": "gobelin from ?",
+      "Description": "gobelin from 85",
       "Decor": "",
       "Choix": [
          {
-            "Texte": "Combat"
+            "Texte": "Combat",
+            "Vers": "85"
          }
       ]
    },
    {
       "num": "10",
-      "Description": "Vous ramassez à terre un roc de bonne taille que vous lancez de toutes vos forces en visant l'Ogre. Hélas ! à votre grand désarroi, le roc manque sa cible, passe à côté de la tête de votre adversaire et se fracasse contre la paroi de la caverne.",
+      "Description": "Vous lancez le roc de toutes vos forces en visant l'Ogre. Hélas ! à votre grand désarroi, le roc manque sa cible, passe à côté de la tête de votre adversaire et se fracasse contre la paroi de la caverne.",
       "Decor": "",
       "Choix": [
          {
@@ -217,6 +218,18 @@
          {
             "Texte": "Partir vers le nord",
             "Vers": "226"
+         }
+      ]
+   },
+   {
+      "num": "22",
+      "Description": "Le gaz est toxique et vos yeux commencent à larmoyer. Vous toussez et vous retenez votre souffle tandis que vous courez dans la caverne, en vous efforçant d'échapper au nuage de gaz qui vous enveloppe. Mais bientôt, vous avez l'impression que vos poumons vont éclater ; et vous ne pouvez vous empêcher de respirer. Vous perdez 2 points de <i class='stats'>FORCE</i> et autant de points de vie que le chiffre obtenu en lançant un dé. Si vous êtes toujours vivant, le nuage de gaz se dissipe et vous rangez la boîte d'argent vide dans votre sac à dos.",
+      "Decor": "",
+      "Rules": ["changeForce",["-2"],"looseLifeD6",["1"],"gainJewels",["boîte en argent"]],
+      "Choix": [
+         {
+            "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
+            "Vers": "358"
          }
       ]
    },
@@ -318,6 +331,25 @@
          {
             "Texte": "Grommeler une excuse et quitter la tour",
             "Vers": "177"
+         }
+      ]
+   },
+   {
+      "num": "55",
+      "Description": "Vous fouillez dans votre sac à dos et vous en retirez le gant de soie violette qui vous va à merveille. Vous lancez ensuite de toutes vos forces le gros roc, en visant l'Ogre. La pierre file comme une flèche et assomme le monstre qui s'écroule sur le sol. La créature enfermée dans la cage saute alors en tous sens avec une frénésie redoublée.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Examiner d'un peu plus près cette créature dans sa cage",
+            "Vers": "168"
+         },
+         {
+            "Texte": "Fouiller la caverne",
+            "Vers": "313"
+         },
+         {
+            "Texte": "Quitter la caverne et repartir vers le nord",
+            "Vers": "358"
          }
       ]
    },
@@ -433,11 +465,12 @@
    },
    {
       "num": "85",
-      "Description": "A l'intérieur de la cage, une petite créature mus-culeuse à la peau brune et couverte d'écailles sautille en tous sens. Il s'agit d'un <i class='stats'>GOBELIN</i> qui porte autour du cou, accroché à une lanière de cuir, un petit bâton d'un noir brillant.",
+      "Description": "A l'intérieur de la cage, une petite créature musculeuse à la peau brune et couverte d'écailles sautille en tous sens. Il s'agit d'un <i class='stats'>GOBELIN</i> qui porte autour du cou, accroché à une lanière de cuir, un petit bâton d'un noir brillant.",
       "Decor": "",
       "Choix": [
          {
             "Texte": "Ouvrir la porte de la cage",
+            "Liaison":"Vous déverrouillez la porte de la cage et vous faites un pas en arrière, votre épée à la main, prêt à combattre si le Gobelin vous attaque. Ce dernier ramasse un tabouret de bois, le brandit au-dessus de sa tête et le jette contre la porte qui s'ouvre à la volée. Puis il se précipite sur vous en hurlant.",
             "Vers": "176",
             "Combat": ["gobelin", "le gobelin", "un", "il"],
             "Force" : ["5"],
@@ -601,6 +634,17 @@
       ]
    },
    {
+      "num": "117",
+      "Description": "combat 168 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "232"
+         }
+      ]
+   },
+   {
       "num": "119",
       "Description": "Le chemin monte parmi les collines en suivant une pente escarpée et, lorsque vous parvenez au sommet, le soleil est brûlant. A quelque distance se dessine le cercle verdoyant de la Forêt des Ténèbres. Derrière vous, la brume du matin s'étend toujours sur les hautes herbes ; mais devant, les rayons du soleil illuminent une vallée sans nuages. Tout est calme et vous commencez à descendre le versant opposé de la colline. Vous arrivez alors à une bifurcation.",
       "Decor": "collines-matin",
@@ -642,6 +686,23 @@
       ]
    },
    {
+      "num": "126",
+      "Description": "Vous forcez avec précaution le couvercle de la boîte, et soudain, un nuage de gaz jaune s'en échappe, vous enveloppant le visage.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Essayer de ne pas le respirer",
+            "Vers": "22"
+         },
+         {
+            "Texte": "Utiliser vos filtres à nez",
+            "Vers": "365",
+            "Conditions": ["hasObject",["filtres à nez"]],
+            "Rules": ["looseObjects",["filtres à nez"]]
+         }
+      ]
+   },   
+   {
       "num": "127",
       "Description": "Vous montez sur le dos du Centaure qui se tourne vers la rivière pour la traverser. L'eau a une couleur vert sombre, et vous vous demandez quel genre de créatures peut bien se cacher dans ses profondeurs. Bientôt, vous atteignez l'autre rive et vous donnez au Centaure ses 3 pièces d'Or. Il vous remercie, vous fait un signe d'adieu et vous souhaite bonne chance. Vous vous trouvez à présent au pied de quelques collines et le soir tombe. Vous décidez alors de camper sous un grand et vieux chêne, à droite du chemin, et vous vous installez pour dormir, votre épée à portée de main.",
       "Decor": "arbre-nuit",
@@ -677,6 +738,23 @@
          {
             "Texte": "Debug :)",
             "Vers": "325"
+         }
+      ]
+   },
+   {
+      "num": "137",
+      "Description": "Vous ramassez un roc de bonne taille par terre.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Le lancer sur l'Ogre",
+            "Vers": "10"
+         },
+         {
+            "Texte": "Utiliser votre gant d'adresse au lancer",
+            "Vers": "55",
+            "Conditions": ["hasObject",["gant d'adresse"]],
+            "Rules": ["looseObjects",["gant d'adresse"]]
          }
       ]
    },
@@ -792,10 +870,31 @@
       ]
    },
    {
+      "num": "168",
+      "Description": "A l'intérieur de la cage, une petite créature au corps noueux et à la peau brune et écailleuse bondit en tous sens. C'est un <i class='stats'>GOBELIN</i>. Il porte au cou, accroché à une lanière de cuir, un bâton noir et brillant.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Ouvrir la porte de la cage",
+            "Liaison": "Vous déverrouillez la porte, et vous faites un pas en arrière en tirant votre épée, au cas où le Gobelin se mêlerait de vouloir vous attaquer. La créature saisit alors un tabouret de bois qu'elle brandit au-dessus d'elle, puis elle ouvre la porte d'un coup de pied et se précipite sur vous en hurlant.",
+            "Vers": "232",
+            "Combat": ["gobelin", "le gobelin", "un", "il"],
+            "Force" : ["5"],
+            "Endurance": ["4"],
+            "TexteMort": "Malgré sa petite taille, votre adversaire finit par vous terrasser, à sa grande surprise.",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Quitter la caverne pour poursuivre votre chemin vers le nord",
+            "Vers": "358"
+         }
+      ]
+   },
+   {
       "num": "169",
       "Description": "Le gaz est toxique et vos yeux commencent à larmoyer. Vous toussez et vous retenez votre souffle tandis que vous courez dans la caverne, en vous efforçant d'échapper au nuage de gaz qui vous enveloppe. Mais bientôt, vous avez l'impression que vos poumons vont éclater ; et vous ne pouvez vous empêcher de respirer. Vous perdez 2 points de <i class='stats'>FORCE</i> et autant de points de vie que le chiffre obtenu en lançant un dé. Si vous êtes toujours vivant, le nuage de gaz se dissipe et vous rangez la boîte d'argent vide dans votre sac à dos.",
       "Decor": "",
-      "Rules": ["changeForce",["2"],"looseLifeD6",["1"],"gainJewels",["boîte en argent"]],
+      "Rules": ["changeForce",["-2"],"looseLifeD6",["1"],"gainJewels",["boîte en argent"]],
       "Choix": [
          {
             "Texte": "Vous approcher à présent de la créature enfermée dans la cage",
@@ -836,7 +935,7 @@
    },
    {
       "num": "177",
-      "Description": "Dehors, à la lumière du plein jour, vous remarquez à nouveau ce silence mortel. Un étroit sentier mène vers le nord, s'éloignant des hautes herbes qui entourent la maison de Yaztromo pour s'enfoncer dans la végétation touffue de la Forêt des Ténèbres. Vous avez à peine fait quelques pas que vous vous retrouvez cerné par l'obscurité de cette forêt inextricable ; des pierres et des racines noueuses semblent se cacher dans l'ombre, et vous pourriez presque croire qu'elles cherchent à vous faire trébucher. La lumière du soleil s'efface bientôt complètement et l'atmosphère devient humide et déplaisante. Vous avancez de plus en plus profondément dans les ténèbres et le chemin finit par se diviser en deux autres sentiers, de part et d'autre d'un grand et vieil arbre.",
+      "Description": "Dehors, à la lumière du plein jour, vous remarquez à nouveau ce silence mortel. Un étroit sentier mène vers le nord, s'éloignant des hautes herbes qui entourent la maison de Yaztromo pour s'enfoncer dans la végétation touffue de la Forêt des Ténèbres. Vous avez à peine fait quelques pas que vous vous retrouvez cerné par l'obscurité de cette forêt inextricable ; des pierres et des racines noueuses semblent se cacher dans l'ombre, et vous pourriez presque croire qu'elles cherchent à vous faire trébucher. La lumière du soleil s'efface bientôt complètement et l'atmosphère devient humide et déplaisante. Vous avancez de plus en plus profondément dans les ténèbres et le chemin finit par se diviser en deux autres sentiers, de part et d'autre d'un grand et vieil arbre.",
       "Decor": "foret",
       "Choix": [
          {
@@ -1055,6 +1154,22 @@
       ]
    },
    {
+      "num": "232",
+      "Description": "Vous vous penchez sur le corps sans vie du Gobelin fou, et vous examinez le bâton accroché à son cou. Il est taillé dans un morceau d'ébène et muni d'un pas de vis à l'une de ses extrémités. A l'autre bout est gravée la lettre G et vous éprouvez un sentiment d'excitation en devinant que vous avez trouvé là ce qui doit être le manche du marteau de guerre des Nains. Vous rangez votre trouvaille dans votre sac à dos et vous gagnez 1 point de <i class='stats'>CHANCE.</i>",
+      "Decor": "",
+      "Rules": ["gainObjects",["manche du marteau"],"changeChance",["1"]],
+      "Choix": [
+         {
+            "Texte": "Poursuivre votre quête en direction du nord",
+            "Vers": "358"
+         },
+         {
+            "Texte": "Fouiller la caverne",
+            "Vers": "263"
+         }
+      ]
+   },
+   {
       "num": "239",
       "Description": "Le chemin continue de s'enfoncer dans l'épaisse végétation, et vous éprouvez un certain sentiment de claustrophobie en vous sentant ainsi enfermé sous le feuillage des arbres qui forme une voûte au-dessus de vous. Un peu plus loin, le sentier oblique brusquement vers la gauche, à l'endroit où se dresse un arbre portant des fruits étranges.",
       "Decor": "",
@@ -1159,6 +1274,21 @@
          {
             "Texte": "Remettre votre épée au fourreau et traverser la rivière à pied",
             "Vers": "178"
+         }
+      ]
+   },
+   {
+      "num": "263",
+      "Description": "Il n'y a pas grand-chose d'intéressant dans la caverne. Vous ne voyez tout d'abord qu'une paillasse, des pots en pierre, une table et une chaise ; mais bientôt, sur une étagère au-dessus du lit, vous remarquez une petite boîte d'argent qui attire votre regard.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Ouvrir cette boîte",
+            "Vers": "126"
+         },
+         {
+            "Texte": "Quitter la caverne sans emporter la boîte d'argent",
+            "Vers": "358"
          }
       ]
    },
@@ -1461,6 +1591,21 @@
       ]
    },
    {
+      "num": "338",
+      "Description": "Le gaz est toxique et vos yeux se mettent à larmoyer. Vous retenez votre souffle le temps de trouver vos Filtres à Nez et vous les glissez dans vos narines. Vous inspirez avec prudence, mais tout va bien et, quelques instants plus tard, le nuage autour de votre tête se dissipe. Vous rangez alors la boîte en argent vide dans votre sac à dos.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Approcher de la créature enfermée dans la cage",
+            "Vers": "85"
+         },
+         {
+            "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
+            "Vers": "358"
+         }
+      ]
+   },
+   {
       "num": "343",
       "Description": "Vous posez la Pièce d'Or sur le poteau indicateur, ainsi que le corbeau vous l'a demandé. « Allez vers le nord », dit alors l'oiseau. Vous lui demandez pourquoi il a besoin d'or et il vous répond qu'il lui faut en tout 30 Pièces : c'est le prix que demande Yaztromo pour lui redonner son apparence humaine.",
       "Decor": "foret",
@@ -1508,6 +1653,17 @@
          {
             "Texte": "Poursuivre la conversation avec lui",
             "Vers": "194"
+         }
+      ]
+   },
+   {
+      "num": "365",
+      "Description": "Le gaz est toxique et vos yeux se mettent à larmoyer. Vous retenez votre souffle suffisamment longtemps pour trouver les Filtres à Nez, et vous les glissez dans vos narines. Vous inspirez alors avec prudence, mais tout va bien, et, bientôt, le nuage de gaz se dissipe. Il ne vous reste plus qu'à ranger la boîte en argent dans votre sac à dos.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Quitter la caverne pour poursuivre votre chemin vers le nord",
+            "Vers": "358"
          }
       ]
    },
