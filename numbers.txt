@@ -1,14 +1,15 @@
 9 <= combat ?
 317 <= combat 8
 
-Todo ouest sorti de tour...
+Todo ouest sorti de tour... 277 ent, 97
 
 180 -> 208
 
 105 vautours 119 -> 216 -> piège 278 -> 334 
-Nord, vallée 245
 
-Centaure 142 -> 25 -> 267 -> 358
+Nord, vallée 245, 375 (150, 236)
+
+Centaure 142 -> 25 -> 267 -> 358(marteau)
 
 -> Quin -> 349
 

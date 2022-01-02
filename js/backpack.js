@@ -5,6 +5,7 @@ let maxChance = 12;
 let maForce = 10; //force du joueur
 let maChance = 0;
 let maLife = maxLife; //points de vie actuels
+let oldLife = 0;
 let gold = 30;
 let inventory = ["épée","armure de cuir","lanterne"];
 let mesPotions = [];
@@ -28,9 +29,10 @@ for( let i = 0; i < span.length; i++) {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = (event) => {
-    Array.from(modal).forEach((item,index) => { if(event.target == item) closeModal(index) } );
-}
+window.addEventListener('click', (event) => Array.from(modal).forEach((item,index) => { if(event.target == item) closeModal(index) } ));
+// window.onclick = (event) => {
+//     Array.from(modal).forEach((item,index) => { if(event.target == item) closeModal(index) } );
+// }
 
 function closeModal(i) {
     modal[i].style.display = "none";
@@ -43,6 +45,7 @@ function showModal(i) {
 //Appel de la fonction définie par "Rule" dans le json.
 //Exemple si function maFonction(arg1, arg2);
 // fnCall("maFonction", "arg1", "arg2");
+//Si la fonction renvoie une valeur, ce sera "vers" la destination de la nouvelle scène
 function fnCall(fn, ...args) {
     let func = (typeof fn =="string") ? window[fn] : fn;
     if (typeof func == "function") return func(...args);
@@ -83,7 +86,17 @@ function resetPlayer() {
     audioDeath.pause();
     window.location.reload();
 }
-
+/**
+ * Echange la Force avec la Chance (champignons)
+ */
+function swapStrengthChance() {
+    let swap = maxForce;
+    maxForce = maxChance;
+    maxChance = swap;
+    swap = maForce;
+    maForce = maChance;
+    maChance = swap;
+}
 function changeOr(coins) {
     gold += parseInt(coins);
     if(  gold < 0 ) gold = 0;
@@ -119,7 +132,7 @@ function changeFood(rations) {
 }
 
 function eatFood() {
-    if(  maFood > 0) {
+    if(  maFood > 0 ) {
         maFood--;
         maLife += 4;
         if( maLife > maxLife ) maLife = maxLife;
@@ -239,27 +252,28 @@ function hideElementsById(hidden, ...args) {
 
 //Affiche ou masque l'écran inventaire
 function ecranInventaire() {
+    const backpackImg = document.getElementById("backpackImg");
     bInventaire = !bInventaire;
     if( bInventaire ) {
+        oldLife = maLife;
         majInventaire();
         if( !document.getElementsByClassName("top")[0] ) decorActuel = document.getElementsByClassName("top")[0];
         majDecor("inventaire");
         //choixHidden(true);
         // document.getElementById("backpack").hidden = false;
-        document.getElementById("backpackImg").src = "./images/close.png";
-        document.getElementById("backpackImg").alt = "Fermer l'inventaire";
+        backpackImg.src = "./images/close.png";
+        backpackImg.alt = "Fermer l'inventaire";
         hideElementsById(true, "gandalf", "life", "container", "choix", "histoire");
         hideElementsById(false, "inventaire", "stats", "cadre", "statsLarge", "backpack");
     } else {
         let decor = scene[sceneEnCours].Decor;
         if( !decor ) decor = decorActuel;
         majDecor(decor);
-        //choixHidden(false);
-        document.getElementById("backpackImg").src = "./images/backpack.png";
-        document.getElementById("backpackImg").alt = "Inventaire";
+        backpackImg.src = "./images/backpack.png";
+        backpackImg.alt = "Inventaire";
         hideElementsById(false, "gandalf", "life", "container", "choix", "histoire");
         hideElementsById(true, "inventaire");
-        //alert("cache l'inventaire");
+        displayLife(oldLife);
     }
 }
 
@@ -276,7 +290,7 @@ function majInventaire() {
     document.getElementById("chance3").innerHTML = s;
     s = `OR<b>${gold}</b>`;
     document.getElementById("or").innerHTML = s;
-    s = `<a onclick="eat()">RATIONS</a><a onclick="eat()"><b>${maFood}</b></a>`;
+    s = `RATIONS<b>${maFood}</a>`;
     document.getElementById("provisions").innerHTML = s;
     s = "EQUIPEMENT";
     inventory.forEach(item => s += `<span>${item}</span>`);
@@ -294,6 +308,7 @@ function majInventaire() {
  */
 function eat() {
     modalHeader.innerHTML = '<img alt="" src="images/jambon.png">Manger une ration';
+    console.log(`maLife ${maLife}, max ${maxLife}`);
     if( maLife == maxLife ) {
         modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de manger une ration pour l'instant.</p>";
         showModal(1);
@@ -301,8 +316,8 @@ function eat() {
         modalBody.innerHTML = "<p>Vous n'avez plus rien à manger&nbsp;!</p><p>Il ne vous reste plus qu'à écouter votre ventre gargouiller.</p>";
         showModal(1);
     } else {
-        maFood--;
-        changeLife("4");
+        eatFood();
+        majInventaire();
         modalBody.innerHTML = "<p>Vous prenez un moment pour manger une de vos rations</p><p>Ce repas sommaire vous fait regagner 4 points de vie.</p>";
         showModal(1);
     }

@@ -88,7 +88,7 @@
    },
    {
       "num": "6",
-      "Description": "Lorsque vous passez devant le Lutin, il se met à pousser des grognements comme jamais vous n'en avez entendus auparavant, des grognements tout à fait inhabituels chez un Lutin. Vous ressentez une certaine inquiétude.",
+      "Description": "Lorsque vous passez devant le Gobelin, il se met à pousser des grognements comme jamais vous n'en avez entendus auparavant, des grognements tout à fait inhabituels chez un Gobelin. Vous ressentez une certaine inquiétude.",
       "Decor": "",
       "Choix": [
          {
@@ -99,7 +99,7 @@
    },
    {
       "num": "7",
-      "Description": "Vous <i class='stats'>tirez</i> votre épée et vous vous apprêtez à en découdre avec ces agresseurs à rayures noires et jaunes.",
+      "Description": "Vous tirez votre épée et vous vous apprêtez à en découdre avec ces agresseurs à rayures noires et jaunes.",
       "Decor": "",
       "Choix": [
          {
@@ -116,7 +116,7 @@
    {
       "num": "8",
       "Description": "Tandis que vous marchez le long du chemin, vous entendez des pas et les échos d'une dispute à quelque distance devant vous.",
-      "Decor": "",
+      "Decor": "foret",
       "Choix": [
          {
             "Texte": "Vous restez sur le chemin pour les rencontrer.",
@@ -232,6 +232,17 @@
       ]
    },
    {
+      "num": "20",
+      "Description": "Tandis que vous marchez vers l'est, vous passez devant un autre chemin orienté au sud, mais vous décidez de ne pas vous y aventurer.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Poursuivre dans la même direction",
+            "Vers": "277"
+         }
+      ]
+   },
+   {
       "num": "21",
       "Description": "La douleur se fait de plus en plus vive et vous vous hâtez de dénicher dans votre sac à dos la petite bouteille d'Antipoison. Vous buvez avidement son contenu et votre corps alors se détend, tandis que disparaissent les effets du poison. Vous vous demandez ce qui vous attend encore dans cette Forêt.",
       "Decor": "",
@@ -251,6 +262,17 @@
          {
             "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
             "Vers": "358"
+         }
+      ]
+   },
+   {
+      "num": "23",
+      "Description": "Cf liaison 92",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "339"
          }
       ]
    },
@@ -285,6 +307,17 @@
       ]
    },
    {
+      "num": "27",
+      "Description": "Vous essuyez de votre épée l'épaisse sève verdâtre qui coulait dans les veines de l'Homme-Arbre et vous reprenez votre chemin vers le nord. Vous êtes soulagé de voir que les arbres commencent à se clairsemer et qu'ils apparaissent moins menaçants.",
+      "Decor": "foret-fleur",
+      "Choix": [
+         {
+            "Texte": "Poursuivre le chemin vers le nord",
+            "Vers": "329"
+         }
+      ]
+   },
+   {
       "num": "28",
       "Description": "Voir 209",
       "Decor": "",
@@ -313,6 +346,25 @@
       ]
    },
    {
+      "num": "36",
+      "Description": "Vous repensez à cet étranger et vous éprouvez en même temps un sentiment de malaise. Quelque chose dans ses manières a éveillé votre méfiance. Vous vous arrêtez un instant pour vérifier le contenu de votre sac à dos et vous êtes alors furieux de constater qu'il y manque quelque chose. Cet homme était un voleur ! Vous allez devoir soustraire de vos biens soit toutes les Pièces d'Or qui vous restent, soit deux des objets magiques que vous avez achetés à Yaztromo. Vous vous demandez si vous ne feriez pas mieux de courir après votre voleur, mais vous vous doutez qu'il n'est certainement pas parti dans la direction où il prétendait aller. Il ne vous reste donc plus qu'à le maudire et à poursuivre votre chemin vers le nord.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Perdre vos pièces d'Or",
+            "Vers": "187",
+            "Conditions": ["minOr",["1"]],
+            "Rules": ["changeOr",["-100"]]
+         },
+         {
+            "Texte": "Perdre deux objets magiques",
+            "Vers": "187",
+            "Conditions": ["minObjects",["2"]],
+            "Rules": ["giveObjects",["2"]]
+         }
+      ]
+   },
+   {
       "num": "37",
       "Description": "Vous tendez le bras vers une branche de l'arbre et vous cueillez un fruit en forme de poire et de couleur violette. Vous y mordez du bout des dents : son goût en est amer.",
       "Decor": "",
@@ -335,6 +387,17 @@
          {
             "Texte": "Poursuivre vers le nord",
             "Vers": "274"
+         }
+      ]
+   },
+   {
+      "num": "41",
+      "Description": "Vous retournez en courant au croisement où le corbeau est toujours perché sur la pancarte. Vous prenez à gauche et vous courez vers l'est en criant Bon après-midi ! au corbeau, lorsque vous passez devant lui.",
+      "Decor": "corbeau",
+      "Choix": [
+         {
+            "Texte": "Courir vers l'est",
+            "Vers": "239"
          }
       ]
    },
@@ -505,12 +568,23 @@
    },
    {
       "num": "75",
-      "Description": "Cf 65 !",
+      "Description": "Cf 65",
       "Decor": "collines-nuit",
       "Choix": [
          {
             "Texte": "Debug :)",
-            "Vers": "116"
+            "Vers": "330"
+         }
+      ]
+   },
+   {
+      "num": "76",
+      "Description": "Le chemin oblique brusquement vers la droite et continue en direction du nord à travers d'épaisses broussailles.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Continuer le chemin",
+            "Vers": "206"
          }
       ]
    },
@@ -598,7 +672,7 @@
    {
       "num": "92",
       "Description": "A mesure que vous avancez vers le nord, l'herbe est de moins en moins haute et le chemin remonte en pente douce. A quelque distance, vous entendez le son d'une eau courante. Mais vous percevez également un autre bruit, et infiniment plus inquiétant celui-là. C'est un énorme bourdonnement qui annonce l'arrivée d'un essaim d'Abeilles Géantes, chacun de ces insectes mesurant une bonne dizaine de centimètres de longueur. Or, l'essaim vole très exactement au-dessus de votre tête.",
-      "Decor": "",
+      "Decor": "abeilles",
       "Choix": [
          {
             "Texte": "Fuir et essayer d'atteindre le cours d'eau",
@@ -607,12 +681,12 @@
          {
             "Texte": "Faire face et combattre",
             "Liaison": "Vous tirez votre épée et vous vous apprêtez à en découdre avec ces agresseurs à rayures noires et jaunes.",
-            "Vers": "23",
-            "Combat": ["essaim", "l'essaim'", "un essaim", "il"],
+            "Vers": "339",
+            "Combat": ["essaim", "l'essaim", "un essaim", "il"],
             "Force" : ["7","8","7"],
             "Endurance": ["3","4","4"],
             "TexteMort": "Vous succombez sous les innombrables piqûres.",
-            "TexteVictoire": ""
+            "TexteVictoire": "Vous essuyez la sueur qui ruisselle sur votre front, en vous demandant ce que vous réserve encore cette contrée maléfique. Puis vous vous asseyez pour prendre quelque repos, et enfin, un peu plus tard, vous vous remettez en route en direction du cours d'eau que vous entendez couler un peu plus loin."
          },
          {
             "Texte": "Utiliser votre potion de contrôle des insectes",
@@ -635,6 +709,17 @@
             "Endurance": ["6","6","5"],
             "TexteMort": "La meute finit par vous déborder, et vous tomber sous leurs crocs.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "97",
+      "Description": "todo",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "",
+            "Vers": ""
          }
       ]
    },
@@ -783,9 +868,26 @@
       ]
    },
    {
+      "num": "123",
+      "Description": "Malgré la perte d'un bras, l'Ent continue de se battre et vous devez lui trancher son autre bras !",
+      "Decor": "ent",
+      "Choix": [
+         {
+            "Texte": "Repartir à l'attaque !",
+            "Vers": "27",
+            "Fuir": "234",
+            "Combat": ["ent", "l'Ent", "un", "il"],
+            "Force" : ["7"],
+            "Endurance": ["8"],
+            "TexteMort": "Malgré son bras en moins, l'Ent est un adversaire redoutable, qui finit par vous écraser au sol.",
+            "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
       "num": "124",
       "Description": "Le chemin aboutit à une autre bifurcation. L'embranchement orienté au sud ramène vers la forêt.",
-      "Decor": "",
+      "Decor": "plaine-jour",
       "Choix": [
          {
             "Texte": "Continuer en direction du nord",
@@ -967,6 +1069,21 @@
       ]
    },
    {
+      "num": "148",
+      "Description": "Le chemin continue vers le nord et vous parvenez bientôt à une autre bifurcation.",
+      "Decor": "embranchement",
+      "Choix": [
+         {
+            "Texte": "Poursuivre en direction du nord",
+            "Vers": "97"
+         },
+         {
+            "Texte": "Aller vers l'ouest",
+            "Vers": "20"
+         }
+      ]
+   },
+   {
       "num": "156",
       "Description": "Vous commencez à en avoir assez de tomber sans cesse. D'autant que vous vous êtes fait mal. Vos diverses contusions vous coûtent d'ailleurs 3 points de vie.",
       "Decor": "liane",
@@ -1007,7 +1124,7 @@
    {
       "num": "160",
       "Description": "L'étroit sentier continue de s'enfoncer dans la forêt épaisse. Toutes sortes de cris d'animaux et de bruits étranges retentissent à travers les feuillages ; et bientôt, le chemin s'agrandit : il fait à présent un mètre de large. Peu après, vous arrivez devant un poteau indicateur en bois. Il est couvert de mousse et, à son sommet, un gros corbeau est perché. Le panneau porte deux indications : nord et est. Vous vous demandez quelle direction prendre, lorsque vous entendez une voix lancer : « Bon après-midi ! » Vous levez les yeux en direction de l'endroit d'où la voix est venue, et vous voyez le corbeau qui vous regarde attentivement. « Bon après-midi », répondez-vous à voix basse, en vous sentant un peu idiot. Le corbeau alors reprend la parole et vous demande où vous allez. Vous lui répondez que vous cherchez deux Gobelins, des petites créatures au corps noueux et à la peau brune et écailleuse. « Pour une Pièce d'Or, je vous donnerai conseil »",
-      "Decor": "foret",
+      "Decor": "corbeau",
       "Choix": [
          {
             "Texte": "Payer 1 po au corbeau",
@@ -1021,6 +1138,18 @@
          {
             "Texte": "Ignorer l'oiseau et prendre la direction de l'est",
             "Vers": "239"
+         }
+      ]
+   },
+   {
+      "num": "163",
+      "Description": "Bien qu'il fasse plein soleil, un minuscule nuage gris apparaît dans le ciel. Il se trouve à très basse altitude et semble s'approcher de vous. A mesure qu'il avance, vous constatez qu'il se déplace à très grande vitesse et, finalement, il s'immobilise au-dessus de vous à environ cinq mètres du sol. Puis soudain, un éclair jaillit du nuage et vient vous frapper à l'épaule. Vous perdez 3 points de vie. Vous voyez le nuage filer à toute vitesse en direction de l'ouest.",
+      "Decor": "collines-chemin",
+      "Rules": ["changeLife",["-3"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "375"
          }
       ]
    },
@@ -1091,7 +1220,7 @@
    {
       "num": "177",
       "Description": "Dehors, à la lumière du plein jour, vous remarquez à nouveau ce silence mortel. Un étroit sentier mène vers le nord, s'éloignant des hautes herbes qui entourent la maison de Yaztromo pour s'enfoncer dans la végétation touffue de la Forêt des Ténèbres. Vous avez à peine fait quelques pas que vous vous retrouvez cerné par l'obscurité de cette forêt inextricable ; des pierres et des racines noueuses semblent se cacher dans l'ombre, et vous pourriez presque croire qu'elles cherchent à vous faire trébucher. La lumière du soleil s'efface bientôt complètement et l'atmosphère devient humide et déplaisante. Vous avancez de plus en plus profondément dans les ténèbres et le chemin finit par se diviser en deux autres sentiers, de part et d'autre d'un grand et vieil arbre.",
-      "Decor": "foret",
+      "Decor": "foret-deux",
       "Choix": [
          {
             "Texte": "Aller vers l'ouest",
@@ -1118,6 +1247,21 @@
             "Endurance": ["8"],
             "TexteMort": "L'araignée vous injecte son venin, et vous ligote dans ses soies. Quelques jours à faisander, et elle pourra déguster vos sucs liquéfiés.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "180",
+      "Description": "Vous marchez rapidement le long du sentier, à travers les hautes herbes qui vous arrivent à la taille, et vous arrivez à une nouvelle bifurcation.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "105"
+         },
+         {
+            "Texte": "Aller à l'ouest",
+            "Vers": "361"
          }
       ]
    },
@@ -1153,6 +1297,37 @@
          {
             "Texte": "Debug :)",
             "Vers": "137"
+         }
+      ]
+   },
+   {
+      "num": "187",
+      "Description": "En cheminant le long du sentier sinueux, vous apercevez bientôt une petite créature au corps noueux et à la peau brune et écailleuse. Elle est assise sur un tronc d'arbre mort à la droite du chemin, et son visage paraît maussade tandis qu'elle balance lentement entre ses doigts un bâton d'un noir brillant accroché à une lanière de cuir. C'est peut-être l'un des Gobelins que vous cherchez.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Tirer votre épée et attaquer le Gobelin",
+            "Liaison": "Lorsque vous levez votre épée pour porter le premier coup, la créature commence à se métamorphoser sous vos yeux. Elle grandit et sa peau devient verdâtre, puis une longue queue épineuse lui pousse dans le dos ; ses bras enfin s'épaississent et des griffes acérées se déploient au bout de ses mains. Son visage également se déforme, prenant une apparence reptilienne avec des yeux rouges et une large gueule aux mâchoires plantées de dizaine de dents tranchantes comme des rasoirs. Ce n'est pas un Gobelin, en fait, mais un <i class='stats'>CHANGEFORME.</i>",
+            "Vers": "373",
+            "Combat": ["changeforme", "le changeforme", "un", "il"],
+            "Force" : ["10"],
+            "Endurance": ["10"],
+            "TexteMort": "La créature est d'une force terrible, et le combat trop inégal. Vous tombez sous ses griffes.",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Engager la conversation avec lui",
+            "Liaison": "Lorsque vous lui parlez, le Gobelin lève les yeux et sourit, puis il commence à se métamorphoser devant vous. Sa taille augmente et il prend une teinte verte ; une longue queue épineuse lui pousse dans le dos, ses bras s'épaississent et des griffes pointues apparaissent au bout de ses doigts. Son visage se déforme et prend une apparence reptilienne, avec des yeux rouges et une large bouche plantée de dizaines de dents tranchantes comme des rasoirs. Ce n'est pas un Gobelin que vous avez devant vous, mais un <i class='stats'>CHANGEFORME</i>",
+            "Vers": "373",
+            "Combat": ["changeforme", "le changeforme", "un", "il"],
+            "Force" : ["10"],
+            "Endurance": ["10"],
+            "TexteMort": "La créature est d'une force terrible, et le combat trop inégal. Vous tombez sous ses griffes.",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Ne pas vous en occuper et poursuivre votre chemin vers le nord",
+            "Vers": "6"
          }
       ]
    },
@@ -1254,6 +1429,21 @@
          {
             "Texte": "Reprendre le voyage vers le nord",
             "Vers": "92"
+         }
+      ]
+   },
+   {
+      "num": "206",
+      "Description": "Soudain, vous entendez des appels au secours qui viennent de votre gauche, à l'écart du chemin.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Venir en aide à la personne qui appelle ainsi",
+            "Vers": "253"
+         },
+         {
+            "Texte": "Rester indifférent à ces cris et poursuivre votre chemin vers le nord",
+            "Vers": "187"
          }
       ]
    },
@@ -1374,7 +1564,7 @@
    {
       "num": "226",
       "Description": "Vous entendez, venant de votre droite, des voix qui se disputent dans une langue étrange. Les personnages qui parlent ainsi sont cachés par les arbres.",
-      "Decor": "",
+      "Decor": "foret",
       "Choix": [
          {
             "Texte": "Quitter le chemin pour voir de quoi il retourne",
@@ -1440,9 +1630,20 @@
       ]
    },
    {
+      "num": "234",
+      "Description": "Vous distancez facilement <i class='stats'>l'ENT</i> et revenez à la bifurcation, sans vous occuper du sentier qui mène vers le sud.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Prendre la direction de l'ouest",
+            "Vers": "382"
+         }
+      ]
+   },
+   {
       "num": "239",
       "Description": "Le chemin continue de s'enfoncer dans l'épaisse végétation, et vous éprouvez un certain sentiment de claustrophobie en vous sentant ainsi enfermé sous le feuillage des arbres qui forme une voûte au-dessus de vous. Un peu plus loin, le sentier oblique brusquement vers la gauche, à l'endroit où se dresse un arbre portant des fruits étranges.",
-      "Decor": "",
+      "Decor": "poires",
       "Choix": [
          {
             "Texte": "Goûter ces fruits",
@@ -1491,7 +1692,7 @@
    {
       "num": "245",
       "Description": "Parvenu au fond de la vallée, vous vous apercevez que le chemin se divise en trois voies.",
-      "Decor": "",
+      "Decor": "trois-chemins",
       "Choix": [
          {
             "Texte": "Continuer vers le nord",
@@ -1516,6 +1717,36 @@
             "Texte": "Tester votre Force",
             "Vers": "",
             "Rules": ["testezVotreForce",["63","260"]]
+         }
+      ]
+   },
+   {
+      "num": "252",
+      "Description": "Vous arrivez à un croisement à quatre voies. Le chemin orienté au sud ramène vers la forêt et vous ne le prendrez donc pas.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Aller au nord",
+            "Vers": "309"
+         },
+         {
+            "Texte": "Poursuivre vers l'est",
+            "Vers": "72"
+         }
+      ]
+   },
+   {
+      "num": "253",
+      "Description": "Vous vous dirigez vers l'endroit d'où proviennent les cris, en marchant difficilement parmi les racines noueuses des arbres, et vous apercevez bientôt un homme vêtu d'une djellaba de couleur foncée, le pied emprisonne dans un piège à loup tout rouillé. L'homme a le visage masqué par un pan de son vêtement, et l'on ne peut voir que ses yeux sombres.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Aller voir quelle créature grogne ainsi",
+            "Vers": "344"
+         },
+         {
+            "Texte": "Le laisser là et repartir vers le nord",
+            "Vers": "187"
          }
       ]
    },
@@ -1653,6 +1884,35 @@
       ]
    },
    {
+      "num": "277",
+      "Description": "Le chemin continue vers l'est pendant quelque temps, puis oblique soudain vers le nord en se rétrécissant légèrement. Les arbres semblent encore plus nombreux qu'à l'ordinaire, et un frisson vous parcourt l'échine : vous ressentez quelque chose d'anormal. Soudain, une branche d'arbre, à votre droite, jaillit d'un tronc et vous frappe. Vous tombez sur le sol et vous perdez 1 point de vie. Vous vous remettez sur pied en titubant et vous voyez alors qu'un des arbres s'est avancé sur le chemin et vous barre le passage. C'est un vieil arbre dont l'écorce est épaisse et fendillée. Vous distinguez au milieu de son tronc une paire d'yeux et une bouche, et vous réalisez que vous venez d'être attaqué par un <i class='stats'>ENT.</i>",
+      "Decor": "ent",
+      "Choix": [
+         {
+            "Texte": "Fuir en courant",
+            "PdV": "-2",
+            "Vers": "234"
+         },
+         {
+            "Texte": "Sortir votre épée et l'attaquer",
+            "Liaison": "L'Ent essaye de vous frapper à grands coups de ses deux grandes branches, et vous vous lancez à l'assaut. Il vous faudra le combattre deux fois, une fois par branche, pour le vaincre...",
+            "Vers": "123",
+            "Fuir": "234",
+            "Combat": ["ent", "l'Ent", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["8"],
+            "TexteMort": "Il finit par vous attraper le cou, et vous étrangle avec une force inouïe.",
+            "TexteVictoire" : "Vous lui tranchez un bras !"
+         },
+         {
+            "Texte": "Utiliser vos capsules de feu",
+            "Vers": "350",
+            "Conditions": ["hasObject",["capsules de feu"]],
+            "Rules": ["looseObjects",["capsules de feu"]]
+         }
+      ]
+   },
+   {
       "num": "278",
       "Description": "Le chemin suit un étroit défilé entre deux collines. Vous vous sentez vulnérable et vous tirez votre épée, car vous pourriez à tout moment tomber dans un guet-apens. Mais, comme vous êtes occupé à surveiller sans cesse les deux versants du défilé, vous ne remarquez pas devant vous un carré de feuilles et de branches en plein milieu du chemin. Votre pied traverse alors ce camouflage qui dissimule un piège à ours, et vous tombez quatre mètres plus bas, au fond d'une fosse aux parois rocheuses. Pour ajouter à votre infortune, un pieu acéré est dressé au centre de la fosse.",
       "Decor": "",
@@ -1667,7 +1927,7 @@
    {
       "num": "288",
       "Description": "En descendant la colline, vous voyez s'étendre devant vous le fond de la vallée et vous apercevez au loin le sinistre mur vert sombre de la Forêt des Ténèbres. C'est au-delà de cette masse d'arbres et de buissons que se trouve Pont-de-Pierre, le but de votre voyage. Vous atteignez le pied de la colline et vous remarquez alors que de gros blocs rocheux s'alignent de chaque côté du chemin. Or, l'un de ces rocs, et l'un des plus imposants se balance d'un côté et d'autre comme une feuille dans le vent. Il y a là de quoi être surpris.",
-      "Decor": "",
+      "Decor": "rochers",
       "Choix": [
          {
             "Texte": "Aller voir d'un peu plus près de quoi il retourne",
@@ -1682,6 +1942,21 @@
          {
             "Texte": "Passer votre chemin et continuer vers le nord",
             "Vers": "245"
+         }
+      ]
+   },
+   {
+      "num": "289",
+      "Description": "Le sentier étroit et recouvert de végétation continue à serpenter parmi les arbres touffus de la forêt. D'étranges cris d'animaux retentissent dans les feuillages. Vous arrivez bientôt à une autre bifurcation.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers l'ouest",
+            "Vers": "76"
+         },
+         {
+            "Texte": "Prendre vers le nord",
+            "Vers": "147"
          }
       ]
    },
@@ -1734,7 +2009,7 @@
       "Choix": [
          {
             "Texte": "Emprunter le pont pour traverser",
-            "Liaison": "",
+            "Liaison": "Le pont tombe quasiment en ruine mais vous parvenez malgré tout à le franchir sans encombre.",
             "Vers": "65"
          },
          {
@@ -1778,6 +2053,18 @@
          {
             "Texte": "Ne rien prendre d'autre que les pièces d'Or",
             "Vers": "157"
+         }
+      ]
+   },
+   {
+      "num": "308",
+      "Description": "En mangeant les champignons, vous ressentez une grande agitation dans tout votre corps, et vous pensez aussitôt que vous êtes peut-être en train de devenir vous-même un Changeforme ! Bientôt, cependant, vous êtes soulagé de sentir cette agitation s'apaiser puis disparaître ; vous n'êtes pas devenu un Changeforme, mais vous avez mangé des Champignons Brouilleurs et votre total de <i class='stats'>FORCE</i> va maintenant remplacer votre total de <i class='stats'>CHANCE</i> et inversement. Vous vous sentez un peu bizarre à présent.",
+      "Decor": "",
+      "Rules": ["swapStrengthChance",[""]],
+      "Choix": [
+         {
+            "Texte": "Repartir tant bien que mal vers le nord",
+            "Vers": "148"
          }
       ]
    },
@@ -1878,8 +2165,23 @@
       ]
    },
    {
+      "num": "329",
+      "Description": "La lumière du jour apparaît à travers les feuillages à mesure que la végétation devient moins dense et, bientôt, vous quittez la forêt pour arriver devant une vaste plaine couverte de hautes herbes. Au-delà, le sol s'élève, au pied de collines basses.",
+      "Decor": "plaine-jour",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "180"
+         },
+         {
+            "Texte": "Aller vers l'est",
+            "Vers": "252"
+         }
+      ]
+   },
+   {
       "num": "330",
-      "Description": "Cf 65 !",
+      "Description": "Cf 65 ou 75 !",
       "Decor": "collines-nuit",
       "Choix": [
          {
@@ -1967,6 +2269,23 @@
       ]
    },
    {
+      "num": "339",
+      "Description": "Vous arrivez bientôt sur la berge d'une rivière au cours paisible. Le chemin continue de l'autre côté de l'eau que vous pouvez franchir en empruntant un vieux pont de bois tout délabré.",
+      "Decor": "pont-bois",
+      "Choix": [
+         {
+            "Texte": "Emprunter le pont pour traverser",
+            "Liaison": "Le pont tombe quasiment en ruine mais vous parvenez malgré tout à le franchir sans encombre.",
+            "Vers": "65"
+         },
+         {
+            "Texte": "Traverser la rivière",
+            "Liaison": "Vos jambes vous semblent très vulnérables, et vous ne seriez guère étonné qu'une quelconque créature vivant dans l'eau de la rivière vienne vous mordre les mollets. Rien ne se produit cependant, et vous parvenez à atteindre l'autre rive sans dommage.",
+            "Vers": "65"
+         }
+      ]
+   },
+   {
       "num": "343",
       "Description": "Vous posez la Pièce d'Or sur le poteau indicateur, ainsi que le corbeau vous l'a demandé. « Allez vers le nord », dit alors l'oiseau. Vous lui demandez pourquoi il a besoin d'or et il vous répond qu'il lui faut en tout 30 Pièces : c'est le prix que demande Yaztromo pour lui redonner son apparence humaine.",
       "Decor": "foret",
@@ -1978,6 +2297,28 @@
          {
             "Texte": "Ignorer l'oiseau et prendre la direction de l'est",
             "Vers": "239"
+         }
+      ]
+   },
+   {
+      "num": "344",
+      "Description": "Vous glissez la lame de votre épée entre les mâchoires du piège et vous vous en servez pour faire levier. L'étranger vêtu de la djellaba vous aide en tirant de toutes ses forces, et le piège finit par s'ouvrir. L'homme se confond en remerciements et vous raconte qu'il parcourt cette forêt à la recherche de son frère depuis longtemps disparu, et dont il soupçonne qu'il s'est retiré quelque part en ces lieux pour y mener une vie d'ermite. Vous vous frayez tous deux un chemin parmi les racines enchevêtrées pour rejoindre le sentier, puis vous demandez à l'étranger s'il veut vous accompagner en direction du nord ; mais il décline poliment votre invitation en déclarant que son frère, selon lui, a plutôt dû s'établir au sud.",
+      "Decor": "foret",
+      "Choix": [
+         {
+            "Texte": "Lui serrer la main et repartir",
+            "Vers": "36"
+         }
+      ]
+   },
+   {
+      "num": "350",
+      "Description": "Vous fouillez dans votre sac à dos et vous en retirez un petit sac qui contient les capsules. Il y en a cinq en tout, de couleur rouge brillante. Vous en prenez une et vous la lancez sur l'Ent qui avance vers vous. Elle atterrit devant lui, puis explose en un nuage de fumée blanche. Un jet de feu jaillit alors du sol obligeant l'Ent à reculer. Vous profitez de l'occasion pour lui jeter les autres capsules, et des flammes bientôt s'élèvent tout autour de son tronc. Il ne vous reste plus qu'à passer en courant devant lui pendant qu'il est ainsi cerné. Bientôt, vous êtes parvenu à bonne distance du monstre végétal et vous cessez de courir. Vous remarquez que la végétation s'éclaircit.",
+      "Decor": "foret-fleur",
+      "Choix": [
+         {
+            "Texte": "Poursuivre ensuite votre chemin vers le nord",
+            "Vers": "329"
          }
       ]
    },
@@ -2085,6 +2426,36 @@
       ]
    },
    {
+      "num": "373",
+      "Description": "Vous vous laissez tomber sur le tronc mort, épuisé par ce long combat. Hélas ! le bâton noir n'était qu'une illusion créée par le Changeur de Forme, et vous n'en voyez plus trace. Un instant plus tard, vous remarquez, derrière le tronc, quelques champignons violets qui ont poussé là. Vous n'en avez jamais vu de semblables, mais ils semblent appétissants.",
+      "Decor": "champignons",
+      "Choix": [
+         {
+            "Texte": "Goûter à ces champignons",
+            "Vers": "308"
+         },
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "148"
+         }
+      ]
+   },
+   {
+      "num": "375",
+      "Description": "Vous arrivez bientôt à une bifurcation.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "150"
+         },
+         {
+            "Texte": "Aller à l'ouest",
+            "Vers": "236"
+         }
+      ]
+   },
+   {
       "num": "376",
       "Description": "Le sol de la caverne est jonché de cailloux et de débris. Ce ne serait vraiment pas de chance de trébucher maintenant !",
       "Decor": "",
@@ -2126,6 +2497,17 @@
             "Endurance": ["6","5"],
             "TexteMort": "",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "382",
+      "Description": "Vous suivez le chemin vers l'ouest, et vous arrivez bientôt à une nouvelle bifurcation. Vous décidez de ne pas prendre le sentier orienté au sud.",
+      "Decor": "embranchement",
+      "Choix": [
+         {
+            "Texte": "Aller vers le nord",
+            "Vers": "97 todo"
          }
       ]
    },

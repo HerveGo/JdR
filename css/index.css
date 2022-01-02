@@ -1,5 +1,24 @@
+@font-face {
+       font-family: "Medieval";
+       src: url("BLKCHCRY.TTF") format("truetype");
+}
+
 .debug {
     visibility: visible;
+}
+
+/* Invisible background to stop speaking onclick */
+.stopSpeaking {
+       display: none; /* Hidden by default */
+       position: fixed; /* Stay in place */
+       border-style: none;
+       z-index: 1; /* Sit on top */
+       left: 0;
+       top: 0;
+       width: 100%; /* Full width */
+       height: 100%; /* Full height */
+       overflow: auto; /* Enable scroll if needed */
+       background-color: transparent;
 }
 
 /* Thin Scrollbar FF */
@@ -25,11 +44,6 @@
 
 ::-webkit-scrollbar-thumb:hover {
        background: rgb(71, 37, 12);
-}
-
-@font-face {
-       font-family: "Medieval";
-       src: url("BLKCHCRY.TTF") format("truetype");
 }
 
 html {
@@ -206,11 +220,6 @@ h2{
        -moz-box-shadow: -11px 11px 23px 14px rgba(0, 0, 0, 0.71);
 }
 
-#histoire p {
-    
-       
-}
-
 p#content {
     color: cornsilk;
     padding-right: 2vw;
@@ -231,7 +240,6 @@ p#content {
 }
 
 #choix {
-       
        float: right;
        text-align: center;
        height: fit-content;

@@ -32,6 +32,20 @@ function cheat() {
     startGame();
 }
 
+// Get the modal
+let shutUp = document.getElementById("shutUp");
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener( 'click', (event) => { if(event.target == shutUp) stopAnimationText(); } );
+
+function closeShutUp(i) {
+    shutUp.style.display = "none";
+}
+
+function showShutUp(i) {
+    shutUp.style.display = "block";
+}
+
 // -----------------------------------------------------------------------------
 
 function majDecor(decorName) {
@@ -129,7 +143,7 @@ function changeLifePoint(changeLife) {
     //console.log("Mise a jour des point de vie -> " + changeLife);
     changeLife = parseInt(changeLife);
 
-    const oldLife = maLife;
+    oldLife = maLife;
 
     maLife += changeLife;
 
@@ -355,6 +369,7 @@ function taler() {
     const imgOne = document.getElementById('one');
     let changement = 1;
     speak = true;
+    showShutUp();
 
     setInterval(function boucheD() {
         if (speak == true) {
@@ -417,6 +432,7 @@ function animationText() {
 
     (function type() {
         if ((i === str.length) || (toggleAnimationText)) {
+            closeShutUp();
             document.getElementById("content").innerHTML = allDescription;
             displayChoices();
             stopTalking();
@@ -438,6 +454,7 @@ function stopAnimationText(){
     toggleAnimationText = true;
     const histoire = document.getElementById("content");
     histoire.innerHTML = allDescription;
+    closeShutUp();
     stopTalking();
 }
 

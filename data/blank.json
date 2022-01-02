@@ -5,14 +5,11 @@
       "Decor": "",
       "Choix": [
          {
-            "Texte": "Quitter l'auberge.",
-            "Liaison": "La nuit glaciale et humide vous fait perdre 3 points de vie.",
-            "Vers": "",
-            "PdV": "-3",
-            "Rules": ["changeOr",["-100"]]
+            "Texte": "",
+            "Vers": ""
          }
       ]
-   }
+   },
 
    {
       "num": "16",
