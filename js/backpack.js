@@ -74,6 +74,13 @@ function testezVotreForce(vers) {
         return vers[1];
     }
 }
+function hasBite(vers) {
+    if( mordu ) {
+        return vers[0];
+    } else {
+        return vers[1];
+    }
+}
 function resetPlayer() {
     inventory = ["épée","armure de cuir","lanterne"];
     mesPotions = [];
@@ -310,15 +317,15 @@ function eat() {
     modalHeader.innerHTML = '<img alt="" src="images/jambon.png">Manger une ration';
     console.log(`maLife ${maLife}, max ${maxLife}`);
     if( maLife == maxLife ) {
-        modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de manger une ration pour l'instant.</p>";
+        modalBody.innerHTML = "Vos points de vie sont au maximum&nbsp;!<p>Il est inutile de manger une ration pour l'instant.</p>";
         showModal(1);
     } else if ( maFood == 0 ) {
-        modalBody.innerHTML = "<p>Vous n'avez plus rien à manger&nbsp;!</p><p>Il ne vous reste plus qu'à écouter votre ventre gargouiller.</p>";
+        modalBody.innerHTML = "Vous n'avez plus rien à manger&nbsp;!<p>Il ne vous reste plus qu'à écouter votre ventre gargouiller.</p>";
         showModal(1);
     } else {
         eatFood();
         majInventaire();
-        modalBody.innerHTML = "<p>Vous prenez un moment pour manger une de vos rations</p><p>Ce repas sommaire vous fait regagner 4 points de vie.</p>";
+        modalBody.innerHTML = "Vous prenez un moment pour manger une de vos rations.<p>Ce repas sommaire vous fait regagner 4 points de vie.</p>";
         showModal(1);
     }
 }
@@ -332,49 +339,49 @@ function drinkPotion(typePotion){
     switch( typePotion ) {
         case "vigueur":
             if( maLife == maxLife ) {
-                modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modalBody.innerHTML = "Vos points de vie sont au maximum&nbsp;!<p>Il est inutile de boire cette potion pour l'instant.</p>";
                 showModal(1);
             } else {
                 maLife = maxLife;
                 displayLife(0);
                 mesPotions = removeItemOnce(mesPotions, typePotion);
-                modalBody.innerHTML = "<p>La potion restaure votre endurance à son maximum.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
+                modalBody.innerHTML = "La potion restaure votre endurance à son maximum.<p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
                 showModal(1);
             }
             break;
         case "fiole de vie":
             if( maLife == maxLife ) {
-                modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modalBody.innerHTML = "Vos points de vie sont au maximum&nbsp;!<p>Il est inutile de boire cette potion pour l'instant.</p>";
                 showModal(1);
             } else {
                 let oldLife = maLife;
                 changeLife("4");
                 displayLife(oldLife);
                 mesPotions = removeItemOnce(mesPotions, typePotion);
-                modalBody.innerHTML = "<p>La fiole vous fait regagner 4 points de vie.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
+                modalBody.innerHTML = "La fiole vous fait regagner 4 points de vie.<p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
                 showModal(1);
             }
             break;
         case "puissance":
             if( maForce == maxForce ) {
-                modalBody.innerHTML = "<p>Votre force est à son maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                modalBody.innerHTML = "Votre force est à son maximum&nbsp;!<p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
-                modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
+                modalBody.innerHTML ="La potion restaure votre force à son maximum.<p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
                 maForce = maxForce;
                 mesPotions = removeItemOnce(mesPotions, typePotion);
                 showModal(1);
             }
             break;
         case "fortune":
-            modalBody.innerHTML = "<p>La potion augmente votre chance maximale de 1.</p><p>Tous vos points de chance sont restaurés.</p>";
+            modalBody.innerHTML = "La potion augmente votre chance maximale de 1.<p>Tous vos points de chance sont restaurés.</p>";
             maxChance++;
             maChance = maxChance;
             mesPotions = removeItemOnce(mesPotions, typePotion);
             showModal(1);
             break;
         case "potion rouge":
-            modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable&nbsp;!</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
+            modalBody.innerHTML = "La potion vous remplit d'une énergie incroyable&nbsp;!<p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
             maxForce += 2;
             maForce = maxForce;
             mesPotions = removeItemOnce(mesPotions, typePotion);

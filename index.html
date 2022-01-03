@@ -177,7 +177,14 @@
                 <li id="choix3" class="noselect liChoix" tabindex="3" onclick = clickOption(2)></li>
             </ul>
         </section>
-        <div class="debug"><input id="goto" type="number" min="0" max="400"><button onclick="cheat()">Go</button></div>
+        <div class="debug">
+            <div>
+                <input id="goto" type="number" min="0" max="400"><button onclick="cheat()">Go</button>
+            </div>
+            <div>
+                <input id="setLife" type="number" min="1" max="20"><button onclick="setLife()">Set Life</button>
+            </div>
+        </div>
     </div>
     
 </body>

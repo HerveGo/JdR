@@ -1,7 +1,7 @@
 9 <= combat ?
 317 <= combat 8
 
-Todo ouest sorti de tour... 277 ent, 97
+Todo ouest sorti de tour... 277 ent, 97, 323
 
 180 -> 208
 

@@ -627,6 +627,17 @@
       ]
    },
    {
+      "num": "83",
+      "Description": "liaison 155 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "139"
+         }
+      ]
+   },
+   {
       "num": "85",
       "Description": "A l'intérieur de la cage, une petite créature musculeuse à la peau brune et couverte d'écailles sautille en tous sens. Il s'agit d'un <i class='stats'>GOBELIN</i> qui porte autour du cou, accroché à une lanière de cuir, un petit bâton d'un noir brillant.",
       "Decor": "",
@@ -714,12 +725,20 @@
    },
    {
       "num": "97",
-      "Description": "todo",
-      "Decor": "",
+      "Description": "Le sentier continue inlassablement vers le nord mais, au bout d'un moment, le feuillage des arbres s'éclaircit quelque peu et semble moins menaçant lorsque, enfin, des rayons de lumière parviennent à le traverser. Bientôt, vous apercevez à la droite du chemin une chaise en bois de chêne.",
+      "Decor": "foret-chaise",
       "Choix": [
          {
-            "Texte": "",
-            "Vers": ""
+            "Texte": "Vous asseoir sur cette chaise pour vous reposer et prendre quelque nourriture",
+            "Liaison": "Bien qu'elle soit taillée dans un bois de chêne particulièrement dur, la chaise est étonnamment confortable. Vous commencez alors à manger, mais au lieu de sentir vos forces revenir, vous éprouvez une impression de faiblesse. C'est que vous vous êtes assis sur une Chaise Dévoreuse de Vie qui vous fait perdre 4 points de vie en dépit de la nourriture que vous venez d'absorber.",
+            "Vers": "328",
+            "PdV": "-4",
+            "Conditions": ["minFood",["1"]],
+            "Rules": ["changeFood",["-1"]]
+         },
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "118"
          }
       ]
    },
@@ -849,6 +868,22 @@
          {
             "Texte": "Debug :)",
             "Vers": "232"
+         }
+      ]
+   },
+   {
+      "num": "118",
+      "Description": "Le chemin finit par émerger de sous les feuillages, et débouche sur une vaste plaine. Un peu plus loin, le sol s'élève, menant à quelques collines basses. De chaque côté du chemin, des herbes hautes ondulent doucement sous la brise tiède. Tout est paisible et il semble qu'aucun danger grave ne vous menace. Vous marchez donc d'un pas confiant lorsque, soudain, le silence alentour est rompu par des cris et des grognements, à droite du chemin. En regardant de ce côté, vous voyez alors les herbes s'écarter sous les pas d'une bête encore invisible qui s'avance vers vous. Aussitôt, vous tirez votre épée, prêt à combattre. Et quelques instants plus tard, une énorme créature au pelage sombre et aux allures de cochon, surgit devant vous et s'immobilise sur le chemin. Deux longues défenses pointent de chaque côté de son groin et de la vapeur s'élève de son corps en sueur. Ses petits yeux vous regardent fixement, puis l'animal baisse la tête et fonce sur vous.",
+      "Decor": "sanglier",
+      "Choix": [
+         {
+            "Texte": "Engager le combat",
+            "Vers": "174",
+            "Combat": ["sanglier sauvage", "le sanglier sauvage", "un", "il"],
+            "Force" : ["6"],
+            "Endurance": ["5"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
          }
       ]
    },
@@ -1023,6 +1058,17 @@
       ]
    },
    {
+      "num": "139",
+      "Description": "Les effets de la belladone et de la morsure du Loup-Garou disparaissent bientôt, et vous parvenez enfin à vous rendormir. Au matin, vous ramassez vos affaires.",
+      "Decor": "collines-matin",
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "198 todo"
+         }
+      ]
+   },
+   {
       "num": "140",
       "Description": "Vous contournez la masse bulbeuse de l'Araignée Géante et vous vous recouchez pour plonger dans un sommeil agité. Au matin, vous vous réveillez de bonne heure et vous repartez vers le nord, le long du chemin. Le sentier suit bientôt une pente escarpée en montant dans les collines et, lorsque vous arrivez au sommet, le soleil est brûlant. A quelque distance, vous apercevez le cercle verdoyant de la Forêt des Ténèbres. Derrière vous, la brume du matin s'étend sur les hautes herbes mais devant, les rayons du soleil illuminent une vallée sans nuages. Tout est calme et vous commencez à descendre le versant opposé de la colline. Bientôt, le chemin bifurque.",
       "Decor": "collines-matin",
@@ -1057,6 +1103,18 @@
       ]
    },
    {
+      "num": "145",
+      "Description": "Vous dénouez l'amarre du bateau, et vous traversez la rivière à la rame. Mais lorsque vous êtes à peu près à mi-chemin, vous vous apercevez que l'eau s'infiltre dans le fond de l'embarcation. En vérité, la coque est pleine de trous, et le bateau commence à couler : il ne vous reste plus, dès lors, qu'à prendre vos affaires et à nager vers l'autre rive. Mais, après avoir pris pied sur la berge, vous constatez avec désespoir que toutes vos provisions se sont gâtées au contact de l'eau. Le soir tombe, à présent ; et vous décidez d'installer votre camp à l'abri de quelques rochers, à droite du chemin. Vous allumez un grand feu et vous vous couchez, votre épée à portée de la main.",
+      "Decor": "collines-nuit",
+      "Rules": ["changeFood",["-100"]],
+      "Choix": [
+         {
+            "Texte": "Dormir jusqu'au matin",
+            "Vers": "285"
+         }
+      ]
+   },
+   {
       "num": "146",
       "Description": "Vous contemplez le tas de rocs fracassés qui repose à vos pieds, et vous vous demandez comment une telle bête a bien pu voir le jour ; sans doute est-ce là l'œuvre de quelque démon particulièrement malfaisant ? Vous ne le saurez jamais. Quoi qu'il en soit, vous emportez avec vous un morceau de la pierre qui constituait le corps de la Bête Rocheuse afin de l'examiner plus tard.",
       "Decor": "",
@@ -1080,6 +1138,27 @@
          {
             "Texte": "Aller vers l'ouest",
             "Vers": "20"
+         }
+      ]
+   },
+   {
+      "num": "155",
+      "Description": "Vous vous recouchez pour essayer de vous rendormir, mais vous vous mettez à frissonner et à trembler tandis que la sueur ruisselle sur votre corps, bien que vous ayez très froid.",
+      "Decor": "lune",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre belladone",
+            "Liaison": "Vous fouillez dans votre sac à dos pour y prendre la belladone. C'est une plante vénéneuse, mais elle vous empêchera de vous changer vous-même en Loup-Garou. Vous perdez 2 points de vie en raison des effets du poison.",
+            "Vers": "139",
+            "PdV": "-2",
+            "Conditions": ["hasObject",["belladone"]],
+            "Rules": ["looseObjects",["belladone"]]  
+         },
+         {
+            "Texte": "Espérer que la fièvre passe",
+            "Liaison": "Vous éprouvez dans tout votre corps une sensation de brûlure, et vous vous sentez peu à peu gagné par une fièvre enragée. Il se pourrait bien que vous soyez vous-même en train de vous changer en Loup-Garou ! Vous perdez 3 points de vie.",
+            "Vers": "259",
+            "PdV": "-3"
          }
       ]
    },
@@ -1142,6 +1221,17 @@
       ]
    },
    {
+      "num": "162",
+      "Description": "Il n'y a rien d'utile ou de précieux dans la caverne de l'Homme-Poisson ; et vous vous dirigez vers la paroi située au nord. Des marches permettent de retraverser la chute d'eau, et mènent ensuite au sommet de la pente nord du défilé. Vous vous trouvez à présent au pied de quelques collines et vous voyez que le chemin monte parmi elles en direction du nord. Le soir tombe, et vous décidez d'établir votre campement derrière un amas rocheux, à droite du chemin. Vous allumez un grand feu et vous vous installez pour dormir, votre épée à portée de main.",
+      "Decor": "lune",
+      "Choix": [
+         {
+            "Texte": "Dormir jusqu'au matin",
+            "Vers": "285"
+         }
+      ]
+   },
+   {
       "num": "163",
       "Description": "Bien qu'il fasse plein soleil, un minuscule nuage gris apparaît dans le ciel. Il se trouve à très basse altitude et semble s'approcher de vous. A mesure qu'il avance, vous constatez qu'il se déplace à très grande vitesse et, finalement, il s'immobilise au-dessus de vous à environ cinq mètres du sol. Puis soudain, un éclair jaillit du nuage et vient vous frapper à l'épaule. Vous perdez 3 points de vie. Vous voyez le nuage filer à toute vitesse en direction de l'ouest.",
       "Decor": "collines-chemin",
@@ -1187,6 +1277,18 @@
          {
             "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
             "Vers": "358"
+         }
+      ]
+   },
+   {
+      "num": "174",
+      "Description": "Tandis que vous retirez votre épée de la carcasse du Sanglier Sauvage, vous vous demandez pourquoi il vous a attaqué. Vous entendez alors au lointain des aboiements de chiens. Peut-être était-il poursuivi par une meute et, se voyant pris au piège, a-t-il voulu livrer contre vous son dernier combat? Passé dans le groin du sanglier, vous trouvez un anneau d'or que vous arrachez aussitôt pour le ranger dans votre sac à dos. Cet anneau vaut 10 Pièces d'Or et vous fait gagner 1 point de <i class='stats'>CHANCE.</i>",
+      "Decor": "",
+      "Rules": ["gainJewels",["anneau d'or"],"changeChance",["1"]],
+      "Choix": [
+         {
+            "Texte": "Reprendre le chemin",
+            "Vers": "323"
          }
       ]
    },
@@ -1262,6 +1364,17 @@
          {
             "Texte": "Aller à l'ouest",
             "Vers": "361"
+         }
+      ]
+   },
+   {
+      "num": "181",
+      "Description": "cf 335 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "162"
          }
       ]
    },
@@ -1782,6 +1895,18 @@
       ]
    },
    {
+      "num": "259 todo",
+      "Description": "Il vous faut maintenant faire appel à votre Chance.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tenter votre chance",
+            "Vers": "",
+            "Rules":["tentezVotreChance",["244","19"]]
+         }
+      ]
+   },
+   {
       "num": "260",
       "Description": "La flèche se plante dans votre épaule, et vous perdez 4 points de vie. Voyant que sa flèche ne vous a pas tué, le Centaure se dresse sur ses pattes de derrière et fonce sur vous au grand galop. Vous faites un bond en arrière pour éviter d'être renversé, et la créature passe devant vous dans un nuage de poussière avant de s'arrêter dix mètres plus loin sur le chemin d'où vous êtes venu. Ce n'est peut-être pas une si bonne idée de vouloir le combattre.",
       "Decor": "",
@@ -1925,6 +2050,22 @@
       ]
    },
    {
+      "num": "285",
+      "Description": "Vous dormez depuis environ une heure, lorsqu'un grognement sonore vous réveille. Vous vous levez sans bruit et vous empoignez votre épée, puis vous écoutez, immobile. Dans le ciel, la lune est pleine, et sa clarté projette alentour des ombres inquiétantes. Vous entendez alors des pas feutrés et des reniflements suivis d'un autre grognement. Un instant plus tard, une forme d'apparence humaine surgit de l'obscurité, à votre droite. A mesure que la créature approche, vous remarquez son torse, son visage et ses bras recouverts d'une épaisse fourrure, et les longues dents pointues qui hérissent ses mâchoires. Il s'agit là d'un <i class='stats'>LOUP-GAROU</i> qu'il vous faut combattre.",
+      "Decor": "lune",
+      "Choix": [
+         {
+            "Texte": "Combattre le loup-garou",
+            "Vers": "388",
+            "Combat": ["loup-garou", "le loup-garou", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["9"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
       "num": "288",
       "Description": "En descendant la colline, vous voyez s'étendre devant vous le fond de la vallée et vous apercevez au loin le sinistre mur vert sombre de la Forêt des Ténèbres. C'est au-delà de cette masse d'arbres et de buissons que se trouve Pont-de-Pierre, le but de votre voyage. Vous atteignez le pied de la colline et vous remarquez alors que de gros blocs rocheux s'alignent de chaque côté du chemin. Or, l'un de ces rocs, et l'un des plus imposants se balance d'un côté et d'autre comme une feuille dans le vent. Il y a là de quoi être surpris.",
       "Decor": "rochers",
@@ -1968,6 +2109,21 @@
          {
             "Texte": "Debug :)",
             "Vers": "385"
+         }
+      ]
+   },
+   {
+      "num": "291",
+      "Description": "A mesure que vous avancez sur la plaine en direction du nord, les herbes sont de moins en moins hautes et le sol monte en pente douce. A quelque distance, vous entendez le grondement d'une chute d'eau, et vous atteignez bientôt la berge d'une large rivière qui coule sur deux niveaux : à votre droite, l'eau est calme et le courant très faible. Mais, en face, une haute et bruyante chute d'eau dégringole au fond d'un défilé : là, le lit de la rivière se rétrécit et son cours devient tumultueux tandis qu'elle s'enfonce vers l'ouest parmi de gros blocs rocheux. Des marches taillées dans le roc, juste à côté de la chute d'eau, permettent de descendre dans le défilé ; mais il est impossible de savoir où elles aboutissent exactement en raison des gerbes d'écumes qui jaillissent à leur base et qui les cachent à la vue. De l'autre côté de l'eau, le chemin continue vers le nord et, à votre droite, un petit bateau de bois est amarré à un poteau, là où le cours de la rivière est calme.",
+      "Decor": "bateau",
+      "Choix": [
+         {
+            "Texte": "Descendre les marches le long de la chute d'eau",
+            "Vers": "335"
+         },
+         {
+            "Texte": "Traverser la rivière à la rame à bord du petit bateau",
+            "Vers": "145"
          }
       ]
    },
@@ -2131,6 +2287,17 @@
       ]
    },
    {
+      "num": "316",
+      "Description": "Vous finissez par vous rendormir, mais vous passez une nuit agitée. Au matin, vous ramassez vos affaires et vous repartez vers le nord, le long du chemin qui mène en direction des collines.",
+      "Decor": "collines-matin",
+      "Choix": [
+         {
+            "Texte": "Reprendre le chemin du nord",
+            "Vers": "198"
+         }
+      ]
+   },
+   {
       "num": "319",
       "Description": "Voir 278",
       "Decor": "",
@@ -2138,6 +2305,25 @@
          {
             "Texte": "Debug :)",
             "Vers": "278"
+         }
+      ]
+   },
+   {
+      "num": "323",
+      "Description": "En marchant vers le nord, vous arrivez bientôt à une bifurcation.",
+      "Decor": "trois-chemins",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "291"
+         },
+         {
+            "Texte": "Aller à l'est",
+            "Vers": "102"
+         },
+         {
+            "Texte": "Aller à l'ouest",
+            "Vers": "99"
          }
       ]
    },
@@ -2161,6 +2347,28 @@
             "Vers": "268",
             "Conditions": ["hasObject",["gousses d'ail"]],
             "Rules": ["looseObjects",["gousses d'ail"]]
+         }
+      ]
+   },
+   {
+      "num": "326",
+      "Description": "Debout sur la berge, vous examinez les alentours, mais il ne semble pas exister d'autre moyen que ce bateau pour traverser la rivière.",
+      "Decor": "bateau",
+      "Choix": [
+         {
+            "Texte": "Traverser avec le bateau",
+            "Vers": "145"
+         }
+      ]
+   },
+   {
+      "num": "328",
+      "Description": "Vous parvenez à vous relever lentement, et vous repartez en titubant le long du chemin",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "118"
          }
       ]
    },
@@ -2217,6 +2425,27 @@
          {
             "Texte": "Prendre la direction de l'est",
             "Vers": "51"
+         }
+      ]
+   },
+   {
+      "num": "335",
+      "Description": "Vous descendez les marches glissantes jusqu'au bas de la chute d'eau. En levant les yeux, vous voyez alors un magnifique arc-en-ciel qui se reflète dans l'écume tourbillonnante. Il fait sombre dans le défilé et il est impossible de voir quoi que ce soit à travers le rideau de l'eau qui tombe. Les marches s'arrêtent là.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Traverser la chute d'eau",
+            "Liaison": "Vous suivez les marches et vous traversez la chute d'eau pour entrer dans une vaste caverne ; les marches contournent un bassin d'eau stagnante. De l'autre côté du bassin, vous trouvez une table et une chaise de pierre. En vous approchant de la table, vous voyez des déchets de poisson abandonnés là et, soudain, vous entendez derrière vous un bruit d'eau. Une étrange créature armée d'un trident surgit alors du bassin et s'avance vers vous. Elle a les jambes d'un homme, mais sa tête et son torse ressemblent au corps d'un gros poisson vert aux yeux globuleux. Ses bras ont également quelque chose d'humain, bien qu'ils soient recouverts d'écailles.",
+            "Vers": "162",
+            "Combat": ["homme poisson", "l'homme poisson", "un", "il"],
+            "Force" : ["7"],
+            "Endurance": ["6"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Remonter les marches",
+            "Vers": "326"
          }
       ]
    },
@@ -2507,7 +2736,7 @@
       "Choix": [
          {
             "Texte": "Aller vers le nord",
-            "Vers": "97 todo"
+            "Vers": "97"
          }
       ]
    },
@@ -2577,6 +2806,18 @@
          {
             "Texte": "Debug :)",
             "Vers": "119"
+         }
+      ]
+   },
+   {
+      "num": "388",
+      "Description": "Inquiet, vous repensez à ce que vous savez sur les loups-garous, et la terrible malédiction qu'ils transmettent parfois.",
+      "Decor": "lune",
+      "Choix": [
+         {
+            "Texte": "Chercher des blessures",
+            "Vers": "todo",
+            "Rules": ["hasBite",["155","316"]]
          }
       ]
    },

@@ -63,12 +63,13 @@
 }
 
 .btnCombat {
-    margin-top: 1em;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
     cursor: pointer;
     border-style: solid;
     border-color: rgb(109, 0, 0);
     border-radius: 15px;
-    font-size: 18pt;
+    font-size: 3vw;
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 5px;

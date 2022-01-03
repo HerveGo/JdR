@@ -31,6 +31,11 @@ function cheat() {
     console.log("goto "+sceneEnCours);
     startGame();
 }
+function setLife() {
+    oldLife = maLife;
+    maLife = parseInt(document.getElementById("setLife").value);
+    displayLife(oldLife);
+}
 
 // Get the modal
 let shutUp = document.getElementById("shutUp");
@@ -239,11 +244,13 @@ function majFullChoix() {
 function minOr(min) {
     return gold >= parseInt(min);
 }
+function minFood(min) {
+    return maFood >= parseInt(min);
+}
 //On enlève les 3 obets de départ du total car ils ne peuvent pas être donné
 function minObjects(min) {
     return inventory.length > parseInt(min[0]) + 2;
 }
-
 function hasObject(objectNames) {
     return objectNames.some( item => inventory.includes( item ) );
 }

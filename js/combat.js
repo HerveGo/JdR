@@ -8,6 +8,8 @@ let sceneFuite = 0; //scène en cas de fuite
 let saPerte = 0; //perte de vie en combat (pour usage chance)
 let maPerte = 0;
 
+let mordu = false;
+
 //Renvoie un résultat entre 0 et 9
 function rollDice10() {
     return Math.floor(Math.random() * 10);
@@ -31,6 +33,7 @@ function choixHidden(h) {
 
 //Affiche un écran de combat spécial
 function ecranCombat() {
+    mordu = false;
     audioBackground.pause();
     audioCombat.play();
     hideElementsById(true, "taler", "choix", "histoire", "backpack");
@@ -191,7 +194,8 @@ function rollCombat(enFuite = false, appelChance = null) {
     }
     //Gère la perte éventuelle de points de vie
     let oldLife = maLife;
-    maLife -= maPerte;    
+    maLife -= maPerte;
+    if( maPerte > 0) mordu = true; //pour le loup-garou    
     if (maLife <= 0) {
         maLife = 0;
         displayLife(oldLife);
@@ -212,6 +216,7 @@ function rollCombat(enFuite = false, appelChance = null) {
 
 //Masque l'écran de combat et revient à la scène
 function quitteCombat() {
+    console.log("mordu " + mordu);
     audioCombat.pause();
     audioBackground.play();
     saLife = null;
@@ -224,8 +229,3 @@ function quitteCombat() {
     gandalf.hidden = false;
 }
 
-//Fais appel à la chance pour réduire ses blessures, ou en infliger plus
-function chance() {
-    let d = document.getElementById("description")
-
-}

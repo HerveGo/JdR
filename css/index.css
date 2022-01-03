@@ -5,6 +5,12 @@
 
 .debug {
     visibility: visible;
+    margin-top: 2vh;
+    padding-bottom: 3vh;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 /* Invisible background to stop speaking onclick */
@@ -168,7 +174,7 @@ h2{
        background-color: rgba(0, 0, 0, 0.493);
        backdrop-filter: blur(2px);
        border: none;
-       cursor:pointer;
+       cursor: pointer;
        margin: 5px;
 }
 
@@ -368,6 +374,9 @@ p#content {
        #histoire {
               font-size: 3.5vw;
        }
+       #introduction, #rules, #explications, #achat {
+              font-size: 4vw;
+       }
        #backpack button img {
               width: 4vw;
        }
@@ -383,7 +392,6 @@ p#content {
        .buttonsStart {
               flex-direction: column;
        }
-
 }
 
 @media screen and (min-width: 600px) {
