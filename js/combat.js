@@ -156,7 +156,7 @@ function rollCombat(enFuite = false, appelChance = null) {
     let iel = scene[sceneEnCours].Choix[choix].Combat[3];
     let s = "";
     let saForceAtt = rollDice6() + rollDice6() + saForce[opponent];
-    let maForceAtt = rollDice6() + rollDice6() + maForce;
+    let maForceAtt = rollDice6() + rollDice6() + maForce + bonusAttaque;
     let parChance = "";
     let maPerte = 0;
     let saPerte = 0;

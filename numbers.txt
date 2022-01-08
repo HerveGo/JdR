@@ -1,6 +1,8 @@
 9 <= combat ?
 317 <= combat 8
 
+todo 188 après hommes des bois
+
 Todo ouest sorti de tour... 277 ent, 97, 323
 
 180 -> 208
@@ -11,5 +13,6 @@ Nord, vallée 245, 375 (150, 236)
 
 Centaure 142 -> 25 -> 267 -> 358(marteau)
 
--> Quin -> 349
+231 après géant
+
 

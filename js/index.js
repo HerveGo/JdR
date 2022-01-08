@@ -242,10 +242,10 @@ function majFullChoix() {
 //------------------------------- CONDITIONS -------------------------------
 //Certains choix peuvent être soumis à une condition, et ne pas apparaître !
 function minOr(min) {
-    return gold >= parseInt(min);
+    return gold >= parseInt(min[0]);
 }
 function minFood(min) {
-    return maFood >= parseInt(min);
+    return maFood >= parseInt(min[0]);
 }
 //On enlève les 3 obets de départ du total car ils ne peuvent pas être donné
 function minObjects(min) {
@@ -253,6 +253,9 @@ function minObjects(min) {
 }
 function hasObject(objectNames) {
     return objectNames.some( item => inventory.includes( item ) );
+}
+function notHasObject(objectNames) {
+    return objectNames.every( item => !inventory.includes(item));
 }
 
 // -----------------------------------------------------------------------------------------------------------
