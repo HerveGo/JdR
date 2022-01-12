@@ -13,6 +13,7 @@ let mesPotions = [];
 let mesPotionsInitiales = [];
 let mesBijoux = [];
 let maFood = 10;
+let visited = []; //tableau de string, contient les scènes déjà vues (évite triche)
 
 let decorActuel = "foret"; //mémorise le décor au cas où
 
@@ -55,7 +56,9 @@ function fnCall(fn, ...args) {
 
 //Recommence l'aventure chez Yaztromo
 function restart() {
-
+    hideElementsById(true, "gandalf", "life", "container", "histoire", "choix", "combat", "decor", "backpack");
+    document.getElementById("container").style.height = "0vh";
+    intro(); //retour à l'introduction
 }
 
 //--------------------------------- RULES -----------------------------------//
@@ -161,6 +164,11 @@ function eatFood() {
         maLife += 4;
         if( maLife > maxLife ) maLife = maxLife;
     }
+}
+//Ajoute la ou les scènes au tableau visited.
+function addView(views) {
+    visited.push(...views);
+    console.log("visited added "+visited);
 }
 
 function gainObjects(items) {
@@ -304,13 +312,13 @@ function ecranInventaire() {
 
 //Rempli l'inventaire avec les informations du joueur
 function majInventaire() {
-    let s = `FORCE<p>Total de départ ${maxForce}</p><b>${maForce}</b>`;
+    let s = `FORCE<em>Maximum ${maxForce}</em><b>${maForce}</b>`;
     document.getElementById("force2").innerHTML = s;
     document.getElementById("force3").innerHTML = s;
-    s = `ENDURANCE<p>Total de départ ${maxLife}</p><b>${maLife}</b>`;
+    s = `ENDURANCE<em>Maximum ${maxLife}</em><b>${maLife}</b>`;
     document.getElementById("endurance2").innerHTML = s;
     document.getElementById("endurance3").innerHTML = s;
-    s = `CHANCE<p>Total de départ ${maxChance}</p><b>${maChance}</b>`;
+    s = `CHANCE<em>Maximum ${maxChance}</em><b>${maChance}</b>`;
     document.getElementById("chance2").innerHTML = s;
     document.getElementById("chance3").innerHTML = s;
     s = `OR<b>${gold}</b>`;

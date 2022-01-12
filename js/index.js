@@ -204,8 +204,9 @@ function clickOption(i) {
             changeVers = fnCall(fn, args);
         }
     }
-    //Tentez votre chance peut changer la scène de destination
+    //Tentez votre chance peut avoir changé la scène de destination
     if( !changeVers ) changeVers = scene[sceneEnCours].Choix[i].Vers;
+    //Une rules peut également nous faire mourir
     if (maLife <= 0) {
         maLife = 0;
         sceneEnCours = 0;
@@ -241,6 +242,17 @@ function majFullChoix() {
 
 //------------------------------- CONDITIONS -------------------------------
 //Certains choix peuvent être soumis à une condition, et ne pas apparaître !
+//------------------------------- CONDITIONS -------------------------------
+
+/**
+ * Le joueur a-t-il au minimum min blessures ?
+ * @param {string[]} min 
+ * @returns {boolean} vrai s'il a min blessure(s)
+ */
+function hasWounds(min) {
+    console.log(`${maLife} <= ${maxLife} - ${parseInt(min[0])}`);
+    return maLife <= maxLife - parseInt(min[0]);
+}
 function minOr(min) {
     return gold >= parseInt(min[0]);
 }
@@ -255,7 +267,11 @@ function hasObject(objectNames) {
     return objectNames.some( item => inventory.includes( item ) );
 }
 function notHasObject(objectNames) {
-    return objectNames.every( item => !inventory.includes(item));
+    return objectNames.every( item => !inventory.includes( item ));
+}
+function notHasViewed(views) {
+    console.log("visited "+visited);
+    return views.every( view => !visited.includes( view ) );
 }
 
 // -----------------------------------------------------------------------------------------------------------
@@ -292,16 +308,16 @@ function majScene() {
     }
 
     let decor = scene[sceneEnCours].Decor;
-    console.log("decor à afficher " + decor);
+    //console.log("decor à afficher " + decor);
     if( !decor ) {
-        console.log("décor actuel " + decorActuel);
+        //console.log("décor actuel " + decorActuel);
         if ( decorActuel ) majDecor( decorActuel );
-        console.log("Décor absent pour scène num" + scene[sceneEnCours].num);
+        //console.log("Décor absent pour scène num" + scene[sceneEnCours].num);
     }
     if (scene[sceneEnCours].Decor != "") {
-        console.log("change decor actuel"+decorActuel);
+        //console.log("change decor actuel"+decorActuel);
         decorActuel = scene[sceneEnCours].Decor;
-        console.log("pour "+decorActuel);
+        //console.log("pour "+decorActuel);
         majDecor(decorActuel);
     }
 
@@ -494,6 +510,7 @@ function main() {
     sRules = sRules.replace("$maChance", maChance);
     document.getElementById("texteRules").innerHTML = sRules;
     document.getElementById("texteIntro").innerHTML = sIntro;
+    document.getElementById("texteVictory").innerHTML = sVictory;
     document.getElementById("achat").innerHTML = sAchat;
     //Commence à charger le fichier audio mais sans le jouer
     audioBackground = new Audio( "./sounds/background.mp3" );

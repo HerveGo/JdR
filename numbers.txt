@@ -1,6 +1,8 @@
 9 <= combat ?
 317 <= combat 8
 
+todo 69
+
 todo 188 après hommes des bois
 
 Todo ouest sorti de tour... 277 ent, 97, 323

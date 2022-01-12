@@ -151,10 +151,12 @@ function indexOpponent() {
 }
 
 //Jet de combat, perte de points de vie pour vous ou l'adversaire en cours.
+//Si appelChance != null, c'est un booléen vrai=chanceux, false=malchanceux
 function rollCombat(enFuite = false, appelChance = null) {
     let ladversaire = scene[sceneEnCours].Choix[choix].Combat[1] + indexOpponent();
     let iel = scene[sceneEnCours].Choix[choix].Combat[3];
     let s = "";
+    let sBouclier = "";
     let saForceAtt = rollDice6() + rollDice6() + saForce[opponent];
     let maForceAtt = rollDice6() + rollDice6() + maForce + bonusAttaque;
     let parChance = "";
@@ -178,11 +180,27 @@ function rollCombat(enFuite = false, appelChance = null) {
         s += `perd ${saPerte} points de vie sous vos coups.`;
     } else {
         maPerte = 2;
+        //cf 248
+        if( hasObject(["bouclier"]) ) {
+            if( rollDice6() > 3 ) {
+                maPerte = 1;
+                sBouclier = " Le bouclier vous a protégé.";
+            }
+        }
         if( appelChance !== null ) maPerte += ( appelChance ? -2 : +1 );
-        if( maPerte == 0) {
+        if( maPerte <= 0) {
+            maPerte = 0;
             s = "Par chance, vous esquivez l'attaque et ne perdez aucun point de vie.";
         } else {
             s = `${parChance}vous perdez ${maPerte} points de vie.`;
+            if( maPerte === 1 ) s += sBouclier;
+        }
+        //Attaque au fouet du démon de feu
+        if( ladversaire === "le démon de feu" ) {
+            if( rollDice6() < 3 ) {
+                s += " Le démon utilise son fouet, et vous inglige 1 blessure supplémentaire.";
+                maPerte++;
+            }
         }
     }
         

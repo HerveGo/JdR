@@ -19,6 +19,7 @@
     <title>JDR</title>
     <script src="./js/intro.js" defer></script>
     <script src="./js/rules.js" defer></script>
+    <script src="./js/victory.js" defer></script>
     <script src="./js/combat.js" defer></script>
     <script src="./js/backpack.js" defer></script>
     <script src="./js/index.js" defer></script>
@@ -37,6 +38,11 @@
             <button class="btnCombat" onclick="gainPotions(['vigueur','vigueur']);intro()">Vigueur</button>
             <button class="btnCombat" onclick="gainPotions(['fortune','fortune']);intro()">Bonne Fortune</button>
         </div>
+    </div>
+    <div id="victory" class="noselect" hidden>
+        <h1>Un marteau pour Gillibran</h1>
+        <h2>Conclusion</h2>
+        <div id="texteVictory"></div>
     </div>
     <div id="introduction" class="noselect" hidden>
         <h1>Introduction</h1>
@@ -95,17 +101,17 @@
             <div id="stats" hidden class="three-columns">
                 <div id="force3">
                     FORCE
-                    <em>Total de départ 15</em>
+                    <em>Maximum 15</em>
                     <b>13</b>
                 </div>
                 <div id="endurance3">
                     ENDURANCE
-                    <em>Total de départ 21</em>
+                    <em>Maximum 21</em>
                     <b>20</b>
                 </div>
                 <div id="chance3">
                     CHANCE
-                    <em>Total de départ 10</em>
+                    <em>Maximum 10</em>
                     <b>8</b>
                 </div>
             </div>

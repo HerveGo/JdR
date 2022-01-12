@@ -79,7 +79,7 @@ body {
        visibility: hidden;
 }
 
-#introduction, #rules, #explications, #achat {
+#introduction, #rules, #explications, #achat, #victory {
        color: black;
        margin-left : 2vw;
        margin-right: 2vw;
@@ -87,6 +87,11 @@ body {
        margin-bottom: 2vh;
        text-align: justify;
        font-size: 4vh;
+}
+#victory img {
+       display: block;
+       margin: auto;
+       max-width: 50%;
 }
 #introduction span, #rules span {
        font-family: 'Courier New', Courier, monospace;
@@ -376,6 +381,13 @@ p#content {
        }
        #introduction, #rules, #explications, #achat {
               font-size: 4vw;
+       }
+       #victory img {
+              max-width: 90%;
+       }
+       #introduction img {
+              max-width: 90%;
+              display: block;
        }
        #backpack button img {
               width: 4vw;

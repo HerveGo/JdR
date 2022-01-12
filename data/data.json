@@ -16,18 +16,18 @@
       "Decor": "tour",
       "Choix": [
          {
-            "Texte": "Vous le remerciez, et quittez la tour",
+            "Texte": "Le remercier et quitter la tour",
             "Vers": "177"
          },
          {
-            "Texte": "Vous tirez votre épée",
+            "Texte": "Tirer discrètement votre épée",
             "Vers": "54"
          }
       ]
    },
    {
       "num": "2",
-      "Description": "Pour vous, l'aventure se termine ici : votre chair fraîche et savoureuse offrira un festin de choix à la Goule victorieuse.",
+      "Description": "Pour vous, l'aventure se termine ici : votre chair fraîche et savoureuse offrira un festin de choix à la Goule victorieuse.",
       "Decor": "",
       "Choix": [
          {
@@ -40,17 +40,16 @@
    {
       "num": "3",
       "Description": "Vous suivez cinq autres flèches qui vous mènent au tronc d'un vieil arbre mort, encore enraciné dans le sol. Vous remarquez alors que le tronc est creux, mais que ce creux se prolonge sous terre à une profondeur que vous ne pouvez évaluer en raison de l'obscurité.",
-      "Decor": "",
+      "Decor": "arbre-creux",
       "Choix": [
          {
-            "Texte": "Vous utilisez votre anneau de lumière.",
-            "Liaison": "",
+            "Texte": "Utiliser votre anneau de lumière",
             "Vers": "322",
-            "Conditions": ["hasObject", ["anneau de lumière"]]
+            "Conditions": ["hasObject", ["anneau de lumière"]],
+            "Rules": ["looseObjects", ["anneau de lumière"],"gainObjects", ["médaillon d'or"],"changeChance", ["1"]]
          },
          {
-            "Texte": "Vous évaluez la profondeur.",
-            "Liaison": "",
+            "Texte": "Évaluer la profondeur",
             "Vers": "120"
          }
       ]
@@ -62,11 +61,11 @@
       "Rules": ["changeLife", ["-4"]],
       "Choix": [
          {
-            "Texte": "Vous souhaitez toujours entrer dans la caverne.",
+            "Texte": "Entrer dans la caverne",
             "Vers": "49"
          },
          {
-            "Texte": "Vous préférez retourner au croisement.",
+            "Texte": "Retourner au croisement",
             "Vers": "93"
          }
       ]
@@ -74,14 +73,14 @@
    {
       "num": "5",
       "Description": "Assis sur ce trône somptueux, vous vous sentez étrangement mal à l'aise. Les deux Guerriers Clones sont prosternés devant vous dans une attitude de totale soumission. Vous considèrent-ils comme leur nouveau maître ?",
-      "Decor": "",
+      "Decor": "crown",
       "Choix": [
          {
-            "Texte": "Vous placez sur votre tête la couronne d'or.",
+            "Texte": "Placer sur votre tête la couronne d'or.",
             "Vers": "333"
          },
          {
-            "Texte": "Vous quittez l'anfractuosité et montez les marches qui conduisent au sommet de la caverne.",
+            "Texte": "Quitter l'anfractuosité et monter les marches qui conduisent au sommet de la caverne.",
             "Vers": "249"
          }
       ]
@@ -92,7 +91,7 @@
       "Decor": "",
       "Choix": [
          {
-            "Texte": "Vous vous dirigez en hâte vers le nord.",
+            "Texte": "Vous diriger en hâte vers le nord",
             "Vers": "148"
          }
       ]
@@ -105,7 +104,7 @@
          {
             "Texte": "Combat en 92 !",
             "Vers": "23",
-            "Combat": ["essaim", "l'essaim'", "un", "il"],
+            "Combat": ["essaim", "l'essaim", "un", "il"],
             "Force" : ["7","8","7"],
             "Endurance": ["3","4","4"],
             "TexteMort": "Vous succombez sous les innombrables piqûres.",
@@ -119,7 +118,7 @@
       "Decor": "foret",
       "Choix": [
          {
-            "Texte": "Vous restez sur le chemin pour les rencontrer.",
+            "Texte": "Rester sur le chemin pour les rencontrer",
             "Liaison": "Deux créatures apparaissent alors : elles sont de haute taille, très maigres et vêtues de haillons sur lesquels elles ont passé des cottes de mailles. En vous voyant, elles interrompent aussitôt leur dispute et vous attaquent.",
             "Vers": "301",
             "Combat": ["lutin", "le lutin", "un lutin", "il"],
@@ -130,7 +129,7 @@
             "TexteVictoire" : "Les lutins s'écroulent enfin sous vos coups."
          },
          {
-            "Texte": "Vous vous cachez dans les buissons sur le bord de la route.",
+            "Texte": "Vous cacher dans les buissons sur le bord de la route",
             "Vers": "392"
          }
       ]
@@ -219,7 +218,7 @@
       "Decor": "vers",
       "Choix": [
          {
-            "Texte": "Vous dégainez votre épée",
+            "Texte": "Dégainer votre épée",
             "Liaison": "Inquiet, vous espèrez que le dard n'est pas venimeux.",
             "Vers": "217",
             "PdV": "0",
@@ -228,6 +227,25 @@
             "Endurance": ["7"],
             "TexteMort": "Le vers finit par vous embrocher.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "16",
+      "Description": "Vous arrachez alors un morceau du chapeau de l'un des champignons rouge, et vous commencez à le manger. Le goût en est agréable, mais une douleur terrible vous tord soudain l'estomac. Ce champignon est vénéneux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre antipoison",
+            "Vers": "211",
+            "Conditions":["hasObject",["antipoison"]],
+            "Rules":["looseObjects",["antipoison"]]
+         },
+         {
+            "Texte": "Attendre que la douleur passe",
+            "Liaison":"Votre estomac vous fait de plus en plus mal et la sueur perle à votre front. Vous vous mettez à trembler et vous perdez 4 points de vie.",
+            "Vers": "80",
+            "Rules":["changeLife",["-4"]]
          }
       ]
    },
@@ -472,6 +490,18 @@
       ]
    },
    {
+      "num": "44",
+      "Description": "Vous perdez 2 points de vie. Vous trouvez vos Filtres à Nez dans une poche latérale de votre sac à dos, et vous les glissez aussitôt dans vos narines. Vous inspirez lentement l'air empoisonné, mais sans autre dommage et, bientôt, vous parvenez à respirer tout à fait librement. Peu à peu, le nuage de gaz se dissipe, mais il ne vous semble pas utile, cependant, de rester plus longtemps en ces lieux.",
+      "Decor": "",
+      "Rules":["changeLife",["-2"]],
+      "Choix": [
+         {
+            "Texte": "Vous dirigez vers les marches, dans le mur du fond",
+            "Vers": "293"
+         }
+      ]
+   },
+   {
       "num": "48",
       "Description": "Vous soulevez le coffre au-dessus de votre tête et vous le fracassez contre le sol. Il s'ouvre aussitôt sous le choc, et vous voyez alors apparaître, parmi les débris de bois, un gros œuf de couleur bleu clair et de presque un mètre de diamètre. Vous le touchez du bout des doigts : il est dur et froid, on dirait du marbre. Or soudain, une fêlure apparaît à sa surface et, avant que vous ayez pu faire un geste, l'œuf explose en projetant de tous côtés des fragments de coquille tranchants comme des rasoirs.",
       "Decor": "",
@@ -502,7 +532,7 @@
       "Choix": [
          {
             "Texte": "Prendre la direction du nord",
-            "Vers": "199 todo"
+            "Vers": "199"
          },
          {
             "Texte": "Continuer vers l'est",
@@ -580,6 +610,18 @@
       ]
    },
    {
+      "num": "60",
+      "Description": "Vous retenez votre souffle et vous fouillez dans votre sac à dos en cherchant désespérément vos Filtres à Nez.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tentez votre Chance",
+            "Vers": "",
+            "Rules": ["tentezVotreChance",["183","44"]]
+         }
+      ]
+   },
+   {
       "num": "62",
       "Description": "Tandis que vous retirez votre épée du corps de votre dernier adversaire, l'étalon blanc s'enfuit au galop en direction de l'est et disparaît bientôt au loin.",
       "Decor": "",
@@ -637,6 +679,27 @@
          {
             "Texte": "Dormir jusqu'au matin",
             "Vers": "325"
+         }
+      ]
+   },
+   {
+      "num": "69",
+      "Description": "Le tunnel s'enfonce de plus en plus profondément en direction de l'ouest et débouche, quelque soixante mètres plus loin, sur une vaste caverne aux parois verdâtres et suintantes. A travers une ouverture dans le plafond, un rayon de lumière s'infiltre dans la caverne et illumine le sol. De petits humanoïdes à la peau claire s'affairent çà et là, semblant accorder tous leurs soins à des champignons de différentes couleurs. De l'eau coule dans une rigole qui traverse la caverne et des marches, taillées dans la paroi du fond, mènent à l'ouverture par laquelle entre la lumière du jour. Vous tirez votre épée et vous vous approchez de l'un des humanoïdes. Ce sont de petites créatures chauves aux yeux blancs, et votre présence ne semble pas les intéresser le moins du monde. Elles continuent imperturbablement à surveiller leurs champignons, se penchant de temps à autre pour en chasser des insectes ou arracher de mauvaises herbes.",
+      "Decor": "caverne-champignons",
+      "Choix": [
+         {
+            "Texte": "Attaquer l'un des petits humanoïdes",
+            "Vers": "264"
+         },
+         {
+            "Texte": "Couper un champignon avec votre épée",
+            "Liaison":"Votre épée s'enfonce dans le champignon haut d'un mètre, comme s'il s'agissait d'une grosse motte de beurre, mais un nuage de spores s'échappe aussitôt de son pied transpercé, et vous éprouvez quelque difficulté à respirer. Vous vous mettez à tousser et à cracher, vous perdez 2 points de vie.",
+            "Vers": "80",
+            "Rules":["changeLife",["-2"]]
+         },
+         {
+            "Texte": "Demander à goûter un des champignons",
+            "Vers": "408"
          }
       ]
    },
@@ -736,6 +799,17 @@
       ]
    },
    {
+      "num": "80",
+      "Description": "Il ne vous semble pas utile de rester plus longtemps en cet endroit.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Vous diriger vers les marches, dans la paroi du fond.",
+            "Vers": "293"
+         }
+      ]
+   },
+   {
       "num": "83",
       "Description": "liaison 155 !",
       "Decor": "",
@@ -743,6 +817,17 @@
          {
             "Texte": "Debug :)",
             "Vers": "139"
+         }
+      ]
+   },
+   {
+      "num": "84",
+      "Description": "Combat 288 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "288"
          }
       ]
    },
@@ -791,12 +876,24 @@
    },
    {
       "num": "88",
-      "Description": "Combat 288 !",
-      "Decor": "",
+      "Description": "Vous grimpez les marches et vous atteignez bientôt la deuxième anfractuosité. En y jetant un coup d'œil, vous apercevez de vagues silhouettes se déplaçant dans l'obscurité, et vous entendez également des bruits de pas traînants.",
+      "Decor": "alcove",
       "Choix": [
          {
-            "Texte": "Debug :)",
-            "Vers": "288"
+            "Texte": "Pénétrer dans cette anfractuosité",
+            "Vers": "321",
+            "Fuir": "107",
+            "Liaison": "Dans l’anfractuosité, vous tombez nez à nez avec quatre autres humanoïdes, mais ceux-ci portent des tuniques de cuir et sont armés de longues lances. Ils s'avancent pour vous attaquer.",
+            "Combat": ["guerrier clone", "le guerrier clone", "un", "il"],
+            "Force" : ["5","6","5","6"],
+            "Endurance": ["5","4","6","5"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+
+         },
+         {
+            "Texte": "Continuer à monter les marches",
+            "Vers": "107"
          }
       ]
    },
@@ -836,6 +933,21 @@
             "Vers": "100",
             "Conditions": ["hasObject",["contrôle des insectes"]],
             "Rules": ["looseObjects",["contrôle des insectes"]]
+         }
+      ]
+   },
+   {
+      "num": "94",
+      "Description": "Vous prenez dans votre sac à dos la Corde Magique qui semble très bien savoir ce qu’elle a à faire : l'une de ses extrémités, en effet, s'enroule d'elle-même autour du tronc d'arbre, tandis que l'autre extrémité se laisse tomber dans le trou qui aboutit au tunnel, vous invitant ainsi à y descendre.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Descendre dans le tronc",
+            "Vers": "136"
+         },
+         {
+            "Texte": "Rejoindre le sentier et repartir vers le nord",
+            "Vers": "144"
          }
       ]
    },
@@ -977,6 +1089,21 @@
             "Vers": "288"
          }
       ]
+   },{
+      "num": "107",
+      "Description": "Au moment où vous montez les dernières marches qui mènent à l'anfractuosité, un jet de flammes vous barre la route. Puis une forme immense et sombre sort de la cavité rocheuse. Du feu lui jaillit des narines et des volutes de fumée noire s'élèvent dans la caverne. La créature a la forme d'un homme mais elle est dotée d'ailes. Dans une main, elle tient une épée de feu et, dans l'autre, un fouet. Sa tête est coiffée d'une couronne d'or. La créature vous fait face, debout sur les marches, au-dessus de vous. Elle reste ainsi immobile un instant, puis fait soudain claquer son fouet tout en brandissant son épée enflammée. La seule issue qui permette de sortir de la caverne se trouve à quelque distance devant vous, en haut des marches et, pour parvenir jusque-là, il vous faudra combattre le <i class='stats'>DÉMON DE FEU</i>, Maître des Clones.",
+      "Decor": "balrog",
+      "Choix": [
+         {
+            "Texte": "Combattre le démon",
+            "Vers": "152",
+            "Combat": ["démon de feu", "le démon de feu", "un", "il"],
+            "Force" : ["10"],
+            "Endurance": ["10"],
+            "TexteMort": "Hélas, vous n'étiez pas de taille contre un tel adversaire !",
+            "TexteVictoire" : ""
+         }
+      ]
    },
    {
       "num": "108",
@@ -1059,6 +1186,23 @@
          {
             "Texte": "Suivre le sentier qui mène en direction de l'ouest",
             "Vers": "216"
+         }
+      ]
+   },
+   {
+      "num": "120",
+      "Description": "Vous laissez tomber un caillou dans le tronc creux. D'après le temps qu'il met à atteindre le sol du tunnel, vous estimez à cinq mètres la hauteur qui vous sépare du fond.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre Corde Magique",
+            "Vers": "94",
+            "Conditions":["hasObject",["corde magique"]],
+            "Rules": ["looseObjects",["corde magique"]]
+         },
+         {
+            "Texte": "Trouver un moyen de descendre",
+            "Vers": "380"
          }
       ]
    },
@@ -1215,6 +1359,33 @@
       ]
    },
    {
+      "num": "134",
+      "Description": "Vous faites un vœu et attendez, mais absolument rien ne se produit et vous perdez 1 point de <i class='stats'>CHANCE.</i>",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Frotter vos blessures avec de la boue chaude",
+            "Vers": "283",
+            "Conditions": ["hasWounds",["1"]]
+         },
+         {
+            "Texte": "Vous remettre en route en direction du nord",
+            "Vers": "303"
+         }
+      ]
+   },
+   {
+      "num": "136",
+      "Description": "Vous descendez dans le tunnel à l'aide de la corde et, lorsque vos yeux commencent à s'habituer à l'obscurité, vous vous apercevez qu'il n'a pas plus d'un mètre de hauteur.",
+      "Decor": "tunnel",
+      "Choix": [
+         {
+            "Texte": "Explorer le tunnel",
+            "Vers": "69"
+         }
+      ]
+   },
+   {
       "num": "137",
       "Description": "Vous ramassez un roc de bonne taille par terre.",
       "Decor": "",
@@ -1296,6 +1467,17 @@
       ]
    },
    {
+      "num": "143",
+      "Description": "liaison 69 !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "80"
+         }
+      ]
+   },
+   {
       "num": "145",
       "Description": "Vous dénouez l'amarre du bateau, et vous traversez la rivière à la rame. Mais lorsque vous êtes à peu près à mi-chemin, vous vous apercevez que l'eau s'infiltre dans le fond de l'embarcation. En vérité, la coque est pleine de trous, et le bateau commence à couler : il ne vous reste plus, dès lors, qu'à prendre vos affaires et à nager vers l'autre rive. Mais, après avoir pris pied sur la berge, vous constatez avec désespoir que toutes vos provisions se sont gâtées au contact de l'eau. Le soir tombe, à présent ; et vous décidez d'installer votre camp à l'abri de quelques rochers, à droite du chemin. Vous allumez un grand feu et vous vous couchez, votre épée à portée de la main.",
       "Decor": "collines-nuit",
@@ -1329,8 +1511,27 @@
             "Vers": "97"
          },
          {
-            "Texte": "Aller vers l'ouest",
+            "Texte": "Aller vers l'est",
             "Vers": "20"
+         }
+      ]
+   },
+   {
+      "num": "152",
+      "Description": "En proie à son agonie, le Démon de Feu est englouti dans ses propres flammes, et vous vous avancez pour vous emparer de sa couronne, tandis qu'il s'écroule en un petit tas de cendres. Sa tanière est froide et humide. Elle abrite un trône magnifique devant lequel se prosternent deux Guerriers Clones qui se soumettent à vous dans une attitude de révérence ; vous avez en effet vaincu leur maître.",
+      "Decor": "crown",
+      "Choix": [
+         {
+            "Texte": "Mettre la couronne sur votre tête",
+            "Vers": "333"
+         },
+         {
+            "Texte": "Vous asseoir sur le trône",
+            "Vers": "5"
+         },
+         {
+            "Texte": "Enjamber les restes du Démon et monter jusqu'en haut des marches",
+            "Vers": "249"
          }
       ]
    },
@@ -1396,7 +1597,7 @@
    {
       "num": "159",
       "Description": "Vous vous relevez et vous restez debout tout tremblant en frottant vos plaies.",
-      "Decor": "collines-matin",
+      "Decor": "",
       "Choix": [
          {
             "Texte": "Continuer",
@@ -1444,6 +1645,17 @@
          {
             "Texte": "Repartir vers le nord",
             "Vers": "375"
+         }
+      ]
+   },
+   {
+      "num": "164",
+      "Description": "Vous montez les dernières marches et vous vous retrouvez hors de la caverne, sur l'herbe grasse et verte de la vallée. A l'est, vous voyez le tronc creux par lequel vous êtes descendu peu de temps auparavant, et vous passez devant pour retourner sur le chemin.",
+      "Decor": "plaine-jour",
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "144"
          }
       ]
    },
@@ -1595,6 +1807,17 @@
       ]
    },
    {
+      "num": "183",
+      "Description": "Vous inhalez lentement l'air empoisonné qui vous environne, mais vous n'en ressentez aucun inconvénient et, bientôt, vous pouvez à nouveau respirer librement. Quelques instants plus tard, le nuage de gaz se dissipe, mais il ne servirait pas à grand-chose de rester plus longtemps en ces lieux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Vous diriger vers les marches dans la paroi opposée",
+            "Vers": "293"
+         }
+      ]
+   },
+   {
       "num": "184",
       "Description": "Vous racontez au moine que vous avez pris une cloche de cuivre à un Troll des Cavernes, et vous la lui montrez. Il se met alors à sauter de joie en criant : « O mon Dieu, quelle chance ! Quelle chance ! » Puis il fouille dans une bourse de cuir qu'il porte à la ceinture et en retire une petite fiole de verre. Vous lui donnez la cloche et il vous confie la fiole, qui rend 4 points de vie à qui la boit. Le moine ensuite vous serre la main et se confond en remerciements.",
       "Decor": "",
@@ -1660,6 +1883,22 @@
          {
             "Texte": "Prendre la direction de l’est todo",
             "Vers": "359"
+         }
+      ]
+   },
+   {
+      "num": "189",
+      "Description": "Deux des humanoïdes sont en train d'arroser les champignons à chapeaux verts.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Goûter à un champignon vert",
+            "Vers": "269",
+            "Rules":["changeLife",["4"]]
+         },
+         {
+            "Texte": "Quitter la caverne en montant les marches dans la paroi opposée",
+            "Vers": "293"
          }
       ]
    },
@@ -1790,6 +2029,44 @@
       ]
    },
    {
+      "num": "199",
+      "Description": "Vous remarquez, à gauche du chemin, un vaste bassin d'eau boueuse et bouillonnante. De la vapeur s'élève des grosses bulles qui éclatent bruyamment à sa surface.",
+      "Decor": "boue",
+      "Choix": [
+         {
+            "Texte": "Jeter une Pièce d'Or dans la boue et faire un vœu",
+            "Vers": "134",
+            "Conditions": ["minOr",["1"]],
+            "Rules": ["changeOr",["-1"],"changeChance",["-1"]]
+         },
+         {
+            "Texte": "Frotter vos blessures avec de la boue chaude",
+            "Vers": "283",
+            "Conditions": ["hasWounds",["1"]]
+         },
+         {
+            "Texte": "Poursuivre votre chemin vers le nord",
+            "Vers": "303"
+         }
+      ]
+   },
+   {
+      "num": "201",
+      "Description": "Il reste le coffre en bois dans l'afranctuosité.",
+      "Decor": "alcove",
+      "Choix": [
+         {
+            "Texte": "Essayer de l'ouvrir",
+            "Vers": "389",
+            "Rules": ["changeOr",["-1"],"changeChance",["-1"]]
+         },
+         {
+            "Texte": "Quitter cette anfractuosité pour continuer à monter les marches",
+            "Vers": "88"
+         }
+      ]
+   },
+   {
       "num": "204",
       "Description": "Le chemin mène à travers champs jusqu'à un pont de pierre qui enjambe une rivière d'eau limpide. Au-delà du pont, vous apercevez les maisonnettes et les huttes de bois d'un village. Une pancarte indique « Pont-de-Pierre » et, lorsque vous franchissez le pont, vous voyez deux nains aux longues barbes blanches qui se tiennent debout près d'une maisonnette, le regard fixé sur vous.",
       "Decor": "pontdepierre",
@@ -1797,7 +2074,8 @@
          {
             "Texte": "Demander à voir le Roi Gillibran",
             "Vers": "400",
-            "Conditions": ["hasObject",["manche de marteau","tête de marteau"]]
+            "Conditions": ["hasObject",["manche de marteau","tête de marteau"]],
+            "Rules": ["victory",[""]]
          },
          {
             "Texte": "Vous n'avez pas trouvé le Marteau...",
@@ -1909,6 +2187,56 @@
       ]
    },
    {
+      "num": "211",
+      "Description": "Vous prenez dans votre sac à dos la petite bouteille d'Antipoison et vous en avalez le contenu. Votre estomac cesse alors de vous faire mal et vous vous détendez. Il ne vous semble pas très utile de rester plus longtemps en ces lieux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Vous diriger vers les marches, dans la paroi opposée.",
+            "Vers": "293"
+         }
+      ]
+   },
+   {
+      "num": "212",
+      "Description": "Combat 88",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "321"
+         }
+      ]
+   },
+   {
+      "num": "214",
+      "Description": "Vous fouillez dans votre sac à dos et vous débouchez la petite bouteille contenant la Potion de Guérison. La douleur dans votre jambe est atroce, mais elle disparaît dès que la Potion commence à faire son effet. Bientôt, votre jambe est complètement guérie et vous pouvez vous relever. Vos yeux se sont habitués à l'obscurité et vous vous apercevez que le tunnel fait tout juste un mètre de hauteur : vous allez donc devoir l'explorer à quatre pattes.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Explorer le tunnel",
+            "Vers": "69"
+         }
+      ]
+   },
+   {
+      "num": "215",
+      "Description": "Vous trouvez à l'intérieur du tonneau un lourd bouclier de fer.",
+      "Decor": "bouclier",
+      "Choix": [
+         {
+            "Texte": "L'emporter avec vous",
+            "Vers": "248",
+            "Conditions":["notHasViewed",["248"]],
+            "Rules":["gainObjects",["bouclier"],"changeChance",["1"]]
+         },
+         {
+            "Texte": "Ne pas y toucher",
+            "Vers": "201"
+         }
+      ]
+   },
+   {
       "num": "216",
       "Description": "Le chemin mène le long d'une corniche, au flanc de la colline, et aboutit à une nouvelle bifurcation. Le sentier orienté au sud ramène vers la rivière, et vous décidez donc de ne pas le prendre.",
       "Decor": "",
@@ -1966,6 +2294,32 @@
             "Texte": "Partir vers le nord",
             "Vers": "300",
             "Rules": ["changeChance",["1"],"gainBijoux",["fléchette argent"]]
+         }
+      ]
+   },
+   {
+      "num": "221",
+      "Description": "Le fond de la vallée est tout plat et couvert d'une herbe grasse et verte. Bientôt, vous arrivez à une nouvelle bifurcation.",
+      "Decor": "plaine-jour",
+      "Choix": [
+         {
+            "Texte": "Continuer vers l'ouest",
+            "Vers": "378 todo"
+         },
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "199"
+         }
+      ]
+   },
+   {
+      "num": "222",
+      "Description": "Il n'y a pas moyen d'échapper au nuage de gaz empoisonné qui vous enveloppe. Vous avez l'impression que vos poumons vont éclater et vous êtes forcé de respirer. le nuage s'éloigne enfin, et vous pouvez à nouveau respirer librement. Vous ne voyez cependant aucun avantage à rester plus longtemps en ces lieux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Vous diriger vers les marches, dans la paroi du fond",
+            "Vers": "293"
          }
       ]
    },
@@ -2077,6 +2431,23 @@
       ]
    },
    {
+      "num": "237",
+      "Description": "Vous atterrissez pesamment sur le sol et vous entendez un sinistre craquement, tandis qu'une douleur fulgurante vous paralyse la jambe : vous vous êtes cassé le tibia et vous perdez 2 points de <i class='stats'>CHANCE.</i>",
+      "Decor": "tunnel",
+      "Choix": [
+         {
+            "Texte": "Boire votre potion de guérison",
+            "Vers": "214",
+            "Conditions":["hasObject",["potion de guérison"]],
+            "Rules":["looseObject",["potion de guérison"]]
+         },
+         {
+            "Texte": "Essayer d'arranger votre jambe",
+            "Vers": "304"
+         }
+      ]
+   },
+   {
       "num": "239",
       "Description": "Le chemin continue de s'enfoncer dans l'épaisse végétation, et vous éprouvez un certain sentiment de claustrophobie en vous sentant ainsi enfermé sous le feuillage des arbres qui forme une voûte au-dessus de vous. Un peu plus loin, le sentier oblique brusquement vers la gauche, à l'endroit où se dresse un arbre portant des fruits étranges.",
       "Decor": "poires",
@@ -2156,6 +2527,49 @@
       ]
    },
    {
+      "num": "247",
+      "Description": "Le répugnant Ptérodactyle gît en un petit tas à l'endroit où il s'est écrasé au sol, après avoir reçu le coup d'épée fatal. En vous en approchant, vous remarquez, tracée au bord du chemin, une flèche jaune qui indique la direction de l'ouest.",
+      "Decor": "fleche-jaune",
+      "Choix": [
+         {
+            "Texte": "Suivre cette flèche",
+            "Vers": "3"
+         },
+         {
+            "Texte": "Suivre le chemin en direction du nord",
+            "Vers": "144 todo"
+         }
+      ]
+   },
+   {
+      "num": "248",
+      "Description": "Vous êtes à présent en possession d'un bouclier d'empereur qui fut forgé il y a bien longtemps par un maître armurier. Vous gagnez 1 point de <i class='stats'>CHANCE</i>, et le bouclier vous permettra de mieux vous défendre lors de vos futurs combats. Si une créature vous blesse, en effet, vous lancerez un dé et lorsque vous obtiendrez un 4, un 5 ou un 6, vous ne perdrez qu'un seul point de vie au lieu des 2 habituels.",
+      "Decor": "alcove",
+      "Choix": [
+         {
+            "Texte": "Ouvrir le coffre de bois",
+            "Vers": "389",
+            "Conditions":["notHasViewed",["389"]],
+            "Rules":["changeChance",["1"],"changeOr",["8"],"addView",["248"]]
+         },
+         {
+            "Texte": "Quitter l'anfractuosité et monter l'escalier",
+            "Vers": "88"
+         }
+      ]
+   },
+   {
+      "num": "249",
+      "Description": "Vous jetez à nouveau un coup d'œil dans l'étrange caverne, et vous voyez les petits humanoïdes poursuivre leur besogne parmi leurs cultures de champignons. Vous hochez la tête d'un air incrédule et vous montez les dernières marches qui vous mènent à l'ouverture pratiquée au sommet de la caverne.",
+      "Decor": "caverne-champignons",
+      "Choix": [
+         {
+            "Texte": "Sortir à l'air libre",
+            "Vers": "164 todo"
+         }
+      ]
+   },
+   {
       "num": "251",
       "Description": "Lorsque vous tirez votre épée, le Centaure saisit son arc et avant que vous ayez pu l'atteindre, il vous décoche une flèche.",
       "Decor": "",
@@ -2188,7 +2602,7 @@
       "Decor": "",
       "Choix": [
          {
-            "Texte": "Aller voir quelle créature grogne ainsi",
+            "Texte": "Aider cet homme en le libérant du piège",
             "Vers": "344"
          },
          {
@@ -2279,6 +2693,25 @@
       ]
    },
    {
+      "num": "264",
+      "Description": "Le petit humanoïde est un Clone, et il n'a aucune volonté propre. Votre épée lui tranche la tête et il s'écroule sur le sol. Quant à ses compagnons, ils ne vous prêtent pas la moindre attention et vous vous demandez qui contrôle ces petits êtres. Puis, soudain, vous observez que l'humanoïde décapité est en train de se dissoudre dans une flaque de liquide violet ; au même endroit, un champignon surgit alors du sol et, tandis qu'il grandit, le liquide violet s'infiltre dans la terre et disparaît. Ce nouveau champignon a un chapeau également violet qui se tourne vers vous et vous fait face.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Rester là à observer le champignon au chapeau violet",
+            "Vers": "367"
+         },
+         {
+            "Texte": "Vous approcher du champignon au chapeau vert",
+            "Vers": "189"
+         },
+         {
+            "Texte": "Vous approchez du champignon au chapeau rouge",
+            "Vers": "282"
+         }
+      ]
+   },
+   {
       "num": "265",
       "Description": "Combat 190 !",
       "Decor": "",
@@ -2324,6 +2757,17 @@
          {
             "Texte": "Vous remettre en route en direction du nord",
             "Vers": "119"
+         }
+      ]
+   },
+   {
+      "num": "269",
+      "Description": "Vous criez quelque chose à deux humanoïdes qui sont en train de prendre soin d'un carré de champignons à chapeaux verts, mais ils vous ignorent et poursuivent leur besogne. Vous saisissez alors le chapeau de l'un des champignons et vous en arrachez un morceau que vous commencez à manger. Le goût en est agréable et vous sentez votre corps s'animer d'un regain de force. Vous gagnez 4 points de vie et vous n'estimez pas utile de rester plus longtemps en cet endroit.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Vous diriger vers les marches, dans la paroi du fond",
+            "Vers": "293"
          }
       ]
    },
@@ -2417,6 +2861,33 @@
       ]
    },
    {
+      "num": "282",
+      "Description": "Trois humanoïdes s'occupent des champignons à chapeaux rouges.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Goûter à un champignon rouge",
+            "Vers": "16"
+         },
+         {
+            "Texte": "Quitter la caverne en montant les marches dans la paroi du fond",
+            "Vers": "293"
+         }
+      ]
+   },
+   {
+      "num": "283",
+      "Description": "Grâce aux propriétés magiques de la boue, vos blessures guérissent sous vos yeux et vous gagnez 4 points de vie. Vous vous sentez beaucoup mieux à présent.",
+      "Decor": "",
+      "Rules": ["changeLife",["4"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "303"
+         }
+      ]
+   },
+   {
       "num": "285",
       "Description": "Vous dormez depuis environ une heure, lorsqu'un grognement sonore vous réveille. Vous vous levez sans bruit et vous empoignez votre épée, puis vous écoutez, immobile. Dans le ciel, la lune est pleine, et sa clarté projette alentour des ombres inquiétantes. Vous entendez alors des pas feutrés et des reniflements suivis d'un autre grognement. Un instant plus tard, une forme d'apparence humaine surgit de l'obscurité, à votre droite. A mesure que la créature approche, vous remarquez son torse, son visage et ses bras recouverts d'une épaisse fourrure, et les longues dents pointues qui hérissent ses mâchoires. Il s'agit là d'un <i class='stats'>LOUP-GAROU</i> qu'il vous faut combattre.",
       "Decor": "lune",
@@ -2491,6 +2962,25 @@
          {
             "Texte": "Traverser la rivière à la rame à bord du petit bateau",
             "Vers": "145"
+         }
+      ]
+   },
+   {
+      "num": "293",
+      "Description": "Les marches de pierre sont taillées dans le mur de la caverne, et l'humidité des lieux les a recouvertes d'une pellicule gluante. En levant les yeux, vous remarquez trois anfractuosités d'environ trois mètres de hauteur chacune, qui s'enfoncent dans la paroi. Les marches mènent devant chacune d'elles avant d'aboutir à l'ouverture pratiquée au sommet de la caverne. Vous montez les marches et, en jetant un coup d'œil dans l'obscurité de la première anfractuosité, vous distinguez un tonneau et un coffre de bois.",
+      "Decor": "alcove",
+      "Choix": [
+         {
+            "Texte": "Regarder à l'intérieur du tonneau",
+            "Vers": "215"
+         },
+         {
+            "Texte": "Essayer d'ouvrir le coffre de bois",
+            "Vers": "389"
+         },
+         {
+            "Texte": "Continuer à monter les marches",
+            "Vers": "88"
          }
       ]
    },
@@ -2576,6 +3066,42 @@
          {
             "Texte": "Ne rien prendre d'autre que les pièces d'Or",
             "Vers": "157"
+         }
+      ]
+   },
+   {
+      "num": "303",
+      "Description": "Tout là-haut dans le ciel, vous voyez voler une énorme créature beaucoup plus grande que n'importe quel oiseau. La créature descend sur vous et vous tirez votre épée. Elle pousse de grands cris et vous distinguez bientôt sa longue tête à la gueule hérissée de dents pointues. Elle a la peau verdâtre d'un reptile, et ses ailes déployées ont une envergure d'au moins cinq mètres. Il n'y a aucun abri possible au fond de cette vallée et vous allez devoir affronter ce <i class='stats'>PTERODACTYLE</i> qui fond sur vous.",
+      "Decor": "pterodactyle",
+      "Choix": [
+         {
+            "Texte": "Sortir votre épée",
+            "Vers": "247",
+            "Combat": ["ptérodactyle", "le ptérodactyle", "un", "il"],
+            "Force" : ["7"],
+            "Endurance": ["8"],
+            "TexteMort": "L'affreuse créature emmène votre cadavre dans son nid pour nourrir sa progéniture.",
+            "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "304",
+      "Description": "Il faudra du temps pour que votre jambe guérisse. Vous trouvez deux branches sur le sol, et vous vous en servez comme d'attelles en les attachant de chaque côté de votre jambe brisée à l'aide de la ceinture de cuir que vous portez à la taille. Puis vous vous asseyez et vous vous reposez. Il vous faudra manger cinq rations de vos Provisions et dormir avant de vous sentir à nouveau d'attaque. Si vous survivez, vous réduirez de 2 points votre total de <i class='stats'>FORCE</i> en raison de votre blessure.",
+      "Decor": "tunnel",
+      "Choix": [
+         {
+            "Texte": "Manger cinq de vos rations",
+            "Vers": "69",
+            "Liaison": "",
+            "Conditions": ["minFood",["5"]],
+            "Rules": ["changeFood",["-5"],"changeForce",["-2"]]
+         },
+         {
+            "Texte": "Mourir de faim...",
+            "Liaison": "N'ayant plus assez de rations, vous finissez par mourir de faim et de soif dans ce tunnel.",
+            "Vers":"0",
+            "Rules":["changeLife",["-100"]]
          }
       ]
    },
@@ -2721,6 +3247,34 @@
       ]
    },
    {
+      "num": "321",
+      "Description": "À chaque fois que meurt l'un des Guerriers Clones, son corps se dissout en un liquide coloré qui se répand sur le sol rocheux. Vous n'avez pas l'intention, quant à vous, de rester plus longtemps dans cet endroit humide aux odeurs de moisi, et vous sortez aussitôt.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Continuer à monter les marches",
+            "Vers": "107"
+         }
+      ]
+   },
+   {
+      "num": "322",
+      "Description": "La lumière qui jaillit de votre anneau perce l'obscurité qui règne dans les profondeurs du tronc et du tunnel au-dessous. Vous apercevez alors un médaillon d'or qui pend au bout d'un ruban de soie accroché à un clou, à l'intérieur du tronc. Il est à portée de main et vous vous en emparez. Le médaillon vaut 5 Pièces d'Or et vous le rangez dans votre sac à dos. Cette trouvaille vous vaut 1 point de <i class='stats'>CHANCE.</i> Le fond du tunnel se trouve à cinq mètres de profondeur.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre Corde Magique",
+            "Vers": "94",
+            "Conditions":["hasObject",["corde magique"]],
+            "Rules": ["looseObjects",["corde magique"]]
+         },
+         {
+            "Texte": "Chercher un moyen de descendre",
+            "Vers": "380"
+         }
+      ]
+   },
+   {
       "num": "323",
       "Description": "En marchant vers le nord, vous arrivez bientôt à une bifurcation.",
       "Decor": "trois-chemins",
@@ -2833,6 +3387,19 @@
          {
             "Texte": "Partir vers le nord",
             "Vers": "103"
+         }
+      ]
+   },
+   {
+      "num": "333",
+      "Description": "La couronne vous va à merveille et en vous voyant ainsi coiffé, les deux Guerriers Clones vous fixent avec de grands yeux qui expriment un respect mêlé de crainte. Grâce à la couronne posée sur votre tête, vous pouvez entrer en communication télépathique avec les deux créatures, et vous comprenez alors, en lisant dans leurs pensées, ce qu'elles essayent de vous dire : vous êtes leur nouveau maître et elles attendent les ordres que vous voudrez bien leur donner. Elles vous demandent notamment ce que l'on doit faire de la nouvelle récolte de champignons à chapeaux rouges. Vous n'avez cependant pas la moindre envie d'être le maître de ces humanoïdes, qu'ils soient guerriers ou qu'ils cultivent des champignons, et vous levez les mains pour ôter la couronne de votre tête. Mais vous vous apercevez alors avec terreur que la peau de vos mains s'est flétrie et a pris une couleur sombre. Vous essayez d'enlever la couronne, mais elle ne bouge pas : c'est une couronne maléfique qui a trouvé en vous une nouvelle victime ; et peu à peu les traits de votre visage se transforment car vous êtes en train de prendre la forme et la couleur d'un Démon de Feu. Votre nouveau destin est scellé et votre aventure se termine ici.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Recommencer l'aventure",
+            "Vers": "",
+            "Liaison":"",
+            "Rules":["resetPlayer",["void"]]
          }
       ]
    },
@@ -2960,6 +3527,17 @@
          {
             "Texte": "Lui serrer la main et repartir",
             "Vers": "36"
+         }
+      ]
+   },
+   {
+      "num": "345",
+      "Description": "Liaison 345",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "80"
          }
       ]
    },
@@ -3134,6 +3712,24 @@
       ]
    },
    {
+      "num": "367",
+      "Description": "Le chapeau du champignon se fend avec un bruit de bouchon qui saute, et un gaz s'en échappe en sifflant. Un nuage empoisonné vous enveloppe aussitôt.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser vos Filtres à Nez",
+            "Vers": "60",
+            "Conditions": ["hasObject",["filtres à nez"]],
+            "Rules":["looseObjects",["filtres à nez"]]
+         },
+         {
+            "Texte": "Retenir votre souffle",
+            "Vers": "222",
+            "Rules":["looseLifeD6",["1"]]
+         }
+      ]
+   },
+   {
       "num": "369",
       "Description": "Le fond de la vallée est arride, mais vous vous demandez comment il se fait qu'un endroit aussi paisible soit devenu le repaire de tant de créatures répugnantes. En marchant le long du chemin, vous apercevez bientôt la silhouette d'un homme au visage caché par sa capuche ; il est vêtu d'une longue robe marron et il se dirige vers vous. Lorsqu'il s'approche, vous reconnaissez en lui un moine.",
       "Decor": "moine",
@@ -3253,6 +3849,21 @@
       ]
    },
    {
+      "num": "380",
+      "Description": "Devant ce tronc creux, vous hésitez sur la conduite à tenir. Ha, si seulement vous aviez acheté une Corde chez Yaztromo  !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Sauter à l'intérieur du tronc",
+            "Vers": "237"
+         },
+         {
+            "Texte": "Retourner sur le chemin et repartir vers le nord",
+            "Vers": "144"
+         }
+      ]
+   },
+   {
       "num": "381",
       "Description": "Vous avez échoué dans votre tentative d'aider les Nains. Vous n'avez rien à offrir à Gillibran, leur roi, et vous n'avez donc aucune raison de le rencontrer. Aussi décidez-vous de repartir vers l'est et de chercher un endroit où vous reposer après avoir affronté tous ces périls. Peut-être cependant pourriez-vous essayer à nouveau de découvrir le marteau de guerre ? Si c'est votre intention, il vous faut retourner chez Yaztromo le sorcier pour lui acheter d'autres objets magiques.",
       "Decor": "",
@@ -3352,6 +3963,24 @@
             "Texte": "Chercher des blessures",
             "Vers": "",
             "Rules": ["hasBite",["155","316"]]
+         }
+      ]
+   },
+   {
+      "num": "389",
+      "Description": "Vous levez votre épée au-dessus de votre tête, et vous rabattez violemment sur le coffre de bois qui se brise en mille morceaux. Parmi les éclats de bois, vous trouvez 8 Pièces d'Or et vous gagnez 1 point de Chance.",
+      "Decor": "alcove",
+      "Choix": [
+         {
+            "Texte": "Jeter un coup d'œil à l'intérieur du tonneau",
+            "Vers": "215",
+            "Conditions":["notHasViewed",["248"]],
+            "Rules":["addView",["389"]]
+         },
+         {
+            "Texte": "Quitter l'anfractuosité pour continuer à monter les marches",
+            "Vers": "88",
+            "Rules":["addView",["389"]]
          }
       ]
    },
@@ -3572,6 +4201,25 @@
             "Texte": "Testez votre Force",
             "Vers": "",
             "Rules": ["testezVotreForce",["354","129"]]
+         }
+      ]
+   },
+   {
+      "num": "408",
+      "Description": "Les humanoïdes vous ignorent totalement et continuent de vaquer à leurs occupations comme si vous n'étiez pas là.",
+      "Decor": "caverne-champignons",
+      "Choix": [
+         {
+            "Texte": "Attaquer un humanoïde",
+            "Vers": "264"
+         },
+         {
+            "Texte": "Goûter un champignon vert",
+            "Vers": "269"
+         },
+         {
+            "Texte": "Goûter un champignon rouge",
+            "Vers": "16"
          }
       ]
    }
