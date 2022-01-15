@@ -10,6 +10,9 @@ let maPerte = 0;
 
 let mordu = false;
 
+let soundOpponent = new Audio();
+let soundAttached = false;
+
 //Renvoie un résultat entre 0 et 9
 function rollDice10() {
     return Math.floor(Math.random() * 10);
@@ -33,8 +36,22 @@ function choixHidden(h) {
 
 //Affiche un écran de combat spécial
 function ecranCombat() {
+    const oppo = scene[sceneEnCours].Choix[choix].Combat[0];
     mordu = false;
     audioBackground.pause();
+    if(!soundAttached) {
+        soundOpponent.addEventListener("canplay", event => {
+            console.log("audio event for "+oppo);
+            soundAttached = true;
+            soundOpponent.play();
+        });
+    }
+    console.log(`./sounds/${oppo}.mp3`);
+    soundOpponent.src = `./sounds/${oppo}.mp3`;
+    soundOpponent.load();
+    soundOpponent.loop = false;
+    //soundOpponent.play();
+    
     audioCombat.play();
     hideElementsById(true, "taler", "choix", "histoire", "backpack");
     hideElementsById(false, "combat");
@@ -74,7 +91,7 @@ function ecranCombat() {
         saForce[i] = parseInt(scene[sceneEnCours].Choix[choix].Force[i]);
         saLife[i] = parseInt(scene[sceneEnCours].Choix[choix].Endurance[i]);
         let multi = ( nbOpponents > 1 ) ? " " + (i + 1) : "";
-        c.innerHTML += `<span class='stats'>${scene[sceneEnCours].Choix[choix].Combat[0].toUpperCase() + multi} : FORCE ${saForce[i]}, ENDURANCE ${saLife[i]}</span><br>`;
+        c.innerHTML += `<span class='stats'>${oppo.toUpperCase() + multi} : FORCE ${saForce[i]}, ENDURANCE ${saLife[i]}</span><br>`;
     }
     c.innerHTML += `<span class='stats'>VOUS : FORCE ${maForce}, ENDURANCE ${maLife}, CHANCE ${maChance}</span><br>`;
     c.innerHTML += "<br>";
@@ -149,10 +166,11 @@ function indexOpponent() {
         return "";
      }
 }
-
+let blessures = 0; //compteur de blessures (goule)
 //Jet de combat, perte de points de vie pour vous ou l'adversaire en cours.
 //Si appelChance != null, c'est un booléen vrai=chanceux, false=malchanceux
 function rollCombat(enFuite = false, appelChance = null) {
+    const goule = scene[sceneEnCours].Choix[choix].Combat[0] === "goule";
     let ladversaire = scene[sceneEnCours].Choix[choix].Combat[1] + indexOpponent();
     let iel = scene[sceneEnCours].Choix[choix].Combat[3];
     let s = "";
@@ -170,6 +188,7 @@ function rollCombat(enFuite = false, appelChance = null) {
         s = `<span>${capitalizeFirstLetter(ladversaire)}</span> `;
     }
     if (maForceAtt == saForceAtt) {
+        soundMiss.play();
         s += ` et vous esquivez mutuellement vos attaques.<br>`
         return s;
     }
@@ -194,6 +213,7 @@ function rollCombat(enFuite = false, appelChance = null) {
         } else {
             s = `${parChance}vous perdez ${maPerte} points de vie.`;
             if( maPerte === 1 ) s += sBouclier;
+            blessures++;
         }
         //Attaque au fouet du démon de feu
         if( ladversaire === "le démon de feu" ) {
@@ -213,7 +233,19 @@ function rollCombat(enFuite = false, appelChance = null) {
     //Gère la perte éventuelle de points de vie
     let oldLife = maLife;
     maLife -= maPerte;
-    if( maPerte > 0) mordu = true; //pour le loup-garou    
+    if( maPerte > 0) {
+        mordu = true; //pour le loup-garou    
+        soundHit.play();
+    } else {
+        soundAttack.play();
+    }
+    //goule 4 blessures et c'est la fin
+    if( goule && blessures === 4 ) {
+        textLiaison = "Les griffes enduites de poison de la Goule vous paralysent. Pour vous, l'aventure se termine ici : votre chair fraîche et savoureuse offrira un festin de choix à la Goule victorieuse.";
+        sceneEnCours = 0;
+        quitteCombat();
+        return s;
+    }
     if (maLife <= 0) {
         maLife = 0;
         displayLife(oldLife);

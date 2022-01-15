@@ -81,6 +81,16 @@ function tentezVotreChance(vers) {
         return vers[1];
     }
 }
+function testForceChance(vers) {
+    const dice = rollDice6() + rollDice6();
+    if( dice <= maChance && dice <= maChance ) {
+        if( vers[2] ) textLiaison = vers[2];
+        return vers[0];
+    } else {
+        if( vers[3] ) textLiaison = vers[3];
+        return vers[1];
+    }
+}
 function testezVotreForce(vers) {
     let dice = rollDice6() + rollDice6();
     if( dice <= maForce ) {

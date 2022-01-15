@@ -9,6 +9,9 @@ let toggleAnimationText = false;
 let audioBackground;
 let audioCombat;
 let audioDeath;
+let soundAttack;
+let soundHit;
+let soundMiss;
 
 const decorUrl = "url('../images/decor/";
 
@@ -541,6 +544,9 @@ function startGame() {
     audioCombat.loop = true;
     audioDeath = new Audio( "./sounds/death.mp3" );
     audioDeath.loop = true;
+    soundAttack = new Audio("./sounds/sword.mp3");
+    soundHit = new Audio("./sounds/hit.mp3");
+    soundMiss = new Audio("./sounds/miss.mp3");
     // audioBackground.addEventListener("canplay", event => {
     //     audioBackground.loop = true;
     //     audioBackground.play();

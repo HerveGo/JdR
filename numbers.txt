@@ -1,6 +1,8 @@
 9 <= combat ?
 317 <= combat 8
 
+debug 198 => 87
+
 todo 69
 
 todo 188 après hommes des bois

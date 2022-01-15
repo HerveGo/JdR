@@ -347,6 +347,22 @@
       ]
    },
    {
+      "num": "26",
+      "Description": "Vous commencez par vous intéresser aux livres rangés sur les étagères. Mais ils sont écrits en une langue inconnue et contiennent de mystérieux diagrammes. Quant aux cartes et aux rouleaux de parchemin, ils vous sont tout aussi incompréhensibles. Vous ouvrez placards et tiroirs mais vous ne trouvez rien d'autre que des livres, encore des livres aux reliures de cuir poussiéreuses. Vous êtes sur le point d'abandonner tout espoir de découvrir quelque chose lorsque vous apercevez un autre livre, mais sur le sol, cette fois : car il sert tout simplement à caler une table.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Le ramasser",
+            "Vers": "91",
+            "Rules": ["gainObjects",["œil d'ambre"],"changeChance",["1"]]
+         },
+         {
+            "Texte": "Abandonner vos recherches et reprendre votre chemin en direction du nord",
+            "Vers": "220"
+         }
+      ]
+   },
+   {
       "num": "27",
       "Description": "Vous essuyez de votre épée l'épaisse sève verdâtre qui coulait dans les veines de l'Homme-Arbre et vous reprenez votre chemin vers le nord. Vous êtes soulagé de voir que les arbres commencent à se clairsemer et qu'ils apparaissent moins menaçants.",
       "Decor": "foret-fleur",
@@ -457,6 +473,21 @@
       ]
    },
    {
+      "num": "38",
+      "Description": "Vous jetez un regard par la petite fenêtre aux vitres sales de la cabane, et  vous apercevez une vieille femme vêtue d'une robe malpropre. Son visage est ridé, elle a des verrues sur le nez, et elle est en train de lire un livre, assise près de la cheminée, au fond de la pièce. Une servante bossue lui apporte d'autres ouvrages qu'elle est allée prendre sur des étagères remplies de volumes anciens, de parchemins et de cartes.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Entrer dans la cabane",
+            "Vers": "315"
+         },
+         {
+            "Texte": "Retourner sur le chemin et poursuivre vers le nord",
+            "Vers": "220"
+         }
+      ]
+   },
+   {
       "num": "40",
       "Description": "Par chance, votre épée reste dans son fourreau et vous pouvez vous en servir pour couper la corde et vous libérer. Vous vous relevez en poussant un juron et vous époussetez vos vêtements. L'idée vous vient d'attendre ici pour voir qui a posé ce piège, mais finalement vous y renoncez.",
       "Decor": "",
@@ -475,6 +506,17 @@
          {
             "Texte": "Courir vers l'est",
             "Vers": "239"
+         }
+      ]
+   },
+   {
+      "num": "42",
+      "Description": "La vieille femme rejette la tête en arrière et éclate de rire lorsque vous commencez à lui parler. C'est une malfaisante sorcière et vous perdez 1 point de <i class='stats'>CHANCE</i> sous son mauvais sort.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tirer votre épée",
+            "Vers": "342"
          }
       ]
    },
@@ -498,6 +540,21 @@
          {
             "Texte": "Vous dirigez vers les marches, dans le mur du fond",
             "Vers": "293"
+         }
+      ]
+   },
+   {
+      "num": "47",
+      "Description": "Tandis que vous esquiviez la chaise, la Sorcière a prononcé quelques paroles étranges. Et soudain, elle disparaît dans un éclair aveuglant, puis reparaît sous la forme d'une chauve-souris qui s'envole par la porte ouverte. La servante bossue s'écroule alors sur le sol et se met à pleurer.",
+      "Decor": "cabane-foret",
+      "Choix": [
+         {
+            "Texte": "Fouiller la cabane en quête de quelque chose qui pourrait vous être utile",
+            "Vers": "26"
+         },
+         {
+            "Texte": "Quitter la cabane et revenir sur le chemin pour poursuivre vers le nord",
+            "Vers": "220"
          }
       ]
    },
@@ -606,6 +663,18 @@
             "Texte": "Tentez votre Chance",
             "Vers": "",
             "Rules": ["tentezVotreChance",["132","35"]]
+         }
+      ]
+   },
+   {
+      "num": "58",
+      "Description": "Vous fouillez dans votre sac à dos et vous en retirez la petite bouteille d'eau bénite. Vous la débouchez aussitôt et vous en jetez le contenu sur la Goule qui avance vers vous. Une fumée épaisse s'élève alors des brûlures provoquée par l'eau bénite sur la chair décomposée de la Goule. La créature ressent apparemment une intense douleur, mais aucun son ne sort de sa bouche grande ouverte. Elle se traîne dans un coin de la pièce pour essayer d'échapper à votre arme sacrée, et vous vous approchez du cercueil pour voir ce qu'il contient. Vous avez le bonheur d'y trouver 25 Pièces d'Or, ainsi qu'un marteau à tête de bronze gravée de l'initiale G. Tout heureux de votre butin, vous le rangez dans votre sac à dos et vous remontez l'escalier pour quitter la crypte",
+      "Decor": "",
+      "Rules":["gainObjects",["tête de marteau"],"changeOr",["25"],"changeChance",["1"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "112"
          }
       ]
    },
@@ -723,6 +792,18 @@
          {
             "Texte": "Partir vers le nord",
             "Vers": "138"
+         }
+      ]
+   },
+   {
+      "num": "73",
+      "Description": "Vous prenez votre élan et vous foncez sur la porte. Il va vous falloir de la force mais aussi de la chance.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Enfoncer la porte",
+            "Vers": "",
+            "Rules":["testForceChance",["327","112","La porte s'ouvre à la volée.","Vous rebondissez sur la porte et vous frottez votre épaule meurtrie. Vous estimez alors qu'il est inutile de risquer une blessure plus grave et vous retournez sur le chemin pour prendre la direction du nord."]]
          }
       ]
    },
@@ -904,8 +985,19 @@
       "Choix": [
          {
             "Texte": "Tentez votre Chance",
-            "Vers": "todo",
+            "Vers": "",
             "Rules": ["tentezVotreChance",["210","348"]]
+         }
+      ]
+   },
+   {
+      "num": "91",
+      "Description": "Vous ouvrez le livre et vous avez la surprise de constater que les pages ont été évidées en leur milieu, ménageant ainsi une cavité dans laquelle a été déposé un bijou attaché à une chaîne d'argent. Juste à côté se trouve un parchemin sur lequel on peut lire ces mots : « Œil d'ambre. Mets cette chaine autour du cou, et questionne quiconque te semble louche. Qu'il cherche à mentir peu ou prou, Vérité malgré lui sortira de sa bouche. » Vous gagnez 1 point de <i class='stats'>CHANCE</i>, cela vous sera sans doute utile dans cette forêt de malheur !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Rejoindre le chemin pour prendre la direction du nord",
+            "Vers": "220"
          }
       ]
    },
@@ -948,6 +1040,22 @@
          {
             "Texte": "Rejoindre le sentier et repartir vers le nord",
             "Vers": "144"
+         }
+      ]
+   },
+   {
+      "num": "95",
+      "Description": "Vous essayez de toutes vos forces de déplacer le bloc de pierre mais sans parvenir à le faire bouger d'un pouce.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre Poudre de Lévitation",
+            "Vers": "173",
+            "Conditions":["hasObject",["poudre de lévitation"]]
+         },
+         {
+            "Texte": "Chercher une solution",
+            "Vers": "368"
          }
       ]
    },
@@ -1048,6 +1156,20 @@
       ]
    },
    {
+      "num": "103",
+      "Description": "Le chemin mène à une petite clairière. Sur votre droite, vous apercevez un entassement de branches, d'herbe et de morceaux d'étoffe ; c'est sans doute le repaire de quelque créature de grande taille. Parmi les débris et les vieux os répandus çà et là, vous distinguez quelque chose de brillant.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Aller voir de plus près de quoi il s'agit",
+            "Vers": "57"
+         },{
+            "Texte": "Vous hâter en direction du nord",
+            "Vers": "360"
+         }
+      ]
+   },
+   {
       "num": "104",
       "Description": "Les bandits restent un moment stupéfaits de voir leur cheffe s'écrouler sous vos coups. Puis, poussant un hurlement, ils se ruent sur vous pour la venger.",
       "Decor": "brigands",
@@ -1133,6 +1255,32 @@
             "Texte": "Poursuivre vers le nord",
             "Vers": "309"
          }  
+      ]
+   },
+   {
+      "num": "112",
+      "Description": "Le sentier continue vers le nord à travers une végétation touffue. Bientôt, il oblique brusquement à droite en direction de l’est, et la végétation devient si dense par endroits, qu'il faut vous tailler un chemin à coups d'épée. Votre marche vers l'est est longue et pénible ; enfin, vous arrivez à une bifurcation. Consultant alors la carte de Gromollet, vous décidez de reprendre la direction de Pont-de-Pierre, sans vous occuper du sentier étroit continuant vers l'est.",
+      "Decor": "foret-dense",
+      "Choix": [
+         {
+            "Texte": "Aller vers le nord",
+            "Vers": "103"
+         }
+      ]
+   },
+   {
+      "num": "115",
+      "Description": "Le chemin arrive bientôt à une bifurcation.",
+      "Decor": "embranchement",
+      "Choix": [
+         {
+            "Texte": "Aller vers l'ouest",
+            "Vers": "382"
+         },
+         {
+            "Texte": "Aller à l'est",
+            "Vers": "277"
+         }
       ]
    },
    {
@@ -1502,6 +1650,21 @@
       ]
    },
    {
+      "num": "147",
+      "Description": "Le chemin mène vers le nord, dans l'épaisse forêt. Dans l’une des rares clairières qui s'ouvrent parmi les arbres, vous apercevez un filet de fumée s'élevant de la cheminée d'une cabane en bois située à votre droite.",
+      "Decor": "cabane-foret",
+      "Choix": [
+         {
+            "Texte": "Jeter un coup d'œil par la fenêtre de la cabane",
+            "Vers": "38"
+         },
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "220"
+         }
+      ]
+   },
+   {
       "num": "148",
       "Description": "Le chemin continue vers le nord et vous parvenez bientôt à une autre bifurcation.",
       "Decor": "embranchement",
@@ -1591,6 +1754,18 @@
          {
             "Texte": "Poursuivre vers le nord",
             "Vers": "337"
+         }
+      ]
+   },
+   {
+      "num": "158",
+      "Description": "Vous commencez à perdre l'équilibre tandis que l'illusion perturbe votre esprit. Vous fermez alors les yeux et vous fouillez dans votre sac à dos pour y dénicher le Bandeau de Concentration que vous vous hâtez de placer sur votre tête. Vos vertiges disparaissent aussitôt et vous rouvrez les yeux : la vieille femme qui se tient devant vous, vous le savez maintenant, est une <i class='stats'>SORCIÈRE</i>. Pour vous empêcher d'approcher d'elle, sa servante vous lance à la tête une chaise de bois.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tentez votre Chance",
+            "Vers": "",
+            "Rules": ["tentezVotreChance",["47","353","La chaise vous manque.","La chaise vous heurte à la tempe et vous assomme."]]
          }
       ]
    },
@@ -1697,6 +1872,29 @@
       ]
    },
    {
+      "num": "173",
+      "Description": "Vous prenez dans votre sac à dos la fiole de verre qui contient la poudre étincelante, vous en répandez le contenu sur le bloc de pierre. Celui-ci commence alors à se soulever et, lorsque vous jetez un coup d'œil à l'intérieur du coffre, vous vous apercevez avec dégoût qu'un cadavre en décomposition y est enfermé. C'est un squelette auquel sont encore rattachés des lambeaux de chair qui se mêlent aux haillons dont il est revêtu. Vous avez soulevé le couvercle d'un cercueil où repose quelque maudite créature pas même morte ; car un instant plus tard, vous faites un bond en arrière en voyant le cadavre cligner des yeux et les ouvrir. Vous vous trouvez dans une crypte où règne une mystérieuse créature maléfique. Lentement, elle se redresse dans son cercueil et s'avance vers vous, les bras tendus.",
+      "Decor": "goule",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre Eau Bénite",
+            "Vers": "58",
+            "Conditions":["hasObject",["eau bénite"]],
+            "Rules":["looseObjects",["eau bénite"]]
+         },
+         {
+            "Texte": "Combattre cette créature",
+            "Liaison":"La créature qui s'apprête à vous attaquer avec ses griffes est une <i class='stats'>GOULE</i>. Elle parviendra à vous paralyser si elle vous blesse par quatre fois au cours  du combat.",
+            "Vers": "312",
+            "Combat": ["goule", "la goule", "une", "elle"],
+            "Force" : ["9"],
+            "Endurance": ["7"],
+            "TexteMort": "Pour vous, l'aventure se termine ici : votre chair fraîche et savoureuse offrira un festin de choix à la Goule victorieuse.",
+            "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
       "num": "174",
       "Description": "Tandis que vous retirez votre épée de la carcasse du Sanglier Sauvage, vous vous demandez pourquoi il vous a attaqué. Vous entendez alors au lointain des aboiements de chiens. Peut-être était-il poursuivi par une meute et, se voyant pris au piège, a-t-il voulu livrer contre vous son dernier combat? Passé dans le groin du sanglier, vous trouvez un anneau d'or que vous arrachez aussitôt pour le ranger dans votre sac à dos. Cet anneau vaut 10 Pièces d'Or et vous fait gagner 1 point de <i class='stats'>CHANCE.</i>",
       "Decor": "",
@@ -1765,6 +1963,17 @@
             "Endurance": ["8"],
             "TexteMort": "L'araignée vous injecte son venin, et vous ligote dans ses soies. Quelques jours à faisander, et elle pourra déguster vos sucs liquéfiés.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "179",
+      "Description": "Vous vous coiffez du casque et, aussitôt, une énergie nouvelle parcourt tout votre corps : vous vous sentez fort et rien ne vous fait peur. Ce casque a des vertus magiques : il vous permettra, chaque fois que vous vous en coifferez, d'ajouter 1 point à votre Force d'Attaque, lors de futurs combats.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "115"
          }
       ]
    },
@@ -2024,7 +2233,7 @@
          {
             "Texte": "Prendre le sentier qui mène en direction de l'est",
             "Liaison": "Le chemin mène le long d'une corniche, au flanc de la colline, et aboutit à une autre bifurcation. L'embranchement orienté au sud repart vers la rivière et vous décidez donc de poursuivre vers le nord.",
-            "Vers": "87"
+            "Vers": "90"
          }
       ]
    },
@@ -2173,7 +2382,7 @@
             "Texte": "Attaquer ces Hommes des Bois",
             "Liaison": "Vous dégainez votre épée et vous vous lancez à l'assaut des Hommes des Bois qui cessent aussitôt de se disputer et vous font face en hurlant, leurs haches brandies.",
             "Vers": "50",
-            "Combat": ["homme des bois", "l'homme des bois'", "un", "il"],
+            "Combat": ["homme des bois", "l'homme des bois", "un", "il"],
             "Fuir": "188",
             "Force" : ["7","6"],
             "Endurance": ["5","4"],
@@ -2280,7 +2489,7 @@
             "Texte": "Lui donner un objet magique au hasard",
             "Liaison": " Le petit garçon vous rend votre épée et part en courant avec votre objet. Quant à vous, vous tranchez la corde qui vous retient prisonnier et vous tombez lourdement sur le sol. Vous vous relevez ensuite et vous époussetez vos vêtements. Vous continuez alors vers le nord.",
             "Vers": "274",
-            "Conditions": ["minObjects",["1"]],
+            "Conditions": ["minObjects",["3"]],
             "Rules": ["giveObjects",["1"]]
          }
       ]
@@ -2294,6 +2503,22 @@
             "Texte": "Partir vers le nord",
             "Vers": "300",
             "Rules": ["changeChance",["1"],"gainBijoux",["fléchette argent"]]
+         }
+      ]
+   },
+   {
+      "num": "220",
+      "Description": "En marchant le long de l'étroit sentier, vous remarquez sur la gauche un grand et vieil arbre : il y a dans son tronc un gros trou situé à une hauteur un peu supérieure à votre taille.",
+      "Decor": "tronc-trou",
+      "Choix": [
+         {
+            "Texte": "Passer votre main dans le trou pour voir ce qu'il contient",
+            "Vers": "275",
+            "Rules": ["changeLife",["-1"]]
+         },
+         {
+            "Texte": "Poursuivre en direction du nord",
+            "Vers": "115"
          }
       ]
    },
@@ -2374,11 +2599,11 @@
             "Liaison": "Vous tirez votre épée en entrant dans la caverne. L'Ogre jette alors son bol et saisit la massue de pierre attachée à sa ceinture. Puis il se met à grogner et bondit sur vous.",
             "Vers": "385",
             "Fuir": "358",
-            "Combat": ["ogre", "l'ogre'", "un", "il"],
+            "Combat": ["ogre", "l'ogre", "un", "il"],
             "Force" : ["8"],
             "Endurance": ["12"],
-            "TexteMort": "Le troll est un adversaire redoutable. Alors que vous succombez, vous remarquez qu'il se lèche les babines, et n'osez imaginer ce qu'il va faire.",
-            "TexteVictoire" : "Le troll s'effondre, contre toute attente !"
+            "TexteMort": "L'Ogre est un adversaire redoutable. Alors que vous succombez, vous remarquez qu'il se lèche les babines, et n'osez imaginer ce qu'il va faire.",
+            "TexteVictoire" : ""
          },
          {
             "Texte": "Quitter la caverne, et poursuivre votre route",
@@ -2792,8 +3017,24 @@
             "Vers": "195"
          },
          {
-            "Texte": "poursuivre votre chemin vers le nord",
+            "Texte": "Poursuivre votre chemin vers le nord",
             "Vers": "109"
+         }
+      ]
+   },
+   {
+      "num": "275",
+      "Description": "Vous introduisez lentement votre main dans le trou sombre et vous sentez sous vos doigts un objet dur et froid. On dirait un bol en métal. Vous commencez à le tirer vers vous, mais à ce moment une douleur fulgurante vous arrache une grimace : la dent pointue de quelque créature vient de s'enfoncer dans votre bras. Vous ramenez aussitôt votre bras sans lâcher l'objet et vous constatez que du sang coule d'une plaie provoquée par la dent mystérieuse. Vous perdez 1 point de vie. Vous examinez alors votre trouvaille et vous vous apercevez qu'il ne s'agit pas du tout d'un bol de métal, mais d'un casque en bronze qui semble à votre taille.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Essayer le casque",
+            "Vers": "179",
+            "Rules":["changeBonusAttaque",["1"],"gainObjects",["casque de bronze"]]
+         },
+         {
+            "Texte": "L'abandonner là et repartir vers le nord",
+            "Vers": "115"
          }
       ]
    },
@@ -2857,6 +3098,17 @@
          {
             "Texte": "Debug :)",
             "Vers": "246"
+         }
+      ]
+   },
+   {
+      "num": "280",
+      "Description": "Votre marche vers l'ouest est éprouvante, mais vous ne faites aucune mauvaise rencontre. Vous passez devant deux sentiers successifs qui mènent vers le sud mais vous poursuivez votre chemin dans la même direction, et vous arrivez enfin à une bifurcation. À nouveau, un sentier part vers le sud et, à nouveau, vous maintenez le cap au nord.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "306"
          }
       ]
    },
@@ -2952,7 +3204,7 @@
    },
    {
       "num": "291",
-      "Description": "A mesure que vous avancez sur la plaine en direction du nord, les herbes sont de moins en moins hautes et le sol monte en pente douce. A quelque distance, vous entendez le grondement d'une chute d'eau, et vous atteignez bientôt la berge d'une large rivière qui coule sur deux niveaux : à votre droite, l'eau est calme et le courant très faible. Mais, en face, une haute et bruyante chute d'eau dégringole au fond d'un défilé : là, le lit de la rivière se rétrécit et son cours devient tumultueux tandis qu'elle s'enfonce vers l'ouest parmi de gros blocs rocheux. Des marches taillées dans le roc, juste à côté de la chute d'eau, permettent de descendre dans le défilé ; mais il est impossible de savoir où elles aboutissent exactement en raison des gerbes d'écumes qui jaillissent à leur base et qui les cachent à la vue. De l'autre côté de l'eau, le chemin continue vers le nord et, à votre droite, un petit bateau de bois est amarré à un poteau, là où le cours de la rivière est calme.",
+      "Description": "À mesure que vous avancez sur la plaine en direction du nord, les herbes sont de moins en moins hautes et le sol monte en pente douce. A quelque distance, vous entendez le grondement d'une chute d'eau, et vous atteignez bientôt la berge d'une large rivière qui coule sur deux niveaux : à votre droite, l'eau est calme et le courant très faible. Mais, en face, une haute et bruyante chute d'eau dégringole au fond d'un défilé : là, le lit de la rivière se rétrécit et son cours devient tumultueux tandis qu'elle s'enfonce vers l'ouest parmi de gros blocs rocheux. Des marches taillées dans le roc, juste à côté de la chute d'eau, permettent de descendre dans le défilé ; mais il est impossible de savoir où elles aboutissent exactement en raison des gerbes d'écumes qui jaillissent à leur base et qui les cachent à la vue. De l'autre côté de l'eau, le chemin continue vers le nord et, à votre droite, un petit bateau de bois est amarré à un poteau, là où le cours de la rivière est calme.",
       "Decor": "bateau",
       "Choix": [
          {
@@ -2962,6 +3214,21 @@
          {
             "Texte": "Traverser la rivière à la rame à bord du petit bateau",
             "Vers": "145"
+         }
+      ]
+   },
+   {
+      "num": "292",
+      "Description": "La lueur de la chandelle projette des ombres inquiétantes tout autour de la pièce. Dans une clarté jaunâtre, vous distinguez le visage d'un vieil homme gravé sur le bloc de pierre qui ferme le coffre. Puis vous remarquez la jambe d'un squelette qui dépasse de l'ombre à l'autre bout de la pièce. Vous vous approchez du squelette pour l'examiner : il est de petite taille et ses mâchoires sont dotées de dents pointues plantées en avant. Ce pourrait être le squelette d'un Gobelin ou celui d'un Orque. Vous vous approchez ensuite du coffre de pierre. Il doit être possible de déplacer le couvercle qui le ferme.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Essayer de pousser le couvercle",
+            "Vers": "95"
+         },
+         {
+            "Texte": "Retourner sur le chemin pour repartir vers le nord",
+            "Vers": "112"
          }
       ]
    },
@@ -3128,6 +3395,21 @@
       ]
    },
    {
+      "num": "306",
+      "Description": "À la droite du chemin, vous apercevez parmi les arbres un petit édifice de pierre couvert de lierre et de mousse.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "L'examiner de plus près",
+            "Vers": "391"
+         },
+         {
+            "Texte": "Poursuivre vers le nord, le long du chemin",
+            "Vers": "112"
+         }
+      ]
+   },
+   {
       "num": "308",
       "Description": "En mangeant les champignons, vous ressentez une grande agitation dans tout votre corps, et vous pensez aussitôt que vous êtes peut-être en train de devenir vous-même un Changeforme ! Bientôt, cependant, vous êtes soulagé de sentir cette agitation s'apaiser puis disparaître ; vous n'êtes pas devenu un Changeforme, mais vous avez mangé des Champignons Brouilleurs et votre total de <i class='stats'>FORCE</i> va maintenant remplacer votre total de <i class='stats'>CHANCE</i> et inversement. Vous vous sentez un peu bizarre à présent.",
       "Decor": "",
@@ -3210,6 +3492,22 @@
          {
             "Texte": "Poursuivre votre route en direction du nord",
             "Vers": "288"
+         }
+      ]
+   },
+   {
+      "num": "315",
+      "Description": "Vous ouvrez une porte de bois brut et vous pénétrez dans une pièce à l'aspect misérable.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Parler à la vieille femme",
+            "Vers": "42",
+            "Rules": ["changeChance",["-1"]]
+         },
+         {
+            "Texte": "Tirer votre épée",
+            "Vers": "342"
          }
       ]
    },
@@ -3324,6 +3622,21 @@
          {
             "Texte": "Traverser avec le bateau",
             "Vers": "145"
+         }
+      ]
+   },
+   {
+      "num": "327",
+      "Description": "Vous distinguez à l'intérieur un escalier de pierre qui descend en d'obscures profondeurs. Impossible cependant d'apercevoir quoi que ce soit au bas des marches.",
+      "Decor": "escalier",
+      "Choix": [
+         {
+            "Texte": "Emprunter cet escalier",
+            "Vers": "351"
+         },
+         {
+            "Texte": "Quitter l'édifice et retourner sur le chemin pour repartir en direction du nord",
+            "Vers": "112"
          }
       ]
    },
@@ -3505,6 +3818,23 @@
       ]
    },
    {
+      "num": "342",
+      "Description": "Lorsque vous tirez votre épée, le visage de la vieille femme n'exprime plus l'indifférence mais la colère. Elle prend alors dans le tiroir d'une table à côté d'elle une poignée de fleurs mortes, dont elle frotte quelques pétales entre les paumes de ses mains. Aussitôt, une odeur douceâtre envahit la cabane, et la pièce commence à tournoyer devant vos yeux.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre bandeau de concentration",
+            "Vers": "158",
+            "Conditions": ["hasObject",["bandeau de concentration"]],
+            "Rules": ["looseObjects",["bandeau de concentration"]]
+         },
+         {
+            "Texte": "Tenter de résister",
+            "Vers": "11"
+         }
+      ]
+   },
+   {
       "num": "343",
       "Description": "Vous posez la Pièce d'Or sur le poteau indicateur, ainsi que le corbeau vous l'a demandé. « Allez vers le nord », dit alors l'oiseau. Vous lui demandez pourquoi il a besoin d'or et il vous répond qu'il lui faut en tout 30 Pièces : c'est le prix que demande Yaztromo pour lui redonner son apparence humaine.",
       "Decor": "foret",
@@ -3545,10 +3875,18 @@
       "num": "348",
       "Description": "Vous perdez 3 points de vie. Les deux hommes sautent en tous sens, les bras levés, exprimant ainsi leur joie à vous voir peiner pour arracher la flèche de votre épaule. Vous serrez les dents et vous tirez sur la flèche qui finit par s'extraire de votre blessure. Les deux hommes sont pris d'un fou rire bruyant et irrépressible et semblent vous avoir complètement oublié.",
       "Decor": "",
+      "Rules":["changeLife",["-3"]],
       "Choix": [
          {
             "Texte": "Attaquer ces Hommes des Bois",
-            "Vers": "43"
+            "Vers": "50",
+            "Liaison":"Vous dégainez votre épée et vous vous lancez à l'assaut des Hommes des Bois qui cessent aussitôt de se disputer et vous font face en hurlant, leurs haches brandies.",
+            "Combat": ["homme des bois", "l'homme des bois", "un", "il"],
+            "Fuir": "188",
+            "Force" : ["7","6"],
+            "Endurance": ["5","4"],
+            "TexteMort": "Alors qu'une hache vous fend le crâne, votre dernière pensée est de ne pas avoir esquivé le combat...",
+            "TexteVictoire" : ""
          },
          {
             "Texte": "Partir discrètement pendant qu'ils rient",
@@ -3579,6 +3917,37 @@
          {
             "Texte": "Poursuivre ensuite votre chemin vers le nord",
             "Vers": "329"
+         }
+      ]
+   },
+   {
+      "num": "351",
+      "Description": "Vous descendez prudemment l'escalier de pierre en tâtant chaque marche du bout du pied. Peu à peu, vos yeux s'habituent à l'obscurité et vous commencez à distinguer des formes au bas de l'escalier. Après avoir descendu la dernière marche, vous vous retrouvez dans une petite pièce carrée au plafond bas. Une épaisse couche de poussière recouvre le sol et il y a partout des toiles d'araignée. Au milieu de la pièce se trouve un grand coffre de pierre qui mesure environ deux mètres de long sur un de large, et qui est fermé par un couvercle également en pierre. Une niche a été creusée dans la pierre brute de l’un des murs et vous y trouvez une chandelle.",
+      "Decor": "tombe",
+      "Choix": [
+         {
+            "Texte": "Allumer cette chandelle",
+            "Vers": "292"
+         },
+         {
+            "Texte": "Remonter l'escalier, retourner sur le chemin, et repartir vers le nord",
+            "Vers": "112"
+         }
+      ]
+   },
+   {
+      "num": "353",
+      "Description": "Lorsque vous vous réveillez, vous vous apercevez que vous êtes étendu sur le sol, à l'extérieur de la cabane en bois. Vous vous asseyez et vous regardez à l'intérieur de votre sac à dos : on vous a volé toutes vos Provisions ! Fort heureusement, rien d'autre ne manque et vous avez toujours votre épée. Vous allez ensuite jeter un coup d'oeil à l'intérieur de la cabane, mais elle est déserte.",
+      "Decor": "cabane-foret",
+      "Rules":["changeFood","-100"],
+      "Choix": [
+         {
+            "Texte": "Fouiller l'endroit dans l'espoir d'y trouver quelque chose qui puisse vous être utile",
+            "Vers": "26"
+         },
+         {
+            "Texte": "Repartir et retourner sur le chemin en direction du nord",
+            "Vers": "220"
          }
       ]
    },
@@ -3730,6 +4099,17 @@
       ]
    },
    {
+      "num": "368",
+      "Description": "Vous cherchez l'inspiration dans votre sac à dos, mais hélas vous n'avez pas de Poudre de Lévitation. Vous n'avez plus rien à faire dans cet endroit et vous décidez donc de remonter l'escalier pour rejoindre le chemin.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "112"
+         }
+      ]
+   },
+   {
       "num": "369",
       "Description": "Le fond de la vallée est arride, mais vous vous demandez comment il se fait qu'un endroit aussi paisible soit devenu le repaire de tant de créatures répugnantes. En marchant le long du chemin, vous apercevez bientôt la silhouette d'un homme au visage caché par sa capuche ; il est vêtu d'une longue robe marron et il se dirige vers vous. Lorsqu'il s'approche, vous reconnaissez en lui un moine.",
       "Decor": "moine",
@@ -3753,6 +4133,22 @@
          {
             "Texte": "Repartir vers le nord",
             "Vers": "231"
+         }
+      ]
+   },
+   {
+      "num": "372",
+      "Description": "Vous vous penchez pour essayer de soulever le coffre, mais il est très lourd. Vous pouvez Tester votre Force, mais en cas d'échec, vous vous faites mal au dos et vous perdez 1 point de vie. Vous pouvez à nouveau tenter de soulever le coffre, aussi souvent qu'il vous plaira.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tester votre Force",
+            "Vers": "",
+            "Rules": ["briserCoffre",["48","372"]]
+         },
+         {
+            "Texte": "Quitter la cabane et partir vers le nord",
+            "Vers": "288"
          }
       ]
    },
@@ -3816,22 +4212,6 @@
       ]
    },
    {
-      "num": "372",
-      "Description": "Vous vous penchez pour essayer de soulever le coffre, mais il est très lourd. Vous pouvez Tester votre Force, mais en cas d'échec, vous vous faites mal au dos et vous perdez 1 point de vie. Vous pouvez à nouveau tenter de soulever le coffre, aussi souvent qu'il vous plaira.",
-      "Decor": "",
-      "Choix": [
-         {
-            "Texte": "Tester votre Force",
-            "Vers": "",
-            "Rules": ["briserCoffre",["48","372"]]
-         },
-         {
-            "Texte": "Quitter la cabane et partir vers le nord",
-            "Vers": "288"
-         }
-      ]
-   },
-   {
       "num": "377",
       "Description": "Vous rattrapez bientôt les deux Pygmées. Ils sont vêtus de jupes fabriquées avec des herbes et, lorsqu'ils se retournent pour vous faire face, vous remarquez qu'ils ont chacun un os en travers du nez. Ils tirent aussitôt leurs poignards et vous attaquent.",
       "Decor": "",
@@ -3845,6 +4225,17 @@
             "Endurance": ["6","5"],
             "TexteMort": "",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "379",
+      "Description": "cf 391",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "391"
          }
       ]
    },
@@ -3991,11 +4382,31 @@
       "Choix": [
          {
             "Texte": "Poursuivre vers le nord",
-            "Vers": "190 todo"
+            "Vers": "190"
          },
          {
             "Texte": "Aller à l'ouest",
             "Vers": "280 todo"
+         }
+      ]
+   },
+   {
+      "num": "391",
+      "Description": "L'édifice ne mesure que trois mètres sur trois et il est dépourvu de fenêtre. L'accès en est fermé par une porte en pierre qui paraît très solide ; elle n'a pas de poignée et il ne semble pas qu'aucune autre ouverture permette d'entrer à l'intérieur de l'étrange construction. Vous remarquez alors dans la porte de pierre un minuscule trou de serrure.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre clé d'argent",
+            "Vers": "200",
+            "Conditions": ["hasObject",["clé d'argent"]]
+         },
+         {
+            "Texte": "Défoncer la porte ",
+            "Vers": "73"
+         },
+         {
+            "Texte": "Retourner sur le chemin et repartir vers le nord",
+            "Vers": "112"
          }
       ]
    },
