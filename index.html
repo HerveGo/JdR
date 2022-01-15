@@ -25,6 +25,7 @@
     <script src="./js/index.js" defer></script>
     <script src="./js/achat.js" defer></script>
     <script src="./js/chalkboard.js" defer></script>
+    <script src="./js/music.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -77,7 +78,14 @@
         <img class="inventaire transparent" src="./images/decor/inventaire.jpg" />
         <img class="foret top" src="./images/decor/foret.jpg" loading="eager"/>
     </div>
-    <div id="backpack" hidden><button onclick="ecranInventaire();closeModal(1)"><img id="backpackImg" alt="Inventaire" src="./images/backpack.png"></button></div>
+    <div id="backpack" hidden>
+        <button onclick="ecranInventaire();closeModal(1)">
+            <img id="backpackImg" alt="Inventaire" src="./images/backpack.png">
+        </button>
+    </div>
+    <div id="soundButton" hidden>
+        <button onclick="toggleSound()"><i id="soundIcon" class="fa fa-volume-up"></i></button>
+    </div>
     <div class="lifeContainer">
         <p id="life"></p>
     </div>

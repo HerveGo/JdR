@@ -10,9 +10,6 @@ let maPerte = 0;
 
 let mordu = false;
 
-let soundOpponent = new Audio();
-let soundAttached = false;
-
 //Renvoie un résultat entre 0 et 9
 function rollDice10() {
     return Math.floor(Math.random() * 10);
@@ -38,30 +35,14 @@ function choixHidden(h) {
 function ecranCombat() {
     const oppo = scene[sceneEnCours].Choix[choix].Combat[0];
     mordu = false;
-    audioBackground.pause();
-    if(!soundAttached) {
-        soundOpponent.addEventListener("canplay", event => {
-            console.log("audio event for "+oppo);
-            soundAttached = true;
-            soundOpponent.play();
-        });
-    }
-    console.log(`./sounds/${oppo}.mp3`);
-    soundOpponent.src = `./sounds/${oppo}.mp3`;
-    soundOpponent.load();
-    soundOpponent.loop = false;
-    //soundOpponent.play();
-    
-    audioCombat.play();
+    playAudio("fight");
+    playSound("opponent",oppo);
     hideElementsById(true, "taler", "choix", "histoire", "backpack");
     hideElementsById(false, "combat");
     let sFuite = "";
-    //let gandalf = document.querySelector("#taler");
-    //gandalf.hidden = true;
     if( !document.getElementsByClassName("top")[0] ) decorActuel = document.getElementsByClassName("top")[0];
     majDecor("combat");
     saLife = [];
-    //choixHidden(true);
     let c = document.getElementById("description");
     c.style.display = "flex";
     let b = document.getElementById("btnAttack");
@@ -188,7 +169,7 @@ function rollCombat(enFuite = false, appelChance = null) {
         s = `<span>${capitalizeFirstLetter(ladversaire)}</span> `;
     }
     if (maForceAtt == saForceAtt) {
-        soundMiss.play();
+        playSound("miss");
         s += ` et vous esquivez mutuellement vos attaques.<br>`
         return s;
     }
@@ -234,10 +215,10 @@ function rollCombat(enFuite = false, appelChance = null) {
     let oldLife = maLife;
     maLife -= maPerte;
     if( maPerte > 0) {
-        mordu = true; //pour le loup-garou    
-        soundHit.play();
+        mordu = true; //pour le loup-garou
+        playSound("hit");    
     } else {
-        soundAttack.play();
+        playSound("sword");
     }
     //goule 4 blessures et c'est la fin
     if( goule && blessures === 4 ) {
@@ -267,8 +248,7 @@ function rollCombat(enFuite = false, appelChance = null) {
 //Masque l'écran de combat et revient à la scène
 function quitteCombat() {
     console.log("mordu " + mordu);
-    audioCombat.pause();
-    audioBackground.play();
+    playAudio("background");
     saLife = null;
     hideElementsById(true, "combat");
     hideElementsById(false, "choix", "histoire", "backpack");

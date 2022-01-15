@@ -6,12 +6,6 @@ let tcp = []; //Table des Coups Portés
 let allDescription = "";
 let speak = true;
 let toggleAnimationText = false;
-let audioBackground;
-let audioCombat;
-let audioDeath;
-let soundAttack;
-let soundHit;
-let soundMiss;
 
 const decorUrl = "url('../images/decor/";
 
@@ -38,6 +32,10 @@ function setLife() {
     oldLife = maLife;
     maLife = parseInt(document.getElementById("setLife").value);
     displayLife(oldLife);
+}
+
+function toggleSound() {
+
 }
 
 // Get the modal
@@ -293,9 +291,7 @@ function majScene() {
     
     //Si mort
     if( sceneEnCours == 0 ) {
-        audioBackground.pause();
-        audioCombat.pause();
-        audioDeath.play();
+        musicPlay("death");
     }
 
     hideChoices();
@@ -515,8 +511,9 @@ function main() {
     document.getElementById("texteIntro").innerHTML = sIntro;
     document.getElementById("texteVictory").innerHTML = sVictory;
     document.getElementById("achat").innerHTML = sAchat;
-    //Commence à charger le fichier audio mais sans le jouer
-    audioBackground = new Audio( "./sounds/background.mp3" );
+    //Commence à charger les fichier audio mais sans les jouer
+    musicInit();
+    
 }
 
 //Appel depuis l'écran des règles du jeu, affiche l'introduction
@@ -537,22 +534,11 @@ function ardoise() {
 
 //Appel depuis l'ardoise, démarre l'aventure
 function startGame() {
-    hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack");
+    hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack", "soundButton");
     hideElementsById(true, "introduction", "combat", "ardoise", "rules");
     document.getElementById("container").style.height = "85vh";
-    audioCombat = new Audio( "./sounds/combat.mp3" );
-    audioCombat.loop = true;
-    audioDeath = new Audio( "./sounds/death.mp3" );
-    audioDeath.loop = true;
-    soundAttack = new Audio("./sounds/sword.mp3");
-    soundHit = new Audio("./sounds/hit.mp3");
-    soundMiss = new Audio("./sounds/miss.mp3");
-    // audioBackground.addEventListener("canplay", event => {
-    //     audioBackground.loop = true;
-    //     audioBackground.play();
-    //   });
-    audioBackground.loop = true;
-    audioBackground.play();
+    
+    playAudio("background");
     displayLife(0);
     majScene();
 }

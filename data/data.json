@@ -250,6 +250,28 @@
       ]
    },
    {
+      "num": "17",
+      "Description": "Une échelle permet de descendre dans le puits, jusqu'à la surface de l'eau. L'entrée d'un tunnel orienté vers le nord apparaît juste au-dessus de l'eau : c'est un boyau circulaire, large d'environ un mètre.",
+      "Decor": "puits-seau",
+      "Rules":["addView",["17"]],
+      "Choix": [
+         {
+            "Texte": "Jeter une pièce dans le puits et faire un vœu",
+            "Vers": "89",
+            "Conditions":["minOr",["1"]],
+            "Rules":["changeOr",["-1"]]
+         },
+         {
+            "Texte": "Descendre l'échelle pour aller voir ce tunnel",
+            "Vers": "256"
+         },
+         {
+            "Texte": "Retourner sur le chemin et partir vers l'ouest",
+            "Vers": "238"
+         }
+      ]
+   },
+   {
       "num": "18",
       "Description": "Votre idée était bonne et la fièvre retombe. Par bonheur, le poil qui couvrait vos mains disparaît bientôt, et vous vous allongez à nouveau, épuisé, pour replonger dans le sommeil. Au petit matin, vous vous réveillez et rassemblez toutes vos affaires.",
       "Decor": "collines-matin",
@@ -402,6 +424,17 @@
       ]
    },
    {
+      "num": "30",
+      "Description": "Voir 295",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "295"
+         }
+      ]
+   },
+   {
       "num": "34",
       "Description": "Tandis que vous frottez la lanterne, une fumée verte s'élève lentement de la mèche et commence à prendre forme. Bientôt apparaît devant vos yeux la silhouette d'un vieil homme gras, à la tête chauve, assis sur un coussin. Sa bouche s'ouvre sans hâte et il vous demande d'une voix grave : « Eh bien, que veux-tu ? » Vous lui racontez brièvement votre histoire et il vous répond qu'il ne peut vous donner aucun bien matériel, aucune richesse. Tout ce qu'il peut vous offrir, c'est de vous améliorer vous-même. Dès lors, vous avez la possibilité de rétablir à son niveau de départ une de vos caractéristique :",
       "Decor": "",
@@ -544,6 +577,17 @@
       ]
    },
    {
+      "num": "45",
+      "Description": "Vous perdez 2 points de vie.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Pousser un juron",
+            "Vers": "165"
+         }
+      ]
+   },
+   {
       "num": "47",
       "Description": "Tandis que vous esquiviez la chaise, la Sorcière a prononcé quelques paroles étranges. Et soudain, elle disparaît dans un éclair aveuglant, puis reparaît sous la forme d'une chauve-souris qui s'envole par la porte ouverte. La servante bossue s'écroule alors sur le sol et se met à pleurer.",
       "Decor": "cabane-foret",
@@ -567,6 +611,23 @@
          {
             "Texte": "Quitter la cabane et poursuivre vers le nord",
             "Vers": "288"
+         }
+      ]
+   },
+   {
+      "num": "49",
+      "Description": "Vous continuez le long du tunnel et vous pénétrez dans la caverne. Le plafond n'en est pas plus haut que celui du tunnel lui-même et il vous est impossible de vous tenir debout. La caverne est toute petite et remplie de meubles minuscules, d'objets de toutes sortes et de bibelots. Deux personnages à la peau verdâtre et au corps gracile surmonté d'une grosse tête se tiennent au milieu. Ils ont des oreilles pointues, un long nez, et leurs vêtements ont été taillés dans des sacs. Ils semblent complètement affolés et se précipitent sur vous, armé chacun d'un poignard. Il vous faut combattre ces <i class='stats'>GREMLINS</i> car vous n'avez pas le temps de vous retourner pour vous enfuir.",
+      "Decor": "caverne-gremlins",
+      "Choix": [
+         {
+            "Texte": "Combattre les Gremlins",
+            "Liaison":"Vous affrontez les Gremlins chacun à son tour, mais ils ont un bonus de Force d'Attaque de 3 points : vous êtes, en effet, obligé de combattre à quatre pattes en raison de la hauteur du plafond.",
+            "Vers": "371",
+            "Combat": ["gremlin", "le gremlin", "un", "il"],
+            "Force" : ["7","3"],
+            "Endurance": ["6","2"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
          }
       ]
    },
@@ -687,6 +748,21 @@
             "Texte": "Tentez votre Chance",
             "Vers": "",
             "Rules": ["tentezVotreChance",["183","44"]]
+         }
+      ]
+   },
+   {
+      "num": "61",
+      "Description": "Vous êtes bientôt de retour à la première bifurcation.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Ramper en direction du sud pour retourner au puits",
+            "Vers": "398"
+         },
+         {
+            "Texte": "Poursuivre vers l’est",
+            "Vers": "151"
          }
       ]
    },
@@ -891,6 +967,18 @@
       ]
    },
    {
+      "num": "81",
+      "Description": "Vous entendez à quelque distance des voix aiguës qui s'appellent les unes les autres d'un ton surexcité. Le tunnel aboutit à l'entrée d'une petite caverne et, soudain, une flèche jaillit dans votre direction.",
+      "Decor": "caverne-gremlins",
+      "Choix": [
+         {
+            "Texte": "Tentez votre Chance",
+            "Vers": "",
+            "Rules":["tentezVotreChance",["49","4","La flèche vous siffle aux oreilles sans vous atteindre","La flèche vient se planter dans votre épaule."]]
+         }
+      ]
+   },
+   {
       "num": "83",
       "Description": "liaison 155 !",
       "Decor": "",
@@ -979,6 +1067,27 @@
       ]
    },
    {
+      "num": "89",
+      "Description": "La pièce tombe dans l'eau avec un léger « plouf ». Vous faites ensuite le vœu de recevoir d'autres Pièces d'Or, mais rien ne se produit : ce puits-là n'exauce pas les vœux.",
+      "Decor": "puits-seau",
+      "Choix": [
+         {
+            "Texte": "Descendre l'échelle pour explorer le tunnel, au fond du puits",
+            "Vers": "256"
+         },
+         {
+            "Texte": "Retourner sur le chemin pour aller vers l'est",
+            "Vers": "281",
+            "Conditions":["notHasViewed",["17"]]
+         },
+         {
+            "Texte": "Retourner sur le chemin pour aller vers l'ouest",
+            "Vers": "238 todo",
+            "Conditions":["notHasViewed",["172"]]
+         }
+      ]
+   },
+   {
       "num": "90",
       "Description": "Le chemin mène vers le nord en descendant la colline entre de gros amas rocheux. Vous avez la désagréable sensation d'être observé et soudain, surgissant de derrière un gros roc, à gauche du sentier, apparaissent deux hommes au corps noueux, barbus et chevelus. Ils sont vêtus de peaux de bêtes et ont l'air menaçant. L'un des deux hommes tend alors son arc et vous décoche une flèche.",
       "Decor": "sentier-rocheux",
@@ -1025,6 +1134,21 @@
             "Vers": "100",
             "Conditions": ["hasObject",["contrôle des insectes"]],
             "Rules": ["looseObjects",["contrôle des insectes"]]
+         }
+      ]
+   },
+   {
+      "num": "93",
+      "Description": "De retour à la bifurcation, deux directions d'offrent à vous.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Aller à l'est",
+            "Vers": "61"
+         },
+         {
+            "Texte": "Poursuivre en direction du sud",
+            "Vers": "270"
          }
       ]
    },
@@ -1355,6 +1479,36 @@
       ]
    },
    {
+      "num": "121",
+      "Description": "De retour à la bifurcation, vous pouvez choisir entre deux directions.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Aller vers l'est",
+            "Vers": "61"
+         },
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "81"
+         }
+      ]
+   },
+   {
+      "num": "122",
+      "Description": "Arrivé au bas de l'échelle, vous constatez que le tunnel mène vers le nord sur une bonne distance, et vous remarquez avec étonnement qu'il est éclairé sur toute sa longueur par des torches disposées à intervalles réguliers.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Vous engager à quatre pattes dans ce tunnel",
+            "Vers": "135"
+         },
+         {
+            "Texte": "Remonter l'échelle et retourner sur le chemin",
+            "Vers": "362"
+         }
+      ]
+   },
+   {
       "num": "123",
       "Description": "Malgré la perte d'un bras, l'Ent continue de se battre et vous devez lui trancher son autre bras !",
       "Decor": "ent",
@@ -1475,12 +1629,18 @@
    },
    {
       "num": "132",
-      "Description": "La créature qui se pose devant vous est une <span class='stats'>VOUIVRE VOLANTE<span>. Elle vous fixe du regard et ouvre sa gueule immense pour cracher à  nouveau un jet de feu rugissant. Le monstre est long d'une bonne dizaine de mètres, et ses écailles épaisses semblent invulnérables à votre épée.",
+      "Description": "La créature qui se pose devant vous est une Vouivre. Elle vous fixe du regard et ouvre sa gueule immense pour cracher à  nouveau un jet de feu rugissant. Le monstre est long d'une bonne dizaine de mètres, et ses écailles épaisses semblent invulnérables à votre épée.",
       "Decor": "",
       "Choix": [
          {
-            "Texte": "",
-            "Vers": "167 todo"
+            "Texte": "Affronter ce monstre redoutable",
+            "Vers": "305",
+            "Liaison":"La longue queue de la Vouivre cingle l'air de tous côtés ; et des volutes de fumée s'élèvent des narines de la créature.",
+            "Combat": ["vouivre", "la vouivre", "une", "elle"],
+            "Force" : ["10"],
+            "Endurance": ["11"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
          },
          {
             "Texte": "Jouer de votre flûte",
@@ -1519,6 +1679,21 @@
          {
             "Texte": "Vous remettre en route en direction du nord",
             "Vers": "303"
+         }
+      ]
+   },
+   {
+      "num": "135",
+      "Description": "Le tunnel continue vers le nord jusqu'à ce que vous parveniez à une bifurcation.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Ramper vers l'ouest",
+            "Vers": "284"
+         },
+         {
+            "Texte": "Ramper vers l’est",
+            "Vers": "151"
          }
       ]
    },
@@ -1835,6 +2010,33 @@
       ]
    },
    {
+      "num": "165",
+      "Description": "Le petit Gremlin fait preuve d'une grande agilité, sautillant tout autour de vous, alors que vous parvenez difficilement à bouger en restant ainsi à quatre pattes. Vous prenez appui contre un mur. Il bénéficie d'un bonus de 3 points de force.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Sortir votre épée",
+            "Vers": "242",
+            "Combat": ["gremlin", "le gremlin", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["3"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "167",
+      "Description": "Combat 132",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "132"
+         }
+      ]
+   },
+   {
       "num": "168",
       "Description": "A l'intérieur de la cage, une petite créature au corps noueux et à la peau brune et écailleuse bondit en tous sens. C'est un <i class='stats'>GOBELIN</i>. Il porte au cou, accroché à une lanière de cuir, un bâton noir et brillant.",
       "Decor": "",
@@ -1868,6 +2070,28 @@
          {
             "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
             "Vers": "358"
+         }
+      ]
+   },
+   {
+      "num": "172",
+      "Description": "Une échelle permet de descendre dans le puits, jusqu'à la surface de l'eau. L'entrée d'un tunnel orienté vers le nord apparaît juste au-dessus de l'eau : c'est un boyau circulaire, large d'environ un mètre.",
+      "Decor": "puits-seau",
+      "Rules":["addView",["172"]],
+      "Choix": [
+         {
+            "Texte": "Jeter une pièce dans le puits et faire un vœu",
+            "Vers": "89",
+            "Conditions":["minOr",["1"]],
+            "Rules":["changeOr",["-1"]]
+         },
+         {
+            "Texte": "Descendre l'échelle pour aller voir ce tunnel",
+            "Vers": "256"
+         },
+         {
+            "Texte": "Retourner sur le chemin et partir vers l'est",
+            "Vers": "281"
          }
       ]
    },
@@ -2086,7 +2310,7 @@
       "Decor": "oree-foret",
       "Choix": [
          {
-            "Texte": "Aller vers l'ouest todo",
+            "Texte": "Aller vers l'ouest",
             "Vers": "221"
          },
          {
@@ -2560,6 +2784,21 @@
       ]
    },
    {
+      "num": "225",
+      "Description": "Vous lancez un juron et vous vous hissez hors de l'eau en vous glissant dans l'entrée du tunnel. Vous remarquez alors avec étonnement qu'il est éclairé à intervalles réguliers et sur toute sa longueur par des torches allumées.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Avancer à quatre pattes dans ce tunnel",
+            "Vers": "135"
+         },
+         {
+            "Texte": "Remonter l'échelle et retourner sur le chemin",
+            "Vers": "162"
+         }
+      ]
+   },
+   {
       "num": "226",
       "Description": "Vous entendez, venant de votre droite, des voix qui se disputent dans une langue étrange. Les personnages qui parlent ainsi sont cachés par les arbres.",
       "Decor": "foret",
@@ -2582,6 +2821,18 @@
          {
             "Texte": "Debug :)",
             "Vers": "278"
+         }
+      ]
+   },
+   {
+      "num": "229",
+      "Description": "Lorsque vous touchez la boîte de bois, le couvercle s'ouvre à la volée sans que vous ayez eu besoin de le soulever. Une minuscule créature à la peau verte surgit alors de la boîte. Elle a une grosse tête avec un long nez et des oreilles pointues et ses vêtements sont taillés dans de la toile à sac. Vous êtes pris par surprise : le <i class='stats'>GREMLIN</i> essaye de vous frapper avec son poignard.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tentez votre Chance",
+            "Vers": "",
+            "Rules":["tentezVotreChance",["165","45","Vous parvenez à éviter la lame pointée sur vous.","La lame s'enfonce dans votre cuisse."]]
          }
       ]
    },
@@ -2718,6 +2969,18 @@
             "Endurance": ["8"],
             "TexteMort": "Dans un puissant grondement, l'ours vous arrache la gorge.",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "242",
+      "Description": "Vous fouillez une armoire et vous y trouvez, dissimulé parmi des draps et des couvertures, un lingot d'or. Il vaut 28 Pièces d'Or. Il n'y a pas d'autre issue que le tunnel pour sortir de la caverne.",
+      "Decor": "",
+      "Rules":["gainJewels",["lingot d'or"]],
+      "Choix": [
+         {
+            "Texte": "Revenir à la bifurcation, toujours à quatre pattes",
+            "Vers": ""
          }
       ]
    },
@@ -2868,6 +3131,18 @@
       ]
    },
    {
+      "num": "256",
+      "Description": "Vous descendez le long du puits sans vous apercevoir qu'un barreau manque à l'échelle. Votre pied glisse, et vous perdez alors l'équilibre.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Tentez votre chance",
+            "Vers": "",
+            "Rules":["tentezVotreChance",["122","295","Vous parvenez à vous retenir de tomber en vous agrippant aux barreaux de l'échelle.","Vous tombez dans l'eau au fond du puits."]]
+         }
+      ]
+   },
+   {
       "num": "258",
       "Description": "Vous fouillez dans votre sac à dos, et vous en retirez la petite flûte de cuivre. Vous avez l'étrange impression qu'il vous faut en jouer maintenant, devant cette Vouivre enragée ; et lorsque vous soufflez dans l'instrument, il en sort une musique douce et paisible qui provoque un changement d'expression sur le visage de la créature. Son regard se brouille en effet, sa gueule se referme et ses paupières tombent. Vous êtes en train de jouer d'une Flûte à Endormir les Dragons, et la Vouivre est incapable de résister à ces sons apaisants. Le monstre alors se laisse lentement tomber sur le sol et sombre bientôt dans un profond sommeil.",
       "Decor": "",
@@ -2993,6 +3268,21 @@
          {
             "Texte": "Vous diriger vers les marches, dans la paroi du fond",
             "Vers": "293"
+         }
+      ]
+   },
+   {
+      "num": "270",
+      "Description": "Le tunnel aboutit à l'entrée d’une caverne. Vous y pénétrez et vous constatez alors qu'elle n'est pas plus haute que le tunnel lui-même : il vous est donc toujours impossible de vous tenir debout. Il y a quelques meubles dans la caverne, ce qui est la preuve qu'une créature douée d'intelligence y habite. Tout au fond, vous apercevez une grande boîte en bois d'environ un mètre de long.",
+      "Decor": "caverne-puits",
+      "Choix": [
+         {
+            "Texte": "Soulever le couvercle de la boîte",
+            "Vers": "229"
+         },
+         {
+            "Texte": "Faire demi-tour et retourner à la bifurcation, dans le tunnel",
+            "Vers": "121"
          }
       ]
    },
@@ -3140,6 +3430,21 @@
       ]
    },
    {
+      "num": "284",
+      "Description": "Vous arrivez bientôt à une nouvelle bifurcation dans le tunnel.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Aller vers le nord",
+            "Vers": "81"
+         },
+         {
+            "Texte": "Vous diriger au sud",
+            "Vers": "270"
+         }
+      ]
+   },
+   {
       "num": "285",
       "Description": "Vous dormez depuis environ une heure, lorsqu'un grognement sonore vous réveille. Vous vous levez sans bruit et vous empoignez votre épée, puis vous écoutez, immobile. Dans le ciel, la lune est pleine, et sa clarté projette alentour des ombres inquiétantes. Vous entendez alors des pas feutrés et des reniflements suivis d'un autre grognement. Un instant plus tard, une forme d'apparence humaine surgit de l'obscurité, à votre droite. A mesure que la créature approche, vous remarquez son torse, son visage et ses bras recouverts d'une épaisse fourrure, et les longues dents pointues qui hérissent ses mâchoires. Il s'agit là d'un <i class='stats'>LOUP-GAROU</i> qu'il vous faut combattre.",
       "Decor": "lune",
@@ -3267,6 +3572,25 @@
          {
             "Texte": "Quitter la cabane et poursuivre votre chemin vers le nord",
             "Vers": "288"
+         }
+      ]
+   },
+   {
+      "num": "295",
+      "Description": "En tombant, vous vous cognez la tête contre la paroi du puits.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Continuer...",
+            "Vers": "225",
+            "Conditions":["hasObject",["casque de bronze"]]
+         },
+         {
+            "Texte": "Continuer...",
+            "Liaison":"Vous perdez 3 points de vie en raison de votre profonde coupure au front.",
+            "Vers": "225",
+            "Conditions":["notHasObject",["casque de bronze"]],
+            "Rules":["changeLife",["-3"]]
          }
       ]
    },
@@ -3541,6 +3865,17 @@
          {
             "Texte": "Debug :)",
             "Vers": "278"
+         }
+      ]
+   },
+   {
+      "num": "320",
+      "Description": "Vous saisissez la jambe et vous tirez dessus de toutes vos forces. Un petit GREMLIN à la peau verte tombe alors devant vous en poussant un long gémissement, puis atterrit dans l'eau. Vous profitez de l'occasion pour remonter l'échelle en hâte tandis que la créature patauge au fond du puits. Vous arrivez bientôt à l'air libre.",
+      "Decor": "puits-seau",
+      "Choix": [
+         {
+            "Texte": "Retourner sur le chemin",
+            "Vers": "362"
          }
       ]
    },
@@ -3995,6 +4330,21 @@
       ]
    },
    {
+      "num": "359",
+      "Description": "À gauche du chemin, vous apercevez un puits à la margelle de pierre avec un seau suspendu à une manivelle.",
+      "Decor": "puits-seau",
+      "Choix": [
+         {
+            "Texte": "Aller voir ce puits de plus près",
+            "Vers": "172"
+         },
+         {
+            "Texte": "Poursuivre votre route vers l’est",
+            "Vers": "281"
+         }
+      ]
+   },
+   {
       "num": "360",
       "Description": "En marchant le long du chemin, vous entendez soudain craquer une brindille et des voix chuchoter. Vous tirez aussitôt votre épée et vous attendez, plutôt inquiet, adossé au tronc d'un grand chêne. Quatre hommes et une femme vêtus de tuniques vertes surgissent alors de derrière les arbres en face de vous. Chacun d'eux paraît menaçant et ils s'avancent vers vous en brandissant des haches et des épées. La jeune femme se détache du groupe et vous déclare que vous avez pénétré sur leur territoire ; vous devez payer en conséquence une taxe qu'elle fixe à cinq pièces d'or. Sinon, vous aurez à répondre de votre faute les armes à la main.",
       "Decor": "brigands",
@@ -4028,6 +4378,23 @@
          {
             "Texte": "Vous cacher dans les hautes herbes, à l'écart du chemin",
             "Vers": "86"
+         }
+      ]
+   },
+   {
+      "num": "362",
+      "Description": "Vous reprenez votre direction initiale.",
+      "Decor": "puits-seau",
+      "Choix": [
+         {
+            "Texte": "Continuer vers l'est",
+            "Vers": "281",
+            "Conditions":["notHasViewed",["17"]]
+         },
+         {
+            "Texte": "Continuer vers l'ouest",
+            "Vers": "238",
+            "Conditions":["notHasViewed",["172"]]
          }
       ]
    },
@@ -4133,6 +4500,22 @@
          {
             "Texte": "Repartir vers le nord",
             "Vers": "231"
+         }
+      ]
+   },
+   {
+      "num": "371",
+      "Description": "Partout dans la caverne sont entassées des mains humaines en argile, représentées dans différentes positions. Elles sont toutes peintes d'une couleur rouge vif vernissée. Dans un vase de cuivre, vous trouvez 3 pièces d'Or que vous rangez dans votre sac à dos et, comme il n'y a rien d'autre d'intéressant ou d'utile à emporter, vous quittez l'endroit.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Prendre l'une des mains d'argile au passage",
+            "Vers": "93",
+            "Rules":["gainObjects",["main d'argile"]]
+         },
+         {
+            "Texte": "Retourner à la bifurcation, toujours à quatre pattes",
+            "Vers": "93"
          }
       ]
    },
@@ -4499,6 +4882,21 @@
          {
             "Texte": "Continuer vers l'est",
             "Vers": "393"
+         }
+      ]
+   },
+   {
+      "num": "398",
+      "Description": "Vous atteignez l'extrémité du tunnel et vous vous apprêtez à remonter l'échelle le long du puits, lorsque vous entendez soudain des bruits de pas au-dessus de votre tête. Quelqu'un est en train de descendre l'échelle.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Saisir la jambe qui ne va pas tarder à apparaître",
+            "Vers": "320"
+         },
+         {
+            "Texte": "Attendre que ce mystérieux visiteur pénètre dans le tunnel",
+            "Vers": "193"
          }
       ]
    },

@@ -13,6 +13,28 @@
     justify-content: space-evenly;
 }
 
+#soundButton button {
+       color: cornsilk;
+       
+       font-size: 4vh;
+       background-color: transparent;
+       border:none;
+       cursor: pointer;
+}
+
+#soundButton {
+       position : absolute;
+       bottom: 12px;
+       right: 12px;
+
+       z-index: 1;
+       background-color: transparent;
+       color: cornsilk;
+       border: none;
+       width: 5vh;
+       height: 5vh;
+}
+
 /* Invisible background to stop speaking onclick */
 .stopSpeaking {
        display: none; /* Hidden by default */
