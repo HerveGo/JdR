@@ -298,17 +298,17 @@ function ecranInventaire() {
     const backpackImg = document.getElementById("backpackImg");
     bInventaire = !bInventaire;
     if( bInventaire ) {
+        playSound("backpack-open");
         oldLife = maLife;
         majInventaire();
         if( !document.getElementsByClassName("top")[0] ) decorActuel = document.getElementsByClassName("top")[0];
         majDecor("inventaire");
-        //choixHidden(true);
-        // document.getElementById("backpack").hidden = false;
         backpackImg.src = "./images/close.png";
         backpackImg.alt = "Fermer l'inventaire";
         hideElementsById(true, "gandalf", "life", "container", "choix", "histoire");
         hideElementsById(false, "inventaire", "stats", "cadre", "statsLarge", "backpack");
     } else {
+        playSound("backpack-close");
         let decor = scene[sceneEnCours].Decor;
         if( !decor ) decor = decorActuel;
         majDecor(decor);
@@ -338,7 +338,7 @@ function majInventaire() {
     s = "EQUIPEMENT";
     inventory.forEach(item => s += `<span>${item}</span>`);
     document.getElementById("equipement").innerHTML = s;
-    s = "BIJOUX<p></p>";
+    s = "BIJOUX<br>";
     mesBijoux.forEach(item => s += `<i>${item}</i> `);
     document.getElementById("bijoux").innerHTML = s;
     s = "POTIONS";
@@ -353,12 +353,15 @@ function eat() {
     modalHeader.innerHTML = '<img alt="" src="images/jambon.png">Manger une ration';
     console.log(`maLife ${maLife}, max ${maxLife}`);
     if( maLife == maxLife ) {
+        playSound("popup");
         modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de manger une ration pour l'instant.</p>";
         showModal(1);
     } else if ( maFood == 0 ) {
+        playSound("stomach");
         modalBody.innerHTML = "<p>Vous n'avez plus rien à manger&nbsp;!</p><p>Il ne vous reste plus qu'à écouter votre ventre gargouiller.</p>";
         showModal(1);
     } else {
+        playSound("eat");
         eatFood();
         majInventaire();
         modalBody.innerHTML = "<p>Vous prenez un moment pour manger une de vos rations.</p><p>Ce repas sommaire vous fait regagner 4 points de vie.</p>";
@@ -375,9 +378,11 @@ function drinkPotion(typePotion){
     switch( typePotion ) {
         case "vigueur":
             if( maLife == maxLife ) {
+                playSound("popup");
                 modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 showModal(1);
             } else {
+                playSound("drink");
                 maLife = maxLife;
                 displayLife(0);
                 mesPotions = removeItemOnce(mesPotions, typePotion);
@@ -387,9 +392,11 @@ function drinkPotion(typePotion){
             break;
         case "fiole de vie":
             if( maLife == maxLife ) {
+                playSound("popup");
                 modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 showModal(1);
             } else {
+                playSound("drink");
                 let oldLife = maLife;
                 changeLife("4");
                 displayLife(oldLife);
@@ -400,9 +407,11 @@ function drinkPotion(typePotion){
             break;
         case "puissance":
             if( maForce == maxForce ) {
+                playSound("popup");
                 modalBody.innerHTML = "<p>Votre force est à son maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
                 modal.style.display = "block";
             } else {
+                playSound("drink");
                 modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
                 maForce = maxForce;
                 mesPotions = removeItemOnce(mesPotions, typePotion);
@@ -410,6 +419,7 @@ function drinkPotion(typePotion){
             }
             break;
         case "fortune":
+            playSound("drink");
             modalBody.innerHTML = "<p>La potion augmente votre chance maximale de 1.</p><p>Tous vos points de chance sont restaurés.</p>";
             maxChance++;
             maChance = maxChance;
@@ -417,6 +427,7 @@ function drinkPotion(typePotion){
             showModal(1);
             break;
         case "potion rouge":
+            playSound("drink");
             modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable&nbsp;!</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
             maxForce += 2;
             maForce = maxForce;

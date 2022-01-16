@@ -291,7 +291,7 @@ function majScene() {
     
     //Si mort
     if( sceneEnCours == 0 ) {
-        musicPlay("death");
+        playAudio("death");
     }
 
     hideChoices();

@@ -98,17 +98,12 @@
    },
    {
       "num": "7",
-      "Description": "Vous tirez votre épée et vous vous apprêtez à en découdre avec ces agresseurs à rayures noires et jaunes.",
+      "Description": "Combat 92",
       "Decor": "",
       "Choix": [
          {
             "Texte": "Combat en 92 !",
-            "Vers": "23",
-            "Combat": ["essaim", "l'essaim", "un", "il"],
-            "Force" : ["7","8","7"],
-            "Endurance": ["3","4","4"],
-            "TexteMort": "Vous succombez sous les innombrables piqûres.",
-            "TexteVictoire": ""
+            "Vers": "23"
          }
       ]
    },
@@ -431,6 +426,17 @@
          {
             "Texte": "Debug :)",
             "Vers": "295"
+         }
+      ]
+   },
+   {
+      "num": "31",
+      "Description": "Liaison 110",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "110"
          }
       ]
    },
@@ -762,7 +768,8 @@
          },
          {
             "Texte": "Poursuivre vers l’est",
-            "Vers": "151"
+            "Vers": "151",
+            "Conditions":["notHasViewed",["151"]]
          }
       ]
    },
@@ -857,6 +864,17 @@
          {
             "Texte": "Repartir vers le nord le long du défilé",
             "Vers": "334"
+         }
+      ]
+   },
+   {
+      "num": "71",
+      "Description": "Combat 151",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "151"
          }
       ]
    },
@@ -974,7 +992,7 @@
          {
             "Texte": "Tentez votre Chance",
             "Vers": "",
-            "Rules":["tentezVotreChance",["49","4","La flèche vous siffle aux oreilles sans vous atteindre","La flèche vient se planter dans votre épaule."]]
+            "Rules":["addView",["81"],"tentezVotreChance",["49","4","La flèche vous siffle aux oreilles sans vous atteindre","La flèche vient se planter dans votre épaule."]]
          }
       ]
    },
@@ -1148,7 +1166,8 @@
          },
          {
             "Texte": "Poursuivre en direction du sud",
-            "Vers": "270"
+            "Vers": "270",
+            "Conditions":["notHasViewed",["270"]]
          }
       ]
    },
@@ -1282,7 +1301,7 @@
    {
       "num": "103",
       "Description": "Le chemin mène à une petite clairière. Sur votre droite, vous apercevez un entassement de branches, d'herbe et de morceaux d'étoffe ; c'est sans doute le repaire de quelque créature de grande taille. Parmi les débris et les vieux os répandus çà et là, vous distinguez quelque chose de brillant.",
-      "Decor": "",
+      "Decor": "clairière",
       "Choix": [
          {
             "Texte": "Aller voir de plus près de quoi il s'agit",
@@ -1379,6 +1398,24 @@
             "Texte": "Poursuivre vers le nord",
             "Vers": "309"
          }  
+      ]
+   },
+   {
+      "num": "110",
+      "Description": "Vous remarquez que ce Gremlin avait un sac à dos.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Fouiller son sac à dos",
+            "Liaison":"Vous trouvez à l'intérieur du sac à dos du pain fabriqué par des elfes qui vous donnera 4 points de vie si vous le mangez. Vous gagnez également un point de <i class='stats'>CHANCE</i>, et vous sortez du puits.",
+            "Vers": "362",
+            "Rules":["changeFood",["1"],"changeChance",["1"]]
+         },
+         {
+            "Texte": "Quitter le tunnel sans plus attendre",
+            "Liaison":"Vous rampez hors du tunnel et vous reprenez pied sur l'échelle, le long de la paroi du puits. Vous remontez à l’air libre et vous rejoignez le chemin.",
+            "Vers": "362"
+         }
       ]
    },
    {
@@ -1489,7 +1526,8 @@
          },
          {
             "Texte": "Continuer vers le nord",
-            "Vers": "81"
+            "Vers": "81",
+            "Conditions":["notHasViewed",["81"]]
          }
       ]
    },
@@ -1693,7 +1731,8 @@
          },
          {
             "Texte": "Ramper vers l’est",
-            "Vers": "151"
+            "Vers": "151",
+            "Conditions":["notHasViewed",["151"]]
          }
       ]
    },
@@ -1851,6 +1890,28 @@
          {
             "Texte": "Aller vers l'est",
             "Vers": "20"
+         }
+      ]
+   },
+   {
+      "num": "151",
+      "Description": "Le tunnel débouche sur une caverne dont l'entrée est masquée par un rideau noir qui vous empêche de voir à l'intérieur.",
+      "Decor": "cave-curtain",
+      "Choix": [
+         {
+            "Texte": "Écarter le rideau et pénétrer dans la caverne",
+            "Liaison":"En écartant le rideau, vous apercevez une minuscule créature à la peau verdâtre. Le petit être a une grosse tête, un long nez, des oreilles pointues, et porte des vêtements de toile marron. A son cou, pend un gros médaillon accroché à une chaîne d'argent. Assis à une table, il est en train d'examiner une main d'homme, moulée en argile rouge. Lorsqu'il vous voit entrer, il saisit un marteau de pierre et fracasse la main d'argile, puis il se lève d'un bond et vous fait face, son marteau à la main. Il a un bonus de force en raison de l'exiguïté des lieux qui vous empêche de vous mouvoir librement.",
+            "Rules":["addView",["151"]],
+            "Vers": "273",
+            "Combat": ["chef gremlin", "le chef gremin", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["5"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Rebrousser chemin et revenir à la bifurcation, dans le tunnel",
+            "Vers": "296"
          }
       ]
    },
@@ -2351,7 +2412,7 @@
             "TexteVictoire" : ""
          },
          {
-            "Texte": "vous cacher dans les buissons au bord du chemin",
+            "Texte": "Vous cacher dans les buissons au bord du chemin",
             "Vers": "318"
          }
       ]
@@ -2370,6 +2431,17 @@
             "Vers": "184",
             "Conditions": ["hasObject",["cloche de cuivre"]],
             "Rules": ["looseObjects",["cloche de cuivre"]]
+         }
+      ]
+   },
+   {
+      "num": "193",
+      "Description": "Combat 398",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "398"
          }
       ]
    },
@@ -2832,7 +2904,7 @@
          {
             "Texte": "Tentez votre Chance",
             "Vers": "",
-            "Rules":["tentezVotreChance",["165","45","Vous parvenez à éviter la lame pointée sur vous.","La lame s'enfonce dans votre cuisse."]]
+            "Rules":["addView",["229"],"tentezVotreChance",["165","45","Vous parvenez à éviter la lame pointée sur vous.","La lame s'enfonce dans votre cuisse."]]
          }
       ]
    },
@@ -2980,7 +3052,7 @@
       "Choix": [
          {
             "Texte": "Revenir à la bifurcation, toujours à quatre pattes",
-            "Vers": ""
+            "Vers": "121"
          }
       ]
    },
@@ -3011,6 +3083,17 @@
          {
             "Texte": "Aller vers l'est",
             "Vers": "393"
+         }
+      ]
+   },
+   {
+      "num": "246",
+      "Description": "La femme bandit prend l'or que vous lui donnez et recule d'un pas pour vous laisser passer. Vous repartez vers le nord et vous remarquez bientôt que le feuillage des arbres s'éclaircit des deux côtés du chemin. Enfin, le sentier débouche sur un champ cultivé : vous êtes sorti de la Forêt des Ténèbres !",
+      "Decor": "champs",
+      "Choix": [
+         {
+            "Texte": "Continuer...",
+            "Vers": "204"
          }
       ]
    },
@@ -3143,6 +3226,17 @@
       ]
    },
    {
+      "num": "257",
+      "Description": "Liaison 110",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "",
+            "Vers": "31"
+         }
+      ]
+   },
+   {
       "num": "258",
       "Description": "Vous fouillez dans votre sac à dos, et vous en retirez la petite flûte de cuivre. Vous avez l'étrange impression qu'il vous faut en jouer maintenant, devant cette Vouivre enragée ; et lorsque vous soufflez dans l'instrument, il en sort une musique douce et paisible qui provoque un changement d'expression sur le visage de la créature. Son regard se brouille en effet, sa gueule se referme et ses paupières tombent. Vous êtes en train de jouer d'une Flûte à Endormir les Dragons, et la Vouivre est incapable de résister à ces sons apaisants. Le monstre alors se laisse lentement tomber sur le sol et sombre bientôt dans un profond sommeil.",
       "Decor": "",
@@ -3236,7 +3330,7 @@
    },
    {
       "num": "267",
-      "Description": "Le chemin mène à rentrée d'une vaste caverne et ne semble pas aller plus loin vers l'est.",
+      "Description": "Le chemin mène à l'entrée d'une vaste caverne et ne semble pas aller plus loin vers l'est.",
       "Decor": "caverne",
       "Choix": [
          {
@@ -3278,7 +3372,8 @@
       "Choix": [
          {
             "Texte": "Soulever le couvercle de la boîte",
-            "Vers": "229"
+            "Vers": "229",
+            "Conditions":["notHasViewed",["229"]]
          },
          {
             "Texte": "Faire demi-tour et retourner à la bifurcation, dans le tunnel",
@@ -3294,6 +3389,18 @@
          {
             "Texte": "Debug :)",
             "Vers": "394"
+         }
+      ]
+   },
+   {
+      "num": "273",
+      "Description": "Vous prenez le médaillon accroché au cou du Gremlin. Il est en or et sa valeur est de 9 Pièces du même métal. Vous ne trouvez rien d'autre d'intéressant dans la caverne et elle ne comporte pas d'autre issue que le tunnel par où vous êtes venu.",
+      "Decor": "",
+      "Rules":["gainJewels",["médaillon"]],
+      "Choix": [
+         {
+            "Texte": "Rebrousser chemin, toujours à quatre pattes, en direction de la bifurcation.",
+            "Vers": "296"
          }
       ]
    },
@@ -3436,11 +3543,13 @@
       "Choix": [
          {
             "Texte": "Aller vers le nord",
-            "Vers": "81"
+            "Vers": "81",
+            "Conditions":["notHasViewed",["81"]]
          },
          {
             "Texte": "Vous diriger au sud",
-            "Vers": "270"
+            "Vers": "270",
+            "Conditions":["notHasViewed",["270"]]
          }
       ]
    },
@@ -3591,6 +3700,21 @@
             "Vers": "225",
             "Conditions":["notHasObject",["casque de bronze"]],
             "Rules":["changeLife",["-3"]]
+         }
+      ]
+   },
+   {
+      "num": "296",
+      "Description": "De retour à la bifurcation, deux possibilités.",
+      "Decor": "tunnel-puits",
+      "Choix": [
+         {
+            "Texte": "Retourner au puits en direction du sud",
+            "Vers": "398"
+         },
+         {
+            "Texte": "Poursuivre vers l'ouest",
+            "Vers": "284"
          }
       ]
    },
@@ -4351,7 +4475,7 @@
       "Choix": [
          {
             "Texte": "Leur donner ce qu'ils demandent",
-            "Vers": "279",
+            "Vers": "246",
             "Conditions": ["minOr",["5"]],
             "Rules": ["changeOr",["-5"]]
          },
@@ -4896,7 +5020,13 @@
          },
          {
             "Texte": "Attendre que ce mystérieux visiteur pénètre dans le tunnel",
-            "Vers": "193"
+            "Liaison":"Un petit <i class='stats'>GREMLIN</i> à la peau verte saute du dernier barreau de l'échelle et entre dans le tunnel. Il ne mesure pas plus d'un mètre de haut et semble très surpris de vous voir là, accroupi dans le tunnel. Il sort aussitôt un poignard de sa veste.",
+            "Vers": "110",
+            "Combat": ["gremlin", "le gremlin", "un", "il"],
+            "Force" : ["7"],
+            "Endurance": ["4"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
          }
       ]
    },

@@ -1,7 +1,10 @@
-9 <= combat ?
-317 <= combat 8
+debug 198 => 87 (homme des bois)
 
-debug 198 => 87
+172 puits allant vers l'est, repartir vers est 281, notHasViewed(17)
+17 puits allant vers l'ouest (238), repartir vers ouest, notHasViewed(172)
+corriger 89 souhait
+
+todo gremlins 172, make nothasviewed
 
 todo 69
 

@@ -1,13 +1,9 @@
-// let audioBackground;
-// let audioCombat;
-// let audioDeath;
-// let soundAttack;
-// let soundHit;
-// let soundMiss;
 let audios = new Map();
 let sounds = new Map();
 
 let soundSilent = false;
+
+let currentMusic = "background";
 
 /**
  * Le toggle se fait uniquement dans story.component, donc on revient sur la musique background.
@@ -19,7 +15,7 @@ function toggleSound() {
         pauseAudios();
         icon.classList.replace("fa-volume-up", "fa-volume-off");
     } else {
-        playAudio("background");
+        playAudio(currentMusic);
         icon.classList.replace("fa-volume-off", "fa-volume-up")
     }
 }
@@ -41,7 +37,19 @@ function musicInit() {
     attachEvent(sounds, "miss");
     sounds.set("sword", {music: new Audio("../sounds/sword.mp3"), canPlay: false});
     attachEvent(sounds, "sword");
-    sounds.set("opponent", {music: new Audio("../sounds/.mp3"), canPlay: false});
+    sounds.set("backpack-open", {music: new Audio("../sounds/backpack-open.mp3"), canPlay: false});
+    attachEvent(sounds, "backpack-open");
+    sounds.set("backpack-close", {music: new Audio("../sounds/backpack-close.mp3"), canPlay: false});
+    attachEvent(sounds, "backpack-close");
+    sounds.set("drink", {music: new Audio("../sounds/drink.mp3"), canPlay: false});
+    attachEvent(sounds, "drink");
+    sounds.set("eat", {music: new Audio("../sounds/eat.mp3"), canPlay: false});
+    attachEvent(sounds, "eat");
+    sounds.set("stomach", {music: new Audio("../sounds/stomach.mp3"), canPlay: false});
+    attachEvent(sounds, "stomach");
+    sounds.set("popup", {music: new Audio("../sounds/popup.mp3"), canPlay: false});
+    attachEvent(sounds, "popup");
+    sounds.set("opponent", {music: new Audio(), canPlay: false});
     attachEvent(sounds, "opponent");
 }
 
@@ -65,6 +73,8 @@ function attachEvent(audiosOrSounds, music) {
  * @returns void
  */
 function playAudio(music) {
+    currentMusic = music;
+    //console.log(`%cplayAudio() currentMusic = ${currentMusic}`,"color:blue");
     if( soundSilent ) return;
     console.log(`%c music to play ${music}`,"color:blue");
     for( let [key, audio] of audios ) {
@@ -72,7 +82,6 @@ function playAudio(music) {
             audio.music.pause();
         } else {
             if( audio.canPlay ) {
-                //console.log(`playing ${audio.music.src}`);
                 audio.music.loop = true;
                 audio.music.play();
             }
@@ -81,7 +90,7 @@ function playAudio(music) {
 }
 
 /**
- * Met en pause toutes les musiques
+ * Met en pause toutes les musiques.
  */
 function pauseAudios() {
     for( let audio of audios.values() ) {
@@ -90,13 +99,14 @@ function pauseAudios() {
 }
 
 /**
- * Lance un bruitage sans arrêter les autres musiques
- * @param {string} sound "hit" | "miss" | "sword" | "opponent"
+ * Lance un bruitage sans arrêter les autres musiques.
+ * Pour opponent, charge le mp3 correspondant au nom de l'adversaire.
+ * @param {string} sound "hit" | "miss" | "sword" | "opponent" | "backpack-open/close" | "eat" | "drink" | "stomach" | "popup"
  */
 function playSound(sound, monster = "") {
     if(!soundSilent) {
         let bruit = sounds.get(sound);
-        if( sound === "opponent" ) {
+        if( sound === "opponent" && monster !== "" ) {
             console.log(`bruit.music.load("../sounds/${monster}.mp3");`);
             bruit.music.src = `../sounds/${monster}.mp3`;
             bruit.music.load(); //the event will trigger play for opponent
