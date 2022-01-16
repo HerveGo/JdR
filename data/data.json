@@ -173,7 +173,7 @@
       "num": "12",
       "Description": "Vous admettez que vous avez peut-être été un peu trop prompt à tirer votre épée, mais vous vous en justifiez en faisant valoir que dans la Forêt des Ténèbres, il faut se tenir prêt à tout. Le Gnome répond que ce n'est pas une excuse, et que l'on ne menace pas ainsi un vieil homme sans défense. Il ajoute que si vous voulez récupérer votre épée, il vous en coûtera 10 Pièces d'Or. Vous lui donnez ce qu'il demande, et, à votre grand soulagement, il vous rend votre chère épée.",
       "Decor": "",
-      "Rules": ["changeOr",["-10"],"gainObjects",["épée"]],
+      "Rules": ["changeOr",["-10"],"replaceObject",["carotte","épée"]],
       "Choix": [
          {
             "Texte": "Poursuivre la conversation",
@@ -183,6 +183,17 @@
             "Texte": "Vous l'avez assez vu et partez vers l'ouest",
             "Liaison": "Vous arrivez à une autre bifurcation. L'embranchement qui va vers le sud retourne dans les collines, et vous décidez donc de poursuivre vers l'ouest.",
             "Vers": "113"
+         }
+      ]
+   },
+   {
+      "num": "13",
+      "Description": "Les vibrations vous font l'effet d'ondes de choc qui semblent marteler votre corps tout entier. Vous avez l'impression que vos jambes sont de plomb et vous ne pouvez plus les remuer. Soudain, la masure s'affaisse puis s'écroule sur le sol. Le ciel s'obscurcit, et un vent se lève en mugissant autour de vous. Le vent souffle de plus en plus fort en une véritable tempête dont la puissance vous projette à terre. Vous vous cramponnez aux montants de la véranda en vous protégeant le visage des tourbillons de poussière et de débris emportés par le vent. Couvrant le bruit assourdissant de la tempête, un rire retentit alors, suivi d'exclamations de joie poussées par une voix grave : « Je suis libre ! Je suis libre ! » dit la voix. Vous venez de libérer un Djinn qui vous fait perdre 3 points de <i class='stats'>CHANCE</i>. Peu à peu, le vent cesse de hurler, il disparaît tout à fait et le ciel s'éclaire à nouveau.",
+      "Decor": "cyclone",
+      "Choix": [
+         {
+            "Texte": "Regagner à pas lents le chemin que vous allez suivre en direction du nord.",
+            "Vers": "149"
          }
       ]
    },
@@ -594,6 +605,17 @@
       ]
    },
    {
+      "num": "46",
+      "Description": "La carotte vole vers le Gnome, mais avant de l'avoir atteint, elle se transforme en un papillon qui se laisse emporter par la brise. Le Gnome alors se met à tailler un morceau de bois à l'aide d'un petit couteau, une expression d'ennui sur son visage. Vous perdez 2 points de CHANCE, et vous décidez de traiter le Gnome avec un peu plus de respect.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui présenter vos excuses",
+            "Vers": "12"
+         }
+      ]
+   },
+   {
       "num": "47",
       "Description": "Tandis que vous esquiviez la chaise, la Sorcière a prononcé quelques paroles étranges. Et soudain, elle disparaît dans un éclair aveuglant, puis reparaît sous la forme d'une chauve-souris qui s'envole par la porte ouverte. La servante bossue s'écroule alors sur le sol et se met à pleurer.",
       "Decor": "cabane-foret",
@@ -835,6 +857,17 @@
       ]
    },
    {
+      "num": "67",
+      "Description": "Vous arrivez à une autre bifurcation. L'embranchement qui va vers le sud retourne dans les collines.",
+      "Decor": "collines-chemin",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers l'ouest",
+            "Vers": "113"
+         }
+      ]
+   },
+   {
       "num": "69",
       "Description": "Le tunnel s'enfonce de plus en plus profondément en direction de l'ouest et débouche, quelque soixante mètres plus loin, sur une vaste caverne aux parois verdâtres et suintantes. A travers une ouverture dans le plafond, un rayon de lumière s'infiltre dans la caverne et illumine le sol. De petits humanoïdes à la peau claire s'affairent çà et là, semblant accorder tous leurs soins à des champignons de différentes couleurs. De l'eau coule dans une rigole qui traverse la caverne et des marches, taillées dans la paroi du fond, mènent à l'ouverture par laquelle entre la lumière du jour. Vous tirez votre épée et vous vous approchez de l'un des humanoïdes. Ce sont de petites créatures chauves aux yeux blancs, et votre présence ne semble pas les intéresser le moins du monde. Elles continuent imperturbablement à surveiller leurs champignons, se penchant de temps à autre pour en chasser des insectes ou arracher de mauvaises herbes.",
       "Decor": "caverne-champignons",
@@ -993,6 +1026,24 @@
             "Texte": "Tentez votre Chance",
             "Vers": "",
             "Rules":["addView",["81"],"tentezVotreChance",["49","4","La flèche vous siffle aux oreilles sans vous atteindre","La flèche vient se planter dans votre épaule."]]
+         }
+      ]
+   },
+   {
+      "num": "82",
+      "Description": "Vous vous demandez si vous avez une potion de tranquillité dans votre sac à dos.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Utiliser cette potion",
+            "Vers": "235",
+            "Conditions":["hasObject",["tranquillité"]],
+            "Rules":["looseObjects",["tranquillité"]]
+         },
+         {
+            "Texte": "Ne rien utiliser",
+            "Vers": "13",
+            "Rules":["changeChance",["-3"]]
          }
       ]
    },
@@ -1426,6 +1477,21 @@
          {
             "Texte": "Aller vers le nord",
             "Vers": "103"
+         }
+      ]
+   },
+   {
+      "num": "113",
+      "Description": "Le chemin oblique soudain vers la droite et mène droit au nord, à travers le lit d'une vallée. Sur la gauche, vous apercevez un vaste étang au bord duquel se trouve une petite cabane de bois au toit de chaume.",
+      "Decor": "cabane-lac",
+      "Choix": [
+         {
+            "Texte": "Jeter un coup d’œil à la cabane",
+            "Vers": "324"
+         },
+         {
+            "Texte": "Ne pas vous en occuper et continuer en direction du nord",
+            "Vers": "149"
          }
       ]
    },
@@ -1894,6 +1960,21 @@
       ]
    },
    {
+      "num": "149 todo",
+      "Description": "Tandis que vous cheminez au fond de la vallée, vous voyez bientôt se dresser devant vous le mur vert sombre de la Forêt des Ténèbres. Le sentier s'enfonce dans l'épaisse végétation et, quelques instants plus tard, vous avancez parmi des arbres imposants et des buissons d'épines. L'obscurité règne et tout est calme. Plus loin, le chemin bifurque.",
+      "Decor": "foret-deux",
+      "Choix": [
+         {
+            "Texte": "Aller vers l'est",
+            "Vers": "130"
+         },
+         {
+            "Texte": "Prendre la direction du nord",
+            "Vers": "306"
+         }
+      ]
+   },
+   {
       "num": "151",
       "Description": "Le tunnel débouche sur une caverne dont l'entrée est masquée par un rideau noir qui vous empêche de voir à l'intérieur.",
       "Decor": "cave-curtain",
@@ -2033,6 +2114,21 @@
          {
             "Texte": "Ignorer l'oiseau et prendre la direction de l'est",
             "Vers": "239"
+         }
+      ]
+   },
+   {
+      "num": "161",
+      "Description": "En plongeant la main dans la noirceur d'encre du vase, vous ressentez soudain une violente douleur. Vous avez d'abord l'impression qu'on vous a écrasé la main, puis qu'on vous la brûle.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Sortir votre main du vase",
+            "Vers": "185"
+         },
+         {
+            "Texte": "Y chercher à tâtons ce qui s'y cache",
+            "Vers": "341"
          }
       ]
    },
@@ -2324,6 +2420,21 @@
       ]
    },
    {
+      "num": "185",
+      "Description": "Vous êtes étonné de constater que votre main ne porte aucune trace de blessure, et vous essayez de la replonger dans le vase ; mais une barrière invisible en protège maintenant l'ouverture et il vous est impossible de la forcer.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Jeter le vase à terre pour tenter de le fracasser",
+            "Vers": "250"
+         },
+         {
+            "Texte": "Le remettre là où vous l'avez pris, et retourner sur le chemin pour repartir vers le nord",
+            "Vers": "149"
+         }
+      ]
+   },
+   {
       "num": "186",
       "Description": "Combat 394 !",
       "Decor": "",
@@ -2431,6 +2542,22 @@
             "Vers": "184",
             "Conditions": ["hasObject",["cloche de cuivre"]],
             "Rules": ["looseObjects",["cloche de cuivre"]]
+         }
+      ]
+   },
+   {
+      "num": "192",
+      "Description": "Vous tirez votre épée, mais le Gnome s'assied en tailleur et sourit. Vous baissez alors les yeux et vous constatez que votre épée s'est soudain transformée en carotte !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Présenter vos excuses au Gnome pour avoir été aussi irréfléchi",
+            "Vers": "12"
+         },
+         {
+            "Texte": "Lui jeter la carotte à la tête",
+            "Vers": "46",
+            "Rules":["changeChance",["-2"]]
          }
       ]
    },
@@ -2825,7 +2952,7 @@
       "Choix": [
          {
             "Texte": "Continuer vers l'ouest",
-            "Vers": "378 todo"
+            "Vers": "378"
          },
          {
             "Texte": "Repartir vers le nord",
@@ -2975,6 +3102,17 @@
          {
             "Texte": "Prendre la direction de l'ouest",
             "Vers": "382"
+         }
+      ]
+   },
+   {
+      "num": "235",
+      "Description": "Vous plongez aussitôt la main dans votre sac à dos, et vous en retirez la bouteille contenant la Potion que vous avalez. Vous ressentez alors une impression de calme et de paix en dépit du chaos qui règne autour de vous. Soudain, la cabane se démantèle complètement et s'écroule dans un grand fracas. Vous estimez qu'il est temps de quitter les lieux, et vous gagnez 1 point de <i class='stats'>CHANCE</i> au passage.",
+      "Decor": "cabane-lac",
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "149"
          }
       ]
    },
@@ -3137,6 +3275,17 @@
          {
             "Texte": "Sortir à l'air libre",
             "Vers": "164 todo"
+         }
+      ]
+   },
+   {
+      "num": "250",
+      "Description": "voir 324",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "324"
          }
       ]
    },
@@ -3378,6 +3527,29 @@
          {
             "Texte": "Faire demi-tour et retourner à la bifurcation, dans le tunnel",
             "Vers": "121"
+         }
+      ]
+   },
+   {
+      "num": "271",
+      "Description": "Vous vous approchez du Gnome, le bras tendu, pour lui serrer la main. Il accepte cette marque d'amitié avec toutefois une expression dubitative sur le visage. Vous lui parlez alors de votre quête en lui racontant comment vous avez fait la rencontre de Gromollet, et pourquoi vous avez décidé de venir en aide aux Nains de Pont-de-Pierre. Vous lui demandez s'il peut vous donner des renseignements utiles à votre mission, et il vous répond que les Nains ne l'intéressent guère, mais qu'il est prêt malgré tout à vous dire quelque chose si vous lui donnez en échange 5 Pièces d'Or, ou l'un des objets rangés dans votre sac à dos.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui donner 5 Pièces d'Or",
+            "Vers": "297",
+            "Conditions":["minOr",["5"]],
+            "Rules":["changeOr",["-5"]]
+         },
+         {
+            "Texte": "Lui donner un objet au hasard",
+            "Vers": "297",
+            "Conditions":["minObjects",["1"]],
+            "Rules":["giveObjects",["1"]]
+         },
+         {
+            "Texte": "Le traiter de cupide, et repartir vers l'ouest",
+            "Vers": "67"
          }
       ]
    },
@@ -3719,6 +3891,17 @@
       ]
    },
    {
+      "num": "297",
+      "Description": "Le Gnome prend son dû et sourit, puis il vous révèle qu'il a vu le squelette d'un Gobelin à l'intérieur d'une crypte de pierre. C'est peut-être le squelette de l'un des deux Gobelins que vous recherchez, mais ce n'est pas sûr. Il ajoute que la crypte se trouve quelque part au nord de la forêt, mais il ne sait pas exactement où. Vous êtes fort mécontent que le Gnome ne soit pas en mesure de vous en dire davantage...",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Repartir vers l'ouest d'un pas vif",
+            "Vers": "67"
+         }
+      ]
+   },
+   {
       "num": "298",
       "Description": "127 ou 178",
       "Decor": "",
@@ -3854,6 +4037,22 @@
          {
             "Texte": "Poursuivre vers le nord, le long du chemin",
             "Vers": "112"
+         }
+      ]
+   },
+   {
+      "num": "307",
+      "Description": "Le petit homme s'éveille en sursaut, perd l'équilibre et tombe du champignon. Il pousse un juron en atterrissant sur le sol puis remonte d'un bond sur le champignon et s'écrie : « Qui a fait ça ? Qui a fait ça ? » Il vous regarde alors et fronce les sourcils.",
+      "Decor": "gnome",
+      "Choix": [
+         {
+            "Texte": "Attaquer ce Gnome",
+            "Vers": "192",
+            "Rules":["replaceObject",["épée","carotte"]]
+         },
+         {
+            "Texte": "Essayer d'engager la conversation avec lui",
+            "Vers": "271"
          }
       ]
    },
@@ -4047,6 +4246,27 @@
          {
             "Texte": "Aller à l'ouest",
             "Vers": "99"
+         }
+      ]
+   },
+   {
+      "num": "324",
+      "Description": "Vous contournez la cabane et vous apercevez un grand vase bleu posé au milieu d'une petite véranda. Il n'y a personne alentour et personne à l'intérieur de la cabane lorsque vous en ouvrez la porte. Elle est d'ailleurs complètement vide : pas le moindre meuble, pas le moindre objet. Vous ressortez et vous allez examiner le vase bleu. Vous regardez à l'intérieur, mais, en dépit de la lumière du soleil, vous ne parvenez pas à voir quoi que ce soit au-delà de son col. Le vase semble empli d une inquiétante obscurité. Vous le secouez alors et vous entendez un cliquetis.",
+      "Decor": "vase-bleu",
+      "Choix": [
+         {
+            "Texte": "Essayer de casser le vase en le jetant sur le sol",
+            "Liaison":"Le vase tombe par terre mais ne se brise pas, bien que des fêlures apparaissent à sa surface. Vous sentez alors une vibration tout autour de vous et vous remarquez que des lézardes se dessinent un peu partout dans la véranda et sur les murs de la cabane. La vibration s'intensifie, votre corps se met à trembler et vous avez l'impression que votre tête est sur le point d'exploser. Vous perdez 2 points de vie.",
+            "Vers": "82",
+            "Rules":["changeLife",["-2"]]
+         },
+         {
+            "Texte": "Mettre la main à l'intérieur du vase",
+            "Vers": "161"
+         },
+         {
+            "Texte": "Laisser le vase où il est et rejoindre le chemin pour repartir vers le nord",
+            "Vers": "149"
          }
       ]
    },
@@ -4273,6 +4493,18 @@
             "Texte": "Traverser la rivière",
             "Liaison": "Vos jambes vous semblent très vulnérables, et vous ne seriez guère étonné qu'une quelconque créature vivant dans l'eau de la rivière vienne vous mordre les mollets. Rien ne se produit cependant, et vous parvenez à atteindre l'autre rive sans dommage.",
             "Vers": "65"
+         }
+      ]
+   },
+   {
+      "num": "341",
+      "Description": "La douleur dans votre main est presque insupportable, mais vous parvenez cependant à la surmonter. Au fond du vase, vos doigts entrent alors en contact avec divers objets que vous attrapez et que vous sortez aussitôt de leur cachette. Vous examinez ensuite votre butin et vous y trouvez 5 Pièces d'Or, une dent de dragon, et une fiole de verre contenant une Potion Verte qui vous rendra 5 points de vie lorsque vous déciderez de la boire. Vous gagnez 1 point de Chance.",
+      "Decor": "",
+      "Rules":["gainObjects",["dent de dragon"],"gainPotions",["verte"],"changeChance",["1"],"changeOr",["5"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "149"
          }
       ]
    },
@@ -4732,6 +4964,21 @@
             "Endurance": ["6","5"],
             "TexteMort": "",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "378",
+      "Description": "À gauche du chemin, vous voyez un petit homme à la longue barbe grise, assis en tailleur sur le chapeau d'un énorme champignon. Il porte une veste et une casquette rouge vif et des pantalons noirs qui s'arrêtent aux genoux. Il est profondément endormi et ronfle bruyamment.",
+      "Decor": "gnome",
+      "Choix": [
+         {
+            "Texte": "Lui donner une petite tape sur l'épaule pour le réveiller",
+            "Vers": "307"
+         },
+         {
+            "Texte": "Passer silencieusement devant lui et poursuivre votre route vers l'ouest",
+            "Vers": "67"
          }
       ]
    },

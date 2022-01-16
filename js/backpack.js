@@ -426,13 +426,20 @@ function drinkPotion(typePotion){
             mesPotions = removeItemOnce(mesPotions, typePotion);
             showModal(1);
             break;
-        case "potion rouge":
-            playSound("drink");
-            modalBody.innerHTML = "<p>La potion vous remplit d'une énergie incroyable&nbsp;!</p><p>Votre force maximale augmente de 2, et tous vos points de force sont restaurés.</p>"
-            maxForce += 2;
-            maForce = maxForce;
-            mesPotions = removeItemOnce(mesPotions, typePotion);
-            showModal(1);
+        case "verte":
+            if( maLife == maxLife ) {
+                playSound("popup");
+                modalBody.innerHTML = "<p>Vos points de vie sont au maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
+                showModal(1);
+            } else {
+                playSound("drink");
+                let oldLife = maLife;
+                changeLife("5");
+                displayLife(oldLife);
+                mesPotions = removeItemOnce(mesPotions, typePotion);
+                modalBody.innerHTML = "<p>La potion verte vous fait regagner 5 points de vie.</p><p>Vos blessures guéries, vous reprenez l'aventure avec confiance.</p>";
+                showModal(1);
+            }
             break;
         default:
             throw new Error("Erreur, type de potion inconnue.");
