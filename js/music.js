@@ -6,7 +6,7 @@ let soundSilent = false;
 let currentMusic = "background";
 
 /**
- * Le toggle se fait uniquement dans story.component, donc on revient sur la musique background.
+ * Le toggle revient sur la musique jouée auparavant.
  */
 function toggleSound() {
     let icon = document.getElementById("soundIcon");

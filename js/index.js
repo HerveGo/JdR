@@ -33,9 +33,13 @@ function setLife() {
     maLife = parseInt(document.getElementById("setLife").value);
     displayLife(oldLife);
 }
-
-function toggleSound() {
-
+function findHole() {
+    for( let i = 0; i < scene.length; i++ ) {
+        if( i != parseInt(scene[i].num) ) {
+            window.alert("Manque la scène "+i);
+            return;
+        }
+    }
 }
 
 // Get the modal

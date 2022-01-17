@@ -2,11 +2,12 @@ debug 198 => 87 (homme des bois)
 
 172 puits allant vers l'est, repartir vers est 281, notHasViewed(17)
 17 puits allant vers l'ouest (238), repartir vers ouest, notHasViewed(172)
-corriger 89 souhait
 
 todo gremlins 172, make nothasviewed
-
-todo 69
+135 entrée, ouest 284, est 151
+284 nord 81(c), sud 270(c)=>121 nord81(c), est 61 retour 
+151 
+61 est 151(c), 398 retour puits
 
 todo 188 après hommes des bois
 
@@ -20,6 +21,6 @@ Nord, vallée 245, 375 (150, 236)
 
 Centaure 142 -> 25 -> 267 -> 358(marteau)
 
-231 après géant
+todo 149 après vase
 
 

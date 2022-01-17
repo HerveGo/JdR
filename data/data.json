@@ -362,7 +362,7 @@
    {
       "num": "25",
       "Description": "Le chemin vous amène bientôt au creux d'une vallée. Il continue vers le nord, mais un autre chemin s'éloigne en direction de l'ouest.",
-      "Decor": "",
+      "Decor": "plaine-jour",
       "Choix": [
          {
             "Texte": "Poursuivre vers le nord",
@@ -452,6 +452,28 @@
       ]
    },
    {
+      "num": "32",
+      "Description": "",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "",
+            "Vers": ""
+         }
+      ]
+   },
+   {
+      "num": "33",
+      "Description": "Le moine hoche la tête. « Il semble qu'il n'y ait plus de charité en ce monde », soupire-t-il. Il hausse alors les épaules et repart vers le sud. Vous le regardez s'éloigner, puis vous reprenez votre chemin.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Partir vers le nord",
+            "Vers": "390"
+         }
+      ]
+   },
+   {
       "num": "34",
       "Description": "Tandis que vous frottez la lanterne, une fumée verte s'élève lentement de la mèche et commence à prendre forme. Bientôt apparaît devant vos yeux la silhouette d'un vieil homme gras, à la tête chauve, assis sur un coussin. Sa bouche s'ouvre sans hâte et il vous demande d'une voix grave : « Eh bien, que veux-tu ? » Vous lui racontez brièvement votre histoire et il vous répond qu'il ne peut vous donner aucun bien matériel, aucune richesse. Tout ce qu'il peut vous offrir, c'est de vous améliorer vous-même. Dès lors, vous avez la possibilité de rétablir à son niveau de départ une de vos caractéristique :",
       "Decor": "",
@@ -534,6 +556,17 @@
          {
             "Texte": "Retourner sur le chemin et poursuivre vers le nord",
             "Vers": "220"
+         }
+      ]
+   },
+   {
+      "num": "39",
+      "Description": "Vous déployez le filet et vous le faites tournoyer au-dessus de votre tête. Puis vous le lancez en direction du Troll des Cavernes. Le filet s'envole dans les airs et vient atterrir sur sa cible immobile. Le Troll des Cavernes s'éveille pour s'apercevoir qu'il est prisonnier des mailles dont il essaye vainement de se dégager. Vous vous précipitez alors vers la chaise de pierre et vous vous emparez du sac de cuir sous les yeux du Troll écumant de fureur.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Quitter la caverne en laissant le monstre se dépêtrer du filet",
+            "Vers": "287"
          }
       ]
    },
@@ -682,7 +715,7 @@
          },
          {
             "Texte": "Continuer vers l'est",
-            "Vers": "397 todo"
+            "Vers": "397"
          }
       ]
    },
@@ -744,6 +777,21 @@
       ]
    },
    {
+      "num": "56",
+      "Description": "Vous cheminez au fond de la paisible vallée et vous arrivez à une bifurcation. Vous constatez alors que le sentier orienté au sud remonte vers les collines et vous décidez de ne pas l’emprunter.",
+      "Decor": "plaine-jour",
+      "Choix": [
+         {
+            "Texte": "poursuivre vers l'ouest",
+            "Vers": "233"
+         },
+         {
+            "Texte": "prendre la direction du nord",
+            "Vers": "163"
+         }
+      ]
+   },
+   {
       "num": "57",
       "Description": "Vous vous dirigez vers la tanière pour aller y jeter un coup d'oeil, mais une ombre, soudain, se projette sur vous et vous entendez un grognement sonore au-dessus de votre tête. En levant les yeux, vous apercevez alors une créature en forme de dragon : elle a deux pattes, une peau verdâtre couverte d'écailles et elle vole vers son antre. Tandis qu'elle s'approche, un jet de flammes jaillit de sa gueule : c'est vous qui êtes visé.",
       "Decor": "dragon-vert",
@@ -764,6 +812,17 @@
          {
             "Texte": "Repartir vers le nord",
             "Vers": "112"
+         }
+      ]
+   },
+   {
+      "num": "59",
+      "Description": "Vous arrivez à une autre bifurcation et vous décidez de ne pas chercher à suivre le chemin orienté au sud.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers l'est",
+            "Vers": "171"
          }
       ]
    },
@@ -864,6 +923,18 @@
          {
             "Texte": "Poursuivre vers l'ouest",
             "Vers": "113"
+         }
+      ]
+   },
+   {
+      "num": "68",
+      "Description": "Vous buvez lentement le liquide clair à la bouteille : il a un goût très amer, et vous avez soudain peur d'avoir fait une sottise en l'avalant. Mais, bientôt, une sensation de chaleur se diffuse dans tout votre corps et vous vous sentez revigoré. C'est une Potion de Santé que vous venez de boire et vous gagnez 3 points de vie.",
+      "Decor": "",
+      "Rules":["changeLife",["3"]],
+      "Choix": [
+         {
+            "Texte": "Vous remettre en route en prenant la direction de l'est",
+            "Vers": "59"
          }
       ]
    },
@@ -1151,7 +1222,7 @@
          },
          {
             "Texte": "Retourner sur le chemin pour aller vers l'ouest",
-            "Vers": "238 todo",
+            "Vers": "238",
             "Conditions":["notHasViewed",["172"]]
          }
       ]
@@ -1328,12 +1399,12 @@
    },
    {
       "num": "101",
-      "Description": "Vous prenez le sac de cuir sur la chaise en pierre et vous sortez. A l'intérieur du sac, vous découvrez 5 Pièces d'Or et une petite cloche de cuivre que vous rangez dans votre sac à dos.",
+      "Description": "Vous prenez le sac de cuir sur la chaise en pierre et vous sortez. À l'intérieur du sac, vous découvrez 5 Pièces d'Or et une petite cloche de cuivre que vous rangez dans votre sac à dos.",
       "Decor": "",
       "Rules": ["changeOr",["5"],"gainObjects",["cloche de cuivre"]],
       "Choix": [
          {
-            "Texte": "Revenez à la bifurcation pour prendre le chemin qui mène vers le nord",
+            "Texte": "Revenir à la bifurcation pour prendre le chemin qui mène vers le nord",
             "Vers": "25"
          }
       ]
@@ -1470,6 +1541,18 @@
       ]
    },
    {
+      "num": "111",
+      "Description": "L'expression du visage d'Arragon passe aussitôt de la confiance à la peur. Il n'est peut-être pas aussi redoutable qu'il veut bien le dire et, soudain, en effet, il vous présente ses excuses pour s'être montré aussi agressif, essayant de se justifier par le fait que bandits et criminels de toutes sortes abondent dans les environs, et qu'il essaye de s'en protéger en se faisant passer pour un sorcier aux terribles pouvoirs. Il vous demande de lui pardonner et vous offre 5 Pièces d'Or si vous promettez de le laisser en paix, et de ne révéler à personne la supercherie. Vous acceptez le marché et vous quittez la maison.",
+      "Decor": "arragon-maison",
+      "Rules":["changeOr","5"],
+      "Choix": [
+         {
+            "Texte": "Retourner à la bifurcation pour reprendre la direction du nord",
+            "Vers": "150"
+         }
+      ]
+   },
+   {
       "num": "112",
       "Description": "Le sentier continue vers le nord à travers une végétation touffue. Bientôt, il oblique brusquement à droite en direction de l’est, et la végétation devient si dense par endroits, qu'il faut vous tailler un chemin à coups d'épée. Votre marche vers l'est est longue et pénible ; enfin, vous arrivez à une bifurcation. Consultant alors la carte de Gromollet, vous décidez de reprendre la direction de Pont-de-Pierre, sans vous occuper du sentier étroit continuant vers l'est.",
       "Decor": "foret-dense",
@@ -1492,6 +1575,17 @@
          {
             "Texte": "Ne pas vous en occuper et continuer en direction du nord",
             "Vers": "149"
+         }
+      ]
+   },
+   {
+      "num": "114",
+      "Description": "Voir 277 ent choix 3",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "277"
          }
       ]
    },
@@ -1721,6 +1815,30 @@
       ]
    },
    {
+      "num": "130",
+      "Description": "Le chemin s'enfonce parmi les arbres noueux et les buissons d'épines. Bientôt, vous entendez un grognement au-dessus de votre tête et vous apercevez, allongée sur une branche qui surplombe le sentier, une créature moitié homme, moitié félin. Il a le pelage ras et d'un noir brillant comme celui d'une panthère, et ses bras et ses jambes sont dotés de grosses pattes aux griffes acérées. Le visage de la créature, cependant, a des traits humains, avec des yeux en amande, mais de longues dents de fauve. Il vous semble qu'il s'apprête à bondir sur vous.",
+      "Decor": "panther",
+      "Choix": [
+         {
+            "Texte": "Tirer votre épée pour le combattre",
+            "Liaison":"L'Homme Panthère grogne et gronde en montrant les dents avant de bondir sur vous pour vous attaquer. Vous reculez d'un pas et vous vous préparez à combattre.",
+            "Vers": "202",
+            "Fuir":"355",
+            "Combat": ["homme panthère", "l'homme panthère", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["5"],
+            "TexteMort": "",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Vous enfuir à toutes jambes",
+            "Liaison":"Cette fuite vous coûte 1 point de Chance.",
+            "Vers": "355",
+            "Rules":["changeChance",["-1"]]
+         }
+      ]
+   },
+   {
       "num": "131",
       "Description": "Cf 186",
       "Decor": "",
@@ -1876,6 +1994,27 @@
       ]
    },
    {
+      "num": "141",
+      "Description": "Vous demandez au Nain s'il vient de Pont-de-Pierre. Il vous lance alors un regard mauvais et se lève d'un bond, sa hache à la main. Puis il vous déclare qu'il voue une véritable haine aux Nains de Pont-de-Pierre, et qu'il parcourt la Forêt des Ténèbres en quête du marteau de guerre de Gillibran, pour le rapporter à Eau-de-Boue, son propre village, qui se trouve à l'ouest. Il ajoute que son nom est Gayemainar et qu'il a perdu son aigle préféré et égaré ses viandes en essayant de s'emparer du marteau de guerre de Gillibran. Vous êtes donc en train de parler à un ennemi de Pont-de-Pierre, ce qui vous fait perdre 1 point de Chance.",
+      "Decor": "nain",
+      "Choix": [
+         {
+            "Texte": "Attaquer Gayemainar",
+            "Liaison":"Le Nain est un combattant robuste et chevronné et il manie sa hache avec une très grande habileté.",
+            "Vers": "363",
+            "Combat": ["nain", "le nain", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["5"],
+            "TexteMort": "La hache du nain s'enfonce brutalement dans votre crâne, mettant fin à votre aventure.",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Prendre congé de lui et poursuivre votre chemin vers l'est",
+            "Vers": "59"
+         }
+      ]
+   },
+   {
       "num": "142",
       "Description": "Tandis que le chemin continue vers le nord, l'herbe est de moins en moins haute et le sol s'élève légèrement. Un peu plus loin, vous entendez le bruit d'une eau courante et vous arrivez bientôt sur la berge d'une rivière au cours paisible. Il n'y a pas de pont pour la traverser, mais le chemin se prolonge de l'autre côté. Debout, devant vous, se tient un animal magnifique, moitié homme, moitié cheval, d'une blancheur étincelante. Il porte en bandoulière un arc et un carquois de flèches : c'est un <i class='stats'>CENTAURE</i>.",
       "Decor": "centaure",
@@ -1902,6 +2041,21 @@
          {
             "Texte": "Debug :)",
             "Vers": "80"
+         }
+      ]
+   },
+   {
+      "num": "144",
+      "Description": "En poursuivant votre chemin au fond de la vallée, vous voyez bientôt se dresser une nouvelle fois devant vous le mur sombre de la Forêt des Ténèbres. Le sentier s'enfonce droit dans l'épaisse végétation et, quelques instants plus tard, vous avancez parmi des arbres imposants et des buissons d'épines enchevêtrés. Il fait sombre et tout est calme. Peu après, le chemin aboutit à une bifurcation.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Prendre la direction de l'ouest",
+            "Vers": "213"
+         },
+         {
+            "Texte": "Aller vers l’est",
+            "Vers": "387"
          }
       ]
    },
@@ -1960,7 +2114,7 @@
       ]
    },
    {
-      "num": "149 todo",
+      "num": "149",
       "Description": "Tandis que vous cheminez au fond de la vallée, vous voyez bientôt se dresser devant vous le mur vert sombre de la Forêt des Ténèbres. Le sentier s'enfonce dans l'épaisse végétation et, quelques instants plus tard, vous avancez parmi des arbres imposants et des buissons d'épines. L'obscurité règne et tout est calme. Plus loin, le chemin bifurque.",
       "Decor": "foret-deux",
       "Choix": [
@@ -1971,6 +2125,21 @@
          {
             "Texte": "Prendre la direction du nord",
             "Vers": "306"
+         }
+      ]
+   },
+   {
+      "num": "150",
+      "Description": "En cheminant vers le nord, à travers la verte vallée, vous apercevez bientôt le mur vert sombre de la Forêt des Ténèbres qui se dresse devant vous. Le sentier s'enfonce dans l'épaisse végétation et quelques instants plus tard, vous avancez parmi des arbres imposants et des buissons  d'épines. L'obscurité règne et tout est calme. Un peu plus loin, le chemin aboutit à une bifurcation.",
+      "Decor": "foret-sombre",
+      "Choix": [
+         {
+            "Texte": "Prendre la direction de l'ouest",
+            "Vers": "357"
+         },
+         {
+            "Texte": "Aller à l'est",
+            "Vers": "171"
          }
       ]
    },
@@ -2012,6 +2181,17 @@
          {
             "Texte": "Enjamber les restes du Démon et monter jusqu'en haut des marches",
             "Vers": "249"
+         }
+      ]
+   },
+   {
+      "num": "153",
+      "Description": "Combat 130",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "130"
          }
       ]
    },
@@ -2183,6 +2363,17 @@
       ]
    },
    {
+      "num": "166",
+      "Description": "Le moine sourit et vous dit : « Soyez béni. » Puis il s'incline pour vous saluer et s'en va vers le sud, en sifflotant le long du chemin. Vous gagnez 2 points de <i class='stats'>CHANCE</i> pour cette bonne action.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Prendre la direction du nord",
+            "Vers": "390"
+         }
+      ]
+   },
+   {
       "num": "167",
       "Description": "Combat 132",
       "Decor": "",
@@ -2227,6 +2418,33 @@
          {
             "Texte": "Quitter la caverne et poursuivre votre route en direction du nord",
             "Vers": "358"
+         }
+      ]
+   },
+   {
+      "num": "170",
+      "Description": "Vous entrez dans une pièce richement meublée, décorée d'objets d'art et de tapis de laine. Un vieil homme vêtu d'une ample robe violette et la tête coiffée d'un chapeau pointu, est assis à un bureau devant le mur du fond. « Je suis Arragon, dit le vieil homme en se levant, et tu n'es qu'un piètre mortel. Or, voici que tu as l'audace d'entrer chez moi sans y avoir été invité, pour me dérober sans doute mes biens et mes richesses. Mais tu te trompes, étranger, car c'est moi qui vais te soulager de tes biens. Si tu ne me donnes pas, en effet, 10 pièces d'Or et deux des objets que tu transportes dans ton sac à dos pour ajouter à ma magnifique collection, je te changerai aussitôt en pierre ».",
+      "Decor": "arragon",
+      "Choix": [
+         {
+            "Texte": "Utiliser votre œil d'ambre",
+            "Vers": "223",
+            "Conditions":["hasObject",["œil d'ambre"]]
+         },
+         {
+            "Texte": "Réfléchir à la situation",
+            "Vers": "346"
+         }
+      ]
+   },
+   {
+      "num": "171",
+      "Description": "Le chemin mène à une autre bifurcation. Le sentier orienté au sud retourne dans la vallée et vous décidez donc de rester dans la forêt.",
+      "Decor": "foret-deux",
+      "Choix": [
+         {
+            "Texte": "Continuer vers le nord",
+            "Vers": "190"
          }
       ]
    },
@@ -2486,7 +2704,7 @@
             "Vers": "221"
          },
          {
-            "Texte": "Prendre la direction de l’est todo",
+            "Texte": "Prendre la direction de l’est",
             "Vers": "359"
          }
       ]
@@ -2683,6 +2901,21 @@
       ]
    },
    {
+      "num": "200",
+      "Description": "Vous prenez dans votre sac à dos la petite clé d'argent et vous l'introduisez dans la serrure. Elle s'y adapte parfaitement et vous la faites tourner. La serrure cliquette et la porte de pierre s'ouvre aussitôt. Un escalier, en pierre également, s'enfonce dans des profondeurs obscures, et il vous est impossible de distinguer quoi que ce soit au bas des marches.",
+      "Decor": "escalier",
+      "Choix": [
+         {
+            "Texte": "Descendre cet escalier",
+            "Vers": "351"
+         },
+         {
+            "Texte": "Quitter l'endroit, et retourner sur le chemin pour aller vers le nord",
+            "Vers": "112"
+         }
+      ]
+   },
+   {
       "num": "201",
       "Description": "Il reste le coffre en bois dans l'afranctuosité.",
       "Decor": "alcove",
@@ -2695,6 +2928,29 @@
          {
             "Texte": "Quitter cette anfractuosité pour continuer à monter les marches",
             "Vers": "88"
+         }
+      ]
+   },
+   {
+      "num": "202",
+      "Description": "L'homme panthère porte deux boucles d’oreille en or. Elles valent chacune 5 Pièces d'Or et vous les rangez dans votre sac à dos.",
+      "Decor": "",
+      "Rules":["gainJewels",["boucles d'oreille"]],
+      "Choix": [
+         {
+            "Texte": "vous remettre en route le long du chemin sinueux",
+            "Vers": "355"
+         }
+      ]
+   },
+   {
+      "num": "203",
+      "Description": "",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "",
+            "Vers": ""
          }
       ]
    },
@@ -2841,6 +3097,17 @@
       ]
    },
    {
+      "num": "213",
+      "Description": "Le chemin serpente parmi les arbres et les buissons, puis aboutit à une autre bifurcation. Le sentier orienté au sud ramène vers la vallée.",
+      "Decor": "foret-deux",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers le nord",
+            "Vers": "306"
+         }
+      ]
+   },
+   {
       "num": "214",
       "Description": "Vous fouillez dans votre sac à dos et vous débouchez la petite bouteille contenant la Potion de Guérison. La douleur dans votre jambe est atroce, mais elle disparaît dès que la Potion commence à faire son effet. Bientôt, votre jambe est complètement guérie et vous pouvez vous relever. Vos yeux se sont habitués à l'obscurité et vous vous apercevez que le tunnel fait tout juste un mètre de hauteur : vous allez donc devoir l'explorer à quatre pattes.",
       "Decor": "",
@@ -2887,9 +3154,9 @@
       "Choix": [
          {
             "Texte": "Boire ce liquide",
-            "Liaison": "Vous jetez un coup d'œil à la bouteille que vous tenez à la main, et vous en avalez d'un trait le contenu. Vous attendez quelques secondes qu'une réaction se produise, mais rien ne se passe. Cependant, lorsque vous vous baissez pour ramasser votre épée que vous aviez posée par terre pendant que vous examiniez le sac, vous sentez soudain une nouvelle énergie vous parcourir le corps, et gagnez 1 point de Force permanent.",
+            "Liaison": "Vous jetez un coup d'œil à la bouteille que vous tenez à la main, et vous en avalez d'un trait le contenu. Vous attendez quelques secondes qu'une réaction se produise, mais rien ne se passe. Cependant, lorsque vous vous baissez pour ramasser votre épée que vous aviez posée par terre pendant que vous examiniez le sac, vous sentez soudain une nouvelle énergie vous parcourir le corps, et gagnez 1 point de bonus d'attaque.",
             "Vers": "337",
-            "Rules": ["changeMaxForce",["1"]]
+            "Rules": ["changeBonusAttaque",["1"]]
          },
          {
             "Texte": "Quitter la caverne",
@@ -2972,13 +3239,24 @@
       ]
    },
    {
+      "num": "223",
+      "Description": "Le bijou attaché à votre cou se met à luire. Arragon n'est peut-être pas après tout celui qu'il prétend, et vous tirez votre épée pour le défier. L'expression de son visage change alors du tout au tout, passant de la confiance à la crainte. Il s'excuse aussitôt d'avoir été si agressif envers vous et tente de se justifier en vous expliquant que la région est infestée de brigands et d'assassins, dont il essaye de se protéger en se faisant passer pour un puissant sorcier. Il vous demande de lui pardonner et vous propose de vous donner 5 Pièces d'Or à condition que vous le laissiez en paix et que vous ne révéliez à personne la supercherie. Vous acceptez son offre et vous quittez sa maison.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Revenir à la bifurcation et repartir en direction du nord",
+            "Vers": "150"
+         }
+      ]
+   },
+   {
       "num": "224",
       "Description": "L'un des Faucons de la Mort porte à la patte une bague d'argent sur laquelle sont gravés ces mots : « La Mort t'attend. » Vous décidez de laisser là cette bague sinistre.",
       "Decor": "",
       "Choix": [
          {
             "Texte": "Reprendre le chemin vers le nord",
-            "Vers": "332 todo"
+            "Vers": "332"
          }
       ]
    },
@@ -3009,6 +3287,17 @@
          {
             "Texte": "Continuer vers le nord",
             "Vers": "254"
+         }
+      ]
+   },
+   {
+      "num": "227",
+      "Description": "Combat 187",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "187"
          }
       ]
    },
@@ -3095,6 +3384,21 @@
       ]
    },
    {
+      "num": "233",
+      "Description": "À droite du chemin, vous apercevez un puits avec une margelle de pierre et un seau accroché à une manivelle.",
+      "Decor": "puits-seau",
+      "Choix": [
+         {
+            "Texte": "Aller voir ce puits d'un peu plus près",
+            "Vers": "17"
+         },
+         {
+            "Texte": "Poursuivre votre route vers l'ouest",
+            "Vers": "238"
+         }
+      ]
+   },
+   {
       "num": "234",
       "Description": "Vous distancez facilement <i class='stats'>l'ENT</i> et revenez à la bifurcation, sans vous occuper du sentier qui mène vers le sud.",
       "Decor": "foret",
@@ -3117,6 +3421,21 @@
       ]
    },
    {
+      "num": "236",
+      "Description": "Le chemin mène à l'entrée d'une maisonnette aux murs de pierre et au toit moussu. Une plaque fixée au-dessus de la porte indique : « Arragon, Archi- Mage ».",
+      "Decor": "arragon-maison",
+      "Choix": [
+         {
+            "Texte": "Entrer dans cette maisonnette",
+            "Vers": "170"
+         },
+         {
+            "Texte": "Retourner à la bifurcation et repartir vers le nord",
+            "Vers": "150"
+         }
+      ]
+   },
+   {
       "num": "237",
       "Description": "Vous atterrissez pesamment sur le sol et vous entendez un sinistre craquement, tandis qu'une douleur fulgurante vous paralyse la jambe : vous vous êtes cassé le tibia et vous perdez 2 points de <i class='stats'>CHANCE.</i>",
       "Decor": "tunnel",
@@ -3130,6 +3449,17 @@
          {
             "Texte": "Essayer d'arranger votre jambe",
             "Vers": "304"
+         }
+      ]
+   },
+   {
+      "num": "238",
+      "Description": "En cheminant au fond de la vallée en direction de l'ouest, vous arrivez à une bifurcation ; un sentier orienté au sud ramène vers les collines.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Poursuivre vers l'ouest",
+            "Vers": "221"
          }
       ]
    },
@@ -3195,6 +3525,23 @@
       ]
    },
    {
+      "num": "243",
+      "Description": "Vous lui répondez que vous êtes désolé, mais que vous n'avez pas vu sa cloche de cuivre. Le malheureux moine fronce les sourcils et vous demande si vous voulez bien lui donner une Pièce d'Or pour servir une juste cause.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui donner l'aumone",
+            "Vers": "166",
+            "Conditions":["minOr",["1"]],
+            "Rules":["changeOr",["-1"]]
+         },
+         {
+            "Texte": "Refuser de lui donner la pièce",
+            "Vers": "33"
+         }
+      ]
+   },
+   {
       "num": "244",
       "Description": "La fièvre finit par disparaître, et vous vous rendormez avec soulagement. Au matin, vous ramassez vos affaires.",
       "Decor": "collines-matin",
@@ -3246,7 +3593,7 @@
          },
          {
             "Texte": "Suivre le chemin en direction du nord",
-            "Vers": "144 todo"
+            "Vers": "144"
          }
       ]
    },
@@ -3274,7 +3621,7 @@
       "Choix": [
          {
             "Texte": "Sortir à l'air libre",
-            "Vers": "164 todo"
+            "Vers": "164"
          }
       ]
    },
@@ -3417,6 +3764,28 @@
          {
             "Texte": "Remettre votre épée au fourreau et traverser la rivière à pied",
             "Vers": "178"
+         }
+      ]
+   },
+   {
+      "num": "261",
+      "Description": "Yaztromo achat",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "1"
+         }
+      ]
+   },
+   {
+      "num": "262",
+      "Description": "217 potion adresse combat",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "217"
          }
       ]
    },
@@ -3682,6 +4051,21 @@
       ]
    },
    {
+      "num": "281",
+      "Description": "Vous arrivez à un croisement. Un chemin orienté au sud ramène vers les collines, et vous décidez de ne pas le prendre.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Aller vers le nord",
+            "Vers": "163"
+         },
+         {
+            "Texte": "Poursuivre en direction de l'est",
+            "Vers": "393"
+         }
+      ]
+   },
+   {
       "num": "282",
       "Description": "Trois humanoïdes s'occupent des champignons à chapeaux rouges.",
       "Decor": "",
@@ -3738,6 +4122,29 @@
             "Endurance": ["9"],
             "TexteMort": "",
             "TexteVictoire" : ""
+         }
+      ]
+   },
+   {
+      "num": "286",
+      "Description": "Combat 187 changeforme",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "187"
+         }
+      ]
+   },
+   {
+      "num": "287",
+      "Description": "Dès que vous êtes sorti de la caverne, vous prenez le temps de jeter un coup d'œil à l'intérieur du sac de cuir. Vous y trouvez 5 Pièces d'Or et une petite cloche de cuivre, que vous rangez dans votre sac à dos avant de courir vers la bifurcation",
+      "Decor": "",
+      "Rules":["changeOr",["5"],"gainObjects",["cloche de cuivre"]],
+      "Choix": [
+         {
+            "Texte": "Repartir vers le nord",
+            "Vers": "25"
          }
       ]
    },
@@ -3968,6 +4375,17 @@
       ]
    },
    {
+      "num": "302",
+      "Description": "207 bracelet homme singe",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "207"
+         }
+      ]
+   },
+   {
       "num": "303",
       "Description": "Tout là-haut dans le ciel, vous voyez voler une énorme créature beaucoup plus grande que n'importe quel oiseau. La créature descend sur vous et vous tirez votre épée. Elle pousse de grands cris et vous distinguez bientôt sa longue tête à la gueule hérissée de dents pointues. Elle a la peau verdâtre d'un reptile, et ses ailes déployées ont une envergure d'au moins cinq mètres. Il n'y a aucun abri possible au fond de cette vallée et vous allez devoir affronter ce <i class='stats'>PTERODACTYLE</i> qui fond sur vous.",
       "Decor": "pterodactyle",
@@ -4109,6 +4527,18 @@
       ]
    },
    {
+      "num": "312",
+      "Description": "Vous enjambez le cadavre de la Goule et vous regardez à l'intérieur du cercueil. Vous y trouvez 25 Pièces d'Or mais vous êtes surtout ravi d'y découvrir un objet qui servait d'oreiller à la Goule : il s'agit d'une tête de marteau en bronze gravée de la lettre G. Tout heureux, vous rangez vos trouvailles dans votre sac à dos et vous quittez la crypte.",
+      "Decor": "",
+      "Rules":["gainObjects",["tête de marteau"],"changeOr",["25"]],
+      "Choix": [
+         {
+            "Texte": "Retourner sur le chemin et repartir vers le nord",
+            "Vers": "112"
+         }
+      ]
+   },
+   {
       "num": "313",
       "Description": "Il n'y a pas grand-chose d'intéressant dans la caverne. Vous n'y trouvez tout d'abord qu'une paillasse, des pots en pierre, une table et une chaise ; mais sur une étagère au-dessus du lit, un objet attire bientôt votre regard : il s'agit d'une petite boîte en argent.",
       "Decor": "",
@@ -4166,6 +4596,17 @@
          {
             "Texte": "Reprendre le chemin du nord",
             "Vers": "198"
+         }
+      ]
+   },
+   {
+      "num": "317",
+      "Description": "Combat 8 lutins",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "8"
          }
       ]
    },
@@ -4401,7 +4842,7 @@
       "Decor": "collines-foret",
       "Choix": [
          {
-            "Texte": "Aller vers l'ouest todo",
+            "Texte": "Aller vers l'ouest",
             "Vers": "113"
          },
          {
@@ -4497,6 +4938,33 @@
       ]
    },
    {
+      "num": "340",
+      "Description": "En marchant le long du chemin, vous voyez bientôt un petit homme barbu coiffé d'un casque de fer et portant une cotte de mailles. Il est assis au bord du sentier, sur un tronc d'arbre mort. C'est un <i class='stats'>NAIN</i> et il ne semble pas particulièrement ravi de vous voir.",
+      "Decor": "nain",
+      "Choix": [
+         {
+            "Texte": "Essayer d'engager la conversation avec lui",
+            "Vers": "141",
+            "Rules":["changeChance",["-1"]]
+         },
+         {
+            "Texte": "Tirer votre épée et l'attaquer",
+            "Liaison":"Le Nain est un combattant robuste et chevronné et il manie sa hache avec une très grande habileté.",
+            "Vers": "363",
+            "Combat": ["nain", "le nain", "un", "il"],
+            "Force" : ["8"],
+            "Endurance": ["5"],
+            "TexteMort": "La hache du nain s'enfonce brutalement dans votre crâne, mettant fin à votre aventure.",
+            "TexteVictoire" : ""
+         },
+         {
+            "Texte": "Le pousser pour le faire tomber du tronc et vous enfuir",
+            "Liaison":"Le Nain tombe à la renverse cul par-dessus tête, et vous prenez le large.",
+            "Vers": "59"
+         }
+      ]
+   },
+   {
       "num": "341",
       "Description": "La douleur dans votre main est presque insupportable, mais vous parvenez cependant à la surmonter. Au fond du vase, vos doigts entrent alors en contact avec divers objets que vous attrapez et que vous sortez aussitôt de leur cachette. Vous examinez ensuite votre butin et vous y trouvez 5 Pièces d'Or, une dent de dragon, et une fiole de verre contenant une Potion Verte qui vous rendra 5 points de vie lorsque vous déciderez de la boire. Vous gagnez 1 point de Chance.",
       "Decor": "",
@@ -4559,6 +5027,33 @@
          {
             "Texte": "Debug :)",
             "Vers": "80"
+         }
+      ]
+   },
+   {
+      "num": "346",
+      "Description": "Arragon lève les bras et écarte les doigts de ses mains. « Quelle est ta décision, étranger ? » demande-t-il alors.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Lui donner ce qu'il demande",
+            "Vers": "32",
+            "Rules":["changeOr",["-10"],"giveObjects",["2"],"changeChance",["-1"]]
+         },
+         {
+            "Texte": "Ne pas tenir compte de ses menaces et tirer votre épée",
+            "Vers": "111"
+         }
+      ]
+   },
+   {
+      "num": "347",
+      "Description": "Combat 141 et 340",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "141"
          }
       ]
    },
@@ -4627,6 +5122,17 @@
       ]
    },
    {
+      "num": "352",
+      "Description": "combat 195 homme singe ",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": "195"
+         }
+      ]
+   },
+   {
       "num": "353",
       "Description": "Lorsque vous vous réveillez, vous vous apercevez que vous êtes étendu sur le sol, à l'extérieur de la cabane en bois. Vous vous asseyez et vous regardez à l'intérieur de votre sac à dos : on vous a volé toutes vos Provisions ! Fort heureusement, rien d'autre ne manque et vous avez toujours votre épée. Vous allez ensuite jeter un coup d'oeil à l'intérieur de la cabane, mais elle est déserte.",
       "Decor": "cabane-foret",
@@ -4655,6 +5161,17 @@
       ]
    },
    {
+      "num": "355",
+      "Description": "Vous arrivez à une autre bifurcation. Le sentier orienté au sud ne vous intéresse pas.",
+      "Decor": "foret-deux-bis",
+      "Choix": [
+         {
+            "Texte": "Continuer vers l'est",
+            "Vers": "340"
+         }
+      ]
+   },
+   {
       "num": "356",
       "Description": "En fouillant les vêtements du Géant de la Forêt, vous découvrez une lanterne de cuivre munie d'une mèche verte. Il n'y a aucun combustible à l'intérieur et il s'agit peut-être d'une lanterne magique.",
       "Decor": "",
@@ -4670,6 +5187,17 @@
          {
             "Texte": "Jeter la lampe et repartir vers le nord",
             "Vers": "231"
+         }
+      ]
+   },
+   {
+      "num": "357",
+      "Description": "En suivant le sentier sinueux, vous passez devant un autre chemin orienté au sud qui mène vers la vallée. Vous n'avez nullement l'intention de le prendre et vous continuez vers l'ouest. Le sentier aboutit un peu plus loin à une bifurcation. Cette fois encore, vous n'empruntez pas le chemin orienté au sud.",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Aller plutôt vers le nord",
+            "Vers": "306"
          }
       ]
    },
@@ -4751,6 +5279,21 @@
             "Texte": "Continuer vers l'ouest",
             "Vers": "238",
             "Conditions":["notHasViewed",["172"]]
+         }
+      ]
+   },
+   {
+      "num": "363",
+      "Description": "Vous fouillez dans le sac à dos du Nain et vous y trouvez une bouteille contenant un liquide clair.",
+      "Decor": "foret-sombre",
+      "Choix": [
+         {
+            "Texte": "Boire ce liquide",
+            "Vers": "68"
+         },
+         {
+            "Texte": "Abandonner la bouteille et repartir vers l’est le long du chemin",
+            "Vers": "59"
          }
       ]
    },
@@ -5100,6 +5643,17 @@
       ]
    },
    {
+      "num": "387",
+      "Description": "Sur le sol, à quelques mètres devant vous, vous apercevez une Pièce d'Or. Vous la ramassez, vous la jetez en l'air d'une pichenette, et vous la rattrapez dans votre paume avant de la ranger dans votre poche. Vous gagnez 1 point de <i class='stats'>CHANCE.</i>",
+      "Decor": "foret-sombre",
+      "Choix": [
+         {
+            "Texte": "Continuer sur le chemin",
+            "Vers": "340"
+         }
+      ]
+   },
+   {
       "num": "388",
       "Description": "Inquiet, vous repensez à ce que vous savez sur les loups-garous, et la terrible malédiction qu'ils transmettent parfois.",
       "Decor": "lune",
@@ -5140,7 +5694,7 @@
          },
          {
             "Texte": "Aller à l'ouest",
-            "Vers": "280 todo"
+            "Vers": "280"
          }
       ]
    },
@@ -5286,6 +5840,17 @@
             "Texte": "Recommencez l'aventure",
             "Vers": "",
             "Rules": ["resetPlayer",[""]]
+         }
+      ]
+   },
+   {
+      "num": "400",
+      "Description": "Victoire !",
+      "Decor": "",
+      "Choix": [
+         {
+            "Texte": "Debug :)",
+            "Vers": ""
          }
       ]
    },
