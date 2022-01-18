@@ -99,14 +99,14 @@
     cursor:not-allowed;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
 
     .boxCombat {
-        font-size: 3.5vw;
+        font-size: 4vw;
         height: 65vh;
     }
     .stats {
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .buttonsCombat {
         flex-direction: column;

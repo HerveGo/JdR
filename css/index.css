@@ -413,7 +413,7 @@ p#content {
               font-size: 4.5vw!important;
        }
        #histoire {
-              font-size: 3.5vw;
+              font-size: 4.2vw;
        }
        #introduction, #rules, #explications, #achat {
               font-size: 4vw;
@@ -429,7 +429,7 @@ p#content {
               width: 4vw;
        }
        .ulChoix {
-              font-size: 3.3vw;
+              font-size: 4.2vw;
        }
        #taler {
               display: none;
