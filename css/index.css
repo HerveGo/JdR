@@ -397,7 +397,21 @@ p#content {
 
 
 @media screen and (max-width: 600px) {
-
+       .three-columns {
+              font-size: 5vw!important;
+       }
+       .three-columns div b {
+              font-size: 7vw!important;
+       }
+       .two-columns {
+              font-size: 4.5vw!important;
+       }
+       #provisions b, #or b {
+              font-size: 6vw;
+       }
+       #potions a {
+              font-size: 4.5vw!important;
+       }
        #histoire {
               font-size: 3.5vw;
        }

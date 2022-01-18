@@ -189,7 +189,7 @@
 }
 
 #objets {
-    height: 80vh;
+    height: 77vh;
     border: none;
 }
 
@@ -243,7 +243,9 @@
     .three-columns {
         display: flex;
     }
-
+    .two-columns span {
+        font-size: 4.5vw;
+    }
     #statsLarge {
         display: none;
     }

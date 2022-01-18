@@ -409,7 +409,7 @@ function drinkPotion(typePotion){
             if( maForce == maxForce ) {
                 playSound("popup");
                 modalBody.innerHTML = "<p>Votre force est à son maximum&nbsp;!</p><p>Il est inutile de boire cette potion pour l'instant.</p>";
-                modal.style.display = "block";
+                showModal(1);
             } else {
                 playSound("drink");
                 modalBody.innerHTML ="<p>La potion restaure votre force à son maximum.</p><p>Vos combats futurs s'annoncent sous de meilleurs auspices.";
