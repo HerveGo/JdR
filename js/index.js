@@ -541,6 +541,8 @@ function startGame() {
     hideElementsById(false, "gandalf", "life", "container", "histoire", "choix", "decor", "backpack", "soundButton");
     hideElementsById(true, "introduction", "combat", "ardoise", "rules");
     document.getElementById("container").style.height = "85vh";
+    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundImage = "none";
     
     playAudio("background");
     displayLife(0);
