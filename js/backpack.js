@@ -58,6 +58,8 @@ function fnCall(fn, ...args) {
 function restart() {
     hideElementsById(true, "gandalf", "life", "container", "histoire", "choix", "combat", "decor", "backpack");
     document.getElementById("container").style.height = "0vh";
+    document.body.style.backgroundColor = "#AB936B";
+    document.body.style.backgroundImage = url("../images/parchment.jpg");
     intro(); //retour à l'introduction
 }
 
